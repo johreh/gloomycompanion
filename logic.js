@@ -3,50 +3,28 @@ var appstate =
     { decks: []
     }
 
-var FLIP_SPEED = 0.2
-
 function UICard(front_img, back_img)
 {
     var card = {};
 
     card.back = back_img;
-    card.front = front_img;
+    card.back.className = "card up";
 
-    card.flipup = function(target_position)
+    card.front = front_img;
+    card.front.className = "card down";
+
+    card.flip = function(faceup)
     {
-        this.set_faceup(false);
         this.pop_up();
 
-        this.back.style.transitionProperty = "left, top, transform";
-        this.back.style.transitionDuration = [FLIP_SPEED * 2 + "s", FLIP_SPEED * 2 + "s", FLIP_SPEED + "s"].join();
-        this.back.style.transitionTimingFunction = "ease";
-        this.back.style.transitionDelay = 0;
-
-        this.front.style.transitionProperty = "left, top, transform";
-        this.front.style.transitionDuration = [FLIP_SPEED * 2 + "s", FLIP_SPEED * 2 + "s", FLIP_SPEED + "s"].join();
-        this.front.style.transitionTimingFunction = "ease";
-        this.front.style.transitionDelay = ["0s", "0s", FLIP_SPEED + "s"].join();
-
-        this.set_position(target_position);
-        this.back.style.transform = "rotateY(90deg)";
-        this.front.style.transform = "rotateY(0deg)";
+        this.back.className = "card flip " + (faceup ? "down" : "up");
+        this.front.className = "card flip " + (faceup ? "up" : "down");
     };
 
     card.set_position = function(position)
     {
-        this.back.style.left = position.x;
-        this.back.style.top = position.y;
-        this.front.style.left = position.x;
-        this.front.style.top = position.y;
-    };
-
-    card.set_faceup = function(faceup)
-    {
-        this.back.style.transition = "";
-        this.back.style.transform = faceup ? "rotateY(90deg)" : "";
-
-        this.front.style.transition = "";
-        this.front.style.transform = faceup ? "" : "rotateY(90deg)";
+        set_absolute_position(this.back, position);
+        set_absolute_position(this.front, position);
     };
 
     card.push_down = function()
@@ -66,9 +44,6 @@ function UICard(front_img, back_img)
         parent.appendChild(this.back);
         parent.appendChild(this.front);
     }
-
-    card.set_faceup(false);
-    card.push_down();
 
     return card;
 }
@@ -90,7 +65,7 @@ function load_card_image(url)
 function create_placeholder(url)
 {
     var placeholder = load_image(url);
-    placeholder.style.visibility = "hidden";
+    placeholder.className = "card placeholder";
     return placeholder
 }
 
@@ -103,6 +78,12 @@ function get_absolute_position(element)
         x: element_rect.left - body_rect.left,
         y: element_rect.top - body_rect.top
     }
+}
+
+function set_absolute_position(element, position)
+{
+    element.style.left = position.x;
+    element.style.top = position.y;
 }
 
 function load_deck(deck_definition)
@@ -145,9 +126,9 @@ function shuffle_list(l)
     }
 }
 
-function reshuffle(deck)
+function shuffle_cards(deck)
 {
-    deck.draw_pile = [].concat(deck.draw_pile, deck.discard);
+    deck.draw_pile = deck.draw_pile.concat(deck.discard);
     deck.discard = [];
     shuffle_list(deck.draw_pile);
 }
@@ -187,25 +168,42 @@ function straighten_deck(deck, container)
     }
 }
 
+function reshuffle(deck)
+{
+    shuffle_cards(deck);
+
+    var draw_position = get_absolute_position(deck.draw_placeholder);
+    for (var i = 0; i < deck.draw_pile.length; i++)
+    {
+        var card = deck.draw_pile[i];
+        card.ui.flip(false);
+        card.ui.set_position(draw_position);
+        card.ui.push_down();
+    }
+}
+
 function draw_card(deck)
 {
     if (!deck.draw_pile.length)
     {
         reshuffle(deck);
-        straighten_deck(deck);
     }
-
-    var discard_position = get_absolute_position(deck.discard_placeholder);
-
-    for (var i = 0; i < deck.discard.length; i++)
+    else
     {
-        deck.discard[i].ui.push_down();
+        var discard_position = get_absolute_position(deck.discard_placeholder);
+
+        for (var i = 0; i < deck.discard.length; i++)
+        {
+            deck.discard[i].ui.push_down();
+        }
+
+        var card = deck.draw_pile.pop();
+
+        card.ui.flip(true);
+        card.ui.set_position(discard_position);
+
+        deck.discard.push(card);
     }
-
-    var card = deck.draw_pile.pop();
-    card.ui.flipup(discard_position);
-
-    deck.discard.push(card);
 }
 
 function load(card_database)
@@ -225,7 +223,6 @@ function init()
     var mydeck = appstate.decks[0];
     place_deck(mydeck, document.body);
     reshuffle(mydeck);
-    straighten_deck(mydeck);
     document.body.onclick = draw_card.bind(null, mydeck);
 }
 
