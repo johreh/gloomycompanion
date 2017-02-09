@@ -182,9 +182,21 @@ function reshuffle(deck)
     }
 }
 
-function draw_card(deck)
+function must_reshuffle(deck)
 {
     if (!deck.draw_pile.length)
+    {
+        return true;
+    }
+    else if (deck.discard.length)
+    {
+        return deck.discard[0].shuffle_next;
+    }
+}
+
+function draw_card(deck)
+{
+    if (must_reshuffle(deck))
     {
         reshuffle(deck);
     }
@@ -197,12 +209,11 @@ function draw_card(deck)
             deck.discard[i].ui.push_down();
         }
 
-        var card = deck.draw_pile.pop();
-
+        card = deck.draw_pile.pop();
         card.ui.flip(true);
         card.ui.set_position(discard_position);
 
-        deck.discard.push(card);
+        deck.discard.unshift(card);
     }
 }
 
