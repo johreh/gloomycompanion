@@ -4,17 +4,17 @@ function UICard(front_img, back_img)
     var card = {};
 
     card.back = back_img;
-    card.back.className = "card up";
+    card.back.className = "shufflable card up";
 
     card.front = front_img;
-    card.front.className = "card down";
+    card.front.className = "shufflable card down";
 
     card.flip = function(faceup)
     {
         this.pop_up();
 
-        this.back.className = "card flip " + (faceup ? "down" : "up");
-        this.front.className = "card flip " + (faceup ? "up" : "down");
+        this.back.className = "shufflable card flip " + (faceup ? "down" : "up");
+        this.front.className = "shufflable card flip " + (faceup ? "up" : "down");
     };
 
     card.set_position = function(position)
@@ -49,13 +49,6 @@ function load_image(url)
     var img = document.createElement("img");
     img.src = url;
     return img
-}
-
-function load_card_image(url)
-{
-    var img = load_image(url)
-    img.style.position = "absolute";
-    return img;
 }
 
 function create_placeholder(url)
@@ -97,8 +90,8 @@ function load_deck(deck_definition)
         [url, copies, shuffle] = deck_definition.cards[i];
         for (var copy = 0; copy < copies; copy++)
         {
-            var card_front = load_card_image(url);
-            var card_back = load_card_image(deck_definition.backside);
+            var card_front = load_image(url);
+            var card_back = load_image(deck_definition.backside);
 
             var card = {
                 ui:             new UICard(card_front, card_back),
@@ -147,7 +140,7 @@ function place_deck(deck, container)
     }
 }
 
-function straighten_deck(deck, container)
+function straighten_deck(deck)
 {
     var draw_position = get_absolute_position(deck.draw_placeholder);
     var discard_position = get_absolute_position(deck.discard_placeholder);
@@ -162,6 +155,14 @@ function straighten_deck(deck, container)
     {
         var card = deck.discard[i];
         card.ui.set_position(discard_position);
+    }
+}
+
+function refresh_ui(decks)
+{
+    for (var i = 0; i < decks.length; i++)
+    {
+        straighten_deck(decks[i]);
     }
 }
 
@@ -230,10 +231,25 @@ function create_input(type, name, value, text)
     return listitem;
 }
 
-function get_checkbox_selection(checkbox_name)
+function apply_decks(decks)
+{
+    var container = document.getElementById("container");
+    for (var i = 0; i < decks.length; i++)
+    {
+        var deck_space = document.createElement("div");
+        deck_space.className = "card-container";
+        container.appendChild(deck_space);
+
+        var deck = decks[i];
+        place_deck(deck, deck_space);
+        reshuffle(deck);
+        deck_space.onclick = draw_card.bind(null, deck);
+    }
+}
+
+function get_checkbox_selection(checkboxes)
 {
     var selected_decks = [];
-    var checkboxes = document.getElementsByName(checkbox_name);
 
     for (var i = 0; i < checkboxes.length; i++)
     {
@@ -247,75 +263,56 @@ function get_checkbox_selection(checkbox_name)
     return selected_decks;
 }
 
-function apply_decks(decks, checkbox_selection_fn)
+function create_deck_list(decks)
 {
-    var container = document.getElementById("container");
-    var selected_decks = checkbox_selection_fn();
-    for (var i = 0; i < selected_decks.length; i++)
-    {
-        var deck_space = document.createElement("div");
-        container.appendChild(deck_space);
-
-        var deck_name = selected_decks[i];
-        var deck = decks[deck_name];
-        place_deck(deck, deck_space);
-        reshuffle(deck);
-        deck_space.onclick = draw_card.bind(null, deck);
-    }
-}
-
-function init_deck_list(decks)
-{
-    var uilist = document.getElementById("decklist");
+    var checkboxlist = []
     for (var deck_name in decks)
     {
         var checkbox = create_input("checkbox", "deck", deck_name, deck_name);
-        uilist.appendChild(checkbox);
+        checkboxlist.push(checkbox);
     }
-
-    var selection_fn = get_checkbox_selection.bind(null, "deck");
-    var applybtn = document.getElementById("applydecks");
-    applybtn.onclick = apply_decks.bind(null, decks, selection_fn);
+    return checkboxlist;
 }
 
-function get_selected_scenario_decks(radio_name, scenario_list)
+function create_scenario_list(scenarios, decklist, retobj)
 {
-    var uilist = document.getElementsByName(radio_name);
-    for (var i = 0; i < uilist.length; i++)
-    {
-        if (uilist[i].checked)
-        {
-            for (var j = 0; j < scenario_list.length; j++)
-            {
-                if (scenario_list[j].name == uilist[i].value)
-                {
-                    return scenario_list[j].decks;
-                }
-            }
-            return [];
-        }
-    }
-    return [];
-}
-
-function init_scenario_list(decks, scenarios)
-{
-    var uilist = document.getElementById("scenariolist");
+    var radiolist = []
     for (var i = 0; i < scenarios.length; i++)
     {
-        var radio = create_input("radio", "scenario", scenarios[i].name, scenarios[i].name);
-        uilist.appendChild(radio);
-    }
+        var scenario = scenarios[i];
+        var radio = create_input("radio", "scenario", scenario.name, scenario.name);
 
-    var selection_fn = get_selected_scenario_decks.bind(null, "scenario", scenarios);
-    var applybtn = document.getElementById("applyscenario");
-    applybtn.onclick = apply_decks.bind(null, decks, selection_fn);
+        function update_retobj(decknames, e)
+        {
+            retobj.splice(0, retobj.length);
+            var selected_decks = decknames.map( function(name) { return decklist[name]; } );
+            for (var j = 0; j < selected_decks.length; j++)
+            {
+                retobj.push(selected_decks[j]);
+            }
+        }
+
+        radio.onchange = update_retobj.bind(null, scenario.decks);
+        radiolist.push(radio);
+    }
+    return radiolist;
 }
 
 function init()
 {
-    var decks = load(DECK_DEFINITONS);
-    init_deck_list(decks);
-    init_scenario_list(decks, SCENARIO_DEFINITIONS);
+    decks = load(DECK_DEFINITONS);
+
+    var decklist = document.getElementById("decklist");
+    var scenariolist = document.getElementById("scenariolist");
+    var applydeckbtn = document.getElementById("applydecks");
+    var applyscenariobtn = document.getElementById("applyscenario");
+
+    var selected_decks = [];
+    
+    create_deck_list(decks).map( function(checkbox) { decklist.appendChild(checkbox); } );
+    create_scenario_list(SCENARIO_DEFINITIONS, decks, selected_decks).map( function(radiobtn) { scenariolist.appendChild(radiobtn); } );
+
+    applyscenariobtn.onclick = apply_decks.bind(null, selected_decks);
+    document.body.onresize = refresh_ui.bind();
 }
 

@@ -1,0 +1,41 @@
+
+.card-container
+{
+    text-align:                 center;
+    position:                   relative;
+}
+
+.card
+{
+    max-width:                  100%;
+    max-height:                 100vh;
+}
+
+.shufflable
+{
+    position:                   absolute;
+}
+
+.placeholder
+{
+    visibility:                 hidden;
+}
+
+.flip
+{
+    transition-property:        left, top, transform;
+    transition-duration:        0.4s, 0.4s, 0.2s;
+    transition-timing-function: ease;
+}
+
+.up
+{
+    transition-delay:           0s, 0s, 0.2s;
+    transform:                  rotateY(0deg);
+}
+
+.down
+{
+    transform:                  rotateY(90deg);
+}
+

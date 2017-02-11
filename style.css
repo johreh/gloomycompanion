@@ -1,30 +1,52 @@
 
-.card
+#container
 {
-    max-width:                  100%;
-    max-height:                 100vh;
+    display:            flex;
+    flex-wrap:          wrap;
 }
 
-.placeholder
+ul.tabcontainer
 {
-    visibility:                 hidden;
+    display:            flex;
+    margin:             0;
+    padding:            0;
+    list-style:         none;
 }
 
-.flip
+ul.tabcontainer li
 {
-    transition-property:        left, top, transform;
-    transition-duration:        0.4s, 0.4s, 0.2s;
-    transition-timing-function: ease;
+    flex:               1 1 0;
+    text-align:         center;
+    padding:            1em;
 }
 
-.up
+ul.tabcontainer li:not(:first-child)
 {
-    transition-delay:           0s, 0s, 0.2s;
-    transform:                  rotateY(0deg);
+    border-left:       1px solid black;
 }
 
-.down
+ul.tabcontainer .inactive
 {
-    transform:                  rotateY(90deg);
+    background-color:   #CCCCCC;
 }
 
+.settingspane
+{
+    position:           fixed;
+    top:                0;
+    left:               0;
+    height:             100vh;
+    overflow-x:         hidden;
+    overflow-y:         auto;
+}
+
+.settingspane .expanded
+{
+}
+
+.choice
+{
+/*    position:           absolute;
+    top:                0;
+    left:               0;*/
+}

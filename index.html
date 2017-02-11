@@ -1,6 +1,7 @@
 <html>
     <head>
         <title>Gloomy Companion</title>
+        <link rel="stylesheet" href="cards.css">
         <link rel="stylesheet" href="style.css">
         <script type="text/javascript" src="cards.js"></script>
         <script type="text/javascript" src="scenarios.js"></script>
@@ -9,15 +10,21 @@
     <body onload="init()">
         <div id="container">
         </div>
-        <div id="deckselection">
-            <ul id="decklist">
+        <div class="settingspane expanded">
+            <ul class="tabcontainer">
+                <li id="scenariotab">Scenario</li>
+                <li id="deckstab">>Decks</li>
             </ul>
-            <input id="applydecks" type="button" value="Apply" />
-        </div>
-        <div id="scenarios">
-            <ul id="scenariolist">
-            </ul>
-            <input id="applyscenario" type="button" value="Apply" />
+            <div id="deckselection" class="choice">
+                <ul id="decklist">
+                </ul>
+                <input id="applydecks" type="button" value="Apply" />
+            </div>
+            <div id="scenarios" class="choice">
+                <ul id="scenariolist">
+                </ul>
+                <input id="applyscenario" type="button" value="Apply" />
+            </div>
         </div>
     </body>
 </html>
