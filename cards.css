@@ -3,12 +3,16 @@
 {
     text-align:                 center;
     position:                   relative;
+    margin:                     0.5em;
 }
 
 .card
 {
+    width:                      450px;
     max-width:                  100%;
     max-height:                 100vh;
+    margin:                     0.5em;
+    box-shadow:                 5px 5px 5px rgba(0, 0, 0, 0.05);
 }
 
 .shufflable
