@@ -9,6 +9,12 @@ function UICard(front_img, back_img)
     card.front = front_img;
     card.front.className = "shufflable card down";
 
+    card.target = back_img.cloneNode(true);
+    card.target.className = "shufflable placeholder card";
+    card.target.style.left = 0;
+    card.target.style.top = 0;
+
+
     card.flip = function(faceup)
     {
         this.pop_up();
@@ -19,8 +25,9 @@ function UICard(front_img, back_img)
 
     card.set_position = function(position)
     {
-        set_absolute_position(this.back, position);
-        set_absolute_position(this.front, position);
+        var delta = get_absolute_delta(this.target, position);
+        set_absolute_position(this.back, delta);
+        set_absolute_position(this.front, delta);
     };
 
     card.push_down = function()
@@ -39,6 +46,7 @@ function UICard(front_img, back_img)
     {
         parent.appendChild(this.back);
         parent.appendChild(this.front);
+        parent.appendChild(this.target);
     }
 
     return card;
@@ -67,6 +75,17 @@ function get_absolute_position(element)
         x: element_rect.left - body_rect.left,
         y: element_rect.top - body_rect.top
     }
+}
+
+function get_absolute_delta(element, position)
+{
+    var current = get_absolute_position(element);
+    var delta = 
+        { x:  position.x - current.x
+        , y:  position.y - current.y
+        };
+
+    return delta;
 }
 
 function set_absolute_position(element, position)
@@ -313,6 +332,7 @@ function init()
     create_scenario_list(SCENARIO_DEFINITIONS, decks, selected_decks).map( function(radiobtn) { scenariolist.appendChild(radiobtn); } );
 
     applyscenariobtn.onclick = apply_decks.bind(null, selected_decks);
-    document.body.onresize = refresh_ui.bind();
+
+    window.onresize = refresh_ui.bind(null, selected_decks);
 }
 
