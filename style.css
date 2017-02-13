@@ -74,6 +74,7 @@ ul.tabcontainer .inactive
     background:         white;
     box-shadow:         1em 0 1em rgba(0, 0, 0, 0.5);
     transition:         left 0.2s ease;
+    z-index:            1;
 }
 
 .pane.inactive
@@ -85,11 +86,12 @@ ul.tabcontainer .inactive
 #cancelarea
 {
     position:           absolute;
-    left:               100%;
+    left:               0;
     top:                0;
-    padding-left:       100%;
     width:              100vw;
     height:             100vh;
+    background-color:   rgba(0, 0, 0, 0.5);
+    z-index:            0;
 }
 
 #settingsbtn
