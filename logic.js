@@ -250,9 +250,11 @@ function create_input(type, name, value, text)
     return listitem;
 }
 
-function apply_decks(decks)
+function apply_deck_selection(decks)
 {
     var container = document.getElementById("container");
+    container.innerHTML = ""; // TODO use deck.discard_deck instead
+
     for (var i = 0; i < decks.length; i++)
     {
         var deck_space = document.createElement("div");
@@ -287,6 +289,12 @@ function get_checkbox_selection(checkboxes)
     return selected_decks;
 }
 
+function clear_list(list)
+{
+    list.splice(0, list.length);
+    return list;
+}
+
 function create_deck_list(decks)
 {
     var checkboxlist = []
@@ -308,12 +316,9 @@ function create_scenario_list(scenarios, decklist, retobj)
 
         function update_retobj(decknames, e)
         {
-            retobj.splice(0, retobj.length);
+            clear_list(retobj);
             var selected_decks = decknames.map( function(name) { return decklist[name]; } );
-            for (var j = 0; j < selected_decks.length; j++)
-            {
-                retobj.push(selected_decks[j]);
-            }
+            selected_decks.map( function(deck) { retobj.push(deck); } );
         }
 
         radio.onchange = update_retobj.bind(null, scenario.decks);
@@ -336,7 +341,18 @@ function init()
     create_deck_list(decks).map( function(checkbox) { decklist.appendChild(checkbox); } );
     create_scenario_list(SCENARIO_DEFINITIONS, decks, selected_decks).map( function(radiobtn) { scenariolist.appendChild(radiobtn); } );
 
-    applyscenariobtn.onclick = apply_decks.bind(null, selected_decks);
+    applydeckbtn.onclick = function()
+    {
+        var checkboxes = document.getElementsByName("deck");
+        var selected_deck_names = get_checkbox_selection(checkboxes);
+        clear_list(selected_decks);
+        selected_deck_names.map( function(name) { selected_decks.push(decks[name]); } );
+        apply_deck_selection(selected_decks);
+    };
+    applyscenariobtn.onclick = function()
+    {
+        apply_deck_selection(selected_decks);
+    };
 
     window.onresize = refresh_ui.bind(null, selected_decks);
 }
