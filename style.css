@@ -78,7 +78,18 @@ ul.tabcontainer .inactive
 
 .pane.inactive
 {
+    left:               -110%; /* fallback */
     left:               calc(-100% - 2em);
+}
+
+#cancelarea
+{
+    position:           absolute;
+    left:               100%;
+    top:                0;
+    padding-left:       100%;
+    width:              100vw;
+    height:             100vh;
 }
 
 #settingsbtn

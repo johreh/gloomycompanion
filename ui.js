@@ -12,9 +12,10 @@ function activate_tab(tabs, pages, activetab)
     }
 }
 
-function show_settingspane(pane, show)
+function show_settingspane(pane, cancelarea, show)
 {
     pane.className = show ? "pane" : "pane inactive";
+    cancelarea.style.display = show ? "initial" : "none";
 }
 
 function init_ui()
@@ -33,6 +34,7 @@ function init_ui()
     settingspane =      document.getElementById("settingspane");
     settingsbtn =       document.getElementById("settingsbtn");
     backbtn =           document.getElementById("backbtn");
+    cancelarea =        document.getElementById("cancelarea");
 
     scenariotab.onclick = function(e)
     {
@@ -46,12 +48,17 @@ function init_ui()
 
     settingsbtn.onclick = function(e)
     {
-        show_settingspane(settingspane, true);
+        show_settingspane(settingspane, cancelarea, true);
     }
 
     backbtn.onclick = function(e)
     {
-        show_settingspane(settingspane, false);
+        show_settingspane(settingspane, cancelarea, false);
+    }
+
+    cancelarea.onclick = function(e)
+    {
+        show_settingspane(settingspane, cancelarea, false);
     }
 
     activate_tab(tabs, pages, "scenarios");
