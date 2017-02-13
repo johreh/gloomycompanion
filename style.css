@@ -2,6 +2,7 @@
 body
 {
     margin:             0;
+    overflow-x:         hidden;
 }
 
 #container
@@ -24,6 +25,8 @@ ul.tabcontainer li
     flex:               1 1 0;
     text-align:         center;
     padding:            1em;
+    cursor:             pointer;
+
 }
 
 ul.tabcontainer li:not(:first-child)
@@ -36,23 +39,67 @@ ul.tabcontainer .inactive
     background-color:   #CCCCCC;
 }
 
-.settingspane
+.tabbody
+{
+    padding:            1em;
+}
+
+.tabbody.inactive
+{
+    display:            none;
+}
+
+.selectionlist
+{
+    list-style:         none;
+    padding:            0;
+}
+
+.panecontainer
 {
     position:           fixed;
     top:                0;
     left:               0;
+    height:             0;
+    z-index:            1;
+}
+
+.pane
+{
+    position:           relative;
+    left:               0;
     height:             100vh;
     overflow-x:         hidden;
     overflow-y:         auto;
+    background:         white;
+    box-shadow:         1em 0 1em rgba(0, 0, 0, 0.5);
+    transition:         left 0.2s ease;
 }
 
-.settingspane .expanded
+.pane.inactive
 {
+    left:               calc(-100% - 2em);
 }
 
-.choice
+#settingsbtn
 {
-/*    position:           absolute;
-    top:                0;
-    left:               0;*/
+    position:           absolute;
+    width:              20px;
+    height:             20px;
+    left:               1em;
+    bottom:             1em;
+    background:         orange;
+    cursor:             pointer;
 }
+
+#backbtn
+{
+    position:           absolute;
+    width:              20px;
+    height:             20px;
+    right:              1em;
+    bottom:             1em;
+    background:         orange;
+    cursor:             pointer;
+}
+

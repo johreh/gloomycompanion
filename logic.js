@@ -263,6 +263,11 @@ function apply_decks(decks)
         place_deck(deck, deck_space);
         reshuffle(deck);
         deck_space.onclick = draw_card.bind(null, deck);
+
+        deck.discard_deck = function()
+        {
+            container.removeChild(deck_space);
+        }
     }
 }
 
