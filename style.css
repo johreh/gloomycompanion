@@ -60,6 +60,7 @@ ul.tabcontainer .inactive
     position:           fixed;
     top:                0;
     left:               0;
+    max-width:          100vw;
     height:             0;
     z-index:            1;
 }
@@ -110,7 +111,7 @@ ul.tabcontainer .inactive
     position:           absolute;
     width:              20px;
     height:             20px;
-    right:              1em;
+    left:               1em;
     bottom:             1em;
     background:         orange;
     cursor:             pointer;
