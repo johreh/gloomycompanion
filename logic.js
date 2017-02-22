@@ -52,7 +52,7 @@ function UICard(front_img, back_img)
     return card;
 }
 
-function load_image(url, text_1, text_2)
+function load_image(url, title, text_1, text_2, initiative)
 {
     var c = document.createElement("canvas");
     c.height = 500; //get original canvas height
@@ -64,6 +64,18 @@ function load_image(url, text_1, text_2)
 	 img.src = url;
     img.onload = function() {
         ctx.drawImage(img, 1, 1);
+		if(title){
+		    ctx.font="40px Arial";
+			// Create gradient
+			var gradient=ctx.createLinearGradient(0,0,c.width,0);
+			gradient.addColorStop("0","white");
+			gradient.addColorStop("0.8","grey");
+			gradient.addColorStop("1.0","white");
+			// Fill with gradient
+			ctx.fillStyle=gradient;
+
+			ctx.fillText(title, 300, 50);
+		}
 		if(text_1){
 		    ctx.font="30px Verdana";
 			// Create gradient
@@ -74,7 +86,7 @@ function load_image(url, text_1, text_2)
 			// Fill with gradient
 			ctx.fillStyle=gradient;
 
-			ctx.fillText(text_1, 100, 300);
+			ctx.fillText(text_1, 300, 400);
 		}
 		if(text_2){
 		    ctx.font="30px Verdana";
@@ -86,7 +98,19 @@ function load_image(url, text_1, text_2)
 			// Fill with gradient
 			ctx.fillStyle=gradient;
 
-			ctx.fillText(text_2, 100, 350);
+			ctx.fillText(text_2, 300, 450);
+		}
+		if(initiative){
+		    ctx.font="70px Arial";
+			// Create gradient
+			var gradient=ctx.createLinearGradient(0,0,c.width,0);
+			gradient.addColorStop("0","white");
+			gradient.addColorStop("0.8","grey");
+			gradient.addColorStop("1.0","white");
+			// Fill with gradient
+			ctx.fillStyle=gradient;
+
+			ctx.fillText(initiative, 50, 150);
 		}
       };
      
@@ -94,9 +118,9 @@ function load_image(url, text_1, text_2)
     return c
 }
 
-function create_placeholder(url)
+function create_placeholder(name)
 {
-    var placeholder = load_image(url);
+    var placeholder = load_image('images/back_01.png', '', '',name);
     placeholder.className = "card placeholder";
     return placeholder
 }
@@ -133,19 +157,19 @@ function load_deck(deck_definition)
 {
     var deck_state = {
         name:                   deck_definition.name,
-        draw_placeholder:       create_placeholder(deck_definition.backside),
-        discard_placeholder:    create_placeholder(deck_definition.backside),
+        draw_placeholder:       create_placeholder(deck_definition.name),
+        discard_placeholder:    create_placeholder(deck_definition.name),
         draw_pile:              [],
         discard:                []
     }
 
     for (var i = 0; i < deck_definition.cards.length; i++)
     {
-        [url, copies, shuffle, text_1, text_2] = deck_definition.cards[i];
+        [copies, shuffle, text_1, text_2, initiative] = deck_definition.cards[i];
         for (var copy = 0; copy < copies; copy++)
         {
-			var card_front = load_image(url, text_1, text_2);
-            var card_back = load_image(deck_definition.backside);
+			var card_front = load_image('images/front_01.png', deck_definition.name, text_1, text_2, initiative);
+            var card_back = load_image('images/back_01.png', '', '',deck_definition.name);
 
             var card = {
                 ui:             new UICard(card_front, card_back),
