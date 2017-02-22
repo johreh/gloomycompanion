@@ -52,11 +52,46 @@ function UICard(front_img, back_img)
     return card;
 }
 
-function load_image(url)
+function load_image(url, text_1, text_2)
 {
-    var img = document.createElement("img");
-    img.src = url;
-    return img
+    var c = document.createElement("canvas");
+    c.height = 500; //get original canvas height
+    c.width = 830; // get original canvas width
+	
+	var ctx = c.getContext("2d");
+
+	var img = new Image();
+	 img.src = url;
+    img.onload = function() {
+        ctx.drawImage(img, 1, 1);
+		if(text_1){
+		    ctx.font="30px Verdana";
+			// Create gradient
+			var gradient=ctx.createLinearGradient(0,0,c.width,0);
+			gradient.addColorStop("0","white");
+			gradient.addColorStop("0.8","grey");
+			gradient.addColorStop("1.0","white");
+			// Fill with gradient
+			ctx.fillStyle=gradient;
+
+			ctx.fillText(text_1, 100, 300);
+		}
+		if(text_2){
+		    ctx.font="30px Verdana";
+			// Create gradient
+			var gradient=ctx.createLinearGradient(0,0,c.width,0);
+			gradient.addColorStop("0","white");
+			gradient.addColorStop("0.8","grey");
+			gradient.addColorStop("1.0","white");
+			// Fill with gradient
+			ctx.fillStyle=gradient;
+
+			ctx.fillText(text_2, 100, 350);
+		}
+      };
+     
+	
+    return c
 }
 
 function create_placeholder(url)
@@ -106,10 +141,10 @@ function load_deck(deck_definition)
 
     for (var i = 0; i < deck_definition.cards.length; i++)
     {
-        [url, copies, shuffle] = deck_definition.cards[i];
+        [url, copies, shuffle, text_1, text_2] = deck_definition.cards[i];
         for (var copy = 0; copy < copies; copy++)
         {
-            var card_front = load_image(url);
+			var card_front = load_image(url, text_1, text_2);
             var card_back = load_image(deck_definition.backside);
 
             var card = {
