@@ -1,4 +1,10 @@
 
+@font-face
+{
+    font-family:                Pirata;
+    src:                        url(PirataOne-Gloomhaven.ttf);
+}
+
 .card-container
 {
     position:                   relative;
@@ -8,11 +14,138 @@
 
 .card
 {
-    width:                      450px;
+    position:                   relative;
     max-width:                  100%;
     max-height:                 100vh;
     margin:                     0.5em;
+
     box-shadow:                 5px 5px 5px rgba(0, 0, 0, 0.05);
+    backface-visibility:        hidden;
+
+    color:                      white;
+    font-family:                Pirata;
+    font-size:                  20pt;
+    text-shadow:                1px 2px 3px black;
+
+    background-clip:            content-box;
+    background-origin:          content-box;
+    background-repeat:          no-repeat;
+    background-size:            contain;
+
+    border-radius:              15px;
+}
+
+.card::before
+{
+    /* Sets card size */
+    content:                    url(images/front.jpg);
+    visibility:                 hidden;
+}
+
+.card.front
+{
+    background-image:           url(images/front.jpg);
+}
+
+.card.back
+{
+    background-image:           url(images/back.jpg);
+}
+
+.card ul
+{
+    padding:                    0;
+    margin:                     0;
+
+    list-style:                 none;
+    text-align:                 center;
+
+    font-family:                serif;
+    font-weight:                500;
+}
+
+.card>ul
+{
+    position:                   absolute;
+    left:                       0;
+    top:                        10%;
+    width:                      100%;
+    height:                     90%;
+    overflow:                   hidden;
+
+    display:                    flex;
+    flex-direction:             column;
+    justify-content:            center;
+}
+
+.card li
+{
+    margin:                     0.25em 0;
+}
+
+.card li li
+{
+    font-size:                  65%;
+}
+
+.icon
+{
+    height:                     1.25em;
+    vertical-align:             bottom;
+}
+
+.card .initiative
+{
+    font-family:                Pirata;
+    font-size:                  180%;
+    text-align:                 center;
+
+    position:                   absolute;
+    left:                       0;
+    top:                        18%;
+    width:                      19%;
+}
+
+.card.front .name
+{
+    font-size:                  120%;
+    text-align:                 center;
+
+    position:                   absolute;
+    left:                       0;
+    top:                        0;
+    width:                      100%;
+    line-height:                200%;
+}
+
+.card.back .name
+{
+    text-align:                 center;
+    font-size:                  90%;
+
+    position:                   absolute;
+    left:                       0;
+    bottom:                     15.5%;
+    width:                      100%;
+}
+
+.card .number
+{
+    font-family:                initial;
+    font-size:                  30%;
+    text-shadow:                none;
+
+    position:                   absolute;
+    left:                       3%;
+    bottom:                     5%;
+}
+
+img[src="images/shuffle.svg"]
+{
+    position:                   absolute;
+    right:                      3%;
+    bottom:                     5%;
+    height:                     1.25em;
 }
 
 .card::selection
@@ -34,18 +167,17 @@
 .flip
 {
     transition-property:        left, top, transform;
-    transition-duration:        0.4s, 0.4s, 0.2s;
+    transition-duration:        2s;
     transition-timing-function: ease;
 }
 
 .up
 {
-    transition-delay:           0s, 0s, 0.2s;
     transform:                  rotateY(0deg);
 }
 
 .down
 {
-    transform:                  rotateY(90deg);
+    transform:                  rotateY(180deg);
 }
 
