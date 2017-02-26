@@ -5,6 +5,11 @@ body
     overflow-x:         hidden;
 }
 
+.nobr
+{
+    white-space:        nowrap;
+}
+
 #container
 {
     display:            flex;
@@ -99,9 +104,8 @@ ul.tabcontainer .inactive
 {
     margin-left:        1em;
     margin-top:         1em;
-    width:              2em;
-    height:             2em;
-    background:         orange;
+    width:              5ch;
+    height:             5ch;
     cursor:             pointer;
     z-index:            1;
 }
@@ -109,11 +113,10 @@ ul.tabcontainer .inactive
 #backbtn
 {
     position:           absolute;
-    width:              2em;
-    height:             2em;
+    width:              5ch;
+    height:             5ch;
     right:              1em;
     bottom:             1em;
-    background:         orange;
     cursor:             pointer;
 }
 

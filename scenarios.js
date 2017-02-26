@@ -1,16 +1,22 @@
 SCENARIO_DEFINITIONS =
-    [   { name: "Scenario 1"
+    [   { name: "#1 Black Barrow"
         , decks: 
-            [ "Living Bones" ]
+            [ "Guard"
+            , "Archer"
+            , "Living Bones" ]
         },
-        { name: "Scenario 2"
+        { name: "#2 Barrow Lair"
         , decks:
-            [ "Living Bones"
-            , "Guard"
+            [ "Archer"
+            , "Boss"
+            , "Living Bones"
+            , "Living Corpse"
             ]
         },
-        { name: "Scenario 3"
+        { name: "#3 Inox Encampment"
         , decks:
-            [ "Guard" ]
+            [ "Guard" 
+            , "Archer"
+            , "Shaman" ]
         }
-    ]
+    ];

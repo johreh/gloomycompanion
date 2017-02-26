@@ -1,7 +1,9 @@
 
+@import url('https://fonts.googleapis.com/css?family=Philosopher:700');
+
 @font-face
 {
-    font-family:                Pirata;
+    font-family:                PirataOne;
     src:                        url(PirataOne-Gloomhaven.ttf);
 }
 
@@ -15,31 +17,25 @@
 .card
 {
     position:                   relative;
+    width:                      437px;
+    height:                     296px;
     max-width:                  100%;
     max-height:                 100vh;
     margin:                     0.5em;
 
-    box-shadow:                 5px 5px 5px rgba(0, 0, 0, 0.05);
+    box-shadow:                 5px 5px 5px rgba(0, 0, 0, 0.1);
     backface-visibility:        hidden;
 
     color:                      white;
-    font-family:                Pirata;
+    font-family:                'PirataOne';
     font-size:                  20pt;
     text-shadow:                1px 2px 3px black;
 
     background-clip:            content-box;
     background-origin:          content-box;
     background-repeat:          no-repeat;
-    background-size:            contain;
 
     border-radius:              15px;
-}
-
-.card::before
-{
-    /* Sets card size */
-    content:                    url(images/front.jpg);
-    visibility:                 hidden;
 }
 
 .card.front
@@ -55,23 +51,20 @@
 .card ul
 {
     padding:                    0;
-    margin:                     0;
 
     list-style:                 none;
     text-align:                 center;
 
-    font-family:                serif;
-    font-weight:                500;
+    font-family:                'MoolBoran', 'Sakkal Majalla', 'Philosopher', sans-serif;
 }
 
 .card>ul
 {
-    position:                   absolute;
-    left:                       0;
+    position:                   relative;
     top:                        10%;
-    width:                      100%;
     height:                     90%;
     overflow:                   hidden;
+    margin:                     0 2ch;
 
     display:                    flex;
     flex-direction:             column;
@@ -85,7 +78,8 @@
 
 .card li li
 {
-    font-size:                  65%;
+    font-size:                  75%;
+    margin:                     0;
 }
 
 .icon
@@ -96,7 +90,6 @@
 
 .card .initiative
 {
-    font-family:                Pirata;
     font-size:                  180%;
     text-align:                 center;
 
@@ -167,7 +160,7 @@ img[src="images/shuffle.svg"]
 .flip
 {
     transition-property:        left, top, transform;
-    transition-duration:        2s;
+    transition-duration:        0.4s;
     transition-timing-function: ease;
 }
 

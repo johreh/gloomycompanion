@@ -1,13 +1,15 @@
 
+var do_shuffles = true;
+
 function UICard(front_img, back_img)
 {
     var card = {};
 
     card.back = back_img;
-    card.back.className = "shufflable card up";
+    card.back.className = "shufflable card back up";
 
     card.front = front_img;
-    card.front.className = "shufflable card down";
+    card.front.className = "shufflable card front down";
 
     card.target = back_img.cloneNode(true);
     card.target.className = "shufflable placeholder card";
@@ -19,8 +21,8 @@ function UICard(front_img, back_img)
     {
         this.pop_up();
 
-        this.back.className = "shufflable card flip " + (faceup ? "down" : "up");
-        this.front.className = "shufflable card flip " + (faceup ? "up" : "down");
+        this.back.className = "shufflable card back flip " + (faceup ? "down" : "up");
+        this.front.className = "shufflable card front flip " + (faceup ? "up" : "down");
     };
 
     card.set_position = function(position)
@@ -61,9 +63,104 @@ function load_image(url)
 
 function create_placeholder(url)
 {
-    var placeholder = load_image(url);
+    var placeholder = document.createElement("div");
     placeholder.className = "card placeholder";
     return placeholder
+}
+
+function create_card_back(name)
+{
+    var card = document.createElement("div");
+    card.className = "card flip back down";
+
+    var name_span = document.createElement("span");
+    name_span.className = "name";
+    name_span.innerText = name;
+    card.appendChild(name_span);
+
+    return card;
+}
+
+function create_card_front(initiative, name, shuffle, lines)
+{
+    var card = document.createElement("div");
+    card.className = "card flip front down";
+
+    var name_span = document.createElement("span");
+    name_span.className = "name";
+    name_span.innerText = name;
+    card.appendChild(name_span);
+
+    var initiative_span = document.createElement("span");
+    initiative_span.className = "initiative";
+    initiative_span.innerText = initiative;
+    card.appendChild(initiative_span);
+
+    if (shuffle)
+    {
+        var shuffle_img = document.createElement("img");
+        shuffle_img.src = "images/shuffle.svg";
+        card.appendChild(shuffle_img);
+    }
+
+    var current_depth = 0;
+    var current_parent = card;
+    for (var i = 0; i < lines.length; i++)
+    {
+        var line = lines[i];
+
+        var new_depth = 0;
+        while (line.startsWith("*"))
+        {
+            new_depth += 1;
+            line = line.substr(1);
+        }
+        var diff = new_depth - current_depth;
+
+        while (current_depth != new_depth)
+        {
+            if (diff > 0)
+            {
+                // Need one level lower, create <ul>
+                var list = document.createElement("ul");
+                current_parent.appendChild(list);
+                current_parent = list;
+
+                // Create <li>
+                var list_item = document.createElement("li");
+                current_parent.appendChild(list_item);
+                current_parent = list_item;
+                
+                current_depth += 1;
+            }
+            else
+            {
+                // Need to go up in the list, pop <li>
+                current_parent = current_parent.parentElement;
+
+                // pop <ul>
+                current_parent = current_parent.parentElement;
+
+                current_depth -= 1;
+            }
+        }
+
+        if ((current_depth > 0) && (diff <= 0))
+        {
+            // Same level, pop the previous <li>
+            current_parent = current_parent.parentElement;
+
+            // create sibling <li>
+            var list_item = document.createElement("li");
+            current_parent.appendChild(list_item);
+            current_parent = list_item;
+        }
+
+        var text = expand_string(line.trim());
+        current_parent.insertAdjacentHTML("beforeend", text);
+    }
+
+    return card;
 }
 
 function get_absolute_position(element)
@@ -98,41 +195,31 @@ function load_deck(deck_definition)
 {
     var deck_state = {
         name:                   deck_definition.name,
-        draw_placeholder:       create_placeholder(deck_definition.backside),
-        discard_placeholder:    create_placeholder(deck_definition.backside),
+        draw_placeholder:       create_placeholder(),
+        discard_placeholder:    create_placeholder(),
         draw_pile:              [],
         discard:                []
     }
 
     for (var i = 0; i < deck_definition.cards.length; i++)
     {
-        [url, copies, shuffle] = deck_definition.cards[i];
-        for (var copy = 0; copy < copies; copy++)
-        {
-            var card_front = load_image(url);
-            var card_back = load_image(deck_definition.backside);
+        var definition = deck_definition.cards[i];
+        var shuffle = definition[0];
+        var initiative = definition[1];
+        var lines = definition.slice(2);
 
-            var card = {
-                ui:             new UICard(card_front, card_back),
-                shuffle_next:   shuffle
-            };
+        var card_front = create_card_front(initiative, deck_definition.name, shuffle, lines);
+        var card_back = create_card_back(deck_definition.name);
 
-            deck_state.draw_pile.push(card);
-        }
+        var card = {
+            ui:             new UICard(card_front, card_back),
+            shuffle_next:   shuffle
+        };
+
+        deck_state.draw_pile.push(card);
     }
 
     return deck_state;
-}
-
-function shuffle_list(l)
-{
-    for (var i = 0; i < l.length; i++)
-    {
-        var switch_index = Math.floor(Math.random() * l.length);
-        var tmp = l[switch_index];
-        l[switch_index] = l[i];
-        l[i] = tmp;
-    }
 }
 
 function shuffle_cards(deck)
@@ -199,9 +286,21 @@ function reshuffle(deck)
     }
 }
 
-function draw_card(deck)
+function must_reshuffle(deck)
 {
     if (!deck.draw_pile.length)
+    {
+        return true;
+    }
+    else if (do_shuffles && deck.discard.length)
+    {
+        return deck.discard[0].shuffle_next;
+    }
+}
+
+function draw_card(deck)
+{
+    if (must_reshuffle(deck))
     {
         reshuffle(deck);
     }
@@ -214,12 +313,12 @@ function draw_card(deck)
             deck.discard[i].ui.push_down();
         }
 
-        var card = deck.draw_pile.pop();
+        var card = deck.draw_pile.shift(card);
 
         card.ui.flip(true);
         card.ui.set_position(discard_position);
 
-        deck.discard.push(card);
+        deck.discard.unshift(card);
     }
 }
 
