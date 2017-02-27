@@ -1,3 +1,8 @@
+// Taking the examples from http://imgur.com/a/S2sUn
+// TODO: Monster missing which need something extra
+//      Savvas Icestorm: Negate element 
+//      Spitting Drake: AOE attack icon
+//      
 DECK_DEFINITONS = 
     [   { name: "Living Bones"
         , cards:
@@ -69,6 +74,30 @@ DECK_DEFINITONS =
             , [false, "74", "* %move% -1", "* %attack% +1"]
             , [false, "89", "* %move% -1", "* %heal% 1", "** Affect all adjacent allies", "* %bless%", "** Self"]
             , [false, "09", "* %move% +1", "* %attack% -1", "** %curse%", "** %target% 2"]
+            ]
+        },
+        { name: "Scout"
+        , cards:
+            [ [false, "29", "* %move% -1", "* %attack% -1", "** %range% 3"]
+            , [false, "40", "* %move% +1", "* %attack% -1"]
+            , [false,  "53", "* %move% +0", "* %attack% +0"]
+            , [false,  "54", "* %move% -2", "* %attack% +2", "** %range% 3", "** %poison%"]
+            , [false, "69", "* %move% -1", "* %attack% +1"]
+            , [true, "92", "* %attack% +2", "** %poison% "]
+            , [true, "35", "* %move% +1", "** %jump%", "* %loot% 1"]
+            , [false, "79",  "* %attack% -1", "** %range% 4", "** %target% 2"]
+            ]
+        },
+        { name: "Stone Golem"
+        , cards:
+            [ [false, "11", "* %retaliate% 3", "** %range% 3"]
+            , [false, "28", "* %move% +1", "* %attack% +0", "* Stone Golem suffers 1 damage."]
+            , [true,  "51", "* %move% +1", "* %attack% -1"]
+            , [false,  "65", "* %move% +0", "* %attack% +0"]
+            , [false, "72", "* %attack% +1", "** %range% 3", "* Stone Golem suffers 2 damage"]
+            , [true, "90", "* %move% -1", "* %attack% +1"]
+            , [false, "28", "* %move% +1", "* %attack% -2", "** %range% 3", "* %pull% 2", "** %immobilize%"]
+            , [false, "83", "* %move% +0", "* %attack% -1", "** Target all adjacent enemies"]
             ]
         }
     ];

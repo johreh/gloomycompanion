@@ -7,9 +7,13 @@ MACROS =
     , "%disarm%":       "<span class='nobr'>DISARM <img class='icon' src='images/disarm.svg'></span>"
     , "%heal%":         "<span class='nobr'>Heal <img class='icon' src='images/heal.svg'></span>"
     , "%immobilize%":   "<span class='nobr'>IMMOBILIZE <img class='icon' src='images/immobilize.svg'></span>"
+    , "%jump%":         "<span class='nobr'>Jump <img class='icon' src='images/jump.svg'></span>"
     , "%move%":         "<span class='nobr'>Move <img class='icon' src='images/move.svg'></span>"
     , "%muddle%":       "<span class='nobr'>MUDDLE <img class='icon' src='images/muddle.svg'></span>"
+    , "%loot%":         "<span class='nobr'>Loot <img class='icon' src='images/loot.svg'></span>"
     , "%poison%":       "<span class='nobr'>POISON <img class='icon' src='images/poison.svg'></span>"
+    // TODO: Pull mush be a flipped Push. No idea how to do it.
+    , "%pull%":         "<span class='nobr'>PULL <img class='icon' src='images/push.svg'></span>"
     , "%push%":         "<span class='nobr'>PUSH <img class='icon' src='images/push.svg'></span>"
     , "%range%":        "<span class='nobr'>Range <img class='icon' src='images/range.svg'></span>"
     , "%retaliate%":    "<span class='nobr'>Retaliate <img class='icon' src='images/retaliate.svg'></span>"
@@ -17,6 +21,8 @@ MACROS =
     , "%strengthen%":   "<span class='nobr'>STRENGTHEN <img class='icon' src='images/strengthen.svg'></span>"
     , "%target%":       "<span class='nobr'>Target <img class='icon' src='images/target.svg'></span>"
     };
+// TODO: Missing macros:
+// Way to overlap use_element with the element itself
 
 function expand_macro(macro)
 {
