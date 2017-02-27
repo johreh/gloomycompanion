@@ -99,6 +99,11 @@
     z-index:                    1;
 }
 
+.icon.element
+{
+    vertical-align:             middle;
+}
+
 .card .initiative
 {
     font-size:                  180%;
