@@ -8,13 +8,12 @@ MACROS =
     , "%heal%":         "<span class='nobr'>Heal <img class='icon' src='images/heal.svg'></span>"
     , "%immobilize%":   "<span class='nobr'>IMMOBILIZE <img class='icon' src='images/immobilize.svg'></span>"
     , "%jump%":         "<span class='nobr'>Jump <img class='icon' src='images/jump.svg'></span>"
+    , "%loot%":         "<span class='nobr'>Loot <img class='icon' src='images/loot.svg'></span>"
     , "%move%":         "<span class='nobr'>Move <img class='icon' src='images/move.svg'></span>"
     , "%muddle%":       "<span class='nobr'>MUDDLE <img class='icon' src='images/muddle.svg'></span>"
-    , "%loot%":         "<span class='nobr'>Loot <img class='icon' src='images/loot.svg'></span>"
     , "%pierce%":       "<span class='nobr'>PIERCE <img class='icon' src='images/pierce.svg'></span>"
     , "%poison%":       "<span class='nobr'>POISON <img class='icon' src='images/poison.svg'></span>"
-    // This way to horizontally flip is ugly. Don't know a better one
-    , "%pull%":         "<span class='nobr'>PULL <img class='icon' src='images/push.svg' style='transform:scale(-1,1); -webkit-transform:scale(-1,1); -moz-transform:scale(-1,1);  -o-transform:scale(-1,1)''></span>"
+    , "%pull%":         "<span class='nobr'>PULL <img class='mirrored icon' src='images/push.svg'></span>"
     , "%push%":         "<span class='nobr'>PUSH <img class='icon' src='images/push.svg'></span>"
     , "%range%":        "<span class='nobr'>Range <img class='icon' src='images/range.svg'></span>"
     , "%retaliate%":    "<span class='nobr'>Retaliate <img class='icon' src='images/retaliate.svg'></span>"
@@ -22,9 +21,8 @@ MACROS =
     , "%strengthen%":   "<span class='nobr'>STRENGTHEN <img class='icon' src='images/strengthen.svg'></span>"
     , "%target%":       "<span class='nobr'>Target <img class='icon' src='images/target.svg'></span>"
     , "%wound%":        "<span class='nobr'>WOUND <img class='icon' src='images/wound.svg'></span>"
+    , "%use_element%":  "<img class='icon overlay' src='images/use_element.svg'>"
     };
-// TODO: Missing macros:
-// Way to overlap use_element with the element itself
 
 function expand_macro(macro)
 {

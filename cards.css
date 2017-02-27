@@ -88,6 +88,17 @@
     vertical-align:             bottom;
 }
 
+.icon.mirrored
+{
+    transform:                  scale(-1,1);
+}
+
+.icon.overlay
+{
+    margin-right:               -1.25em;
+    z-index:                    1;
+}
+
 .card .initiative
 {
     font-size:                  180%;
