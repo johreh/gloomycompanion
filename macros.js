@@ -12,8 +12,8 @@ MACROS =
     , "%muddle%":       "<span class='nobr'>MUDDLE <img class='icon' src='images/muddle.svg'></span>"
     , "%loot%":         "<span class='nobr'>Loot <img class='icon' src='images/loot.svg'></span>"
     , "%poison%":       "<span class='nobr'>POISON <img class='icon' src='images/poison.svg'></span>"
-    // TODO: Pull mush be a flipped Push. No idea how to do it.
-    , "%pull%":         "<span class='nobr'>PULL <img class='icon' src='images/push.svg'></span>"
+    // This way to horizontally flip is ugly. Don't know a better one
+    , "%pull%":         "<span class='nobr'>PULL <img class='icon' src='images/push.svg' style='transform:scale(-1,1); -webkit-transform:scale(-1,1); -moz-transform:scale(-1,1);  -o-transform:scale(-1,1)''></span>"
     , "%push%":         "<span class='nobr'>PUSH <img class='icon' src='images/push.svg'></span>"
     , "%range%":        "<span class='nobr'>Range <img class='icon' src='images/range.svg'></span>"
     , "%retaliate%":    "<span class='nobr'>Retaliate <img class='icon' src='images/retaliate.svg'></span>"
