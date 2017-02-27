@@ -11,6 +11,7 @@ MACROS =
     , "%move%":         "<span class='nobr'>Move <img class='icon' src='images/move.svg'></span>"
     , "%muddle%":       "<span class='nobr'>MUDDLE <img class='icon' src='images/muddle.svg'></span>"
     , "%loot%":         "<span class='nobr'>Loot <img class='icon' src='images/loot.svg'></span>"
+    , "%pierce%":       "<span class='nobr'>PIERCE <img class='icon' src='images/pierce.svg'></span>"
     , "%poison%":       "<span class='nobr'>POISON <img class='icon' src='images/poison.svg'></span>"
     // This way to horizontally flip is ugly. Don't know a better one
     , "%pull%":         "<span class='nobr'>PULL <img class='icon' src='images/push.svg' style='transform:scale(-1,1); -webkit-transform:scale(-1,1); -moz-transform:scale(-1,1);  -o-transform:scale(-1,1)''></span>"
@@ -20,6 +21,7 @@ MACROS =
     , "%shield%":       "<span class='nobr'>Shield <img class='icon' src='images/shield.svg'></span>"
     , "%strengthen%":   "<span class='nobr'>STRENGTHEN <img class='icon' src='images/strengthen.svg'></span>"
     , "%target%":       "<span class='nobr'>Target <img class='icon' src='images/target.svg'></span>"
+    , "%wound%":        "<span class='nobr'>WOUND <img class='icon' src='images/wound.svg'></span>"
     };
 // TODO: Missing macros:
 // Way to overlap use_element with the element itself

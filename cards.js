@@ -2,7 +2,9 @@
 // TODO: Monster missing which need something extra
 //      Savvas Icestorm: Negate element 
 //      Spitting Drake: AOE attack icon
-//      
+//      Cultist: surrounding attack icon
+//      Deep terror: Long line attack icon
+//      Harrower Infester: Short line attack icon
 DECK_DEFINITONS = 
     [   { name: "Living Bones"
         , cards:
@@ -93,11 +95,47 @@ DECK_DEFINITONS =
             [ [false, "11", "* %retaliate% 3", "** %range% 3"]
             , [false, "28", "* %move% +1", "* %attack% +0", "* Stone Golem suffers 1 damage."]
             , [true,  "51", "* %move% +1", "* %attack% -1"]
-            , [false,  "65", "* %move% +0", "* %attack% +0"]
+            , [false, "65", "* %move% +0", "* %attack% +0"]
             , [false, "72", "* %attack% +1", "** %range% 3", "* Stone Golem suffers 2 damage"]
-            , [true, "90", "* %move% -1", "* %attack% +1"]
+            , [true,  "90", "* %move% -1", "* %attack% +1"]
             , [false, "28", "* %move% +1", "* %attack% -2", "** %range% 3", "* %pull% 2", "** %immobilize%"]
             , [false, "83", "* %move% +0", "* %attack% -1", "** Target all adjacent enemies"]
+            ]
+        },
+        { name: "Cave Bear"
+        , cards:
+            [ [false, "13", "* %move% +1", "* %attack% -1"]
+            , [false, "14", "* %move% -1", "* %attack% -1", "** %immobilize%"]
+            , [true,  "34", "* %attack% +1", "** %wound%"]
+            , [false, "41", "* %move% +0", "* %attack% +0"]
+            , [false, "60", "* %attack% *1", "* %attack% +1"]
+            , [true,  "80", "* %attack% -1", "* %move% -2", "* %attack% -1", "** %wound%"]
+            , [false, "03", "* %shield% 1", "* %retaliate% 2", "* %heal% 2", "** self"]
+            , [false, "61", "* %move% +0", "* %attack% -1", "** %target% 2"]
+            ]
+        },
+        { name: "Giant Viper"
+        , cards:
+            [ [true,  "32", "* %move% +0", "* %attack% +0", "*** Add +2 %attack% if the target is adjacent", "*** to any of the Giant Viper's allies"]
+            , [true,  "32", "* %move% +0", "* %attack% +0", "*** Add +2 %attack% if the target is adjacent", "*** to any of the Giant Viper's allies"]
+            , [false, "43", "* %move% +1", "** %jump%", "* %attack% +1", "** Target all adjacent enemies"]
+            , [false, "11", "* %shield% 1", "* %attack% -1"]
+            , [false, "58", "* %move% +1", "** %jump%", "* %attack% +1", "** All attacks targeting Giant Viper", "** this round gain Disadvantage"]
+            , [false, "58", "* %move% -1", "* %attack% +1"]
+            , [false, "23", "* %move% -1", "* %attack% -1", "** %immobilize%", "* %attack% -1"]
+            , [false, "43", "* %move% -1", "** %jump%", "* %attack% +0", "** %target% 2"]
+            ]
+        },
+        { name: "Hound"
+        , cards:
+            [ [false, "06", "* %move% -1", "* %attack% +0", "** %immobilize%"]
+            , [false, "07", "* %move% +0", "* %muddle%", "** Target all adjacent enemies"]
+            , [true, "19", "* %move% +1", "* %attack% +0", "*** Add +2 %attack% if the target is adjacent", "*** to any of the Hound's allies"]
+            , [true, "19", "* %move% +1", "* %attack% +0", "*** Add +2 %attack% if the target is adjacent", "*** to any of the Hound's allies"]
+            , [false, "26", "* %move% +0", "* %attack% +0"]
+            , [false, "26", "* %move% +0", "* %attack% +0"]
+            , [false, "83", "* %move% -2", "* %attack% +1"]
+            , [false, "72", "* %attack% -1", "** %pierce% 2", "* %move% -2", "* %attack% -1", "** %pierce% 2"]
             ]
         }
     ];
