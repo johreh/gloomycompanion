@@ -104,7 +104,7 @@ DECK_DEFINITONS =
             , [false, "58", "* %move% -1", "* %attack% +0" , "** %range% 2", "** %use_element%%ice%: +2 %attack%, +1 %range%"]
             , [true,  "78", "* %move% -1", "* %attack% +0", "** Area Effect", "* %ice%"]
             , [true,  "78", "* %move% -1", "* %attack% +0", "** Area Effect", "* %ice%"]
-            , [false, "58", "* %move% -1", "* %attack% -1", "** %pierce% 3", "* %use_element%%any: %ice%"]
+            , [false, "58", "* %move% -1", "* %attack% -1", "** %pierce% 3", "* %use_element%%any%: %ice%"]
             , [false, "18", "* %shield% 2", "* %move% +1", "* %use_element%%fire%: Frost Demon suffers 1 damage"]
             ]
         },
@@ -273,7 +273,7 @@ DECK_DEFINITONS =
             , [false, "41", "* %move% +0", "* %attack% -1", "** Area effect", "** %use_element%%earth%: +2 %attack%, %immobilize%"]
             , [false, "51", "* All enemies suffer 2 damage.", "* %use_element%%fire%: %wound% all enemies", "* %use_element%%earth%: %disarm% all enemies"]
             , [false, "31", "* %heal% 4", "** %range% 3", "** %use_element%%earth%: %target% 3"]
-            , [true,  "68", "* %move -1", "* %attack% -1", "** %range% 3", "** %target% 2", "* %fire%"]
+            , [true,  "68", "* %move% -1", "* %attack% -1", "** %range% 3", "** %target% 2", "* %fire%"]
             ]
         },
         { name: "Scout"
