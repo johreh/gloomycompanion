@@ -7,6 +7,7 @@ MACROS =
     , "%disarm%":       "<span class='nobr'>DISARM <img class='icon' src='images/disarm.svg'></span>"
     , "%heal%":         "<span class='nobr'>Heal <img class='icon' src='images/heal.svg'></span>"
     , "%immobilize%":   "<span class='nobr'>IMMOBILIZE <img class='icon' src='images/immobilize.svg'></span>"
+    , "%invisible%":    "<span class='nobr'>INVISIBLE <img class='icon' src='images/invisibility.svg'></span>"
     , "%jump%":         "<span class='nobr'>Jump <img class='icon' src='images/jump.svg'></span>"
     , "%loot%":         "<span class='nobr'>Loot <img class='icon' src='images/loot.svg'></span>"
     , "%move%":         "<span class='nobr'>Move <img class='icon' src='images/move.svg'></span>"
@@ -19,9 +20,18 @@ MACROS =
     , "%retaliate%":    "<span class='nobr'>Retaliate <img class='icon' src='images/retaliate.svg'></span>"
     , "%shield%":       "<span class='nobr'>Shield <img class='icon' src='images/shield.svg'></span>"
     , "%strengthen%":   "<span class='nobr'>STRENGTHEN <img class='icon' src='images/strengthen.svg'></span>"
+    , "%stun%":        "<span class='nobr'>STUN <img class='icon' src='images/stun.svg'></span>"
     , "%target%":       "<span class='nobr'>Target <img class='icon' src='images/target.svg'></span>"
     , "%wound%":        "<span class='nobr'>WOUND <img class='icon' src='images/wound.svg'></span>"
     , "%use_element%":  "<img class='icon overlay' src='images/use_element.svg'>"
+    , "%fire%":       "<span class='nobr'><img class='icon' src='images/fire.svg'></span>"
+    , "%ice%":       "<span class='nobr'><img class='icon' src='images/ice.svg'></span>"
+    , "%air%":       "<span class='nobr'><img class='icon' src='images/air.svg'></span>"
+    , "%earth%":       "<span class='nobr'><img class='icon' src='images/earth.svg'></span>"
+    , "%light%":       "<span class='nobr'><img class='icon' src='images/light.svg'></span>"
+    , "%dark%":       "<span class='nobr'><img class='icon' src='images/dark.svg'></span>"
+    , "%any%":       "<span class='nobr'><img class='icon' src='images/any_element.svg'></span>"
+
     };
 
 function expand_macro(macro)
