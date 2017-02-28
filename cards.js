@@ -74,7 +74,7 @@ DECK_DEFINITONS =
         },
         { name: "Earth Demon"
         , cards:
-            [ [true,  "40", "* %heal% 3", "** Self", "* %earth%%use_element%:", "** %immobilize% Target all enemies within %range% 3"]
+            [ [true,  "40", "* %heal% 3", "** Self", "* %earth%%use_element%: <span class='small'>%immobilize% Target all enemies within %range% 3</span>"]
             , [true,  "42", "* %move% +1", "* %attack% -1"]
             , [false, "62", "* %move% +0", "* %attack% +0", "* %earth%"]
             , [false, "71", "* %attack% +0", "** %range% 4", "** %earth%%use_element%: %target% 2"]
@@ -89,23 +89,23 @@ DECK_DEFINITONS =
             [ [false, "03", "* %move% +1", "* %attack% -1", "* %fire%"]
             , [false, "24", "* %move% +0", "* %attack% +0", "* %fire%"]
             , [true,  "46", "* %attack% +0", "** %fire%%use_element%: Area effect"]
-            , [false, "49", "* %attack% +0", "** Area effect", "** %fire%%use_element%: +1 %attack%, %wound%"]
+            , [false, "49", "* %attack% +0", "** Area effect", "** %fire%%use_element%: +1 %attack%<br/>%wound%"]
             , [false, "67", "* %move% -1", "* %attack% +1", "** %range% -1", "* %fire%"]
-            , [false, "77", "* %attack% +0", "** Target all adjacent enemies", "* %ice%%use_element%: Flame Demon suffers 1 damage."]
-            , [true,  "30", "* %fire%%use_element%: All adjacent enemies suffer 2 damage.", "* %move% +0", "* %attack% -2", "** %wound%", "** %target% 2"]
+            , [false, "77", "* %attack% +0", "** Target all adjacent enemies", "* %ice%%use_element%:Flame Demon suffers 1 damage."]
+            , [true,  "30", "* %fire%%use_element%: <span class='small'>All adjacent enemies suffer 2 damage.</span>", "* %move% +0", "* %attack% -2", "** %wound%", "** %target% 2"]
             , [false, "08", "* %move% -1", "* Create a 4 damage trap in an adjacent empty hex closest to an enemy", "* %any%%use_element%: %fire%"]
             ]
         },
         { name: "Frost Demon"
         , cards:
-            [ [false, "18", "* %immobilize%", "** Target all enemies within %range% 2", "** %ice%%use_element%: %heal% 3, Self"]
+            [ [false, "18", "* %immobilize%", "** Target all enemies within %range% 2", "* %ice%%use_element%: <span class='small'>%heal% 3<br/>Self</span>"]
             , [false, "38", "* %move% +1", "* %attack% -1"]
             , [false, "58", "* %move% +0", "* %attack% +0"]
             , [false, "58", "* %move% -1", "* %attack% +0" , "** %range% 2", "** %ice%%use_element%: +2 %attack%, +1 %range%"]
             , [true,  "78", "* %move% -1", "* %attack% +0", "** Area Effect", "* %ice%"]
             , [true,  "78", "* %move% -1", "* %attack% +0", "** Area Effect", "* %ice%"]
-            , [false, "58", "* %move% -1", "* %attack% -1", "** %pierce% 3", "* %any: %%use_element%ice%"]
-            , [false, "18", "* %shield% 2", "* %move% +1", "* %fire%%use_element%: Frost Demon suffers 1 damage"]
+            , [false, "58", "* %move% -1", "* %attack% -1", "** %pierce% 3", "* %any%%use_element%: %ice%"]
+            , [false, "18", "* %shield% 2", "* %move% +1", "* %fire%%use_element%: <span class='small'>Frost Demon suffers 1 damage</span>"]
             ]
         },
         { name: "Giant Viper"
@@ -140,7 +140,7 @@ DECK_DEFINITONS =
             , [false, "16", "* %attack% +2", "** %immobilize%", "* %retaliate% 2"]
             , [true,  "02", "* %shield% 2", "* %retaliate% 2", "** %range% 3"]
             , [false, "30", "* %move% -1", "* %attack% +0", "** Area effect", "** %dark%%use_element%: Perform \"%heal% 2, Self\" for each target damaged"]
-            , [false, "38", "* %move% +0", "* %attack% -1", "** %target% 2", "* %dark%%use_element%: +2 %attack%, %disarm%"]
+            , [false, "38", "* %move% +0", "* %attack% -1", "** %target% 2", "** %dark%%use_element%: +2 %attack%, %disarm%"]
             , [true,  "07", "* %attack% -1", "** %range% 3", "** %muddle%", "* %heal% 4", "** Self"]
             ]
         },
@@ -273,7 +273,7 @@ DECK_DEFINITONS =
             , [false, "41", "* %move% +0", "* %attack% -1", "** Area effect", "** %earth%%use_element%: +2 %attack%, %immobilize%"]
             , [false, "51", "* All enemies suffer 2 damage.", "* %fire%%use_element%: %wound% all enemies", "* %earth%%use_element%: %disarm% all enemies"]
             , [false, "31", "* %heal% 4", "** %range% 3", "** %earth%%use_element%: %target% 3"]
-            , [true,  "68", "* %move -1", "* %attack% -1", "** %range% 3", "** %target% 2", "* %fire%"]
+            , [true,  "68", "* %move% -1", "* %attack% -1", "** %range% 3", "** %target% 2", "* %fire%"]
             ]
         },
         { name: "Scout"
@@ -338,11 +338,11 @@ DECK_DEFINITONS =
         },
         { name: "Wind Demon"
         , cards:
-            [ [false, "09", "* %attack% -1", "* %heal% 1", "** Self", "* %air%%use_element%: %invisible%", "** Self"]
+            [ [false, "09", "* %attack% -1", "* %heal% 1", "** Self", "* %air%%use_element%: %invisible%<br/><span class='small'>Self</span>"]
             , [true,  "21", "* %move% +0", "* %attack% +0", "** %pull% 1", "* %air%"]
             , [true,  "21", "* %move% +0", "* %attack% +0", "** %pull% 1", "* %air%"]
             , [false, "29", "* %move% +0", "* %attack% -1", "** %target% 2", "** %air%%use_element%: %push% 2"]
-            , [false, "37", "* %move% +0", "* %attack% +0", "** Area effect", "** %air%%use_element%: +1 %attack, Area effect"]
+            , [false, "37", "* %move% +0", "* %attack% +0", "** Area effect", "** %air%%use_element%: +1 %attack%, Area effect"]
             , [false, "43", "* %move% -1", "* %attack% +1", "** %air%%use_element%: %target% 2"]
             , [false, "43", "* %push% 1", "** Target all adjacent enemies", "* %attack% +0", "** %earth%%use_element%: -2 %range%"]
             , [false, "02", "* %shield% 1", "* %move% -1", "* %attack% -1", "* %any%%use_element%: %air%"]

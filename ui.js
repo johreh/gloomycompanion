@@ -33,7 +33,6 @@ function init_ui()
 
     settingspane =      document.getElementById("settingspane");
     settingsbtn =       document.getElementById("settingsbtn");
-    backbtn =           document.getElementById("backbtn");
     cancelarea =        document.getElementById("cancelarea");
 
     scenariotab.onclick = function(e)
@@ -49,11 +48,6 @@ function init_ui()
     settingsbtn.onclick = function(e)
     {
         show_settingspane(settingspane, cancelarea, true);
-    }
-
-    backbtn.onclick = function(e)
-    {
-        show_settingspane(settingspane, cancelarea, false);
     }
 
     cancelarea.onclick = function(e)

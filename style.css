@@ -110,13 +110,3 @@ ul.tabcontainer .inactive
     z-index:            1;
 }
 
-#backbtn
-{
-    position:           absolute;
-    width:              5ch;
-    height:             5ch;
-    right:              1em;
-    bottom:             1em;
-    cursor:             pointer;
-}
-
