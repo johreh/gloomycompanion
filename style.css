@@ -47,6 +47,7 @@ ul.tabcontainer .inactive
 .tabbody
 {
     padding:            1em;
+    margin-bottom:      4em;
 }
 
 .tabbody.inactive
