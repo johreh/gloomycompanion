@@ -10,13 +10,9 @@ function UICard(front_element, back_element)
 
     card.flip_up = function(faceup)
     {
-        this.pop_up();
-
-        toggle_class(this.back, "flip", true);
         toggle_class(this.back, "up", !faceup);
         toggle_class(this.back, "down", faceup);
 
-        toggle_class(this.front, "flip", true);
         toggle_class(this.front, "up", faceup);
         toggle_class(this.front, "down", !faceup);
     };
@@ -35,11 +31,11 @@ function UICard(front_element, back_element)
         this.front.style.zIndex -= 1;
     };
 
-    card.pop_up = function()
+    card.set_depth = function(z)
     {
-        this.back.style.zIndex = 0;
-        this.front.style.zIndex = 0;
-    };
+        this.back.style.zIndex = z;
+        this.front.style.zIndex = z;
+    }
 
     card.attach = function(parent)
     {
@@ -205,7 +201,7 @@ function reshuffle(deck)
         var card = deck.draw_pile[i];
         card.ui.flip_up(false);
         card.ui.set_discarded(false);
-        card.ui.push_down();
+        card.ui.set_depth(0);
     }
 }
 
@@ -229,14 +225,21 @@ function draw_card(deck)
     }
     else
     {
+        var card = deck.draw_pile.shift(card);
+
         for (var i = 0; i < deck.discard.length; i++)
         {
             deck.discard[i].ui.push_down();
         }
+        for (var i = 0; i < deck.draw_pile.length; i++)
+        {
+            deck.draw_pile[i].ui.push_down();
+        }
 
-        var card = deck.draw_pile.shift(card);
         card.ui.flip_up(true);
         card.ui.set_discarded(true);
+        card.ui.set_depth(0);
+
         deck.discard.unshift(card);
     }
 }

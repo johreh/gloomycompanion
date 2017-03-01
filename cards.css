@@ -7,14 +7,19 @@
     src:                        url(PirataOne-Gloomhaven.ttf);
 }
 
+@keyframes pull
+{
+    50%                         { top: -100%; bottom: 100%; }
+}
+
 .card-container
 {
     position:                   relative;
     text-align:                 center;
 
-    width:                      calc(437px + 2rem);
+    width:                      calc(437px + 1rem);
     max-width:                  100%;
-    max-height:                 100vh;
+    margin:                     1rem;
 }
 
 .card-container::before
@@ -22,7 +27,7 @@
     content:                    "";
     visibility:                 hidden;
     display:                    inline-block;
-    padding-bottom:             calc(67.7% + 1rem);
+    padding-bottom:             calc(67.7%);
 }
 
 .card
@@ -30,11 +35,9 @@
     position:                   absolute;
     top:                        0;
     left:                       0;
-    bottom:                     0;
-    right:                      0;
+    bottom:                     1rem;
+    right:                      1rem;
 
-    width:                      437px;
-    height:                     296px;
     max-width:                  calc(147.6vh);
     max-height:                 calc(100vh);
 
@@ -56,16 +59,30 @@
 
 .card.draw
 {
-    left:                       0.5rem;
-    top:                        0.5rem;
-}
+    top:                        0;
+    left:                       0;
+    bottom:                     1rem;
+    right:                      1rem;
 
-.card.
+    transition-property:        top, left, bottom, right, transform;
+    transition-timing-function: ease;
+    transition-duration:        0.4s, 0.4s, 0.4s;
+}
 
 .card.discard
 {
-    left:                       1.5rem;
-    top:                        1.5rem;
+    top:                        1rem;
+    left:                       1rem;
+    bottom:                     0;
+    right:                      0;
+
+    transition-property:        top,    bottom, left,   right,  transform,  z-index;
+    transition-timing-function: ease;
+    transition-duration:        0.4s,   0.4s,   0.5s,   0.5s,   0.4s,       0s;
+    transition-delay:           0.5s,   0.5s,   0s,     0s,     0.25s,      0.25s;
+
+    animation-name:             pull;
+    animation-duration:         0.5s;
 }
 
 .card.front
@@ -197,13 +214,6 @@ img[src="images/shuffle.svg"]
 {
     color:                      rgba(0, 0, 0, 0);
     background:                 rgba(0, 0, 0, 0);
-}
-
-.flip
-{
-    transition-property:        left, top, transform;
-    transition-duration:        0.4s;
-    transition-timing-function: ease;
 }
 
 .up
