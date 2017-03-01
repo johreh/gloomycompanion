@@ -10,3 +10,15 @@ function shuffle_list(l)
     }
 }
 
+function toggle_class(element, class_name, enable_class)
+{
+    if (enable_class)
+    {
+        element.classList.add(class_name);
+    }
+    else
+    {
+        element.classList.remove(class_name);
+    }
+}
+

@@ -1,35 +1,32 @@
 
 var do_shuffles = true;
 
-function UICard(front_img, back_img)
+function UICard(front_element, back_element)
 {
     var card = {};
 
-    card.back = back_img;
-    card.back.className = "shufflable card back up";
+    card.back = back_element;
+    card.front = front_element;
 
-    card.front = front_img;
-    card.front.className = "shufflable card front down";
-
-    card.target = back_img.cloneNode(true);
-    card.target.className = "shufflable placeholder card";
-    card.target.style.left = 0;
-    card.target.style.top = 0;
-
-
-    card.flip = function(faceup)
+    card.flip_up = function(faceup)
     {
         this.pop_up();
 
-        this.back.className = "shufflable card back flip " + (faceup ? "down" : "up");
-        this.front.className = "shufflable card front flip " + (faceup ? "up" : "down");
+        toggle_class(this.back, "flip", true);
+        toggle_class(this.back, "up", !faceup);
+        toggle_class(this.back, "down", faceup);
+
+        toggle_class(this.front, "flip", true);
+        toggle_class(this.front, "up", faceup);
+        toggle_class(this.front, "down", !faceup);
     };
 
-    card.set_position = function(position)
+    card.set_discarded = function(in_discard)
     {
-        var delta = get_absolute_delta(this.target, position);
-        set_absolute_position(this.back, delta);
-        set_absolute_position(this.front, delta);
+        toggle_class(this.back, "draw", !in_discard);
+        toggle_class(this.front, "draw", !in_discard);
+        toggle_class(this.back, "discard", in_discard);
+        toggle_class(this.front, "discard", in_discard);
     };
 
     card.push_down = function()
@@ -48,24 +45,11 @@ function UICard(front_img, back_img)
     {
         parent.appendChild(this.back);
         parent.appendChild(this.front);
-        parent.appendChild(this.target);
     }
 
+    card.flip_up(false);
+
     return card;
-}
-
-function load_image(url)
-{
-    var img = document.createElement("img");
-    img.src = url;
-    return img
-}
-
-function create_placeholder(url)
-{
-    var placeholder = document.createElement("div");
-    placeholder.className = "card placeholder";
-    return placeholder
 }
 
 function create_card_back(name)
@@ -163,40 +147,10 @@ function create_card_front(initiative, name, shuffle, lines)
     return card;
 }
 
-function get_absolute_position(element)
-{
-    var body_rect = document.body.getBoundingClientRect();
-    var element_rect = element.getBoundingClientRect();
-
-    return { 
-        x: element_rect.left - body_rect.left,
-        y: element_rect.top - body_rect.top
-    }
-}
-
-function get_absolute_delta(element, position)
-{
-    var current = get_absolute_position(element);
-    var delta = 
-        { x:  position.x - current.x
-        , y:  position.y - current.y
-        };
-
-    return delta;
-}
-
-function set_absolute_position(element, position)
-{
-    element.style.left = position.x;
-    element.style.top = position.y;
-}
-
 function load_deck(deck_definition)
 {
     var deck_state = {
         name:                   deck_definition.name,
-        draw_placeholder:       create_placeholder(),
-        discard_placeholder:    create_placeholder(),
         draw_pile:              [],
         discard:                []
     }
@@ -222,18 +176,8 @@ function load_deck(deck_definition)
     return deck_state;
 }
 
-function shuffle_cards(deck)
-{
-    deck.draw_pile = deck.draw_pile.concat(deck.discard);
-    deck.discard = [];
-    shuffle_list(deck.draw_pile);
-}
-
 function place_deck(deck, container)
 {
-    container.appendChild(deck.draw_placeholder);
-    container.appendChild(deck.discard_placeholder);
-    
     for (var i = 0; i < deck.draw_pile.length; i++)
     {
         var card = deck.draw_pile[i];
@@ -243,45 +187,24 @@ function place_deck(deck, container)
     {
         var card = deck.discard[i];
         card.ui.attach(container);
-    }
-}
-
-function straighten_deck(deck)
-{
-    var draw_position = get_absolute_position(deck.draw_placeholder);
-    var discard_position = get_absolute_position(deck.discard_placeholder);
-
-    for (var i = 0; i < deck.draw_pile.length; i++)
-    {
-        var card = deck.draw_pile[i];
-        card.ui.set_position(draw_position);
-    }
-
-    for (var i = 0; i < deck.discard.length; i++)
-    {
-        var card = deck.discard[i];
-        card.ui.set_position(discard_position);
     }
 }
 
 function refresh_ui(decks)
 {
-    for (var i = 0; i < decks.length; i++)
-    {
-        straighten_deck(decks[i]);
-    }
 }
 
 function reshuffle(deck)
 {
-    shuffle_cards(deck);
+    deck.draw_pile = deck.draw_pile.concat(deck.discard);
+    deck.discard = [];
+    shuffle_list(deck.draw_pile);
 
-    var draw_position = get_absolute_position(deck.draw_placeholder);
     for (var i = 0; i < deck.draw_pile.length; i++)
     {
         var card = deck.draw_pile[i];
-        card.ui.flip(false);
-        card.ui.set_position(draw_position);
+        card.ui.flip_up(false);
+        card.ui.set_discarded(false);
         card.ui.push_down();
     }
 }
@@ -306,18 +229,14 @@ function draw_card(deck)
     }
     else
     {
-        var discard_position = get_absolute_position(deck.discard_placeholder);
-
         for (var i = 0; i < deck.discard.length; i++)
         {
             deck.discard[i].ui.push_down();
         }
 
         var card = deck.draw_pile.shift(card);
-
-        card.ui.flip(true);
-        card.ui.set_position(discard_position);
-
+        card.ui.flip_up(true);
+        card.ui.set_discarded(true);
         deck.discard.unshift(card);
     }
 }
