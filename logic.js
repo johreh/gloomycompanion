@@ -17,24 +17,28 @@ function UICard(front_element, back_element)
         toggle_class(this.front, "down", !faceup);
     };
 
-    card.set_discarded = function(in_discard)
+    card.set_depth = function(z)
     {
-        toggle_class(this.back, "draw", !in_discard);
-        toggle_class(this.front, "draw", !in_discard);
-        toggle_class(this.back, "discard", in_discard);
-        toggle_class(this.front, "discard", in_discard);
-    };
+        this.back.style.zIndex = z;
+        this.front.style.zIndex = z;
+    }
 
     card.push_down = function()
     {
         this.back.style.zIndex -= 1;
         this.front.style.zIndex -= 1;
-    };
+    }
 
-    card.set_depth = function(z)
+    card.addClass = function(class_name)
     {
-        this.back.style.zIndex = z;
-        this.front.style.zIndex = z;
+        this.front.classList.add(class_name);
+        this.back.classList.add(class_name);
+    }
+
+    card.removeClass = function(class_name)
+    {
+        this.front.classList.remove(class_name);
+        this.back.classList.remove(class_name);
     }
 
     card.attach = function(parent)
@@ -51,7 +55,7 @@ function UICard(front_element, back_element)
 function create_card_back(name)
 {
     var card = document.createElement("div");
-    card.className = "card flip back down";
+    card.className = "card back down";
 
     var name_span = document.createElement("span");
     name_span.className = "name";
@@ -64,7 +68,7 @@ function create_card_back(name)
 function create_card_front(initiative, name, shuffle, lines)
 {
     var card = document.createElement("div");
-    card.className = "card flip front down";
+    card.className = "card front down";
 
     var name_span = document.createElement("span");
     name_span.className = "name";
@@ -199,9 +203,16 @@ function reshuffle(deck)
     for (var i = 0; i < deck.draw_pile.length; i++)
     {
         var card = deck.draw_pile[i];
+
+        card.ui.removeClass("lift");
+        card.ui.removeClass("pull");
+
         card.ui.flip_up(false);
-        card.ui.set_discarded(false);
-        card.ui.set_depth(0);
+
+        card.ui.removeClass("discard");
+        card.ui.addClass("draw");
+
+        card.ui.set_depth(-i - 4);
     }
 }
 
@@ -225,21 +236,25 @@ function draw_card(deck)
     }
     else
     {
-        var card = deck.draw_pile.shift(card);
-
         for (var i = 0; i < deck.discard.length; i++)
         {
-            deck.discard[i].ui.push_down();
+            var card = deck.discard[i];
+            card.ui.removeClass("lift");
+            card.ui.removeClass("pull");
+            card.ui.push_down();
         }
-        for (var i = 0; i < deck.draw_pile.length; i++)
+        if (deck.discard.length > 0)
         {
-            deck.draw_pile[i].ui.push_down();
+            deck.discard[0].ui.addClass("lift");
         }
 
+        var card = deck.draw_pile.shift(card);
+        card.ui.set_depth(-3);
+        card.ui.addClass("pull");
         card.ui.flip_up(true);
-        card.ui.set_discarded(true);
-        card.ui.set_depth(0);
-
+        
+        card.ui.removeClass("draw");
+        card.ui.addClass("discard");
         deck.discard.unshift(card);
     }
 }
