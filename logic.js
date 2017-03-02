@@ -1,12 +1,13 @@
 
 var do_shuffles = true;
 
-function UICard(front_element, back_element)
+function UICard(front_element, back_element, initiative)
 {
     var card = {};
 
     card.back = back_element;
     card.front = front_element;
+	card.initiative = initiative;
 
     card.flip_up = function(faceup)
     {
@@ -166,7 +167,7 @@ function load_deck(deck_definition)
         var card_back = create_card_back(deck_definition.name);
 
         var card = {
-            ui:             new UICard(card_front, card_back),
+            ui:             new UICard(card_front, card_back, initiative),
             shuffle_next:   shuffle
         };
 
@@ -240,14 +241,38 @@ function must_reshuffle(deck)
     }
 }
 
+//function to draw all cards at once for the round (reshuffles are now automatic and not an additional click, otherwise it doesn't work...)
+function draw_cards(decks)
+{
+	var container = document.getElementById("tableau");
+var items = [];
+   for(var i = 0; i < decks.length; i++){
+	   var init = draw_card(decks[i]);
+	   deckContainer = document.getElementById(decks[i].name);
+	   container.removeChild(deckContainer);
+	   items.push({el: deckContainer, initiative: init});
+   }
+   
+   //sorting decks to show them in order of initiative.
+   items.sort(function(a, b){
+	  return a.initiative - b.initiative; 
+   });
+   //re-adding them in order
+   for(var i = 0; i < items.length; i++){
+	   container.appendChild(items[i].el);
+   }
+   
+}
+
+
 function draw_card(deck)
 {
     if (must_reshuffle(deck))
     {
         reshuffle(deck);
     }
-    else
-    {
+    
+    
         for (var i = 0; i < deck.discard.length; i++)
         {
             var card = deck.discard[i];
@@ -268,7 +293,9 @@ function draw_card(deck)
         card.ui.removeClass("draw");
         card.ui.addClass("discard");
         deck.discard.unshift(card);
-    }
+		
+		return parseInt(card.ui.initiative);
+    
 }
 
 function load(card_database)
@@ -303,13 +330,28 @@ function apply_deck_selection(decks)
     var container = document.getElementById("tableau");
     container.innerHTML = ""; // TODO use deck.discard_deck instead
 
+	//no "Draw all" deck if there's only one deck!
+    if(decks.length > 1){
+
+		//deal with all decks together
+		var deck_space = document.createElement("div");
+		deck_space.className = "card-container";
+		container.appendChild(deck_space);
+		var card_back = create_card_back("draw all and sort initiative");
+		card_back.className="card back up";
+		deck_space.appendChild(card_back);
+		deck_space.onclick = draw_cards.bind(null, decks);
+	}
+	
     for (var i = 0; i < decks.length; i++)
     {
+		var deck = decks[i];
+		
         var deck_space = document.createElement("div");
         deck_space.className = "card-container";
-        container.appendChild(deck_space);
+		deck_space.id = deck.name;
+		container.appendChild(deck_space);
 
-        var deck = decks[i];
         place_deck(deck, deck_space);
         reshuffle(deck);
         deck_space.onclick = draw_card.bind(null, deck);
@@ -319,6 +361,8 @@ function apply_deck_selection(decks)
             container.removeChild(deck_space);
         }
     }
+	
+	
 
     // Rescale card text if necessary
     refresh_ui(decks);
