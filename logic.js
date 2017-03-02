@@ -192,6 +192,18 @@ function place_deck(deck, container)
 
 function refresh_ui(decks)
 {
+    var actual_card_height = 296;
+    var base_font_size = 26.6;
+
+    var cards = document.getElementsByClassName("card");
+    if (cards.length)
+    {
+        var scale               = cards[0].getBoundingClientRect().height / actual_card_height;
+        var scaled_font_size    = base_font_size * scale;
+        var tableau             = document.getElementById("tableau");
+
+        tableau.style.fontSize = Math.min(scaled_font_size, base_font_size);
+    }
 }
 
 function reshuffle(deck)
@@ -288,7 +300,7 @@ function create_input(type, name, value, text)
 
 function apply_deck_selection(decks)
 {
-    var container = document.getElementById("container");
+    var container = document.getElementById("tableau");
     container.innerHTML = ""; // TODO use deck.discard_deck instead
 
     for (var i = 0; i < decks.length; i++)
@@ -307,6 +319,9 @@ function apply_deck_selection(decks)
             container.removeChild(deck_space);
         }
     }
+
+    // Rescale card text if necessary
+    refresh_ui(decks);
 }
 
 function get_checkbox_selection(checkboxes)

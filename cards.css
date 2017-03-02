@@ -7,14 +7,26 @@
     src:                        url(PirataOne-Gloomhaven.ttf);
 }
 
+@media only screen and (min-width: 1280px) and (orientation: landscape) {
+    .card-container {
+        max-width:              30% !important;
+    }
+}
+
+@media only screen and (min-height: 720px) and (orientation: portrait) {
+    .card-container {
+        max-width:              49.2vh !important;  /* 33vh * (card aspect ratio == 1.476) */
+    }
+}
+
 .card-container
 {
     position:                   relative;
     text-align:                 center;
 
-    width:                      calc(437px + 1rem);
-    max-width:                  100%;
-    margin:                     1rem;
+    width:                      calc(437px + 1rem); /* 437px == card image width */
+    max-width:                  147.6vh;
+    margin:                     8px;
 }
 
 .card-container::before
@@ -22,7 +34,7 @@
     content:                    "";
     visibility:                 hidden;
     display:                    inline-block;
-    padding-bottom:             calc(67.7%);
+    padding-bottom:             calc(67.7%);        /* 100% / (card aspect ratio) */
 }
 
 .card
@@ -33,15 +45,12 @@
     bottom:                     1rem;
     right:                      1rem;
 
-    max-width:                  147.6vh;
-    max-height:                 100vh;
-
     box-shadow:                 5px 5px 5px rgba(0, 0, 0, 0.1);
     backface-visibility:        hidden;
 
     color:                      white;
     font-family:                'PirataOne';
-    font-size:                  20pt;
+    font-size:                  100%;
     text-shadow:                1px 2px 3px black;
 
     background-clip:            content-box;
@@ -202,7 +211,7 @@
 
     position:                   absolute;
     left:                       0;
-    bottom:                     15.5%;
+    bottom:                     14%;
     width:                      100%;
 }
 
