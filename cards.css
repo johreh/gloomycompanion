@@ -1,18 +1,236 @@
 
+@import url('https://fonts.googleapis.com/css?family=Philosopher:700');
+
+@font-face
+{
+    font-family:                PirataOne;
+    src:                        url(PirataOne-Gloomhaven.ttf);
+}
+
+@media only screen and (min-width: 900px) and (orientation: landscape) {
+    .card-container {
+        max-width:              30% !important;
+    }
+}
+
+@media only screen and (min-height: 500px) and (orientation: portrait) {
+    .card-container {
+        max-width:              49.2vh !important;  /* 33vh * (card aspect ratio == 1.476) */
+    }
+}
+
 .card-container
 {
     position:                   relative;
     text-align:                 center;
-    margin:                     0.5em;
+
+    width:                      calc(437px + 1rem); /* 437px == card image width */
+    max-width:                  147.6vh;
+    margin:                     8px;
+}
+
+.card-container::before
+{
+    content:                    "";
+    visibility:                 hidden;
+    display:                    inline-block;
+    padding-bottom:             calc(67.7%);        /* 100% / (card aspect ratio) */
 }
 
 .card
 {
-    width:                      450px;
-    max-width:                  100%;
-    max-height:                 100vh;
-    margin:                     0.5em;
-    box-shadow:                 5px 5px 5px rgba(0, 0, 0, 0.05);
+    position:                   absolute;
+    top:                        0;
+    left:                       0;
+    bottom:                     1rem;
+    right:                      1rem;
+
+    box-shadow:                 5px 5px 5px rgba(0, 0, 0, 0.1);
+    backface-visibility:        hidden;
+
+    color:                      white;
+    font-family:                'PirataOne';
+    font-size:                  100%;
+    text-shadow:                1px 2px 3px black;
+
+    background-clip:            content-box;
+    background-origin:          content-box;
+    background-repeat:          no-repeat;
+    background-size:            cover;
+
+    border-radius:              15px;
+}
+
+@keyframes pull
+{
+    50%                         { z-index: -2; top: -20%; bottom: 20%; left: -50%; right: 50%; }
+    100%                        { z-index:  0; }
+}
+
+@keyframes lift
+{
+    50%                         { z-index: -1; }
+}
+
+.card.pull
+{
+    animation-name:             pull;
+    animation-duration:         0.5s;
+}
+
+.card.lift
+{
+    animation-name:             lift;
+    animation-duration:         0.5s;
+    animation-timing-function:  step-start;
+}
+
+.card.discard
+{
+    top:                        1rem;
+    left:                       1rem;
+    bottom:                     0;
+    right:                      0;
+
+    transition-property:        top,    bottom, left,   right,  transform;
+    transition-duration:        0.5s;
+}
+
+.card.draw
+{
+    top:                        0;
+    left:                       0;
+    bottom:                     1rem;
+    right:                      1rem;
+
+    transition-property:        top,    left,   bottom, right,  transform,  z-index;
+    transition-duration:        0.4s,   0.4s,   0.4s,   0.4s,   0.4s,       0s;
+    transition-delay:           0s,     0s,     0s,     0s,     0s,         0.4s;
+}
+
+.card.front
+{
+    background-image:           url(images/front.jpg);
+}
+
+.card.back
+{
+    background-image:           url(images/back.jpg);
+}
+
+.card ul
+{
+    padding:                    0;
+
+    list-style:                 none;
+    text-align:                 center;
+
+    font-family:                'Nyala', 'Sakkal Majalla', 'Philosopher', sans-serif;
+}
+
+.card>ul
+{
+    position:                   relative;
+    top:                        15%;
+    height:                     85%;
+    overflow:                   hidden;
+    margin:                     0 2ch;
+
+    display:                    flex;
+    flex-direction:             column;
+    justify-content:            center;
+}
+
+.card li
+{
+    margin:                     0.25em 0;
+}
+
+.card li li
+{
+    font-size:                  75%;
+    margin:                     0;
+}
+
+.small
+{
+    font-size:                  75%;
+}
+
+.icon
+{
+    height:                     1.25em;
+    vertical-align:             bottom;
+}
+
+.icon.mirrored
+{
+    transform:                  scale(-1,1);
+}
+
+.element
+{
+    height:                     1.75em;
+    vertical-align:             middle;
+}
+
+.element.overlay
+{
+    margin-left:                -1.75em;
+    z-index:                    1;
+}
+
+.card .initiative
+{
+    font-size:                  180%;
+    text-align:                 center;
+
+    position:                   absolute;
+    left:                       0;
+    top:                        18%;
+    width:                      19%;
+}
+
+.card.front .name
+{
+    font-size:                  120%;
+    text-align:                 center;
+
+    position:                   absolute;
+    left:                       0;
+    top:                        0;
+    width:                      100%;
+    line-height:                200%;
+}
+
+.card.back .name
+{
+    text-align:                 center;
+    font-size:                  90%;
+
+    position:                   absolute;
+    left:                       0;
+    bottom:                     14%;
+    width:                      100%;
+}
+
+.card .number
+{
+    font-family:                initial;
+    font-size:                  30%;
+    text-shadow:                none;
+
+    position:                   absolute;
+    left:                       3%;
+    bottom:                     5%;
+}
+
+img[src="images/shuffle.svg"]
+{
+    position:                   absolute;
+    right:                      3%;
+    bottom:                     5%;
+    height:                     1.25em;
 }
 
 .card::selection
@@ -21,31 +239,13 @@
     background:                 rgba(0, 0, 0, 0);
 }
 
-.shufflable
-{
-    position:                   absolute;
-}
-
-.placeholder
-{
-    visibility:                 hidden;
-}
-
-.flip
-{
-    transition-property:        left, top, transform;
-    transition-duration:        0.4s, 0.4s, 0.2s;
-    transition-timing-function: ease;
-}
-
 .up
 {
-    transition-delay:           0s, 0s, 0.2s;
     transform:                  rotateY(0deg);
 }
 
 .down
 {
-    transform:                  rotateY(90deg);
+    transform:                  rotateY(180deg);
 }
 

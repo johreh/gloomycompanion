@@ -5,7 +5,12 @@ body
     overflow-x:         hidden;
 }
 
-#container
+.nobr
+{
+    white-space:        nowrap;
+}
+
+#tableau
 {
     display:            flex;
     flex-wrap:          wrap;
@@ -42,6 +47,7 @@ ul.tabcontainer .inactive
 .tabbody
 {
     padding:            1em;
+    margin-bottom:      4em;
 }
 
 .tabbody.inactive
@@ -99,21 +105,9 @@ ul.tabcontainer .inactive
 {
     margin-left:        1em;
     margin-top:         1em;
-    width:              2em;
-    height:             2em;
-    background:         orange;
+    width:              5ch;
+    height:             5ch;
     cursor:             pointer;
     z-index:            1;
-}
-
-#backbtn
-{
-    position:           absolute;
-    width:              2em;
-    height:             2em;
-    right:              1em;
-    bottom:             1em;
-    background:         orange;
-    cursor:             pointer;
 }
 
