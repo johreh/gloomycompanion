@@ -7,13 +7,13 @@
     src:                        url(PirataOne-Gloomhaven.ttf);
 }
 
-@media only screen and (min-width: 1280px) and (orientation: landscape) {
+@media only screen and (min-width: 900px) and (orientation: landscape) {
     .card-container {
         max-width:              30% !important;
     }
 }
 
-@media only screen and (min-height: 720px) and (orientation: portrait) {
+@media only screen and (min-height: 500px) and (orientation: portrait) {
     .card-container {
         max-width:              49.2vh !important;  /* 33vh * (card aspect ratio == 1.476) */
     }
@@ -63,7 +63,7 @@
 
 @keyframes pull
 {
-    50%                         { z-index: -2; top: -100%; bottom: 100%; left: -50%; right: 50%; }
+    50%                         { z-index: -2; top: -20%; bottom: 20%; left: -50%; right: 50%; }
     100%                        { z-index:  0; }
 }
 
@@ -93,8 +93,7 @@
     right:                      0;
 
     transition-property:        top,    bottom, left,   right,  transform;
-    transition-duration:        0.5s,   0.5s,   0.5s,   0.5s,   0.4s;
-    transition-delay:           0.0s,   0.0s,   0s,     0s,     0.25s;
+    transition-duration:        0.5s;
 }
 
 .card.draw
