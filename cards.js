@@ -3,8 +3,8 @@ DECK_DEFINITONS =
         { name: "Ancient Artillery"
         , cards:
             [ [false, "46", "* %attack% -1", "** %range% +2"]
-            , [true,  "71", "* %attack% +0", "** All adjacent enemies suffer 2 dammage"]
-            , [true,  "71", "* %attack% +0", "** All adjacent enemies suffer 2 dammage"]
+            , [true,  "71", "* %attack% +0", "** All adjacent enemies suffer 2 damage"]
+            , [true,  "71", "* %attack% +0", "** All adjacent enemies suffer 2 damage"]
             , [false, "37", "* %push% 1", "** Target all adjacent enemies", "* %attack% -1", "** %range% -1", "** Area effect"]
             , [false, "37", "* %push% 1", "** Target all adjacent enemies", "* %attack% -1", "** %range% -1", "** Area effect"]
             , [false, "17", "* %push% 2", "** Target all adjacent enemies", "* %shield% 2", "* %attack% -2"]
@@ -349,6 +349,17 @@ DECK_DEFINITONS =
             ]
         }         
     ];
+
+	//proposal how to shape up the stats
+ENEMIES = [
+	{ name: "Inox Archer"
+	  ,levels:[
+		["2", "2", "3", "1", "0"] //lvl 0 stats (move, attack, range, shield, retaliate)
+		,["2", "2", "3", "1", "0"] //lvl 1 stats
+	  ]
+	  ,deck: "Archer"
+	}
+];
 
 
 // empty template
