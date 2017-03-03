@@ -351,8 +351,10 @@ function create_deck_list(decks)
     var checkboxlist = []
     for (var deck_name in decks)
     {
+        var label = document.createElement("label");
         var checkbox = create_input("checkbox", "deck", deck_name, deck_name);
-        checkboxlist.push(checkbox);
+        label.appendChild(checkbox);
+        checkboxlist.push(label);
     }
     return checkboxlist;
 }
@@ -363,6 +365,7 @@ function create_scenario_list(scenarios, decklist, retobj)
     for (var i = 0; i < scenarios.length; i++)
     {
         var scenario = scenarios[i];
+        var label = document.createElement("label");
         var radio = create_input("radio", "scenario", scenario.name, scenario.name);
 
         function update_retobj(decknames, e)
@@ -373,7 +376,8 @@ function create_scenario_list(scenarios, decklist, retobj)
         }
 
         radio.onchange = update_retobj.bind(null, scenario.decks);
-        radiolist.push(radio);
+        label.appendChild(radio);
+        radiolist.push(label);
     }
     return radiolist;
 }
