@@ -160,12 +160,35 @@
 .icon
 {
     height:                     1.25em;
-    vertical-align:             bottom;
+    vertical-align:             text-bottom;
 }
 
-.icon.mirrored
+.mirrored
 {
     transform:                  scale(-1,1);
+}
+
+.rotated
+{
+    transform:                  rotateZ(-60deg);
+}
+
+.aoe
+{
+    vertical-align:             middle;
+}
+
+.aoe.h1 { height:               1.5em; }
+.aoe.h2 { height:               3em; }
+.aoe.h3 { height:               4.5em; }
+.aoe.h4 { height:               6em; }
+.aoe.h6 { height:               7.5em; }
+
+div.collapse
+{
+    display:                    inline-block;
+    width:                      0;
+    height:                     0;
 }
 
 .element

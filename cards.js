@@ -5,11 +5,11 @@ DECK_DEFINITONS =
             [ [false, "46", "* %attack% -1", "** %range% +2"]
             , [true,  "71", "* %attack% +0", "** All adjacent enemies suffer 2 dammage"]
             , [true,  "71", "* %attack% +0", "** All adjacent enemies suffer 2 dammage"]
-            , [false, "37", "* %push% 1", "** Target all adjacent enemies", "* %attack% -1", "** %range% -1", "** Area effect"]
-            , [false, "37", "* %push% 1", "** Target all adjacent enemies", "* %attack% -1", "** %range% -1", "** Area effect"]
+            , [false, "37", "* %push% 1", "** Target all adjacent enemies", "* %attack% -1 %aoe-triangle-2-side%", "** %range% -1"]
+            , [false, "37", "* %push% 1", "** Target all adjacent enemies", "* %attack% -1 %aoe-circle%", "** %range% -1"]
             , [false, "17", "* %push% 2", "** Target all adjacent enemies", "* %shield% 2", "* %attack% -2"]
             , [false, "95", "* %attack% +1"]
-            , [false, "46", "* %attack% -1", "** %immobilize%", "** Area effect"]
+            , [false, "46", "* %attack% -1 %aoe-triangle-2-side%", "** %immobilize%"]
             ]
         },
         { name: "Archer"
@@ -50,8 +50,8 @@ DECK_DEFINITONS =
         },
         { name: "Cultist"
         , cards:
-            [ [false, "10", "* %move% -1", "* %attack% -1", "* On Death:", "** %attack% +2", "** Area Effect"]
-            , [false, "10", "* %move% -1", "* %attack% -1", "* On Death:", "** %attack% +2", "** Area Effect"]
+            [ [false, "10", "* %move% -1", "* %attack% -1", "* On Death:", "** %attack% +2 %aoe-circle-with-middle-black%"]
+            , [false, "10", "* %move% -1", "* %attack% -1", "* On Death:", "** %attack% +2 %aoe-circle-with-middle-black%"]
             , [false, "27", "* %move% +0", "* %attack% +0"]
             , [false, "27", "* %move% +0", "* %attack% +0"]
             , [false, "39", "* %move% -1", "* %attack% +0", "* %heal% 1", "** Self"]
@@ -63,8 +63,8 @@ DECK_DEFINITONS =
         { name: "Deep Terror"
         , cards:
             [ [false, "65", "* %attack% +0", "** %range% 3", "** %target% 3", "** %curse%"]
-            , [true,  "60", "* %attack% +0", "** %pierce% 3", "** Area Effect"]
-            , [true,  "60", "* %attack% +0", "** %pierce% 3", "** Area Effect"]
+            , [true,  "60", "* %attack% +0 %aoe-line-6-with-black%", "** %pierce% 3"]
+            , [true,  "60", "* %attack% +0 %aoe-line-6-with-black%", "** %pierce% 3"]
             , [false, "84", "* %attack% -1", "** Target all adjacent enemies", "* %attack% +0", "** %range% 4", "** %wound%"]
             , [false, "75", "* %attack% +0", "** %poison%", "* %attack% -1", "** %range% 5", "** %immobilize%"]
             , [false, "75", "* %attack% -2", "** Target all adjacent enemies", "** %disarm%", "* %attack% +0", "** %range% 3", "** %target% 2"]
@@ -81,15 +81,15 @@ DECK_DEFINITONS =
             , [false, "83", "* %move% -1", "* %attack% +1", "* %earth%"]
             , [false, "93", "* %move% -1", "* %attack% -1", "** Target all adjacent enemies", "* %earth%%use_element%: %push% 1"]
             , [false, "79", "* %move% +1", "* %attack% +0", "** %air%%use_element%: -2 %attack%"]
-            , [false, "87", "* %move% +0", "* %attack% -1", "** Area Effect", "* %any%%use_element%: %earth%"]
+            , [false, "87", "* %move% +0", "* %attack% -1 %aoe-4-with-black% ", "* %any%%use_element%: %earth%"]
             ]
         },
         { name: "Flame Demon"
         , cards:
             [ [false, "03", "* %move% +1", "* %attack% -1", "* %fire%"]
             , [false, "24", "* %move% +0", "* %attack% +0", "* %fire%"]
-            , [true,  "46", "* %attack% +0", "** %fire%%use_element%: Area effect"]
-            , [false, "49", "* %attack% +0", "** Area effect", "** %fire%%use_element%: +1 %attack%<br/>%wound%"]
+            , [true,  "46", "* %attack% +0", "** %fire%%use_element%:  %aoe-circle%"]
+            , [false, "49", "* %attack% +0 %aoe-line-3-with-black%", "** %fire%%use_element%: +1 %attack%<br/>%wound%"]
             , [false, "67", "* %move% -1", "* %attack% +1", "** %range% -1", "* %fire%"]
             , [false, "77", "* %attack% +0", "** Target all adjacent enemies", "* %ice%%use_element%:Flame Demon suffers 1 damage."]
             , [true,  "30", "* %fire%%use_element%: <span class='small'>All adjacent enemies suffer 2 damage.</span>", "* %move% +0", "* %attack% -2", "** %wound%", "** %target% 2"]
@@ -102,8 +102,8 @@ DECK_DEFINITONS =
             , [false, "38", "* %move% +1", "* %attack% -1"]
             , [false, "58", "* %move% +0", "* %attack% +0"]
             , [false, "58", "* %move% -1", "* %attack% +0" , "** %range% 2", "** %ice%%use_element%: +2 %attack%, +1 %range%"]
-            , [true,  "78", "* %move% -1", "* %attack% +0", "** Area Effect", "* %ice%"]
-            , [true,  "78", "* %move% -1", "* %attack% +0", "** Area Effect", "* %ice%"]
+            , [true,  "78", "* %move% -1", "* %attack% +0 %aoe-triangle-2-side-with-black%", "* %ice%"]
+            , [true,  "78", "* %move% -1", "* %attack% +0 %aoe-triangle-2-side-with-black%", "* %ice%"]
             , [false, "58", "* %move% -1", "* %attack% -1", "** %pierce% 3", "* %any%%use_element%: %ice%"]
             , [false, "18", "* %shield% 2", "* %move% +1", "* %fire%%use_element%: <span class='small'>Frost Demon suffers 1 damage</span>"]
             ]
@@ -139,7 +139,7 @@ DECK_DEFINITONS =
             , [false, "16", "* %move% -1", "* %attack% -1", "* %heal% 5", "** Self"]
             , [false, "16", "* %attack% +2", "** %immobilize%", "* %retaliate% 2"]
             , [true,  "02", "* %shield% 2", "* %retaliate% 2", "** %range% 3"]
-            , [false, "30", "* %move% -1", "* %attack% +0", "** Area effect", "** %dark%%use_element%: Perform \"%heal% 2, Self\" for each target damaged"]
+            , [false, "30", "* %move% -1", "* %attack% +0 %aoe-line-4-with-black%", "** %dark%%use_element%: Perform \"%heal% 2, Self\" for each target damaged"]
             , [false, "38", "* %move% +0", "* %attack% -1", "** %target% 2", "** %dark%%use_element%: +2 %attack%, %disarm%"]
             , [true,  "07", "* %attack% -1", "** %range% 3", "** %muddle%", "* %heal% 4", "** Self"]
             ]
@@ -261,7 +261,7 @@ DECK_DEFINITONS =
             , [false, "14", "* %attack% +0", "** %ice%%use_element%: +2 %attack%, %immobilize%", "* %retaliate% 2", "* %air%"]
             , [false, "14", "* %shield% 4", "* %heal% 2", "** %ice%%use_element%: +3 %heal%", "* %air%%use_element%: %attack% +0"]
             , [true,  "47", "* %disarm%", "** Target all adjacent enemies", "* %move% +0", "* %attack% -1", "* %air%"]
-            , [true,  "35", "* %move% -1", "* %attack% -1", "** Area Effect", "* %ice%"]
+            , [true,  "35", "* %move% -1", "* %attack% -1 %aoe-triangle-3-side-with-corner-black% ", "* %ice%"]
             ]
         },
         { name: "Savvas Lavaflow"
@@ -270,7 +270,7 @@ DECK_DEFINITONS =
             , [false, "97", "* Summon normal Earth Demon", "* %earth%"]
             , [false, "22", "* %move% +1", "* %attack% -1", "** Target all adjacent enemies", "* %fire%%use_element%: %retaliate% 3"]
             , [true,  "68", "* %move% -1", "* %attack% +1", "** %range% 3", "** All allies and enemies adjacent to the target suffer 2 damage.", "* %earth%"]
-            , [false, "41", "* %move% +0", "* %attack% -1", "** Area effect", "** %earth%%use_element%: +2 %attack%, %immobilize%"]
+            , [false, "41", "* %move% +0", "* %attack% -1 %aoe-line-4-with-black% ", "** %earth%%use_element%: +2 %attack%, %immobilize%"]
             , [false, "51", "* All enemies suffer 2 damage.", "* %fire%%use_element%: %wound% all enemies", "* %earth%%use_element%: %disarm% all enemies"]
             , [false, "31", "* %heal% 4", "** %range% 3", "** %earth%%use_element%: %target% 3"]
             , [true,  "68", "* %move% -1", "* %attack% -1", "** %range% 3", "** %target% 2", "* %fire%"]
@@ -304,12 +304,12 @@ DECK_DEFINITONS =
         , cards:
             [ [false, "32", "* %move% +1", "* %attack% -1"]
             , [false, "52", "* %move% +0", "* %attack% +0"]
-            , [true,  "57", "* %move% +0", "* %attack% -1", "** Area effect"]
+            , [true,  "57", "* %move% +0", "* %attack% -1 %aoe-triangle-2-side%"]
             , [false, "27", "* %attack% +0", "** %target% 2", "** %poison%"]
             , [false, "87", "* %move% -1", "* %attack% +1"]
             , [false, "89", "* %attack% -2", "** %stun%"]
             , [false, "06", "* %shield% 2", "* %heal% 2", "** Self", "* %strengthen%", "** Self"]
-            , [true,  "89", "* %move% -1", "* %attack% -2", "** Area effect", "** %poison%"]
+            , [true,  "89", "* %move% -1", "* %attack% -2 %aoe-circle%", "** %poison%"]
             ]
         },
         { name: "Stone Golem"
@@ -342,7 +342,7 @@ DECK_DEFINITONS =
             , [true,  "21", "* %move% +0", "* %attack% +0", "** %pull% 1", "* %air%"]
             , [true,  "21", "* %move% +0", "* %attack% +0", "** %pull% 1", "* %air%"]
             , [false, "29", "* %move% +0", "* %attack% -1", "** %target% 2", "** %air%%use_element%: %push% 2"]
-            , [false, "37", "* %move% +0", "* %attack% +0", "** Area effect", "** %air%%use_element%: +1 %attack%, Area effect"]
+            , [false, "37", "* %move% +0", "* %attack% +0 %aoe-4-with-black%", "** %air%%use_element%: +1 %attack% %aoe-circle-with-side-black% "]
             , [false, "43", "* %move% -1", "* %attack% +1", "** %air%%use_element%: %target% 2"]
             , [false, "43", "* %push% 1", "** Target all adjacent enemies", "* %attack% +0", "** %earth%%use_element%: -2 %range%"]
             , [false, "02", "* %shield% 1", "* %move% -1", "* %attack% -1", "* %any%%use_element%: %air%"]
@@ -350,21 +350,3 @@ DECK_DEFINITONS =
         }         
     ];
 
-
-// empty template
-/*
-        { name: ""
-        , cards:
-            [ [false, "00", "* %move% +0", "* %attack% +0"]
-            , [false, "00", "* %move% +0", "* %attack% +0"]
-            , [false, "00", "* %move% +0", "* %attack% +0"]
-            , [false, "00", "* %move% +0", "* %attack% +0"]
-            , [false, "00", "* %move% +0", "* %attack% +0"]
-            , [false, "00", "* %move% +0", "* %attack% +0"]
-            , [false, "00", "* %move% +0", "* %attack% +0"]
-            , [false, "00", "* %move% +0", "* %attack% +0"]
-            ]
-        },
-*/
-
-    

@@ -10,6 +10,11 @@ body
     white-space:        nowrap;
 }
 
+.big-icon
+{
+    height: 35px;  /* aoe icons need to be bigger */
+}
+
 #tableau
 {
     display:            flex;
