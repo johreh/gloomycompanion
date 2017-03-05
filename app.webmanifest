@@ -1,0 +1,12 @@
+{
+    "start_url":    "index.html",
+    "display":      "standalone":
+    [
+        {
+            "src":      "images/icon.png",
+            "sizes":    "192x192",
+            "type":     "image/png"
+        }
+    ]
+}
+
