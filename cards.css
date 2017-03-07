@@ -44,10 +44,6 @@
 .card
 {
     position:                   absolute;
-    top:                        0;
-    left:                       0;
-    bottom:                     1rem;
-    right:                      1rem;
 
     box-shadow:                 5px 5px 5px rgba(0, 0, 0, 0.1);
     backface-visibility:        hidden;
@@ -187,6 +183,15 @@
 .aoe.h3 { height:               4.5em; }
 .aoe.h4 { height:               6em; }
 .aoe.h6 { height:               7.5em; }
+
+.aoe.right-aligned
+{
+    position:                   absolute;
+    top:                        0;
+    right:                      0;
+    bottom:                     0;
+    margin:                     auto 0;
+}
 
 div.collapse
 {

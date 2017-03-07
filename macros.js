@@ -9,7 +9,7 @@ MACROS =
     , "%aoe-circle-with-side-black%":               "<div class='collapse'><img class='aoe h3' src='images/aoe-circle-with-side-black.svg'></div>"
     , "%aoe-line-3-with-black%":                    "<div class='collapse'><img class='aoe h1 rotated' src='images/aoe-line-3-with-black.svg'></div>"
     , "%aoe-line-4-with-black%":                    "<div class='collapse'><img class='aoe h1 rotated' src='images/aoe-line-4-with-black.svg'></div>"
-    , "%aoe-line-6-with-black%":                    "<div class='collapse'><img class='aoe h1' src='images/aoe-line-6-with-black.svg' style='position: absolute; right: 0;'></div>"
+    , "%aoe-line-6-with-black%":                    "<img class='aoe h6 right-aligned' src='images/aoe-line-6-with-black.svg'></div>"
     , "%aoe-triangle-2-side%":                      "<div class='collapse'><img class='aoe h2' src='images/aoe-triangle-2-side.svg'></div>"
     , "%aoe-triangle-2-side-with-black%":           "<div class='collapse'><img class='aoe h2' src='images/aoe-triangle-2-side-with-black.svg'></div>"
     , "%aoe-triangle-3-side-with-corner-black%":    "<div class='collapse'><img class='aoe h3' src='images/aoe-triangle-3-side-with-corner-black.svg'></div>"
