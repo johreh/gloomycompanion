@@ -114,7 +114,7 @@ function create_card_front(initiative, name, shuffle, lines)
                 var list_item = document.createElement("li");
                 current_parent.appendChild(list_item);
                 current_parent = list_item;
-                
+
                 current_depth += 1;
             }
             else
@@ -202,8 +202,10 @@ function refresh_ui(decks)
         var scale               = cards[0].getBoundingClientRect().height / actual_card_height;
         var scaled_font_size    = base_font_size * scale;
         var tableau             = document.getElementById("tableau");
+        var topmenu             = document.getElementById("topmenu");
 
         var font_pixel_size     = Math.min(scaled_font_size, base_font_size);
+        tableau.style.fontSize  = font_pixel_size + "px";
         tableau.style.fontSize  = font_pixel_size + "px";
     }
 }
@@ -239,7 +241,7 @@ function must_reshuffle(deck)
         if (do_shuffles && deck.discard.length)
         {
             return deck.discard[0].shuffle_next;
-        } 
+        }
     }
 }
 
@@ -259,7 +261,7 @@ function must_reshuffle_modifier(deck)
             deck.shuffle_end_of_the_turn = false;
             return should_shuffle;
         }
-} 
+}
 
 function flip_up_top_card(deck)
 {
@@ -279,7 +281,7 @@ function flip_up_top_card(deck)
         card.ui.set_depth(-3);
         card.ui.addClass("pull");
         card.ui.flip_up(true);
-        
+
         card.ui.removeClass("draw");
         card.ui.addClass("discard");
         deck.discard.unshift(card);
@@ -336,8 +338,8 @@ function load_modifier_deck(number_bless, number_curses)
         // To fix, this is just temporal until we make the "end of turn" button
     }
 
-    //Start the Deck with the default values: Six +0, five +1, five -1 and a single +2, -2, 2x and Null card each. 
-    for (var i = 0 ; i < 6 ; i++) deck_state.draw_pile.push(define_modifier_card(false, "plus0")); 
+    //Start the Deck with the default values: Six +0, five +1, five -1 and a single +2, -2, 2x and Null card each.
+    for (var i = 0 ; i < 6 ; i++) deck_state.draw_pile.push(define_modifier_card(false, "plus0"));
     for (var i = 0 ; i < 5 ; i++) deck_state.draw_pile.push(define_modifier_card(false, "plus1"));
     for (var i = 0 ; i < 5 ; i++) deck_state.draw_pile.push(define_modifier_card(false, "minus1"));
     deck_state.draw_pile.push(define_modifier_card(false, "plus2"));
@@ -348,7 +350,7 @@ function load_modifier_deck(number_bless, number_curses)
     return deck_state;
 }
 
-function define_modifier_card(shuffle, card_type) 
+function define_modifier_card(shuffle, card_type)
 {
     var card_front = create_modifier_card(card_type);
     var card_back = create_modifier_card("back");
@@ -421,10 +423,12 @@ function create_input(type, name, value, text)
 function apply_deck_selection(decks)
 {
     var container = document.getElementById("tableau");
+    var modifier_container = document.getElementById("topmenu");
     container.innerHTML = ""; // TODO use deck.discard_deck instead
+    modifier_container.innerHTML = "";
 
     //TO FIX! this is for testing, but it should be always added as a deck, and it's own div (with buttons)
-    add_modifier_deck(container);
+    add_modifier_deck(modifier_container);
 
     for (var i = 0; i < decks.length; i++)
     {
@@ -531,7 +535,7 @@ function init()
     var applyscenariobtn = document.getElementById("applyscenario");
 
     var selected_decks = [];
-    
+
     create_deck_list(decks).map( function(checkbox) { decklist.appendChild(checkbox); } );
     create_scenario_list(SCENARIO_DEFINITIONS, decks, selected_decks).map( function(radiobtn) { scenariolist.appendChild(radiobtn); } );
 
@@ -550,4 +554,3 @@ function init()
 
     window.onresize = refresh_ui.bind(null, selected_decks);
 }
-
