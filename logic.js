@@ -235,38 +235,31 @@ function must_reshuffle(deck)
     if (!deck.draw_pile.length)
     {
         return true;
-    }
-    
-    if (deck.name.includes("modifier")) 
-    {
-        // Modifier decks should reshuffle when the end of round has been selected and they've seen 2x or Null cards.
-        if (deck.end_of_round)
-        {
-            deck.end_of_round = true;
-            var should_shuffle = deck.shuffle_end_of_the_turn;
-            deck.shuffle_end_of_the_turn = false;
-            return should_shuffle;
-        }
     } else {
         if (do_shuffles && deck.discard.length)
         {
             return deck.discard[0].shuffle_next;
         } 
     }
-
 }
 
-function draw_card(deck)
+function must_reshuffle_modifier(deck)
 {
-    if (must_reshuffle(deck))
+    if (!deck.draw_pile.length)
     {
-        reshuffle(deck);
-    }
-    else
-    {
-        flip_up_top_card(deck);
-    }
-}
+        return true;
+        deck.shuffle_end_of_the_turn = false;
+        deck.end_of_round = false; // TO FIX. This is temporal, just for testing that it shuffles. HAVE TO BE FALSE
+
+    } else if (deck.end_of_round)
+      // Modifier decks should reshuffle when the end of round has been selected and they've seen 2x or Null cards.
+        {
+            deck.end_of_round = true; // TO FIX. This is temporal, just for testing that it shuffles. HAVE TO BE FALSE
+            var should_shuffle = deck.shuffle_end_of_the_turn;
+            deck.shuffle_end_of_the_turn = false;
+            return should_shuffle;
+        }
+} 
 
 function flip_up_top_card(deck)
 {
@@ -292,9 +285,21 @@ function flip_up_top_card(deck)
         deck.discard.unshift(card);
 }
 
-function draw_card_modifier(deck)
+function draw_card(deck)
 {
     if (must_reshuffle(deck))
+    {
+        reshuffle(deck);
+    }
+    else
+    {
+        flip_up_top_card(deck);
+    }
+}
+
+function draw_card_modifier(deck)
+{
+    if (must_reshuffle_modifier(deck))
     {
         reshuffle(deck);
     }
