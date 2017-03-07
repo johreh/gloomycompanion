@@ -1,6 +1,6 @@
 {
     "start_url":    "index.html",
-    "display":      "standalone":
+    "display":      "standalone",
     [
         {
             "src":      "images/icon.png",
