@@ -191,7 +191,7 @@ function place_deck(deck, container)
     }
 }
 
-function refresh_ui(decks)
+function refresh_ui()
 {
     var actual_card_height = 296;
     var base_font_size = 26.6;
@@ -206,7 +206,7 @@ function refresh_ui(decks)
 
         var font_pixel_size     = Math.min(scaled_font_size, base_font_size);
         tableau.style.fontSize  = font_pixel_size + "px";
-        tableau.style.fontSize  = font_pixel_size + "px";
+        topmenu.style.fontSize  = font_pixel_size + "px";
     }
 }
 
@@ -305,18 +305,20 @@ function draw_card(deck)
 
 function prevent_pull_animation(deck)
 {
-  deck.discard[0].ui.addClass("lift");
-  deck.discard[0].ui.removeClass("pull");
-
-  deck.discard[1].ui.removeClass("pull");
+  if (deck.discard.length)
+  {
+    deck.discard[1].ui.removeClass("lift");
+    deck.discard[0].ui.addClass("lift");
+    deck.discard[0].ui.removeClass("pull");
+  }
 }
 
 function repaint_modifier_deck(deck)
 {
+  // use discard... but it kills the deck!
   prevent_pull_animation(deck);
   clean_node(document.getElementById("topmenu").getElementsByClassName("card-container")[0]);
   place_deck(deck, document.getElementById("topmenu").getElementsByClassName("card-container")[0]);
-  // use discard... but it kills the deck!
 }
 
 function clean_discard_pile(deck)
@@ -459,11 +461,11 @@ function create_input(type, name, value, text)
     return listitem;
 }
 
-function create_button(type, name, value)
+function create_button(type, id, value)
 {
   var button = document.createElement("input");
   button.type = type;
-  button.name = name;
+  button.id = id;
   button.value = value;
 
   return button;
@@ -496,7 +498,7 @@ function apply_deck_selection(decks)
     add_modifier_deck(modifier_container);
 
     // Rescale card text if necessary
-    refresh_ui(decks);
+    refresh_ui();
 }
 
 function add_modifier_deck(container)
@@ -510,7 +512,7 @@ function add_modifier_deck(container)
     reshuffle(deck);
     deck_space.onclick = draw_card_modifier.bind(null, deck);
 
-    create_top_menu_buttons(container, deck);
+    create_top_menu_elements(container, deck);
 
     deck.discard_deck = function()
     {
@@ -540,18 +542,18 @@ function clear_list(list)
     return list;
 }
 
-function create_top_menu_buttons(container, deck)
+function create_top_menu_elements(container, deck)
 {
-  var curse_button = create_button("button", "cursebutton", "Add curse");
+  var curse_button = create_button("button", "cursebtn", "Add curse");
   container.appendChild(curse_button);
   curse_button.onclick = add_curse_to_deck.bind(null, deck);
 
 
-  var bless_button = create_button("button", "blessbutton", "Add bless");
+  var bless_button = create_button("button", "blessbtn", "Add bless");
   container.appendChild(bless_button);
   bless_button.onclick = add_bless_to_deck.bind(null, deck);
 
-  var end_of_round_button = create_button("button", "endofroundbutton", "End of round");
+  var end_of_round_button = create_button("button", "endofroundbtn", "End of round");
   container.appendChild(end_of_round_button);
   end_of_round_button.onclick = click_end_of_round.bind(null, deck);
 }
