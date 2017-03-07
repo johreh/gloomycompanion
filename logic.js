@@ -212,8 +212,6 @@ function reshuffle(deck)
 {
     deck.draw_pile = deck.draw_pile.concat(deck.discard);
     deck.discard = [];
-    shuffle_list(deck.draw_pile);
-
     for (var i = 0; i < deck.draw_pile.length; i++)
     {
         var card = deck.draw_pile[i];
@@ -228,6 +226,8 @@ function reshuffle(deck)
 
         card.ui.set_depth(-i - 4);
     }
+
+    shuffle_list(deck.draw_pile);
 }
 
 function must_reshuffle(deck)
@@ -373,14 +373,16 @@ function create_modifier_card(card_type)
 
 function add_bless_to_discard(deck)
 {
-    deck.discard.push(define_modifier_card(false, "bless"));
+    deck.draw_pile.push(define_modifier_card(false, "bless"));
     deck.bless_count++;
+    shuffle_list(deck.draw_pile);
 }
 
 function add_curse_to_discard(deck)
 {
-    deck.discard.push(define_modifier_card(false, "curse"));
+    deck.draw_pile.push(define_modifier_card(false, "curse"));
     deck.curse_count++;
+    shuffle_list(deck.draw_pile);
 }
 
 function click_end_of_turn(deck)
