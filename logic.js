@@ -212,8 +212,8 @@ function refresh_ui(decks)
 
 function reshuffle(deck)
 {
-    deck.draw_pile = deck.draw_pile.concat(deck.discard);
-    deck.discard = [];
+    shuffle_list(deck.draw_pile);
+
     for (var i = 0; i < deck.draw_pile.length; i++)
     {
         var card = deck.draw_pile[i];
@@ -226,10 +226,14 @@ function reshuffle(deck)
         card.ui.removeClass("discard");
         card.ui.addClass("draw");
 
-        card.ui.set_depth(-i - 4);
+        card.ui.set_depth(-i - 100);
     }
+}
 
-    shuffle_list(deck.draw_pile);
+function shuffle_discards_in(deck)
+{
+  deck.draw_pile = deck.draw_pile.concat(deck.discard);
+  deck.discard = [];
 }
 
 function must_reshuffle(deck)
@@ -251,12 +255,11 @@ function must_reshuffle_modifier(deck)
     {
         return true;
         deck.shuffle_end_of_the_turn = false;
-        deck.end_of_round = false; // TO FIX. This is temporal, just for testing that it shuffles. HAVE TO BE FALSE
-
+        deck.end_of_round = false;
     } else if (deck.end_of_round)
       // Modifier decks should reshuffle when the end of round has been selected and they've seen 2x or Null cards.
         {
-            deck.end_of_round = true; // TO FIX. This is temporal, just for testing that it shuffles. HAVE TO BE FALSE
+            deck.end_of_round = false;
             var should_shuffle = deck.shuffle_end_of_the_turn;
             deck.shuffle_end_of_the_turn = false;
             return should_shuffle;
@@ -291,6 +294,7 @@ function draw_card(deck)
 {
     if (must_reshuffle(deck))
     {
+        shuffle_discards_in(deck);
         reshuffle(deck);
     }
     else
@@ -299,10 +303,43 @@ function draw_card(deck)
     }
 }
 
+function prevent_pull_animation(deck)
+{
+  deck.discard[0].ui.addClass("lift");
+  deck.discard[0].ui.removeClass("pull");
+
+  deck.discard[1].ui.removeClass("pull");
+}
+
+function repaint_modifier_deck(deck)
+{
+  prevent_pull_animation(deck);
+  clean_node(document.getElementById("topmenu").getElementsByClassName("card-container")[0]);
+  place_deck(deck, document.getElementById("topmenu").getElementsByClassName("card-container")[0]);
+  // use discard... but it kills the deck!
+}
+
+function clean_discard_pile(deck)
+{
+  for (var i = 0; i < deck.discard.length; i++)
+    {
+      if (deck.discard[i].card_type == "bless"
+          || deck.discard[i].card_type == "curse")
+      {
+        //Delete this curse/bless that has been used
+        deck.discard.splice(i, 1);
+        i--;
+      }
+    }
+}
+
 function draw_card_modifier(deck)
 {
     if (must_reshuffle_modifier(deck))
     {
+        clean_discard_pile(deck);
+        shuffle_discards_in(deck);
+        repaint_modifier_deck(deck);
         reshuffle(deck);
     }
     else
@@ -312,13 +349,12 @@ function draw_card_modifier(deck)
         {
             deck.shuffle_end_of_the_turn = true;
         }
+
         if (deck.discard[0].card_type == "bless")
         {
-            deck.discard.splice(0);
             deck.bless_count--;
         }else if (deck.discard[0].card_type == "curse")
         {
-            deck.discard.splice(0);
             deck.curse_count--;
         }
     }
@@ -334,8 +370,7 @@ function load_modifier_deck(number_bless, number_curses)
         bless_count: 0,
         curse_count: 0,
         shuffle_end_of_the_turn: false,
-        end_of_round: true // !!!!!!!!!!!!!!
-        // To fix, this is just temporal until we make the "end of turn" button
+        end_of_round: false
     }
 
     //Start the Deck with the default values: Six +0, five +1, five -1 and a single +2, -2, 2x and Null card each.
@@ -348,6 +383,13 @@ function load_modifier_deck(number_bless, number_curses)
     deck_state.draw_pile.push(define_modifier_card(true, "double"));
 
     return deck_state;
+}
+
+function create_modifier_card(card_type)
+{
+    var card = document.createElement("div");
+    card.className = "card modifier " + card_type + " down";
+    return card;
 }
 
 function define_modifier_card(shuffle, card_type)
@@ -364,30 +406,27 @@ function define_modifier_card(shuffle, card_type)
     return card
 }
 
-function create_modifier_card(card_type)
+function add_bless_to_deck(deck)
 {
-    var card = document.createElement("div");
-    card.className = "card modifier " + card_type + " down";
-
-    return card;
-
-}
-
-function add_bless_to_discard(deck)
-{
-    deck.draw_pile.push(define_modifier_card(false, "bless"));
     deck.bless_count++;
-    shuffle_list(deck.draw_pile);
+    deck.draw_pile.push(define_modifier_card(false, "bless"));
+    //TODO Fix that the animation is triggered
+    repaint_modifier_deck(deck);
+    reshuffle(deck);
+    return deck;
 }
 
-function add_curse_to_discard(deck)
+function add_curse_to_deck(deck)
 {
-    deck.draw_pile.push(define_modifier_card(false, "curse"));
     deck.curse_count++;
-    shuffle_list(deck.draw_pile);
+    deck.draw_pile.push(define_modifier_card(false, "curse"));
+    //TODO Fix that the animation is triggered
+    repaint_modifier_deck(deck);
+    reshuffle(deck);
+    return deck;
 }
 
-function click_end_of_turn(deck)
+function click_end_of_round(deck)
 {
     deck.end_of_round = true;
 }
@@ -420,15 +459,22 @@ function create_input(type, name, value, text)
     return listitem;
 }
 
+function create_button(type, name, value)
+{
+  var button = document.createElement("input");
+  button.type = type;
+  button.name = name;
+  button.value = value;
+
+  return button;
+}
+
 function apply_deck_selection(decks)
 {
     var container = document.getElementById("tableau");
     var modifier_container = document.getElementById("topmenu");
-    container.innerHTML = ""; // TODO use deck.discard_deck instead
-    modifier_container.innerHTML = "";
-
-    //TO FIX! this is for testing, but it should be always added as a deck, and it's own div (with buttons)
-    add_modifier_deck(modifier_container);
+    clean_node(container);
+    clean_node(modifier_container);
 
     for (var i = 0; i < decks.length; i++)
     {
@@ -446,6 +492,9 @@ function apply_deck_selection(decks)
             container.removeChild(deck_space);
         }
     }
+
+    add_modifier_deck(modifier_container);
+
     // Rescale card text if necessary
     refresh_ui(decks);
 }
@@ -460,6 +509,8 @@ function add_modifier_deck(container)
     place_deck(deck, deck_space);
     reshuffle(deck);
     deck_space.onclick = draw_card_modifier.bind(null, deck);
+
+    create_top_menu_buttons(container, deck);
 
     deck.discard_deck = function()
     {
@@ -487,6 +538,22 @@ function clear_list(list)
 {
     list.splice(0, list.length);
     return list;
+}
+
+function create_top_menu_buttons(container, deck)
+{
+  var curse_button = create_button("button", "cursebutton", "Add curse");
+  container.appendChild(curse_button);
+  curse_button.onclick = add_curse_to_deck.bind(null, deck);
+
+
+  var bless_button = create_button("button", "blessbutton", "Add bless");
+  container.appendChild(bless_button);
+  bless_button.onclick = add_bless_to_deck.bind(null, deck);
+
+  var end_of_round_button = create_button("button", "endofroundbutton", "End of round");
+  container.appendChild(end_of_round_button);
+  end_of_round_button.onclick = click_end_of_round.bind(null, deck);
 }
 
 function create_deck_list(decks)
@@ -538,7 +605,6 @@ function init()
 
     create_deck_list(decks).map( function(checkbox) { decklist.appendChild(checkbox); } );
     create_scenario_list(SCENARIO_DEFINITIONS, decks, selected_decks).map( function(radiobtn) { scenariolist.appendChild(radiobtn); } );
-
     applydeckbtn.onclick = function()
     {
         var checkboxes = document.getElementsByName("deck");

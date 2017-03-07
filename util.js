@@ -22,3 +22,10 @@ function toggle_class(element, class_name, enable_class)
     }
 }
 
+function clean_node(myNode)
+{
+  while (myNode.firstChild)
+  {
+    myNode.removeChild(myNode.firstChild);
+  }
+}
