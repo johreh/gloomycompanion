@@ -202,7 +202,8 @@ function refresh_ui(decks)
         var scaled_font_size    = base_font_size * scale;
         var tableau             = document.getElementById("tableau");
 
-        tableau.style.fontSize = Math.min(scaled_font_size, base_font_size);
+        var font_pixel_size     = Math.min(scaled_font_size, base_font_size);
+        tableau.style.fontSize  = font_pixel_size + "px";
     }
 }
 
