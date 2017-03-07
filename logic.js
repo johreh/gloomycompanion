@@ -471,6 +471,16 @@ function create_button(type, id, value)
   return button;
 }
 
+function create_label(id, text)
+{
+  var button = document.createElement("input");
+  button.type = type;
+  button.id = id;
+  button.value = value;
+
+  return button;
+}
+
 function apply_deck_selection(decks)
 {
     var container = document.getElementById("tableau");
@@ -548,6 +558,14 @@ function create_top_menu_elements(container, deck)
   container.appendChild(curse_button);
   curse_button.onclick = add_curse_to_deck.bind(null, deck);
 
+<<<<<<< HEAD
+=======
+  var curse_label = document.create_label("curselabel", "Curses in draw deck: ");
+  container.appendChild(curse_label);
+
+  var curse_label_amount = document.create_label("amountcurses", "0");
+  container.appendChild(curse_label_amount);
+>>>>>>> 54a6b89... start working on labels
 
   var bless_button = create_button("button", "blessbtn", "Add bless");
   container.appendChild(bless_button);
