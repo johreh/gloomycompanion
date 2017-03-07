@@ -1,16 +1,20 @@
 CACHE MANIFEST
 #
-# Version 20170306
+# Version 20170307
 #
 
 cards.css
+style.css
+
 cards.js
 logic.js
 macros.js
 scenarios.js
-style.css
 ui.js
 util.js
+
+Philosopher-Bold.ttf
+PirataOne-Gloomhaven.ttf
 
 images/add_target.svg
 images/air.svg
