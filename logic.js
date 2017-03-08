@@ -51,7 +51,7 @@ function UICard(front_element, back_element)
     return card;
 }
 
-function create_card_back(name)
+function create_ability_card_back(name)
 {
     var card = document.createElement("div");
     card.className = "card back down";
@@ -64,7 +64,7 @@ function create_card_back(name)
     return card;
 }
 
-function create_card_front(initiative, name, shuffle, lines)
+function create_ability_card_front(initiative, name, shuffle, lines)
 {
     var card = document.createElement("div");
     card.className = "card front down";
@@ -146,7 +146,7 @@ function create_card_front(initiative, name, shuffle, lines)
     return card;
 }
 
-function load_deck(deck_definition)
+function load_ability_deck(deck_definition)
 {
     var deck_state = {
         name:                   deck_definition.name,
@@ -161,8 +161,8 @@ function load_deck(deck_definition)
         var initiative = definition[1];
         var lines = definition.slice(2);
 
-        var card_front = create_card_front(initiative, deck_definition.name, shuffle, lines);
-        var card_back = create_card_back(deck_definition.name);
+        var card_front = create_ability_card_front(initiative, deck_definition.name, shuffle, lines);
+        var card_back = create_ability_card_back(deck_definition.name);
 
         var card = {
             ui:             new UICard(card_front, card_back),
@@ -225,7 +225,7 @@ function reshuffle(deck)
         card.ui.removeClass("discard");
         card.ui.addClass("draw");
 
-        card.ui.set_depth(-i - 100);
+        card.ui.set_depth(-i - 4);
     }
 
     shuffle_list(deck.draw_pile);
@@ -238,7 +238,7 @@ function shuffle_discards_in(deck)
   deck.discard = [];
 }
 
-function must_reshuffle(deck)
+function must_reshuffle_abilities(deck)
 {
     if (!deck.draw_pile.length)
     {
@@ -292,9 +292,9 @@ function flip_up_top_card(deck)
         deck.discard.unshift(card);
 }
 
-function draw_card(deck)
+function draw_ability_card(deck)
 {
-    if (must_reshuffle(deck))
+    if (must_reshuffle_abilities(deck))
     {
         shuffle_discards_in(deck);
         reshuffle(deck);
@@ -338,7 +338,7 @@ function clean_discard_pile(deck)
 }
 
 
-function draw_card_modifier(deck)
+function draw_modifier_modifier(deck)
 {
     if (must_reshuffle_modifier(deck))
     {
@@ -417,7 +417,6 @@ function add_bless_to_deck(deck)
 {
     deck.bless_count++;
     deck.draw_pile.push(define_modifier_card(false, "bless"));
-    //TODO Fix that the animation is triggered
     repaint_modifier_deck(deck);
     reshuffle(deck);
     write_value_deck_status(deck.curse_count, deck.bless_count);
@@ -427,7 +426,6 @@ function add_curse_to_deck(deck)
 {
     deck.curse_count++;
     deck.draw_pile.push(define_modifier_card(false, "curse"));
-    //TODO Fix that the animation is triggered
     repaint_modifier_deck(deck);
     reshuffle(deck);
     write_value_deck_status(deck.curse_count, deck.bless_count);
@@ -439,12 +437,12 @@ function click_end_of_round(deck)
 }
 
 
-function load(card_database)
+function load_definition(card_database)
 {
     var decks = {};
     for (var i = 0; i < card_database.length; i++)
     {
-        var deck = load_deck(card_database[i]);
+        var deck = load_ability_deck(card_database[i]);
         decks[deck.name] = deck;
     }
     return decks;
@@ -473,7 +471,7 @@ function apply_deck_selection(decks)
         var deck = decks[i];
         place_deck(deck, deck_space);
         reshuffle(deck);
-        deck_space.onclick = draw_card.bind(null, deck);
+        deck_space.onclick = draw_ability_card.bind(null, deck);
 
         deck.discard_deck = function()
         {
@@ -496,26 +494,7 @@ function add_modifier_deck(container)
 
     place_deck(deck, deck_space);
     reshuffle(deck);
-    deck_space.onclick = draw_card_modifier.bind(null, deck);
-
-    create_top_menu_elements(container, deck);
-
-    deck.discard_deck = function()
-    {
-        container.removeChild(deck_space);
-    }
-}
-
-function add_modifier_deck(container)
-{
-    var deck = load_modifier_deck(0,0);
-    var deck_space = document.createElement("div");
-    deck_space.className = "card-container";
-    container.appendChild(deck_space);
-
-    place_deck(deck, deck_space);
-    reshuffle(deck);
-    deck_space.onclick = draw_card_modifier.bind(null, deck);
+    deck_space.onclick = draw_modifier_modifier.bind(null, deck);
 
     create_top_menu_elements(container, deck);
 
@@ -608,7 +587,7 @@ function create_scenario_list(scenarios, decklist, retobj)
 
 function init()
 {
-    decks = load(DECK_DEFINITONS);
+    decks = load_definition(DECK_DEFINITONS);
 
     var decklist = document.getElementById("decklist");
     var scenariolist = document.getElementById("scenariolist");
