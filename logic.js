@@ -299,27 +299,23 @@ function create_input(type, name, value, text)
     return listitem;
 }
 
-function apply_deck_selection(decks)
+function apply_deck_selection(decks, preserveExistingDeckState)
 {
     var container = document.getElementById("tableau");
 
-    select(
-        visible_decks,
-        function(visible_deck) {
-            return !any(decks, function(d) { return d.name === visible_deck.name; });
-        }
-    ).forEach(function(deck) { deck.discard_deck(); });
+    var decks_to_remove = visible_decks.filter(function(deck) {
+        return !preserveExistingDeckState || decks.indexOf(deck) === -1;
+    });
 
-    for (var i = 0; i < decks.length; i++)
-    {
-        var deck = decks[i];
+    var decks_to_add = decks.filter(function(deck) {
+        return !preserveExistingDeckState || visible_decks.indexOf(deck) === -1;
+    });
 
-        if (any(visible_decks, function(visible_deck) { return visible_deck.name === deck.name; })) {
-            // This deck is already on the tableau.
-            continue;
-        }
+    decks_to_remove.forEach(function(deck) { deck.discard_deck(); });
 
+    decks_to_add.forEach(function(deck) {
         var deck_space = document.createElement("div");
+
         deck_space.className = "card-container";
 
         container.appendChild(deck_space);
@@ -340,7 +336,7 @@ function apply_deck_selection(decks)
         }.bind(deck, deck_space);
 
         visible_decks.push(deck);
-    }
+    });
 
     // Rescale card text if necessary
     refresh_ui(decks);
@@ -424,11 +420,11 @@ function init()
         var selected_deck_names = get_checkbox_selection(checkboxes);
         clear_list(selected_decks);
         selected_deck_names.map( function(name) { selected_decks.push(decks[name]); } );
-        apply_deck_selection(selected_decks);
+        apply_deck_selection(selected_decks, true);
     };
     applyscenariobtn.onclick = function()
     {
-        apply_deck_selection(selected_decks);
+        apply_deck_selection(selected_decks, false);
     };
 
     window.onresize = refresh_ui.bind(null, selected_decks);
