@@ -448,11 +448,11 @@ function load_definition(card_database)
     return decks;
 }
 
-function write_value_deck_status(curses, blesses) 
+function write_value_deck_status(curses, blesses)
 {
     var displaylabel = document.getElementById("displaylabel").childNodes[0];
-    displaylabel.nodeValue="Curses in draw deck: " + curses +
-                            "Blesses in draw deck: " + blesses;
+    displaylabel.nodeValue="Curses: " + curses +
+                            "\nBlesses: " + blesses;
 }
 
 function apply_deck_selection(decks)
@@ -528,24 +528,32 @@ function clear_list(list)
 
 function create_top_menu_elements(container, deck)
 {
+    var add_cards_div = document.createElement("div");
     var curse_button = create_button("button", "cursebtn", "Add curse");
-    container.appendChild(curse_button);
+    add_cards_div.appendChild(curse_button);
     curse_button.onclick = add_curse_to_deck.bind(null, deck);
 
+    var bless_button = create_button("button", "blessbtn", "Add bless");
+    add_cards_div.appendChild(bless_button);
+    bless_button.onclick = add_bless_to_deck.bind(null, deck);
+
+    container.appendChild(add_cards_div);
+
+    var disply_cards_added_div = document.createElement("div");
     var display_cards_added = document.createElement("label");
     display_cards_added.id = "displaylabel";
     display_cards_added.style = "inline";
     var display_text = document.createTextNode("");
-    display_cards_added.appendChild(display_text);    
-    container.appendChild(display_cards_added);
+    display_cards_added.appendChild(display_text);
+    disply_cards_added_div.appendChild(display_cards_added);
+    container.appendChild(disply_cards_added_div);
+    // container.appendChild(display_cards_added);
     write_value_deck_status(0,0);
 
-    var bless_button = create_button("button", "blessbtn", "Add bless");
-    container.appendChild(bless_button);
-    bless_button.onclick = add_bless_to_deck.bind(null, deck);
-
+    var end_of_turn_div = document.createElement("div");
     var end_of_round_button = create_button("button", "endofroundbtn", "End of round");
-    container.appendChild(end_of_round_button);
+    end_of_turn_div.appendChild(end_of_round_button);
+    container.appendChild(end_of_turn_div);
     end_of_round_button.onclick = click_end_of_round.bind(null, deck);
 }
 

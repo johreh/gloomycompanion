@@ -17,7 +17,7 @@ body
 
 #topmenu
 {
-  display:            flex;
+  display:            block;
   flex-wrap:          wrap;
   justify-content:    space-around;
   width:              100%;
