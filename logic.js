@@ -315,7 +315,6 @@ function apply_deck_selection(decks, preserveExistingDeckState)
 
     decks_to_add.forEach(function(deck) {
         var deck_space = document.createElement("div");
-
         deck_space.className = "card-container";
 
         container.appendChild(deck_space);
@@ -324,7 +323,7 @@ function apply_deck_selection(decks, preserveExistingDeckState)
         reshuffle(deck);
         deck_space.onclick = draw_card.bind(null, deck);
 
-        deck.discard_deck = function(deck_element)
+        deck.discard_deck = function()
         {
             var index = visible_decks.indexOf(this);
 
@@ -332,8 +331,8 @@ function apply_deck_selection(decks, preserveExistingDeckState)
                 visible_decks.splice(index, 1);
             }
 
-            container.removeChild(deck_element);
-        }.bind(deck, deck_space);
+            container.removeChild(deck_space);
+        };
 
         visible_decks.push(deck);
     });
