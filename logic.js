@@ -355,9 +355,11 @@ function draw_card_modifier(deck)
         if (deck.discard[0].card_type == "bless")
         {
             deck.bless_count--;
+            write_value_deck_status(deck.curse_count, deck.bless_count);
         }else if (deck.discard[0].card_type == "curse")
         {
             deck.curse_count--;
+            write_value_deck_status(deck.curse_count, deck.bless_count);
         }
     }
 }
@@ -415,7 +417,7 @@ function add_bless_to_deck(deck)
     //TODO Fix that the animation is triggered
     repaint_modifier_deck(deck);
     reshuffle(deck);
-    return deck;
+    write_value_deck_status(deck.curse_count, deck.bless_count);
 }
 
 function add_curse_to_deck(deck)
@@ -425,7 +427,7 @@ function add_curse_to_deck(deck)
     //TODO Fix that the animation is triggered
     repaint_modifier_deck(deck);
     reshuffle(deck);
-    return deck;
+    write_value_deck_status(deck.curse_count, deck.bless_count);
 }
 
 function click_end_of_round(deck)
@@ -471,14 +473,11 @@ function create_button(type, id, value)
   return button;
 }
 
-function create_label(id, text)
+function write_value_deck_status(curses, blesses) 
 {
-  var button = document.createElement("input");
-  button.type = type;
-  button.id = id;
-  button.value = value;
-
-  return button;
+    var displaylabel = document.getElementById("displaylabel").childNodes[0];
+    displaylabel.nodeValue="Curses in draw deck: " + curses +
+                            "Blesses in draw deck: " + blesses;
 }
 
 function apply_deck_selection(decks)
@@ -576,23 +575,28 @@ function clear_list(list)
 
 function create_top_menu_elements(container, deck)
 {
-  var curse_button = create_button("button", "cursebtn", "Add curse");
-  container.appendChild(curse_button);
-  curse_button.onclick = add_curse_to_deck.bind(null, deck);
+    var curse_button = create_button("button", "cursebtn", "Add curse");
+    container.appendChild(curse_button);
+    curse_button.onclick = add_curse_to_deck.bind(null, deck);
 
-  // var curse_label = document.create_label("curselabel", "Curses in draw deck: ");
-  // container.appendChild(curse_label);
+    var display_cards_added = document.createElement("label");
+    display_cards_added.id = "displaylabel";
+    display_cards_added.style = "inline";
+    var display_text = document.createTextNode("");
+    display_cards_added.appendChild(display_text);    
+    container.appendChild(display_cards_added);
+    write_value_deck_status(0,0);
 
-  // var curse_label_amount = document.create_label("amountcurses", "0");
-  // container.appendChild(curse_label_amount);
+    // var curse_label_amount = document.create_label("amountcurses", "0");
+    // container.appendChild(curse_label_amount);
 
-  var bless_button = create_button("button", "blessbtn", "Add bless");
-  container.appendChild(bless_button);
-  bless_button.onclick = add_bless_to_deck.bind(null, deck);
+    var bless_button = create_button("button", "blessbtn", "Add bless");
+    container.appendChild(bless_button);
+    bless_button.onclick = add_bless_to_deck.bind(null, deck);
 
-  var end_of_round_button = create_button("button", "endofroundbtn", "End of round");
-  container.appendChild(end_of_round_button);
-  end_of_round_button.onclick = click_end_of_round.bind(null, deck);
+    var end_of_round_button = create_button("button", "endofroundbtn", "End of round");
+    container.appendChild(end_of_round_button);
+    end_of_round_button.onclick = click_end_of_round.bind(null, deck);
 }
 
 function create_deck_list(decks)
