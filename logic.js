@@ -530,6 +530,28 @@ function add_modifier_deck(container)
     }
 }
 
+<<<<<<< HEAD
+=======
+function add_modifier_deck(container)
+{
+    var deck = load_modifier_deck(0,0);
+    var deck_space = document.createElement("div");
+    deck_space.className = "card-container";
+    container.appendChild(deck_space);
+
+    place_deck(deck, deck_space);
+    reshuffle(deck);
+    deck_space.onclick = draw_card_modifier.bind(null, deck);
+
+    create_top_menu_elements(container, deck);
+
+    deck.discard_deck = function()
+    {
+        container.removeChild(deck_space);
+    }
+}
+
+>>>>>>> ca59c9e... fix bug not painting buttons
 function get_checkbox_selection(checkboxes)
 {
     var selected_decks = [];
@@ -558,14 +580,11 @@ function create_top_menu_elements(container, deck)
   container.appendChild(curse_button);
   curse_button.onclick = add_curse_to_deck.bind(null, deck);
 
-<<<<<<< HEAD
-=======
-  var curse_label = document.create_label("curselabel", "Curses in draw deck: ");
-  container.appendChild(curse_label);
+  // var curse_label = document.create_label("curselabel", "Curses in draw deck: ");
+  // container.appendChild(curse_label);
 
-  var curse_label_amount = document.create_label("amountcurses", "0");
-  container.appendChild(curse_label_amount);
->>>>>>> 54a6b89... start working on labels
+  // var curse_label_amount = document.create_label("amountcurses", "0");
+  // container.appendChild(curse_label_amount);
 
   var bless_button = create_button("button", "blessbtn", "Add bless");
   container.appendChild(bless_button);
