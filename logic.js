@@ -1,4 +1,3 @@
-
 var do_shuffles = true;
 
 function UICard(front_element, back_element)
@@ -228,6 +227,9 @@ function reshuffle(deck)
 
         card.ui.set_depth(-i - 100);
     }
+
+    shuffle_list(deck.draw_pile);
+
 }
 
 function shuffle_discards_in(deck)
@@ -334,6 +336,7 @@ function clean_discard_pile(deck)
       }
     }
 }
+
 
 function draw_card_modifier(deck)
 {
@@ -447,32 +450,6 @@ function load(card_database)
     return decks;
 }
 
-function create_input(type, name, value, text)
-{
-    var checkbox = document.createElement("input");
-    checkbox.type = type;
-    checkbox.name = name;
-    checkbox.value = value;
-
-    var textnode = document.createTextNode(text);
-
-    var listitem = document.createElement("li");
-    listitem.appendChild(checkbox);
-    listitem.appendChild(textnode);
-
-    return listitem;
-}
-
-function create_button(type, id, value)
-{
-  var button = document.createElement("input");
-  button.type = type;
-  button.id = id;
-  button.value = value;
-
-  return button;
-}
-
 function write_value_deck_status(curses, blesses) 
 {
     var displaylabel = document.getElementById("displaylabel").childNodes[0];
@@ -529,8 +506,6 @@ function add_modifier_deck(container)
     }
 }
 
-<<<<<<< HEAD
-=======
 function add_modifier_deck(container)
 {
     var deck = load_modifier_deck(0,0);
@@ -550,7 +525,6 @@ function add_modifier_deck(container)
     }
 }
 
->>>>>>> ca59c9e... fix bug not painting buttons
 function get_checkbox_selection(checkboxes)
 {
     var selected_decks = [];
@@ -586,9 +560,6 @@ function create_top_menu_elements(container, deck)
     display_cards_added.appendChild(display_text);    
     container.appendChild(display_cards_added);
     write_value_deck_status(0,0);
-
-    // var curse_label_amount = document.create_label("amountcurses", "0");
-    // container.appendChild(curse_label_amount);
 
     var bless_button = create_button("button", "blessbtn", "Add bless");
     container.appendChild(bless_button);
