@@ -108,12 +108,12 @@
     transition-delay:           0s,     0s,     0s,     0s,     0s,         0.4s;
 }
 
-.card.front
+.card.ability.front
 {
     background-image:           url(images/front.jpg);
 }
 
-.card.back
+.card.ability.back
 {
     background-image:           url(images/back.jpg);
 }
@@ -159,7 +159,6 @@
 {
     background-image:           url(images/attack_mod_curse.jpg);
 }
-
 
 .card ul
 {
@@ -323,4 +322,3 @@ img[src="images/shuffle.svg"]
 {
     transform:                  rotateY(180deg);
 }
-

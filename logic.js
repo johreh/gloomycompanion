@@ -54,7 +54,7 @@ function UICard(front_element, back_element)
 function create_ability_card_back(name)
 {
     var card = document.createElement("div");
-    card.className = "card back down";
+    card.className = "card ability back down";
 
     var name_span = document.createElement("span");
     name_span.className = "name";
@@ -67,7 +67,7 @@ function create_ability_card_back(name)
 function create_ability_card_front(initiative, name, shuffle, lines)
 {
     var card = document.createElement("div");
-    card.className = "card front down";
+    card.className = "card ability front down";
 
     var name_span = document.createElement("span");
     name_span.className = "name";
