@@ -1,5 +1,5 @@
-
 var do_shuffles = true;
+var visible_decks = [];
 
 function UICard(front_element, back_element)
 {
@@ -114,7 +114,7 @@ function create_card_front(initiative, name, shuffle, lines)
                 var list_item = document.createElement("li");
                 current_parent.appendChild(list_item);
                 current_parent = list_item;
-                
+
                 current_depth += 1;
             }
             else
@@ -265,7 +265,7 @@ function draw_card(deck)
         card.ui.set_depth(-3);
         card.ui.addClass("pull");
         card.ui.flip_up(true);
-        
+
         card.ui.removeClass("draw");
         card.ui.addClass("discard");
         deck.discard.unshift(card);
@@ -302,23 +302,44 @@ function create_input(type, name, value, text)
 function apply_deck_selection(decks)
 {
     var container = document.getElementById("tableau");
-    container.innerHTML = ""; // TODO use deck.discard_deck instead
+
+    select(
+        visible_decks,
+        function(visible_deck) {
+            return !any(decks, function(d) { return d.name === visible_deck.name; });
+        }
+    ).forEach(function(deck) { deck.discard_deck(); });
 
     for (var i = 0; i < decks.length; i++)
     {
+        var deck = decks[i];
+
+        if (any(visible_decks, function(visible_deck) { return visible_deck.name === deck.name; })) {
+            // This deck is already on the tableau.
+            continue;
+        }
+
         var deck_space = document.createElement("div");
         deck_space.className = "card-container";
+
         container.appendChild(deck_space);
 
-        var deck = decks[i];
         place_deck(deck, deck_space);
         reshuffle(deck);
         deck_space.onclick = draw_card.bind(null, deck);
 
-        deck.discard_deck = function()
+        deck.discard_deck = function(deck_element)
         {
-            container.removeChild(deck_space);
-        }
+            var index = visible_decks.indexOf(this);
+
+            if (index > -1) {
+                visible_decks.splice(index, 1);
+            }
+
+            container.removeChild(deck_element);
+        }.bind(deck, deck_space);
+
+        visible_decks.push(deck);
     }
 
     // Rescale card text if necessary
@@ -393,7 +414,7 @@ function init()
     var applyscenariobtn = document.getElementById("applyscenario");
 
     var selected_decks = [];
-    
+
     create_deck_list(decks).map( function(checkbox) { decklist.appendChild(checkbox); } );
     create_scenario_list(SCENARIO_DEFINITIONS, decks, selected_decks).map( function(radiobtn) { scenariolist.appendChild(radiobtn); } );
 

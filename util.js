@@ -22,3 +22,18 @@ function toggle_class(element, class_name, enable_class)
     }
 }
 
+function select(array, predicate) {
+    var ret = [];
+
+    array.forEach(function(value) {
+        if (predicate(value)) {
+            ret.push(value);
+        }
+    });
+
+    return ret;
+}
+
+function any(array, predicate) {
+    return select(array, predicate).length > 0;
+}
