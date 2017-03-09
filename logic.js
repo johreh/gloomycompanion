@@ -337,7 +337,7 @@ function clean_discard_pile(deck)
     }
 }
 
-function draw_modifier_modifier(deck)
+function draw_modifier_card(deck)
 {
     if (must_reshuffle_modifier(deck))
     {
@@ -541,7 +541,7 @@ function add_modifier_deck(container)
 
     place_deck(deck, deck_space);
     reshuffle(deck);
-    deck_space.onclick = draw_modifier_modifier.bind(null, deck);
+    deck_space.onclick = draw_modifier_card.bind(null, deck);
 
     create_top_menu_elements(container, deck);
 
