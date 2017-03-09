@@ -337,14 +337,19 @@ function clean_discard_pile(deck)
     }
 }
 
+function reshuffle_modifier_deck(deck)
+{
+  clean_discard_pile(deck);
+  shuffle_discards_in(deck);
+  repaint_modifier_deck(deck);
+  reshuffle(deck);
+}
+
 function draw_modifier_card(deck)
 {
     if (must_reshuffle_modifier(deck))
     {
-        clean_discard_pile(deck);
-        shuffle_discards_in(deck);
-        repaint_modifier_deck(deck);
-        reshuffle(deck);
+        reshuffle_modifier_deck(deck);
     }
     else
     {
@@ -414,7 +419,7 @@ function define_modifier_card(shuffle, card_type)
 
 function remove_curse_from_deck(deck)
 {
-    if (deck.curse_count) 
+    if (deck.curse_count)
     {
         for (var i = 0; i < deck.draw_pile.length; i++)
         {
@@ -428,12 +433,12 @@ function remove_curse_from_deck(deck)
             }
         }
     }
-    
+
 }
 
 function remove_bless_from_deck(deck)
 {
-    if (deck.bless_count) 
+    if (deck.bless_count)
     {
         for (var i = 0; i < deck.draw_pile.length; i++)
         {
@@ -447,7 +452,7 @@ function remove_bless_from_deck(deck)
             }
         }
     }
-    
+
 }
 
 function add_bless_to_deck(deck)
@@ -473,6 +478,10 @@ function add_curse_to_deck(deck)
 function click_end_of_round(deck)
 {
     deck.end_of_round = true;
+    if (must_reshuffle_modifier(deck))
+    {
+      reshuffle_modifier_deck(deck);
+    }
 }
 
 
@@ -487,7 +496,7 @@ function load_definition(card_database)
     return decks;
 }
 
-function write_value_deck_status(curses, blesses) 
+function write_value_deck_status(curses, blesses)
 {
     var displaylabel = document.getElementById("displaylabel").childNodes[0];
     displaylabel.nodeValue="Curses in draw deck: " + curses +
@@ -591,9 +600,9 @@ function create_top_menu_elements(container, deck)
     display_cards_added.id = "displaylabel";
     display_cards_added.style = "inline";
     var display_text = document.createTextNode("");
-    display_cards_added.appendChild(display_text);    
+    display_cards_added.appendChild(display_text);
     container.appendChild(display_cards_added);
-    
+
 
     var bless_button_div = document.createElement("div");
     var add_bless_button = create_button("button", "blessbtn", "Add bless");
