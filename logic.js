@@ -299,16 +299,16 @@ function create_input(type, name, value, text)
     return listitem;
 }
 
-function apply_deck_selection(decks, preserveExistingDeckState)
+function apply_deck_selection(decks, preserve_existing_deck_state)
 {
     var container = document.getElementById("tableau");
 
     var decks_to_remove = visible_decks.filter(function(deck) {
-        return !preserveExistingDeckState || decks.indexOf(deck) === -1;
+        return !preserve_existing_deck_state || decks.indexOf(deck) === -1;
     });
 
     var decks_to_add = decks.filter(function(deck) {
-        return !preserveExistingDeckState || visible_decks.indexOf(deck) === -1;
+        return !preserve_existing_deck_state || visible_decks.indexOf(deck) === -1;
     });
 
     decks_to_remove.forEach(function(deck) { deck.discard_deck(); });
