@@ -225,7 +225,7 @@ function reshuffle(deck)
         card.ui.removeClass("discard");
         card.ui.addClass("draw");
 
-        card.ui.set_depth(-i - 4);
+        card.ui.set_depth(-i - 6);
     }
 
     shuffle_list(deck.draw_pile);
@@ -371,7 +371,6 @@ function draw_modifier_card(deck)
     else
     {
         flip_up_top_card(deck);
-        console.log(deck.discard[0].card_type);
         if (deck.discard[0].shuffle_next_round)
         {
             deck.shuffle_end_of_the_turn = true;
@@ -396,19 +395,16 @@ function double_draw(deck)
     //    draw the next
     if (deck.draw_pile.length == 1)
     {
-        console.log("1");
         draw_modifier_card(deck);
         advantage_card = deck.discard[0];
         reshuffle_modifier_deck(deck);
         draw_modifier_card(deck);
-        send_to_discard(advantage_card, pull_animation=false);
     }
     // Case there were 0 cards in draw_pile when we clicked "draw 2".
     //    we should reshuffle, draw 1 and send it to advantage_place,
     //    draw the next
     else if (deck.draw_pile.length == 0)
     {
-        console.log("2");
         reshuffle_modifier_deck(deck);
         draw_modifier_card(deck);
         advantage_card = deck.discard[0];
@@ -421,6 +417,7 @@ function double_draw(deck)
         advantage_card = deck.discard[0];
         draw_modifier_card(deck);
     }
+    send_to_discard(advantage_card, pull_animation=false);
     paint_card_on_advantage_deck_space(advantage_card, deck.advantage_deck);
 }
 
