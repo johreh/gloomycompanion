@@ -371,7 +371,7 @@ function create_scenario_list(scenarios, decklist, retobj)
         function update_retobj(decknames, e)
         {
             clear_list(retobj);
-            var selected_decks = decknames.map( function(name) { return decklist[name]; } );
+            var selected_decks = decknames.map( function(name) { return decklist[discard_monster_adjetives(name)]; } );
             selected_decks.map( function(deck) { retobj.push(deck); } );
         }
 
@@ -380,6 +380,28 @@ function create_scenario_list(scenarios, decklist, retobj)
         radiolist.push(label);
     }
     return radiolist;
+}
+
+function discard_monster_adjetives(monster_name)
+{
+    var monster_adjetives = ["Bandit", "City", "Inox", "Vermling", "Forest"];
+    var words_in_name = monster_name.split(" ");
+
+    if (words_in_name.length > 1)
+    {
+        monster_name = "";
+        for (var i=0; i < words_in_name.length; i++)
+        {
+            if (!monster_adjetives.includes(words_in_name[i]))
+            {
+                monster_name = monster_name.concat(words_in_name[i] + " ");
+            }
+        }
+        return monster_name.trim();
+    } else 
+    {
+        return monster_name;
+    }
 }
 
 function init()
