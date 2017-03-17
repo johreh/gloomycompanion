@@ -325,9 +325,9 @@ function repaint_modifier_deck(deck, prevent_pull)
 {
     // use discard... but it kills the deck!
     prevent_pull_animation(deck);
-    clean_node(document.getElementById("topmenu").getElementsByClassName("base")[0]);
+    remove_child(document.getElementById("topmenu").getElementsByClassName("base")[0]);
     place_deck(deck, document.getElementById("topmenu").getElementsByClassName("base")[0]);
-    clean_node(document.getElementById("topmenu").getElementsByClassName("extra")[0]);
+    remove_child(document.getElementById("topmenu").getElementsByClassName("extra")[0]);
     if (deck.advantage_deck.discard.length)
     {
         place_deck(deck.advantage_deck, document.getElementById("topmenu").getElementsByClassName("extra")[0]);
@@ -448,7 +448,7 @@ function load_modifier_deck(number_bless, number_curses)
         if (deck.advantage_deck.discard.length)
         {
             deck.advantage_deck.discard.splice(0, 1);
-            clean_node(document.getElementById("topmenu").getElementsByClassName("extra")[0]);
+            remove_child(document.getElementById("topmenu").getElementsByClassName("extra")[0]);
             place_deck(deck.advantage_deck, document.getElementById("topmenu").getElementsByClassName("extra")[0]);
         }
         
@@ -583,8 +583,8 @@ function apply_deck_selection(decks)
 {
     var container = document.getElementById("tableau");
     var modifier_container = document.getElementById("topmenu");
-    clean_node(container);
-    clean_node(modifier_container);
+    remove_child(container);
+    remove_child(modifier_container);
 
     for (var i = 0; i < decks.length; i++)
     {
@@ -635,7 +635,7 @@ function add_modifier_deck(container)
     attack_modifier_decks.appendChild(deck_space_advantage);
 
     place_deck(advantage_deck, deck_space_advantage);
-      deck_space_advantage.onclick = draw_modifier_card.bind(null, deck);
+    deck_space_advantage.onclick = draw_modifier_card.bind(null, deck);
     deck.advantage_deck = advantage_deck;
 
     container.appendChild(attack_modifier_decks);
