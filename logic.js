@@ -1,5 +1,17 @@
 var do_shuffles = true;
 
+var DeckTypes = 
+{
+    MODIFIER : "modifier",
+    SKILL:  "skill"
+};
+
+var CardTypes =
+{
+    BLESS: "bless",
+    CURSE: "curse"
+};
+
 function UICard(front_element, back_element)
 {
     var card = {};
@@ -150,7 +162,7 @@ function load_skill_deck(deck_definition)
 {
     var deck = {
         name:                   deck_definition.name,
-        type:                   "ability",
+        type:                   DeckTypes.SKILL,
         draw_pile:              [],
         discard:                []
     }
@@ -318,7 +330,7 @@ function repaint_modifier_deck(deck, prevent_pull)
     clean_node(document.getElementById("topmenu").getElementsByClassName("extra")[0]);
     if (deck.advantage_deck.discard.length)
     {
-      place_deck(deck.advantage_deck, document.getElementById("topmenu").getElementsByClassName("extra")[0]);
+        place_deck(deck.advantage_deck, document.getElementById("topmenu").getElementsByClassName("extra")[0]);
     }
 }
 
@@ -344,11 +356,11 @@ function draw_modifier_card(deck)
         {
             deck.shuffle_end_of_round = true;
         }
-        if (deck.discard[0].card_type == "bless")
+        if (deck.discard[0].card_type == CardTypes.BLESS)
         {
             deck.bless_count--;
             write_value_deck_status(deck.curse_count, deck.bless_count);
-        } else if (deck.discard[0].card_type == "curse")
+        } else if (deck.discard[0].card_type == CardTypes.CURSE)
         {
             deck.curse_count--;
             write_value_deck_status(deck.curse_count, deck.bless_count);
@@ -400,7 +412,7 @@ function load_modifier_deck(number_bless, number_curses)
 {
     var deck = {
         name: "Monster modifier deck",
-        type: "modifier",
+        type: DeckTypes.MODIFIER,
         draw_pile: [],
         discard: [],
         advantage_deck: null,
@@ -417,8 +429,8 @@ function load_modifier_deck(number_bless, number_curses)
     {
         for (var i = 0; i < deck.discard.length; i++)
         {
-            if (deck.discard[i].card_type == "bless"
-                || deck.discard[i].card_type == "curse")
+            if (deck.discard[i].card_type == CardTypes.BLESS
+                || deck.discard[i].card_type == CardTypes.CURSE)
             {
             //Delete this curse/bless that has been used
             deck.discard.splice(i, 1);
@@ -499,7 +511,7 @@ function remove_bless_from_deck(deck)
     {
         for (var i = 0; i < deck.draw_pile.length; i++)
         {
-            if (deck.draw_pile[i].card_type == "bless")
+            if (deck.draw_pile[i].card_type == CardTypes.BLESS)
             {
                 deck.draw_pile.splice(i, 1);
                 deck.bless_count--;
@@ -515,7 +527,7 @@ function remove_bless_from_deck(deck)
 function add_bless_to_deck(deck)
 {
     deck.bless_count++;
-    deck.draw_pile.push(define_modifier_card(false, "bless"));
+    deck.draw_pile.push(define_modifier_card(false, CardTypes.BLESS));
     repaint_modifier_deck(deck);
     reshuffle(deck, include_discards = false);
     write_value_deck_status(deck.curse_count, deck.bless_count);
@@ -525,7 +537,7 @@ function add_bless_to_deck(deck)
 function add_curse_to_deck(deck)
 {
     deck.curse_count++;
-    deck.draw_pile.push(define_modifier_card(false, "curse"));
+    deck.draw_pile.push(define_modifier_card(false, CardTypes.CURSE));
     repaint_modifier_deck(deck);
     reshuffle(deck, include_discards = false);
     write_value_deck_status(deck.curse_count, deck.bless_count);
