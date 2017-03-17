@@ -148,8 +148,9 @@ function create_skill_card_front(initiative, name, shuffle, lines)
 
 function load_skill_deck(deck_definition)
 {
-    var deck_state = {
+    var deck = {
         name:                   deck_definition.name,
+        type:                   "ability",
         draw_pile:              [],
         discard:                []
     }
@@ -169,12 +170,24 @@ function load_skill_deck(deck_definition)
             shuffle_next:   shuffle
         };
 
-        deck_state.draw_pile.push(card);
+        deck.draw_pile.push(card);
     }
 
-    return deck_state;
-}
+    deck.must_reshuffle = function()
+    {
+      if (!deck.draw_pile.length)
+      {
+          return true;
+      } else {
+          if (do_shuffles && deck.discard.length)
+          {
+              return deck.discard[0].shuffle_next;
+          }
+      }
+    }
 
+    return deck;
+}
 
 function place_deck(deck, container)
 {
@@ -209,8 +222,15 @@ function refresh_ui()
     }
 }
 
-function reshuffle(deck)
+function reshuffle(deck, include_discards = true)
 {
+
+    if (include_discards)
+    {
+        deck.draw_pile = deck.draw_pile.concat(deck.discard);
+        deck.discard = [];
+    }
+
     shuffle_list(deck.draw_pile);
 
     for (var i = 0; i < deck.draw_pile.length; i++)
@@ -232,49 +252,13 @@ function reshuffle(deck)
 
 }
 
-function shuffle_discards_in(deck)
-{
-    deck.draw_pile = deck.draw_pile.concat(deck.discard);
-    deck.discard = [];
-}
-
-function must_reshuffle_abilities(deck)
-{
-    if (!deck.draw_pile.length)
-    {
-        return true;
-    } else {
-        if (do_shuffles && deck.discard.length)
-        {
-            return deck.discard[0].shuffle_next;
-        }
-    }
-}
-
-function must_reshuffle_modifier(deck)
-{
-    if (!deck.draw_pile.length)
-    {
-        return true;
-        deck.shuffle_end_of_the_turn = false;
-        deck.end_of_round = false;
-    } else if (deck.end_of_round)
-      // Modifier decks should reshuffle when the end of round has been selected and they've seen 2x or Null cards.
-        {
-            deck.end_of_round = false;
-            var should_shuffle = deck.shuffle_end_of_the_turn;
-            deck.shuffle_end_of_the_turn = false;
-            return should_shuffle;
-        }
-}
-
 function flip_up_top_card(deck)
 {
     for (var i = 0; i < deck.discard.length; i++)
     {
         var card = deck.discard[i];
         card.ui.removeClass("lift");
-        card.ui.removeClass("pull");
+        card.ui.removeClass("pull");555
         card.ui.push_down();
     }
     if (deck.discard.length > 0)
@@ -286,7 +270,7 @@ function flip_up_top_card(deck)
     deck.discard.unshift(card);
 }
 
-function send_to_discard(card, pull_animation=true)
+function send_to_discard(card, pull_animation = true)
 {
     card.ui.set_depth(-3);
     if (pull_animation)
@@ -301,9 +285,8 @@ function send_to_discard(card, pull_animation=true)
 
 function draw_skill_card(deck)
 {
-    if (must_reshuffle_abilities(deck))
+    if (deck.must_reshuffle())
     {
-        shuffle_discards_in(deck);
         reshuffle(deck);
     }
     else
@@ -316,13 +299,17 @@ function prevent_pull_animation(deck)
 {
     if (deck.discard.length)
     {
-        deck.discard[1].ui.removeClass("lift");
-        deck.discard[0].ui.addClass("lift");
+        if (deck.discard[1])
+        {
+            deck.discard[1].ui.removeClass("lift");
+            deck.discard[0].ui.addClass("lift");
+        }
+        
         deck.discard[0].ui.removeClass("pull");
     }
 }
 
-function repaint_modifier_deck(deck,prevent_pull)
+function repaint_modifier_deck(deck, prevent_pull)
 {
     // use discard... but it kills the deck!
     prevent_pull_animation(deck);
@@ -335,36 +322,18 @@ function repaint_modifier_deck(deck,prevent_pull)
     }
 }
 
-function clean_discard_pile(deck)
-{
-  for (var i = 0; i < deck.discard.length; i++)
-    {
-      if (deck.discard[i].card_type == "bless"
-          || deck.discard[i].card_type == "curse")
-      {
-        //Delete this curse/bless that has been used
-        deck.discard.splice(i, 1);
-        i--;
-      }
-    }
-}
-
 function reshuffle_modifier_deck(deck)
 {
-    clean_discard_pile(deck);
-    shuffle_discards_in(deck);
-    repaint_modifier_deck(deck);
+    deck.clean_discard_pile();
+    deck.shuffle_end_of_round = false;
     reshuffle(deck);
 }
 
 function draw_modifier_card(deck)
 {
-    if (deck.advantage_deck.discard.length)
-    {
-        clean_advantage_deck(deck.advantage_deck);
-    }
+    deck.clean_advantage_deck();
 
-    if (must_reshuffle_modifier(deck))
+    if (deck.must_reshuffle())
     {
         reshuffle_modifier_deck(deck);
     }
@@ -373,7 +342,7 @@ function draw_modifier_card(deck)
         flip_up_top_card(deck);
         if (deck.discard[0].shuffle_next_round)
         {
-            deck.shuffle_end_of_the_turn = true;
+            deck.shuffle_end_of_round = true;
         }
         if (deck.discard[0].card_type == "bless")
         {
@@ -427,36 +396,62 @@ function paint_card_on_advantage_deck_space(card, advantage_deck)
     place_deck(advantage_deck, document.getElementById("topmenu").getElementsByClassName("extra")[0]);
 }
 
-function clean_advantage_deck(advantage_deck)
-{
-    advantage_deck.discard.splice(0, 1);
-    clean_node(document.getElementById("topmenu").getElementsByClassName("extra")[0]);
-    place_deck(advantage_deck, document.getElementById("topmenu").getElementsByClassName("extra")[0]);
-}
-
 function load_modifier_deck(number_bless, number_curses)
 {
-    var deck_state = {
+    var deck = {
         name: "Monster modifier deck",
+        type: "modifier",
         draw_pile: [],
         discard: [],
         advantage_deck: null,
         bless_count: 0,
         curse_count: 0,
-        shuffle_end_of_the_turn: false,
-        end_of_round: false
+        shuffle_end_of_round: false    }
+
+    deck.must_reshuffle = function()
+    {
+        return !deck.draw_pile.length;
+    }
+
+    deck.clean_discard_pile = function()
+    {
+        for (var i = 0; i < deck.discard.length; i++)
+        {
+            if (deck.discard[i].card_type == "bless"
+                || deck.discard[i].card_type == "curse")
+            {
+            //Delete this curse/bless that has been used
+            deck.discard.splice(i, 1);
+            i--;
+            }
+        }
+
+        // This is needed every time we update 
+        repaint_modifier_deck(deck);
+
+    }
+
+    deck.clean_advantage_deck = function()
+    {
+        if (deck.advantage_deck.discard.length)
+        {
+            deck.advantage_deck.discard.splice(0, 1);
+            clean_node(document.getElementById("topmenu").getElementsByClassName("extra")[0]);
+            place_deck(deck.advantage_deck, document.getElementById("topmenu").getElementsByClassName("extra")[0]);
+        }
+        
     }
 
     //Start the Deck with the default values: Six +0, five +1, five -1 and a single +2, -2, 2x and Null card each.
-    for (var i = 0 ; i < 6 ; i++) deck_state.draw_pile.push(define_modifier_card(false, "plus0"));
-    for (var i = 0 ; i < 5 ; i++) deck_state.draw_pile.push(define_modifier_card(false, "plus1"));
-    for (var i = 0 ; i < 5 ; i++) deck_state.draw_pile.push(define_modifier_card(false, "minus1"));
-    deck_state.draw_pile.push(define_modifier_card(false, "plus2"));
-    deck_state.draw_pile.push(define_modifier_card(false, "minus2"));
-    deck_state.draw_pile.push(define_modifier_card(true, "null"));
-    deck_state.draw_pile.push(define_modifier_card(true, "double"));
+    for (var i = 0 ; i < 6 ; i++) deck.draw_pile.push(define_modifier_card(false, "plus0"));
+    for (var i = 0 ; i < 5 ; i++) deck.draw_pile.push(define_modifier_card(false, "plus1"));
+    for (var i = 0 ; i < 5 ; i++) deck.draw_pile.push(define_modifier_card(false, "minus1"));
+    deck.draw_pile.push(define_modifier_card(false, "plus2"));
+    deck.draw_pile.push(define_modifier_card(false, "minus2"));
+    deck.draw_pile.push(define_modifier_card(true, "null"));
+    deck.draw_pile.push(define_modifier_card(true, "double"));
 
-    return deck_state;
+    return deck;
 }
 
 function create_modifier_card(card_type)
@@ -522,7 +517,7 @@ function add_bless_to_deck(deck)
     deck.bless_count++;
     deck.draw_pile.push(define_modifier_card(false, "bless"));
     repaint_modifier_deck(deck);
-    reshuffle(deck);
+    reshuffle(deck, include_discards = false);
     write_value_deck_status(deck.curse_count, deck.bless_count);
     document.getElementById("rmvblessbtn").disabled = false;
 }
@@ -532,18 +527,17 @@ function add_curse_to_deck(deck)
     deck.curse_count++;
     deck.draw_pile.push(define_modifier_card(false, "curse"));
     repaint_modifier_deck(deck);
-    reshuffle(deck);
+    reshuffle(deck, include_discards = false);
     write_value_deck_status(deck.curse_count, deck.bless_count);
     document.getElementById("rmvcursebtn").disabled = false;
 }
 
 function click_end_of_round(deck)
 {
-    deck.end_of_round = true;
-    if (must_reshuffle_modifier(deck))
+    if (deck.shuffle_end_of_round)
     {
-      clean_advantage_deck(deck.advantage_deck);
-      reshuffle_modifier_deck(deck);
+        deck.clean_advantage_deck();
+        reshuffle_modifier_deck(deck);
     }
 }
 
