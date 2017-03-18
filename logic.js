@@ -94,7 +94,7 @@ function create_card_front(initiative, name, shuffle, lines)
         var line = lines[i];
 
         var new_depth = 0;
-        while (line.startsWith("*"))
+        while (line.indexOf("*") >= 0)
         {
             new_depth += 1;
             line = line.substr(1);

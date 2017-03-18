@@ -28,6 +28,9 @@
     position:                   relative;
     text-align:                 center;
 
+    -webkit-box-flex:           1.0;
+
+    width:                      453px;
     width:                      calc(437px + 1rem); /* 437px == card image width */
     max-width:                  147.6vh;
     margin:                     8px;
@@ -38,14 +41,14 @@
     content:                    "";
     visibility:                 hidden;
     display:                    inline-block;
-    padding-bottom:             calc(67.7%);        /* 100% / (card aspect ratio) */
+    padding-bottom:             67.7%;              /* 100% / (card aspect ratio) */
 }
 
 .card
 {
     position:                   absolute;
 
-    box-shadow:                 5px 5px 5px rgba(0, 0, 0, 0.1);
+    -webkit-backface-visibility: hidden;
     backface-visibility:        hidden;
 
     color:                      white;
@@ -59,6 +62,7 @@
     background-size:            cover;
 
     border-radius:              15px;
+    box-shadow:                 5px 5px 5px rgba(0, 0, 0, 0.1);
 }
 
 @keyframes pull
@@ -74,12 +78,19 @@
 
 .card.pull
 {
+    -webkit-animation-name:     pull;
+    -webkit-animation-duration: 0.5s;
+ 
     animation-name:             pull;
     animation-duration:         0.5s;
 }
 
 .card.lift
 {
+    -webkit-animation-name:     lift;
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-timing-function: step-start;
+
     animation-name:             lift;
     animation-duration:         0.5s;
     animation-timing-function:  step-start;
@@ -92,6 +103,9 @@
     bottom:                     0;
     right:                      0;
 
+    -webkit-transition-property: top,   bottom, left,   right,  transform;
+    -webkit-transition-duration: 0.5s;
+
     transition-property:        top,    bottom, left,   right,  transform;
     transition-duration:        0.5s;
 }
@@ -102,6 +116,10 @@
     left:                       0;
     bottom:                     1rem;
     right:                      1rem;
+
+    -webkit-transition-property: top,   left,   bottom, right,  transform,  z-index;
+    -webkit-transition-duration: 0.4s,  0.4s,   0.4s,   0.4s,   0.4s,       0s;
+    -webkit-transition-delay:   0s,     0s,     0s,     0s,     0s,         0.4s;
 
     transition-property:        top,    left,   bottom, right,  transform,  z-index;
     transition-duration:        0.4s,   0.4s,   0.4s,   0.4s,   0.4s,       0s;
@@ -131,10 +149,19 @@
 .card>ul
 {
     position:                   relative;
-    top:                        15%;
-    height:                     85%;
+    top:                        20%;
+    height:                     80%;
     overflow:                   hidden;
     margin:                     0 2ch;
+
+    display:                    -webkit-box;
+    -webkit-box-orient:         vertical;
+    -webkit-box-align:          center;
+    -webkit-box-pack:           center;
+
+    display:                    -webkit-flex;
+    -webkit-flex-direction:     column;
+    -webkit-justify-content:    center;
 
     display:                    flex;
     flex-direction:             column;
@@ -273,11 +300,13 @@ img[src="images/shuffle.svg"]
 
 .up
 {
+    -webkit-transform:          rotateY(0deg);
     transform:                  rotateY(0deg);
 }
 
 .down
 {
+    -webkit-transform:          rotateY(180deg);
     transform:                  rotateY(180deg);
 }
 
