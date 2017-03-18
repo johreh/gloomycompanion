@@ -1,4 +1,3 @@
-
 var do_shuffles = true;
 
 function UICard(front_element, back_element)
@@ -17,10 +16,10 @@ function UICard(front_element, back_element)
         toggle_class(this.front, "down", !faceup);
     };
 
-    card.set_depth = function(z)
+    card.set_depth = function(z, faceup)
     {
-        this.back.style.zIndex = z;
-        this.front.style.zIndex = z;
+        this.back.style.zIndex = faceup ? z - 1 : z;
+        this.front.style.zIndex = faceup ? z : z - 1;
     }
 
     card.push_down = function()
@@ -87,14 +86,20 @@ function create_card_front(initiative, name, shuffle, lines)
         card.appendChild(shuffle_img);
     }
 
+    var table = document.createElement("table");
+    var row = table.insertRow(0);
+    var cell = row.insertCell(0);
+
+    card.appendChild(table);
+
     var current_depth = 0;
-    var current_parent = card;
+    var current_parent = cell;
     for (var i = 0; i < lines.length; i++)
     {
         var line = lines[i];
 
         var new_depth = 0;
-        while (line.startsWith("*"))
+        while (line[0] === "*")
         {
             new_depth += 1;
             line = line.substr(1);
@@ -225,7 +230,7 @@ function reshuffle(deck)
         card.ui.removeClass("discard");
         card.ui.addClass("draw");
 
-        card.ui.set_depth(-i - 4);
+        card.ui.set_depth((-i - 5) * 2, false);
     }
 }
 
@@ -262,7 +267,7 @@ function draw_card(deck)
         }
 
         var card = deck.draw_pile.shift(card);
-        card.ui.set_depth(-3);
+        card.ui.set_depth(-3, true);
         card.ui.addClass("pull");
         card.ui.flip_up(true);
         
