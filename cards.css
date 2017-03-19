@@ -65,23 +65,67 @@
     box-shadow:                 5px 5px 5px rgba(0, 0, 0, 0.1);
 }
 
-@keyframes pull
+@-webkit-keyframes pull-front
 {
-    50%                         { z-index: -2; top: -20%; bottom: 20%; left: -50%; right: 50%; }
-    100%                        { z-index:  0; }
+    0%                          { z-index: -3; -webkit-transform: translate3d(-1rem, -1rem, 1000px) rotateY(180deg); }
+    49%                         { z-index: -2; -webkit-transform: translate3d(-50%, -20%, 2000px)   rotateY(90deg); }
+    51%                         { z-index:  0; -webkit-transform: translate3d(-50%, -20%, 4000px)   rotateY(90deg); }
+    100%                        { z-index:  0; -webkit-transform: translate3d(0, 0, 4000px)         rotateY(0deg); }
+}
+
+@-webkit-keyframes pull-back
+{
+    0%                          { z-index: -3; -webkit-transform: translate3d(-1rem, -1rem, 1000px) rotateY(0deg); }
+    49%                         { z-index: -2; -webkit-transform: translate3d(-50%, -20%, 2000px)   rotateY(90deg); }
+    51%                         { z-index:  0; -webkit-transform: translate3d(-50%, -20%, 4000px)   rotateY(90deg); }
+    100%                        { z-index:  0; -webkit-transform: translate3d(0, 0, 4000px)         rotateY(180deg); }
+}
+
+@keyframes pull-front
+{
+    0%                          { z-index: -3; transform: translate(-1rem, -1rem)   rotateY(180deg); }
+    49%                         { z-index: -2; transform: translate(-50%, -20%)     rotateY(90deg); }
+    51%                         { z-index:  0; transform: translate(-50%, -20%)     rotateY(90deg); }
+    100%                        { z-index:  0; transform: translate(0, 0)           rotateY(0deg); }
+}
+
+@keyframes pull-back
+{
+    0%                          { z-index: -3; transform: translate(-1rem, -1rem)   rotateY(0deg); }
+    49%                         { z-index: -2; transform: translate(-50%, -20%)     rotateY(90deg); }
+    51%                         { z-index:  0; transform: translate(-50%, -20%)     rotateY(90deg); }
+    100%                        { z-index:  0; transform: translate(0, 0)           rotateY(180deg); }
+}
+
+@-webkit-keyframes lift
+{
+    0%                          { z-index: -1; -webkit-transform: translateZ(3000px); }
+    50%                         { z-index: -1; -webkit-transform: translateZ(3000px); }
+    100%                        { z-index: -4: }
 }
 
 @keyframes lift
 {
+    0%                          { z-index: -1; }
     50%                         { z-index: -1; }
+    100%                        { z-index: -4: }
 }
 
-.card.pull
+.card.front.pull
 {
-    -webkit-animation-name:     pull;
+    -webkit-animation-name:     pull-front;
     -webkit-animation-duration: 0.5s;
- 
-    animation-name:             pull;
+
+    animation-name:             pull-front;
+    animation-duration:         0.5s;
+}
+
+.card.back.pull
+{
+    -webkit-animation-name:     pull-back;
+    -webkit-animation-duration: 0.5s;
+
+    animation-name:             pull-back;
     animation-duration:         0.5s;
 }
 
@@ -102,12 +146,6 @@
     left:                       1rem;
     bottom:                     0;
     right:                      0;
-
-    -webkit-transition-property: top,   bottom, left,   right,  transform;
-    -webkit-transition-duration: 0.5s;
-
-    transition-property:        top,    bottom, left,   right,  transform;
-    transition-duration:        0.5s;
 }
 
 .card.draw
@@ -117,9 +155,9 @@
     bottom:                     1rem;
     right:                      1rem;
 
-    -webkit-transition-property: top,   left,   bottom, right,  transform,  z-index;
-    -webkit-transition-duration: 0.4s,  0.4s,   0.4s,   0.4s,   0.4s,       0s;
-    -webkit-transition-delay:   0s,     0s,     0s,     0s,     0s,         0.4s;
+    -webkit-transition-property: top,   left,   bottom, right,  -webkit-transform,  z-index;
+    -webkit-transition-duration: 0.4s,  0.4s,   0.4s,   0.4s,   0.4s,               0s;
+    -webkit-transition-delay:   0s,     0s,     0s,     0s,     0s,                 0.4s;
 
     transition-property:        top,    left,   bottom, right,  transform,  z-index;
     transition-duration:        0.4s,   0.4s,   0.4s,   0.4s,   0.4s,       0s;
