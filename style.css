@@ -73,7 +73,12 @@ ul.tabcontainer .inactive
 
 .tabbody.inactive
 {
-    display:            none;
+    height:             0;
+    margin-top:         0;
+    margin-bottom:      0;
+    padding-top:        0;
+    padding-bottom:     0;
+    overflow:           hidden;
 }
 
 .selectionlist
