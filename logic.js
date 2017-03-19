@@ -228,17 +228,15 @@ function refresh_ui()
     var actual_card_height = 296;
     var base_font_size = 26.6;
 
-    var cards = document.getElementsByClassName("card");
+    var tableau = document.getElementById("tableau");
+    var cards = tableau.getElementsByClassName("card");
     if (cards.length)
     {
         var scale               = cards[0].getBoundingClientRect().height / actual_card_height;
         var scaled_font_size    = base_font_size * scale;
-        var tableau             = document.getElementById("tableau");
-        var topmenu             = document.getElementById("topmenu");
 
         var font_pixel_size     = Math.min(scaled_font_size, base_font_size);
         tableau.style.fontSize  = font_pixel_size + "px";
-        topmenu.style.fontSize  = font_pixel_size + "px";
     }
 }
 
