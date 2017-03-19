@@ -296,7 +296,7 @@ function create_input(type, name, value, text)
     label.appendChild(input);
     label.appendChild(textnode);
 
-    return [label, input];
+    return {'root': label, 'input': input};
 }
 
 function apply_deck_selection(decks, preserve_existing_deck_state)
@@ -357,11 +357,11 @@ function DeckList(decks)
     for (var deck_name in decks)
     {
         var listitem = document.createElement("li");
-        var [label, checkbox] = create_input("checkbox", "deck", deck_name, deck_name);
+        var dom_dict = create_input("checkbox", "deck", deck_name, deck_name);
 
-        listitem.appendChild(label);
+        listitem.appendChild(dom_dict.root);
         decklist.ul.appendChild(listitem);
-        decklist.checkboxes[deck_name] = checkbox;
+        decklist.checkboxes[deck_name] = dom_dict.input;
     }
 
     decklist.get_selection = function()
@@ -399,11 +399,11 @@ function ScenarioList(scenarios)
     {
         var scenario = scenarios[i];
         var listitem = document.createElement("li");
-        var [label, radio] = create_input("radio", "scenario", scenario.name, scenario.name);
+        var dom_dict = create_input("radio", "scenario", scenario.name, scenario.name);
 
-        listitem.appendChild(label);
+        listitem.appendChild(dom_dict.root);
         scenariolist.ul.appendChild(listitem);
-        scenariolist.radios.push(radio);
+        scenariolist.radios.push(dom_dict.input);
         scenariolist.decks[scenario.name] = scenario.decks;
     }
 
