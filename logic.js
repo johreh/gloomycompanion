@@ -292,11 +292,11 @@ function create_input(type, name, value, text)
 
     var textnode = document.createTextNode(text);
 
-    var listitem = document.createElement("li");
-    listitem.appendChild(checkbox);
-    listitem.appendChild(textnode);
+    var label = document.createElement("label");
+    label.appendChild(checkbox);
+    label.appendChild(textnode);
 
-    return listitem;
+    return label;
 }
 
 function apply_deck_selection(decks, preserve_existing_deck_state)
@@ -368,10 +368,10 @@ function create_deck_list(decks)
     var checkboxlist = []
     for (var deck_name in decks)
     {
-        var label = document.createElement("label");
+        var listitem = document.createElement("li");
         var checkbox = create_input("checkbox", "deck", deck_name, deck_name);
-        label.appendChild(checkbox);
-        checkboxlist.push(label);
+        listitem.appendChild(checkbox);
+        checkboxlist.push(listitem);
     }
     return checkboxlist;
 }
@@ -382,7 +382,7 @@ function create_scenario_list(scenarios, decklist, retobj)
     for (var i = 0; i < scenarios.length; i++)
     {
         var scenario = scenarios[i];
-        var label = document.createElement("label");
+        var listitem = document.createElement("li");
         var radio = create_input("radio", "scenario", scenario.name, scenario.name);
 
         function update_retobj(decknames, e)
@@ -393,8 +393,8 @@ function create_scenario_list(scenarios, decklist, retobj)
         }
 
         radio.onchange = update_retobj.bind(null, scenario.decks);
-        label.appendChild(radio);
-        radiolist.push(label);
+        listitem.appendChild(radio);
+        radiolist.push(listitem);
     }
     return radiolist;
 }
@@ -412,6 +412,7 @@ function init()
 
     create_deck_list(decks).map( function(checkbox) { decklist.appendChild(checkbox); } );
     create_scenario_list(SCENARIO_DEFINITIONS, decks, selected_decks).map( function(radiobtn) { scenariolist.appendChild(radiobtn); } );
+
 
     applydeckbtn.onclick = function()
     {
