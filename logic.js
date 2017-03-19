@@ -4,20 +4,7 @@ var visible_decks = [];
 var DeckTypes = 
 {
     MODIFIER : "modifier",
-    SKILL:  "skill"
-};
-
-var CardTypesModifier =
-{
-    BLESS: "bless",
-    CURSE: "curse",
-    PLUS0: "plus0",
-    PLUS1: "plus1",
-    PLUS2: "plus2",
-    MINUS1: "minus1",
-    MINUS2: "minus2",
-    NULL: "null",
-    DOUBLE: "double"
+    ABILITY:  "ability"
 };
 
 function UICard(front_element, back_element)
@@ -71,10 +58,10 @@ function UICard(front_element, back_element)
     return card;
 }
 
-function create_skill_card_back(name)
+function create_ability_card_back(name)
 {
     var card = document.createElement("div");
-    card.className = "card skill back down";
+    card.className = "card ability back down";
 
     var name_span = document.createElement("span");
     name_span.className = "name";
@@ -84,10 +71,10 @@ function create_skill_card_back(name)
     return card;
 }
 
-function create_skill_card_front(initiative, name, shuffle, lines)
+function create_ability_card_front(initiative, name, shuffle, lines)
 {
     var card = document.createElement("div");
-    card.className = "card skill front down";
+    card.className = "card ability front down";
 
     var name_span = document.createElement("span");
     name_span.className = "name";
@@ -166,11 +153,11 @@ function create_skill_card_front(initiative, name, shuffle, lines)
     return card;
 }
 
-function load_skill_deck(deck_definition)
+function load_ability_deck(deck_definition)
 {
     var deck = {
         name:                   deck_definition.name,
-        type:                   DeckTypes.SKILL,
+        type:                   DeckTypes.ABILITY,
         draw_pile:              [],
         discard:                []
     }
@@ -182,8 +169,8 @@ function load_skill_deck(deck_definition)
         var initiative = definition[1];
         var lines = definition.slice(2);
 
-        var card_front = create_skill_card_front(initiative, deck_definition.name, shuffle, lines);
-        var card_back = create_skill_card_back(deck_definition.name);
+        var card_front = create_ability_card_front(initiative, deck_definition.name, shuffle, lines);
+        var card_back = create_ability_card_back(deck_definition.name);
 
         var card = {
             ui:             new UICard(card_front, card_back),
@@ -301,7 +288,7 @@ function send_to_discard(card, pull_animation = true)
     card.ui.addClass("discard");
 }
 
-function draw_skill_card(deck)
+function draw_ability_card(deck)
 {
     if (deck.must_reshuffle())
     {
@@ -463,37 +450,45 @@ function load_modifier_deck(number_bless, number_curses)
             remove_child(document.getElementById("topmenu").getElementsByClassName("extra")[0]);
             place_deck(deck.advantage_deck, document.getElementById("topmenu").getElementsByClassName("extra")[0]);
         }
-        
     }
 
-    //Start the Deck with the default values: Six +0, five +1, five -1 and a single +2, -2, 2x and Null card each.
-    for (var i = 0 ; i < 6 ; i++) deck.draw_pile.push(define_modifier_card(false, CardTypesModifier.PLUS0));
-    for (var i = 0 ; i < 5 ; i++) deck.draw_pile.push(define_modifier_card(false, CardTypesModifier.PLUS1));
-    for (var i = 0 ; i < 5 ; i++) deck.draw_pile.push(define_modifier_card(false, CardTypesModifier.MINUS1));
-    deck.draw_pile.push(define_modifier_card(false, CardTypesModifier.PLUS2));
-    deck.draw_pile.push(define_modifier_card(false, CardTypesModifier.MINUS2));
-    deck.draw_pile.push(define_modifier_card(true, CardTypesModifier.NULL));
-    deck.draw_pile.push(define_modifier_card(true, CardTypesModifier.DOUBLE));
+    MODIFIER_DECK.forEach( function(card_definition) {
+        var card = define_modifier_card(card_definition);
+        deck.draw_pile.push(card);
+    });
 
     return deck;
 }
 
-function create_modifier_card(card_type)
+function create_modifier_card_back()
 {
     var card = document.createElement("div");
-    card.className = "card modifier " + (card_type === "back" ? "back" : "front " + card_type) + " down";
+    card.className = "card modifier back";
     return card;
 }
 
-function define_modifier_card(shuffle, card_type)
+function create_modifier_card_front(card_url)
 {
-    var card_front = create_modifier_card(card_type);
-    var card_back = create_modifier_card("back");
+    var img = document.createElement("img");
+    img.className = "cover";
+    img.src = card_url;
+
+    var card = document.createElement("div");
+    card.className = "card modifier front";
+    card.appendChild(img);
+
+    return card;
+}
+
+function define_modifier_card(card_definition)
+{
+    var card_front = create_modifier_card_front(card_definition.image);
+    var card_back = create_modifier_card_back();
 
     var card = {
         ui:                     new UICard(card_front, card_back),
-        card_type:              card_type,
-        shuffle_next_round:     shuffle
+        card_type:              card_definition.type,
+        shuffle_next_round:     card_definition.shuffle
     };
 
     return card
@@ -522,7 +517,7 @@ function remove_bless_from_deck(deck)
     {
         for (var i = 0; i < deck.draw_pile.length; i++)
         {
-            if (deck.draw_pile[i].card_type == CardTypesModifier.BLESS)
+            if (deck.draw_pile[i].card_type === CardTypesModifier.BLESS)
             {
                 deck.draw_pile.splice(i, 1);
                 repaint_modifier_deck(deck);
@@ -536,7 +531,7 @@ function remove_bless_from_deck(deck)
 
 function add_bless_to_deck(deck)
 {
-    deck.draw_pile.push(define_modifier_card(false, CardTypesModifier.BLESS));
+    deck.draw_pile.push(define_modifier_card(MODIFIER_CARDS.BLESS));
     repaint_modifier_deck(deck);
     reshuffle(deck, include_discards = false);
     write_value_deck_status(deck);
@@ -545,7 +540,7 @@ function add_bless_to_deck(deck)
 
 function add_curse_to_deck(deck)
 {
-    deck.draw_pile.push(define_modifier_card(false, CardTypesModifier.CURSE));
+    deck.draw_pile.push(define_modifier_card(MODIFIER_CARDS.CURSE));
     repaint_modifier_deck(deck);
     reshuffle(deck, include_discards = false);
     write_value_deck_status(deck);
@@ -566,7 +561,7 @@ function load_definition(card_database)
     var decks = {};
     for (var i = 0; i < card_database.length; i++)
     {
-        var deck = load_skill_deck(card_database[i]);
+        var deck = load_ability_deck(card_database[i]);
         decks[deck.name] = deck;
     }
     return decks;
@@ -628,7 +623,7 @@ function apply_deck_selection(decks, preserve_existing_deck_state)
 
         place_deck(deck, deck_space);
         reshuffle(deck);
-        deck_space.onclick = draw_skill_card.bind(null, deck);
+        deck_space.onclick = draw_ability_card.bind(null, deck);
 
         deck.discard_deck = function()
         {

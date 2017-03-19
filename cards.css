@@ -63,6 +63,7 @@
 
     border-radius:              15px;
     box-shadow:                 5px 5px 5px rgba(0, 0, 0, 0.1);
+    overflow:                   hidden;
 }
 
 @-webkit-keyframes pull-front
@@ -164,12 +165,12 @@
     transition-delay:           0s,     0s,     0s,     0s,     0s,         0.4s;
 }
 
-.card.skill.front
+.card.ability.front
 {
     background-image:           url(images/front.jpg);
 }
 
-.card.skill.back
+.card.ability.back
 {
     background-image:           url(images/back.jpg);
 }
@@ -179,49 +180,13 @@
     background-image:           url(images/attack_mod_back.jpg);
 }
 
-.card.modifier.plus0
+.card.modifier.front img.cover
 {
-    background-image:           url(images/attack_mod_+0.jpg);
-}
-
-.card.modifier.plus1
-{
-    background-image:           url(images/attack_mod_+1.jpg);
-}
-
-.card.modifier.plus2
-{
-    background-image:           url(images/attack_mod_+2.jpg);
-}
-
-.card.modifier.minus1
-{
-    background-image:           url(images/attack_mod_-1.jpg);
-}
-
-.card.modifier.minus2
-{
-    background-image:           url(images/attack_mod_-2.jpg);
-}
-
-.card.modifier.null
-{
-    background-image:           url(images/attack_mod_null.jpg);
-}
-
-.card.modifier.double
-{
-    background-image:           url(images/attack_mod_2x.jpg);
-}
-
-.card.modifier.bless
-{
-    background-image:           url(images/attack_mod_bless.jpg);
-}
-
-.card.modifier.curse
-{
-    background-image:           url(images/attack_mod_curse.jpg);
+    position:                   absolute;
+    top:                        0;
+    left:                       0;
+    width:                      100%;
+    height:                     100%;
 }
 
 .card ul
