@@ -177,6 +177,7 @@
 .card ul
 {
     padding:                    0;
+    margin:                     0;
 
     list-style:                 none;
     text-align:                 center;
@@ -187,10 +188,11 @@
 .card>ul
 {
     position:                   relative;
-    top:                        20%;
-    height:                     80%;
-    overflow:                   hidden;
+    height:                     100%;
     margin:                     0 2ch;
+    padding-top:                2.5em;
+    box-sizing:                 border-box;
+    overflow:                   hidden;
 
     display:                    -webkit-box;
     -webkit-box-orient:         vertical;
