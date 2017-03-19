@@ -22,3 +22,26 @@ function toggle_class(element, class_name, enable_class)
     }
 }
 
+function dict_values(dict)
+{
+    var values = [];
+    for (key in dict) {
+        values.push(dict[key]);
+    }
+    return values;
+}
+
+function concat_arrays(arrays)
+{
+    return Array.prototype.concat.apply([], arrays);
+}
+
+function is_checked(input)
+{
+    return (('checked' in input) ? input.checked : false);
+}
+
+function input_value(input)
+{
+    return (('value' in input) ? input.value : '');
+}

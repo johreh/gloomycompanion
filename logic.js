@@ -285,18 +285,18 @@ function load(card_database)
 
 function create_input(type, name, value, text)
 {
-    var checkbox = document.createElement("input");
-    checkbox.type = type;
-    checkbox.name = name;
-    checkbox.value = value;
+    var input = document.createElement("input");
+    input.type = type;
+    input.name = name;
+    input.value = value;
 
     var textnode = document.createTextNode(text);
 
     var label = document.createElement("label");
-    label.appendChild(checkbox);
+    label.appendChild(input);
     label.appendChild(textnode);
 
-    return label;
+    return [label, input];
 }
 
 function apply_deck_selection(decks, preserve_existing_deck_state)
@@ -341,92 +341,118 @@ function apply_deck_selection(decks, preserve_existing_deck_state)
     refresh_ui(decks);
 }
 
-function get_checkbox_selection(checkboxes)
-{
-    var selected_decks = [];
-
-    for (var i = 0; i < checkboxes.length; i++)
-    {
-        var checkbox = checkboxes[i];
-        if (checkbox.checked)
-        {
-            selected_decks.push(checkbox.value);
-        }
-    }
-
-    return selected_decks;
-}
-
 function clear_list(list)
 {
     list.splice(0, list.length);
     return list;
 }
 
-function create_deck_list(decks)
+function DeckList(decks)
 {
-    var checkboxlist = []
+    var decklist = {};
+    decklist.ul = document.createElement("ul");
+    decklist.ul.className = "selectionlist";
+    decklist.checkboxes = {};
+
     for (var deck_name in decks)
     {
         var listitem = document.createElement("li");
-        var checkbox = create_input("checkbox", "deck", deck_name, deck_name);
-        listitem.appendChild(checkbox);
-        checkboxlist.push(listitem);
+        var [label, checkbox] = create_input("checkbox", "deck", deck_name, deck_name);
+
+        listitem.appendChild(label);
+        decklist.ul.appendChild(listitem);
+        decklist.checkboxes[deck_name] = checkbox;
     }
-    return checkboxlist;
+
+    decklist.get_selection = function()
+    {
+        return dict_values(this.checkboxes).filter(is_checked).map(input_value);
+    }
+
+    decklist.set_selection = function(selected_decks)
+    {
+        dict_values(this.checkboxes).forEach( function(checkbox) {
+            checkbox.checked = false;
+        });
+
+        selected_decks.forEach(function(deck_name) {
+            var checkbox = this.checkboxes[deck_name];
+            if (checkbox)
+            {
+                checkbox.checked = true;
+            }
+        }.bind(this));
+    }
+
+    return decklist;
 }
 
-function create_scenario_list(scenarios, decklist, retobj)
+function ScenarioList(scenarios)
 {
-    var radiolist = []
+    var scenariolist = {};
+    scenariolist.ul = document.createElement("ul");
+    scenariolist.ul.className = "selectionlist";
+    scenariolist.radios = [];
+    scenariolist.decks = {};
+
     for (var i = 0; i < scenarios.length; i++)
     {
         var scenario = scenarios[i];
         var listitem = document.createElement("li");
-        var radio = create_input("radio", "scenario", scenario.name, scenario.name);
+        var [label, radio] = create_input("radio", "scenario", scenario.name, scenario.name);
 
-        function update_retobj(decknames, e)
-        {
-            clear_list(retobj);
-            var selected_decks = decknames.map( function(name) { return decklist[name]; } );
-            selected_decks.map( function(deck) { retobj.push(deck); } );
-        }
-
-        radio.onchange = update_retobj.bind(null, scenario.decks);
-        listitem.appendChild(radio);
-        radiolist.push(listitem);
+        listitem.appendChild(label);
+        scenariolist.ul.appendChild(listitem);
+        scenariolist.radios.push(radio);
+        scenariolist.decks[scenario.name] = scenario.decks;
     }
-    return radiolist;
+
+    scenariolist.get_selection = function()
+    {
+        return scenariolist.radios.filter(is_checked).map(input_value);
+    }
+
+    scenariolist.get_scenario_decks = function()
+    {
+        var selected_scenarios = this.get_selection();
+        var selected_decks = concat_arrays(selected_scenarios.map( function(scenario_name) {
+            return ((scenario_name in this.decks) ? this.decks[scenario_name] : []);
+        }.bind(this)));
+        return selected_decks;
+    }
+
+    return scenariolist;
 }
 
 function init()
 {
     decks = load(DECK_DEFINITONS);
 
-    var decklist = document.getElementById("decklist");
-    var scenariolist = document.getElementById("scenariolist");
+    var deckspage = document.getElementById("deckspage");
+    var scenariospage = document.getElementById("scenariospage");
     var applydeckbtn = document.getElementById("applydecks");
     var applyscenariobtn = document.getElementById("applyscenario");
 
-    var selected_decks = [];
+    var decklist = new DeckList(decks);
+    var scenariolist = new ScenarioList(SCENARIO_DEFINITIONS);
 
-    create_deck_list(decks).map( function(checkbox) { decklist.appendChild(checkbox); } );
-    create_scenario_list(SCENARIO_DEFINITIONS, decks, selected_decks).map( function(radiobtn) { scenariolist.appendChild(radiobtn); } );
-
+    deckspage.insertAdjacentElement('afterbegin', decklist.ul);
+    scenariospage.insertAdjacentElement('afterbegin', scenariolist.ul);
 
     applydeckbtn.onclick = function()
     {
-        var checkboxes = document.getElementsByName("deck");
-        var selected_deck_names = get_checkbox_selection(checkboxes);
-        clear_list(selected_decks);
-        selected_deck_names.map( function(name) { selected_decks.push(decks[name]); } );
+        var selected_deck_names = decklist.get_selection();
+        var selected_decks = selected_deck_names.map( function(name) { return decks[name]; } );
         apply_deck_selection(selected_decks, true);
     };
     applyscenariobtn.onclick = function()
     {
+        var selected_deck_names = scenariolist.get_scenario_decks();
+        var selected_decks = selected_deck_names.map( function(name) { return decks[name]; } );
+        decklist.set_selection(selected_decks.map( function(deck) { return deck.name; } ));
         apply_deck_selection(selected_decks, false);
     };
 
-    window.onresize = refresh_ui.bind(null, selected_decks);
+    window.onresize = refresh_ui.bind(null, visible_decks);
 }
 
