@@ -686,12 +686,6 @@ function add_modifier_deck(container)
     }
 }
 
-function clear_list(list)
-{
-    list.splice(0, list.length);
-    return list;
-}
-
 function create_top_menu_elements(container, modifier_deck)
 {
     var draw_two_div = document.createElement("div");

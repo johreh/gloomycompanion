@@ -10,6 +10,12 @@ function shuffle_list(l)
     }
 }
 
+function clear_list(list)
+{
+    list.splice(0, -1);
+    return list;
+}
+
 function toggle_class(element, class_name, enable_class)
 {
     if (enable_class)
