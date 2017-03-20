@@ -265,7 +265,7 @@ function reshuffle(deck, include_discards = true)
         card.ui.removeClass("discard");
         card.ui.addClass("draw");
 
-        card.ui.set_depth(-i - 4);
+        card.ui.set_depth(-i - 6);
     }
 
     shuffle_list(deck.draw_pile); // ?? Needed?

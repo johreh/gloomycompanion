@@ -111,7 +111,8 @@
     100%                        { z-index: -4: }
 }
 
-.card.skill.front.pull
+/* Think a smarter way. Problem is that modifier cards are named: card modifier plus0 , so we can't use front.pull */
+.pull
 {
     -webkit-animation-name:     pull-front;
     -webkit-animation-duration: 0.5s;
@@ -120,25 +121,7 @@
     animation-duration:         0.5s;
 }
 
-.card.skill.back.pull
-{
-    -webkit-animation-name:     pull-back;
-    -webkit-animation-duration: 0.5s;
-
-    animation-name:             pull-back;
-    animation-duration:         0.5s;
-}
-
-.card.modifier.front.pull
-{
-    -webkit-animation-name:     pull-front;
-    -webkit-animation-duration: 0.5s;
-
-    animation-name:             pull-front;
-    animation-duration:         0.5s;
-}
-
-.card.modifier.back.pull
+.back.pull
 {
     -webkit-animation-name:     pull-back;
     -webkit-animation-duration: 0.5s;
