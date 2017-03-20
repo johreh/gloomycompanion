@@ -3,6 +3,8 @@ body
 {
     margin:             0;
     overflow-x:         hidden;
+    
+    margin-top:         30px;
 }
 
 .nobr

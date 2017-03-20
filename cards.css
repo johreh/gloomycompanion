@@ -112,7 +112,7 @@
 }
 
 /* Think a smarter way. Problem is that modifier cards are named: card modifier plus0 , so we can't use front.pull */
-.pull
+.card.pull
 {
     -webkit-animation-name:     pull-front;
     -webkit-animation-duration: 0.5s;
@@ -121,7 +121,7 @@
     animation-duration:         0.5s;
 }
 
-.back.pull
+.card.back.pull
 {
     -webkit-animation-name:     pull-back;
     -webkit-animation-duration: 0.5s;
@@ -180,55 +180,18 @@
     background-image:           url(images/attack_mod_back.jpg);
 }
 
-.card.modifier.plus0
+.card.modifier.front img.cover
 {
-    background-image:           url(images/attack_mod_+0.jpg);
-}
-
-.card.modifier.plus1
-{
-    background-image:           url(images/attack_mod_+1.jpg);
-}
-
-.card.modifier.plus2
-{
-    background-image:           url(images/attack_mod_+2.jpg);
-}
-
-.card.modifier.minus1
-{
-    background-image:           url(images/attack_mod_-1.jpg);
-}
-
-.card.modifier.minus2
-{
-    background-image:           url(images/attack_mod_-2.jpg);
-}
-
-.card.modifier.null
-{
-    background-image:           url(images/attack_mod_null.jpg);
-}
-
-.card.modifier.double
-{
-    background-image:           url(images/attack_mod_2x.jpg);
-}
-
-.card.modifier.bless
-{
-    background-image:           url(images/attack_mod_bless.jpg);
-}
-
-.card.modifier.curse
-{
-    background-image:           url(images/attack_mod_curse.jpg);
+    position:                   absolute;
+    top:                        0;
+    left:                       0;
+    width:                      100%;
+    height:                     100%;
 }
 
 .card ul
 {
     padding:                    0;
-    margin:                     0;
 
     list-style:                 none;
     text-align:                 center;
@@ -239,11 +202,10 @@
 .card>ul
 {
     position:                   relative;
-    height:                     100%;
-    margin:                     0 2ch;
-    padding-top:                2.5em;
-    box-sizing:                 border-box;
+    top:                        20%;
+    height:                     80%;
     overflow:                   hidden;
+    margin:                     0 2ch;
 
     display:                    -webkit-box;
     -webkit-box-orient:         vertical;
