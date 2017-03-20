@@ -4,7 +4,7 @@ var visible_decks = [];
 var DeckTypes = 
 {
     MODIFIER : "modifier",
-    SKILL:  "skill"
+    ABILITY:  "ability"
 };
 
 var CardTypesModifier =
@@ -71,10 +71,10 @@ function UICard(front_element, back_element)
     return card;
 }
 
-function create_skill_card_back(name)
+function create_ability_card_back(name)
 {
     var card = document.createElement("div");
-    card.className = "card skill back down";
+    card.className = "card ability back down";
 
     var name_span = document.createElement("span");
     name_span.className = "name";
@@ -84,10 +84,10 @@ function create_skill_card_back(name)
     return card;
 }
 
-function create_skill_card_front(initiative, name, shuffle, lines)
+function create_ability_card_front(initiative, name, shuffle, lines)
 {
     var card = document.createElement("div");
-    card.className = "card skill front down";
+    card.className = "card ability front down";
 
     var name_span = document.createElement("span");
     name_span.className = "name";
@@ -166,11 +166,11 @@ function create_skill_card_front(initiative, name, shuffle, lines)
     return card;
 }
 
-function load_skill_deck(deck_definition)
+function load_ability_deck(deck_definition)
 {
     var deck = {
         name:                   deck_definition.name,
-        type:                   DeckTypes.SKILL,
+        type:                   DeckTypes.ABILITY,
         draw_pile:              [],
         discard:                []
     }
@@ -182,8 +182,8 @@ function load_skill_deck(deck_definition)
         var initiative = definition[1];
         var lines = definition.slice(2);
 
-        var card_front = create_skill_card_front(initiative, deck_definition.name, shuffle, lines);
-        var card_back = create_skill_card_back(deck_definition.name);
+        var card_front = create_ability_card_front(initiative, deck_definition.name, shuffle, lines);
+        var card_back = create_ability_card_back(deck_definition.name);
 
         var card = {
             ui:             new UICard(card_front, card_back),
@@ -305,7 +305,7 @@ function send_to_discard(card, pull_animation = true)
     card.ui.addClass("discard");
 }
 
-function draw_skill_card(deck)
+function draw_ability_card(deck)
 {
     if (deck.must_reshuffle())
     {
@@ -569,7 +569,7 @@ function load_definition(card_database)
     var decks = {};
     for (var i = 0; i < card_database.length; i++)
     {
-        var deck = load_skill_deck(card_database[i]);
+        var deck = load_ability_deck(card_database[i]);
         decks[deck.name] = deck;
     }
     return decks;
@@ -625,7 +625,7 @@ function apply_deck_selection(decks, preserve_existing_deck_state)
 
         place_deck(deck, deck_space);
         reshuffle(deck);
-        deck_space.onclick = draw_skill_card.bind(null, deck);
+        deck_space.onclick = draw_ability_card.bind(null, deck);
 
         deck.discard_deck = function()
         {

@@ -165,12 +165,12 @@
     transition-delay:           0s,     0s,     0s,     0s,     0s,         0.4s;
 }
 
-.card.skill.front
+.card.ability.front
 {
     background-image:           url(images/front.jpg);
 }
 
-.card.skill.back
+.card.ability.back
 {
     background-image:           url(images/back.jpg);
 }
