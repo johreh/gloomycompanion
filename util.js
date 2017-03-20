@@ -32,18 +32,18 @@ function remove_child(myNode)
 
 function create_input(type, name, value, text)
 {
-    var checkbox = document.createElement("input");
-    checkbox.type = type;
-    checkbox.name = name;
-    checkbox.value = value;
+    var input = document.createElement("input");
+    input.type = type;
+    input.name = name;
+    input.value = value;
 
     var textnode = document.createTextNode(text);
 
-    var listitem = document.createElement("li");
-    listitem.appendChild(checkbox);
-    listitem.appendChild(textnode);
+    var label = document.createElement("label");
+    label.appendChild(input);
+    label.appendChild(textnode);
 
-    return listitem;
+    return {'root': label, 'input': input};
 }
 
 function create_button(type, id, value)
@@ -54,4 +54,28 @@ function create_button(type, id, value)
     button.value = value;
 
     return button;
+}
+
+function dict_values(dict)
+{
+    var values = [];
+    for (key in dict) {
+        values.push(dict[key]);
+    }
+    return values;
+}
+
+function concat_arrays(arrays)
+{
+    return Array.prototype.concat.apply([], arrays);
+}
+
+function is_checked(input)
+{
+    return (('checked' in input) ? input.checked : false);
+}
+
+function input_value(input)
+{
+    return (('value' in input) ? input.value : '');
 }
