@@ -1,12 +1,15 @@
 CACHE MANIFEST
 #
-# Version 20170306
+# Version 201703191534
 #
 
+app.webmanifest
 cards.css
 cards.js
 logic.js
 macros.js
+Philosopher-Bold.ttf
+PirataOne-Gloomhaven.ttf
 scenarios.js
 style.css
 ui.js

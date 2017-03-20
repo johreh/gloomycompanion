@@ -1,3 +1,11 @@
+MONSTER_ADJETIVES = 
+    [   "Bandit", 
+        "City", 
+        "Inox", 
+        "Vermling", 
+        "Forest"
+    ];
+
 SCENARIO_DEFINITIONS =
     [   { name: "#1 Black Barrow"
         , decks: 
