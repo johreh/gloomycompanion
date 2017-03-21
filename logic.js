@@ -357,6 +357,9 @@ function double_draw(deck)
         draw_modifier_card(deck);
         advantage_card = deck.discard[0];
         reshuffle_modifier_deck(deck);
+        advantage_card = deck.draw_pile.shift(advantage_card);
+        send_to_discard(advantage_card, pull_animation=false);
+        deck.discard.unshift(advantage_card);
         draw_modifier_card(deck);
     }
     // Case there were 0 cards in draw_pile when we clicked "draw 2".
@@ -364,6 +367,8 @@ function double_draw(deck)
     //    draw the next
     else if (deck.draw_pile.length == 0)
     {
+        // This is in case the previous draw was double as well
+        deck.clean_advantage_deck();
         reshuffle_modifier_deck(deck);
         draw_modifier_card(deck);
         advantage_card = deck.discard[0];
@@ -376,7 +381,6 @@ function double_draw(deck)
         advantage_card = deck.discard[0];
         draw_modifier_card(deck);
     }
-    send_to_discard(advantage_card, pull_animation=false);
     deck.discard[0].ui.addClass("right");
     advantage_card.ui.addClass("left");
     deck.advantage_to_clean = true;
@@ -432,12 +436,14 @@ function load_modifier_deck(number_bless, number_curses)
 
     }
 
-    deck.clean_advantage_deck = function()
+    deck.clean_advantage_deck = function( force_clean = false )
     {
-        if (deck.advantage_to_clean && deck.discard[1])
+        if ((deck.advantage_to_clean || force_clean) && deck.discard[1])
         {
             deck.advantage_to_clean = false;
             deck.discard[0].ui.removeClass("right");
+            deck.discard[0].ui.removeClass("left");
+            deck.discard[1].ui.removeClass("left");
             deck.discard[1].ui.removeClass("left");
         }
 
