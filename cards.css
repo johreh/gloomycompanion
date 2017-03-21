@@ -210,17 +210,17 @@
 
 .card.modifier.front.best img.cover
 {
-
+    z-index:                    1;
 }
 
 .card.modifier.front.worst img.cover
 {
-
+    z-index:                    1;
 }
 
 .card.modifier.front.equal img.cover
 {
-
+    z-index:                    1;
 }
 
 .card ul

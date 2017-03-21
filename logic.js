@@ -457,7 +457,14 @@ function load_modifier_deck(number_bless, number_curses)
         {
             deck.advantage_to_clean = false;
             deck.discard[0].ui.removeClass("right");
+            deck.discard[0].ui.removeClass("best");
+            deck.discard[0].ui.removeClass("worst");
+            deck.discard[0].ui.removeClass("equal");
+
             deck.discard[1].ui.removeClass("left");
+            deck.discard[1].ui.removeClass("best");
+            deck.discard[1].ui.removeClass("worst");
+            deck.discard[1].ui.removeClass("equal");
         }
 
     }
