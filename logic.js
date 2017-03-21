@@ -316,11 +316,9 @@ function prevent_pull_animation(deck)
 
 function repaint_modifier_deck(deck, prevent_pull)
 {
-    // use discard... but it kills the deck!
     prevent_pull_animation(deck);
     remove_child(document.getElementById("topmenu").getElementsByClassName("base")[0]);
     place_deck(deck, document.getElementById("topmenu").getElementsByClassName("base")[0]);
-    remove_child(document.getElementById("topmenu").getElementsByClassName("extra")[0]);
 }
 
 function reshuffle_modifier_deck(deck)
@@ -383,6 +381,23 @@ function double_draw(deck)
     deck.discard[0].ui.addClass("right");
     advantage_card.ui.addClass("left");
     deck.advantage_to_clean = true;
+    select_best_card(deck.discard[0], advantage_card);
+}
+
+function select_best_card(card1, card2)
+{
+    if (card1.coolness > card2.coolness)
+    {
+        card1.ui.addClass("best");
+        card2.ui.addClass("worst");
+    } else if (card1.coolness < card2.coolness)
+    {
+        card1.ui.addClass("worst");
+        card2.ui.addClass("best");
+    } else {
+        card1.ui.addClass("equal");
+        card2.ui.addClass("equal");
+    }
 }
 
 function load_modifier_deck(number_bless, number_curses)
@@ -483,7 +498,8 @@ function define_modifier_card(card_definition)
     var card = {
         ui:                     new UICard(card_front, card_back),
         card_type:              card_definition.type,
-        shuffle_next_round:     card_definition.shuffle
+        shuffle_next_round:     card_definition.shuffle,
+        coolness:               card_definition.coolness
     };
 
     return card

@@ -187,6 +187,7 @@
     left:                       0;
     width:                      100%;
     height:                     100%;
+    border-radius:              15px;
 }
 
 .card.modifier.front.left img.cover
@@ -205,6 +206,21 @@
     left:                       50%;
     width:                      100%;
     height:                     100%;
+}
+
+.card.modifier.front.best img.cover
+{
+
+}
+
+.card.modifier.front.worst img.cover
+{
+
+}
+
+.card.modifier.front.equal img.cover
+{
+
 }
 
 .card ul
