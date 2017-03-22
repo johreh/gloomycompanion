@@ -47,16 +47,6 @@ function UICard(front_element, back_element)
         parent.appendChild(this.front);
     }
 
-    card.change_displaying_name = function (new_name)
-    {
-        Array.prototype.forEach.call(this.front.getElementsByClassName("name");, function(element) {
-            element.innerText = new_name;
-        });
-        Array.prototype.forEach.call(this.back.getElementsByClassName("name");, function(element) {
-            element.innerText = new_name;
-        });
-    }
-
     card.flip_up(false);
 
     return card;
@@ -180,16 +170,27 @@ function load_deck(deck_definition)
             shuffle_next:   shuffle
         };
 
+        card.change_displaying_name = function (new_name)
+            {
+                Array.prototype.forEach.call(this.ui.front.getElementsByClassName("name"), function(element) {
+                    element.innerText = new_name;
+                });
+                Array.prototype.forEach.call(this.ui.back.getElementsByClassName("name"), function(element) {
+                    element.innerText = new_name;
+                });
+            }
+
         deck_state.draw_pile.push(card);
     }
 
     deck_state.set_real_name = function(real_name) 
     {
         deck_state.real_name = real_name;
-        deck_state.draw_pile.concat(deck.discard).map( 
-                                        function(card) { 
-                                            card.ui.change_displaying_name(real_name)
-                                        });
+        deck_state.draw_pile.concat(deck_state.discard).forEach( 
+            function(card) { 
+                console.log(card);
+                card.change_displaying_name(real_name);
+            });
     }
 
     return deck_state;
