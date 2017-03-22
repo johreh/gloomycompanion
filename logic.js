@@ -182,6 +182,16 @@ function load_ability_deck(deck_definition)
             shuffle_next:   shuffle
         };
 
+        card.change_displaying_name = function (new_name)
+            {
+                Array.prototype.forEach.call(this.ui.front.getElementsByClassName("name"), function(element) {
+                    element.innerText = new_name;
+                });
+                Array.prototype.forEach.call(this.ui.back.getElementsByClassName("name"), function(element) {
+                    element.innerText = new_name;
+                });
+            }
+
         deck.draw_pile.push(card);
     }
 
@@ -195,6 +205,33 @@ function load_ability_deck(deck_definition)
           {
               return this.discard[0].shuffle_next;
           }
+      }
+    }
+
+    deck.set_real_name = function(real_name)
+    {
+        // This will serve to know when we can load the monster data (Move/Attack)
+        this.real_name = real_name;
+        this.draw_pile.concat(this.discard).forEach(
+            function(card) {
+                card.change_displaying_name(real_name);
+            });
+    }
+
+    deck.get_real_name = function()
+    {
+        return (this.real_name) ? this.real_name : this.name;
+    }
+
+    deck.clean_real_name = function()
+    {
+      if (this.real_name)
+      {
+        this.real_name = "";
+        this.draw_pile.concat(this.discard).forEach(
+            function(card) {
+                card.change_displaying_name(deck.name);
+            });
       }
     }
 
@@ -696,20 +733,31 @@ function DeckList(decks)
     decklist.ul = document.createElement("ul");
     decklist.ul.className = "selectionlist";
     decklist.checkboxes = {};
+    decklist.decks = {};
 
-    for (var deck_name in decks)
+    AVAILABLE_DECKS.forEach(function(deck)
     {
         var listitem = document.createElement("li");
-        var dom_dict = create_input("checkbox", "deck", deck_name, deck_name);
+        var dom_dict = create_input("checkbox", "deck", deck.name, deck.name);
 
         listitem.appendChild(dom_dict.root);
         decklist.ul.appendChild(listitem);
-        decklist.checkboxes[deck_name] = dom_dict.input;
-    }
+        decklist.checkboxes[deck.name] = dom_dict.input;
+        decklist.decks[deck.name] = deck;
+    });
 
     decklist.get_selection = function()
     {
         return dict_values(this.checkboxes).filter(is_checked).map(input_value);
+    }
+
+    decklist.get_selected_decks = function()
+    {
+        var selected_scenarios = this.get_selection();
+        var selected_decks = concat_arrays(selected_scenarios.map( function(scenario_name) {
+            return ((scenario_name in decklist.decks) ? decklist.decks[scenario_name] : []);
+        }.bind(this)));
+        return selected_decks;
     }
 
     decklist.set_selection = function(selected_decks)
@@ -786,16 +834,32 @@ function init()
     
     applydeckbtn.onclick = function()
     {
-        var selected_deck_names = decklist.get_selection();
-        var selected_decks = selected_deck_names.map( function(name) { return decks[name]; } );
+        var selected_deck_names = decklist.get_selected_decks();
+        var selected_decks = selected_deck_names.map( function(deck_names)
+                                                {
+                                                    var deck = decks[deck_names.deck_name];
+                                                    if (deck_names.deck_name != deck_names.name)
+                                                    {
+                                                        deck.set_real_name(deck_names.name);
+                                                    }
+                                                    return deck;
+                                                } );
         apply_deck_selection(selected_decks, true);
     };
 
     applyscenariobtn.onclick = function()
     {
         var selected_deck_names = scenariolist.get_scenario_decks();
-        var selected_decks = selected_deck_names.map( function(name) { return decks[name]; } );
-        decklist.set_selection(selected_decks.map( function(deck) { return deck.name; } ));
+        var selected_decks = selected_deck_names.map( function(deck_names)
+                                                {
+                                                    var deck = decks[deck_names.deck_name];
+                                                    if (deck_names.deck_name != deck_names.name)
+                                                    {
+                                                        deck.set_real_name(deck_names.name);
+                                                    }
+                                                    return deck;
+                                                } );
+        decklist.set_selection(selected_decks.map( function(deck) { return deck.get_real_name(); } ));
         apply_deck_selection(selected_decks, false);
     };
 

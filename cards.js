@@ -1,5 +1,43 @@
-DECK_DEFINITONS =
-    [
+AVAILABLE_DECKS = 
+    [   {name: "Ancient Artillery", deck_name: "Ancient Artillery"}
+    ,   {name: "Bandit Archer", deck_name: "Archer"}
+    ,   {name: "City Archer", deck_name: "Archer"}
+    ,   {name: "Inox Archer", deck_name: "Archer"}
+    ,   {name: "Boss", deck_name: "Boss"}
+    ,   {name: "Cave Bear", deck_name: "Cave Bear"}
+    ,   {name: "Cultist", deck_name: "Cultist"}
+    ,   {name: "Deep Terror", deck_name: "Deep Terror"}
+    ,   {name: "Earth Demon", deck_name: "Earth Demon"}
+    ,   {name: "Flame Demon", deck_name: "Flame Demon"}
+    ,   {name: "Frost Demon", deck_name: "Frost Demon"}
+    ,   {name: "Giant Viperr", deck_name: "Giant Viper"}
+    ,   {name: "Bandit Guard", deck_name: "Guard"}
+    ,   {name: "City Guard", deck_name: "Guard"}
+    ,   {name: "Inox Guard", deck_name: "Guard"}
+    ,   {name: "Harrower Infester", deck_name: "Harrower Infester"}
+    ,   {name: "Hound", deck_name: "Hound"}
+    ,   {name: "Black Imp", deck_name: "Imp"}
+    ,   {name: "Forest Imp", deck_name: "Imp"}
+    ,   {name: "Living Bones", deck_name: "Living Bones"}
+    ,   {name: "Living Corpse", deck_name: "Living Corpse"}
+    ,   {name: "Lurker", deck_name: "Lurker"}
+    ,   {name: "Night Demon", deck_name: "Night Demon"}
+    ,   {name: "Ooze", deck_name: "Ooze"}
+    ,   {name: "Rending Drake", deck_name: "Rending Drake"}
+    ,   {name: "Savvas Icestorm", deck_name: "Savvas Icestorm"}
+    ,   {name: "Savvas Lavaflow", deck_name: "Savvas Lavaflow"}
+    ,   {name: "Inox Scout", deck_name: "Scout"}
+    ,   {name: "Vermling Scout", deck_name: "Scout"}
+    ,   {name: "Inox Shaman", deck_name: "Shaman"}
+    ,   {name: "Vermling Shaman", deck_name: "Shaman"}
+    ,   {name: "Spitting Drake", deck_name: "Spitting Drake"}
+    ,   {name: "Stone Golem", deck_name: "Stone Golem"}
+    ,   {name: "Sun Demon", deck_name: "Sun Demon"}
+    ,   {name: "Wind Demon", deck_name: "Wind Demon"}    
+];
+
+DECK_DEFINITONS = 
+    [   
         { name: "Ancient Artillery"
         , cards:
             [ [false, "46", "* %attack% -1", "** %range% +2"]
