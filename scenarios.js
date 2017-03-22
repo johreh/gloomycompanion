@@ -1,3 +1,5 @@
+//special_rules should be treated with some kind of macro that recognises them and applies them when loading
+
 SCENARIO_DEFINITIONS =
     [   { name: "#1 Black Barrow"
         , decks:
@@ -8,23 +10,23 @@ SCENARIO_DEFINITIONS =
         },
         { name: "#2 Barrow Lair"
         , decks:
-            [   {"name": "Archer", "deck_name": "Archer" }
-            ,   {"name": "Boss", "deck_name": "Boss" }
+            [   {"name": "Bandit Archer", "deck_name": "Archer" }
+            ,   {"name": "Boss: Bandit Commander", "deck_name": "Boss" }
             ,   {"name": "Living Bones", "deck_name": "Living Bones" }
             ,   {"name": "Living Corpse", "deck_name": "Living Corpse" }
             ]
         },
         { name: "#3 Inox Encampment"
         , decks:
-            [   {"name": "Guard", "deck_name": "Guard" }
-            ,   {"name": "Archer", "deck_name": "Archer" }
-            ,   {"name": "Shaman", "deck_name": "Shaman" }
+            [   {"name": "Inox Guard", "deck_name": "Guard" }
+            ,   {"name": "Inox Archer", "deck_name": "Archer" }
+            ,   {"name": "Inox Shaman", "deck_name": "Shaman" }
             ]
         },
         { name: "#4 Crypt of the Damned"
         , decks:
             [   {"name": "Living Bones", "deck_name": "Living Bones" }
-            ,   {"name": "Archer", "deck_name": "Archer" }
+            ,   {"name": "Bandit Archer", "deck_name": "Archer" }
             ,   {"name": "Cultist", "deck_name": "Cultist" }
             ,   {"name": "Earth Demon", "deck_name": "Earth Demon" }
             ,   {"name": "Wind Demon", "deck_name": "Wind Demon" }
@@ -49,9 +51,9 @@ SCENARIO_DEFINITIONS =
         },
         { name: "#7 Vibrant Grotto"
         , decks:
-            [   {"name": "Imp", "deck_name": "Imp" }
+            [   {"name": "Forest Imp", "deck_name": "Imp" }
             ,   {"name": "Cave Bear", "deck_name": "Cave Bear" }
-            ,   {"name": "Shaman", "deck_name": "Shaman" }
+            ,   {"name": "Inox Shaman", "deck_name": "Shaman" }
             ,   {"name": "Earth Demon", "deck_name": "Earth Demon" }
             ]
         },
@@ -59,14 +61,14 @@ SCENARIO_DEFINITIONS =
         , decks:
             [   {"name": "Living Bones", "deck_name": "Living Bones" }
             ,   {"name": "Living Corpse", "deck_name": "Living Corpse" }
-            ,   {"name": "Boss", "deck_name": "Boss" }
+            ,   {"name": "Boss: Inox Bodyguard", "deck_name": "Boss" }
             ]
         },
         { name: "#9 Diamond Mine"
         , decks:
             [   {"name": "Hound", "deck_name": "Hound" }
-            ,   {"name": "Scout", "deck_name": "Scout" }
-            ,   {"name": "Boss", "deck_name": "Boss" }
+            ,   {"name": "Vermling Scout", "deck_name": "Scout" }
+            ,   {"name": "Boss: Merciless Overseer", "deck_name": "Boss" }
             ]
         },
         { name: "#10 Plane of Elemental Power"
@@ -80,9 +82,9 @@ SCENARIO_DEFINITIONS =
         , decks:
             [   {"name": "Living Bones", "deck_name": "Living Bones" }
             ,   {"name": "Living Corpse", "deck_name": "Living Corpse" }
-            ,   {"name": "Guard", "deck_name": "Guard" }
-            ,   {"name": "Archer", "deck_name": "Archer" }
-            ,   {"name": "Boss", "deck_name": "Boss" }
+            ,   {"name": "City Guard", "deck_name": "Guard" }
+            ,   {"name": "City Archer", "deck_name": "Archer" }
+            ,   {"name": "Boss: Captain of the Guard", "deck_name": "Boss" }
             ]
         },
         { name: "#12 Gloomhaven Square B"
@@ -90,9 +92,9 @@ SCENARIO_DEFINITIONS =
             [   {"name": "Living Bones", "deck_name": "Living Bones" }
             ,   {"name": "Living Corpse", "deck_name": "Living Corpse" }
             ,   {"name": "Cultist", "deck_name": "Cultist" }
-            ,   {"name": "Guard", "deck_name": "Guard" }
-            ,   {"name": "Archer", "deck_name": "Archer" }
-            ,   {"name": "Boss", "deck_name": "Boss" }
+            ,   {"name": "City Guard", "deck_name": "Guard" }
+            ,   {"name": "City Archer", "deck_name": "Archer" }
+            ,   {"name": "Boss: Jekserah", "deck_name": "Boss" }
             ]
         },
         { name: "#13 Temple of the Seer"
@@ -123,14 +125,14 @@ SCENARIO_DEFINITIONS =
         , decks:
             [   {"name": "Earth Demon", "deck_name": "Earth Demon" }
             ,   {"name": "Wind Demon", "deck_name": "Wind Demon" }
-            ,   {"name": "Guard", "deck_name": "Guard" }
-            ,   {"name": "Archer", "deck_name": "Archer" }
+            ,   {"name": "Inox Guard", "deck_name": "Guard" }
+            ,   {"name": "Inox Archer", "deck_name": "Archer" }
             ]
         },
         { name: "#17 Lost Island"
         , decks:
-            [   {"name": "Scout", "deck_name": "Scout" }
-            ,   {"name": "Shaman", "deck_name": "Shaman" }
+            [   {"name": "Vermling Scout", "deck_name": "Scout" }
+            ,   {"name": "Vermling Shaman", "deck_name": "Shaman" }
             ,   {"name": "Cave Bear", "deck_name": "Cave Bear" }
             ]
         },
@@ -138,7 +140,7 @@ SCENARIO_DEFINITIONS =
         , decks:
             [   {"name": "Giant Viper", "deck_name": "Giant Viper" }
             ,   {"name": "Ooze", "deck_name": "Ooze" }
-            ,   {"name": "Scout", "deck_name": "Scout" }
+            ,   {"name": "Vermling Scout", "deck_name": "Scout" }
             ]
         },
         { name: "#19 Forgotten Crypt"
@@ -155,7 +157,7 @@ SCENARIO_DEFINITIONS =
             ,   {"name": "Cultist", "deck_name": "Cultist" }
             ,   {"name": "Night Demon", "deck_name": "Night Demon" }
             ,   {"name": "Living Corpse", "deck_name": "Living Corpse" }
-            ,   {"name": "Boss", "deck_name": "Boss" }
+            ,   {"name": "Boss: Jekserah", "deck_name": "Boss" }
             ]
         },
         { name: "#21 Infernal Throne"
@@ -166,7 +168,7 @@ SCENARIO_DEFINITIONS =
             ,   {"name": "Wind Demon", "deck_name": "Wind Demon" }
             ,   {"name": "Earth Demon", "deck_name": "Earth Demon" }
             ,   {"name": "Flame Demon", "deck_name": "Flame Demon" }
-            ,   {"name": "Boss", "deck_name": "Boss" }
+            ,   {"name": "Boss: Prime Demon", "deck_name": "Boss" }
             ]
         },
         { name: "#22 Temple of the Elements"
@@ -206,7 +208,7 @@ SCENARIO_DEFINITIONS =
             [   {"name": "Living Corpse", "deck_name": "Living Corpse" }
             ,   {"name": "Ooze", "deck_name": "Ooze" }
             ,   {"name": "Night Demon", "deck_name": "Night Demon" }
-            ,   {"name": "Imp", "deck_name": "Imp" }
+            ,   {"name": "Black Imp", "deck_name": "Imp" }
             ]
         },
         { name: "#27 Ruinous Rift"
@@ -233,7 +235,7 @@ SCENARIO_DEFINITIONS =
             [   {"name": "Living Bones", "deck_name": "Living Bones" }
             ,   {"name": "Living Corpse", "deck_name": "Living Corpse" }
             ,   {"name": "Living Spirit", "deck_name": "Living Spirit" }
-            ,   {"name": "Imp", "deck_name": "Imp" }
+            ,   {"name": "Black Imp", "deck_name": "Imp" }
             ]
         },
         { name: "#30 Shrine of the Depths"
@@ -247,7 +249,7 @@ SCENARIO_DEFINITIONS =
         , decks:
             [   {"name": "Deep Terror", "deck_name": "Deep Terror" }
             ,   {"name": "Night Demon", "deck_name": "Night Demon" }
-            ,   {"name": "Imp", "deck_name": "Imp" }
+            ,   {"name": "Black Imp", "deck_name": "Imp" }
             ]
         },
         { name: "#32 Decrepit Wood"
@@ -255,7 +257,7 @@ SCENARIO_DEFINITIONS =
             [   {"name": "Harrower Infester", "deck_name": "Harrower Infester" }
             ,   {"name": "Giant Viper", "deck_name": "Giant Viper" }
             ,   {"name": "Deep Terror", "deck_name": "Deep Terror" }
-            ,   {"name": "Imp", "deck_name": "Imp" }
+            ,   {"name": "Black Imp", "deck_name": "Imp" }
             ]
         },
         { name: "#33 Savvas Armory"
@@ -267,12 +269,15 @@ SCENARIO_DEFINITIONS =
             ,   {"name": "Wind Demon", "deck_name": "Wind Demon" }
             ,   {"name": "Earth Demon", "deck_name": "Earth Demon" }
             ]
+        , special_rules:
+            [ "All living corpses are two levels higher than the scenario level, up to a max of 7"
+            ]
         },
         { name: "#34 Scorched Summit"
         , decks:
             [   {"name": "Rending Drake", "deck_name": "Rending Drake" }
             ,   {"name": "Spitting Drake", "deck_name": "Spitting Drake" }
-            ,   {"name": "Boss", "deck_name": "Boss" }
+            ,   {"name": "Boss: Elder Drake", "deck_name": "Boss" }
             ]
         },
         { name: "#35 Gloomhaven Battlements A"
@@ -281,9 +286,6 @@ SCENARIO_DEFINITIONS =
             ,   {"name": "Frost Demon", "deck_name": "Frost Demon" }
             ,   {"name": "Earth Demon", "deck_name": "Earth Demon" }
             ,   {"name": "Wind Demon", "deck_name": "Wind Demon" }
-            ,   {"name": "Guard", "deck_name": "Guard" }
-            ,   {"name": "Archer", "deck_name": "Archer" }
-            ,   {"name": "Boss", "deck_name": "Boss" }
             ]
         },
         { name: "#36 Gloomhaven Battlements B"
@@ -292,8 +294,8 @@ SCENARIO_DEFINITIONS =
             ,   {"name": "Frost Demon", "deck_name": "Frost Demon" }
             ,   {"name": "Earth Demon", "deck_name": "Earth Demon" }
             ,   {"name": "Wind Demon", "deck_name": "Wind Demon" }
-            ,   {"name": "Archer", "deck_name": "Archer" }
-            ,   {"name": "Boss", "deck_name": "Boss" }
+            ,   {"name": "City Archer", "deck_name": "Archer" }
+            ,   {"name": "Boss: Prime Demon", "deck_name": "Boss" }
             ]
         },
         { name: "#37 Doom Trench"
@@ -305,9 +307,9 @@ SCENARIO_DEFINITIONS =
         },
         { name: "#38 Slave Pens"
         , decks:
-            [   {"name": "Guard", "deck_name": "Guard" }
-            ,   {"name": "Archer", "deck_name": "Archer" }
-            ,   {"name": "Shaman", "deck_name": "Shaman" }
+            [   {"name": "Inox Guard", "deck_name": "Guard" }
+            ,   {"name": "Inox Archer", "deck_name": "Archer" }
+            ,   {"name": "Inox Shaman", "deck_name": "Shaman" }
             ,   {"name": "Stone Golem", "deck_name": "Stone Golem" }
             ]
         },
@@ -326,7 +328,7 @@ SCENARIO_DEFINITIONS =
             ,   {"name": "Flame Demon", "deck_name": "Flame Demon" }
             ,   {"name": "Cave Bear", "deck_name": "Cave Bear" }
             ,   {"name": "Stone Golem", "deck_name": "Stone Golem" }
-            ,   {"name": "Imp", "deck_name": "Imp" }
+            ,   {"name": "Forest Imp", "deck_name": "Imp" }
             ]
         },
         { name: "#41 Timeworn Tomb"
@@ -353,16 +355,16 @@ SCENARIO_DEFINITIONS =
         },
         { name: "#44 Tribal Assault"
         , decks:
-            [   {"name": "Guard", "deck_name": "Guard" }
-            ,   {"name": "Archer", "deck_name": "Archer" }
+            [   {"name": "Inox Guard", "deck_name": "Guard" }
+            ,   {"name": "Inox Archer", "deck_name": "Archer" }
             ,   {"name": "Hound", "deck_name": "Hound" }
-            ,   {"name": "Shaman", "deck_name": "Shaman" }
+            ,   {"name": "Inox Shaman", "deck_name": "Shaman" }
             ]
         },
         { name: "#45 Rebel Swamp"
         , decks:
-            [   {"name": "Guard", "deck_name": "Guard" }
-            ,   {"name": "Archer", "deck_name": "Archer" }
+            [   {"name": "City Guard", "deck_name": "Guard" }
+            ,   {"name": "City Archer", "deck_name": "Archer" }
             ,   {"name": "Hound", "deck_name": "Hound" }
             ]
         },
@@ -372,7 +374,7 @@ SCENARIO_DEFINITIONS =
             ,   {"name": "Frost Demon", "deck_name": "Frost Demon" }
             ,   {"name": "Wind Demon", "deck_name": "Wind Demon" }
             ,   {"name": "Savvas Icestorm", "deck_name": "Savvas Icestorm" }
-            ,   {"name": "Boss", "deck_name": "Boss" }
+            ,   {"name": "Boss: Winged Horror", "deck_name": "Boss" }
             ]
         },
         { name: "#47 Lair of the Unseeing Eye"
@@ -380,7 +382,7 @@ SCENARIO_DEFINITIONS =
             [   {"name": "Lurker", "deck_name": "Lurker" }
             ,   {"name": "Deep Terror", "deck_name": "Deep Terror" }
             ,   {"name": "Harrower Infester", "deck_name": "Harrower Infester" }
-            ,   {"name": "Boss", "deck_name": "Boss" }
+            ,   {"name": "Boss: The Sightless Eye", "deck_name": "Boss" }
             ]
         },
         { name: "#48 - Shadow Weald"
@@ -388,14 +390,14 @@ SCENARIO_DEFINITIONS =
             [   {"name": "Imp", "deck_name": "Imp" }
             ,   {"name": "Earth Demon", "deck_name": "Earth Demon" }
             ,   {"name": "Harrower Infester", "deck_name": "Harrower Infester" }
-            ,   {"name": "Boss", "deck_name": "Boss" }
+            ,   {"name": "Boss: Dark Rider", "deck_name": "Boss" }
             ]
         },
         { name: "#49 Rebel's Stand"
         , decks:
             [   {"name": "Giant Viper", "deck_name": "Giant Viper" }
-            ,   {"name": "Archer", "deck_name": "Archer" }
-            ,   {"name": "Guard", "deck_name": "Guard" }
+            ,   {"name": "City Archer", "deck_name": "Archer" }
+            ,   {"name": "City Guard", "deck_name": "Guard" }
             ,   {"name": "Ancient Artillery", "deck_name": "Ancient Artillery" }
             ]
         },
@@ -408,16 +410,16 @@ SCENARIO_DEFINITIONS =
         },
         { name: "#51 The Void"
         , decks:
-            [   {"name": "Boss", "deck_name": "Boss" }
+            [   {"name": "Boss: The Gloom", "deck_name": "Boss" }
             ]
         },
         { name: "#52 Noxious Cellar"
         , decks:
             [   {"name": "Spitting Drake", "deck_name": "Spitting Drake" }
             ,   {"name": "Ooze", "deck_name": "Ooze" }
-            ,   {"name": "Scout", "deck_name": "Scout" }
+            ,   {"name": "Vermling Scout", "deck_name": "Scout" }
             ,   {"name": "Living Corpse", "deck_name": "Living Corpse" }
-            ,   {"name": "Shaman", "deck_name": "Shaman" }
+            ,   {"name": "Vermling Shaman", "deck_name": "Shaman" }
             ]
         },
         { name: "#53 Crypt Basement"
@@ -447,15 +449,15 @@ SCENARIO_DEFINITIONS =
         { name: "#56 Bandit's Wood"
         , decks:
             [   {"name": "Hound", "deck_name": "Hound" }
-            ,   {"name": "Archer", "deck_name": "Archer" }
+            ,   {"name": "Bandit Archer", "deck_name": "Archer" }
             ,   {"name": "Rending Drake", "deck_name": "Rending Drake" }
-            ,   {"name": "Guard", "deck_name": "Guard" }
+            ,   {"name": "Bandit Guard", "deck_name": "Guard" }
             ]
         },
         { name: "#57 Investigation"
         , decks:
-            [   {"name": "Guard", "deck_name": "Guard" }
-            ,   {"name": "Archer", "deck_name": "Archer" }
+            [   {"name": "City Guard", "deck_name": "Guard" }
+            ,   {"name": "City Archer", "deck_name": "Archer" }
             ,   {"name": "Hound", "deck_name": "Hound" }
             ]
         },
@@ -463,15 +465,15 @@ SCENARIO_DEFINITIONS =
         , decks:
             [   {"name": "Earth Demon", "deck_name": "Earth Demon" }
             ,   {"name": "Harrower Infester", "deck_name": "Harrower Infester" }
-            ,   {"name": "Imp", "deck_name": "Imp" }
-            ,   {"name": "Guard", "deck_name": "Guard" }
+            ,   {"name": "Black Imp", "deck_name": "Imp" }
+            ,   {"name": "City Guard", "deck_name": "Guard" }
             ]
         },
         { name: "#59 Forgotten Grove"
         , decks:
             [   {"name": "Cave Bear", "deck_name": "Cave Bear" }
             ,   {"name": "Hound", "deck_name": "Hound" }
-            ,   {"name": "Imp", "deck_name": "Imp" }
+            ,   {"name": "Forest Imp", "deck_name": "Imp" }
             ]
         },
         { name: "#60 Alchemy Lab"
@@ -499,23 +501,24 @@ SCENARIO_DEFINITIONS =
         },
         { name: "#63 Magma Pit"
         , decks:
-            [   {"name": "Scout", "deck_name": "Scout" }
-            ,   {"name": "Guard", "deck_name": "Guard" }
-            ,   {"name": "Archer", "deck_name": "Archer" }
+            [   {"name": "Vermling Scout", "deck_name": "Scout" }
+            ,   {"name": "Inox Guard", "deck_name": "Guard" }
+            ,   {"name": "Inox Archer", "deck_name": "Archer" }
+            ,   {"name": "Flame Demon", "deck_name": "Flame Demon" }
             ]
         },
         { name: "#64 Underwater Lagoon"
         , decks:
             [   {"name": "Ooze", "deck_name": "Ooze" }
-            ,   {"name": "Imp", "deck_name": "Imp" }
+            ,   {"name": "Forest Imp", "deck_name": "Imp" }
             ,   {"name": "Rending Drake", "deck_name": "Rending Drake" }
             ]
         },
         { name: "#65 Sulfur Mine"
         , decks:
-            [   {"name": "Scout", "deck_name": "Scout" }
+            [   {"name": "Vermling Scout", "deck_name": "Scout" }
             ,   {"name": "Hound", "deck_name": "Hound" }
-            ,   {"name": "Shaman", "deck_name": "Shaman" }
+            ,   {"name": "Inox Shaman", "deck_name": "Shaman" }
             ]
         },
         { name: "#66 Clockwork Cove"
@@ -528,7 +531,7 @@ SCENARIO_DEFINITIONS =
         },
         { name: "#67 Arcane Library"
         , decks:
-            [   {"name": "Imp", "deck_name": "Imp" }
+            [   {"name": "Forest Imp", "deck_name": "Imp" }
             ,   {"name": "Cave Bear", "deck_name": "Cave Bear" }
             ,   {"name": "Stone Golem", "deck_name": "Stone Golem" }
             ]
@@ -536,16 +539,16 @@ SCENARIO_DEFINITIONS =
         { name: "#68 Toxic Moor"
         , decks:
             [   {"name": "Rending Drake", "deck_name": "Rending Drake" }
-            ,   {"name": "Imp", "deck_name": "Imp" }
+            ,   {"name": "Black Imp", "deck_name": "Imp" }
             ,   {"name": "Giant Viper", "deck_name": "Giant Viper" }
             ,   {"name": "Living Corpse", "deck_name": "Living Corpse" }
             ]
         },
         { name: "#69 Well of the Unfortunate"
         , decks:
-            [   {"name": "Scout", "deck_name": "Scout" }
-            ,   {"name": "Shaman", "deck_name": "Shaman" }
-            ,   {"name": "Imp", "deck_name": "Imp" }
+            [   {"name": "Vermling Scout", "deck_name": "Scout" }
+            ,   {"name": "Vermling Shaman", "deck_name": "Shaman" }
+            ,   {"name": "Forest Imp", "deck_name": "Imp" }
             ,   {"name": "Stone Golem", "deck_name": "Stone Golem" }
             ,   {"name": "Living Spirit", "deck_name": "Living Spirit" }
             ]
@@ -567,23 +570,23 @@ SCENARIO_DEFINITIONS =
         { name: "#72 Oozing Grove"
         , decks:
             [   {"name": "Ooze", "deck_name": "Ooze" }
-            ,   {"name": "Imp", "deck_name": "Imp" }
+            ,   {"name": "Forest Imp", "deck_name": "Imp" }
             ,   {"name": "Giant Viper", "deck_name": "Giant Viper" }
             ]
         },
         { name: "#73 Rockslide Ridge"
         , decks:
             [   {"name": "Hound", "deck_name": "Hound" }
-            ,   {"name": "Archer", "deck_name": "Archer" }
+            ,   {"name": "Inox Archer", "deck_name": "Archer" }
             ,   {"name": "Ancient Artillery", "deck_name": "Ancient Artillery" }
-            ,   {"name": "Guard", "deck_name": "Guard" }
-            ,   {"name": "Shaman", "deck_name": "Shaman" }
+            ,   {"name": "Inox Guard", "deck_name": "Guard" }
+            ,   {"name": "Inox Shaman", "deck_name": "Shaman" }
             ]
         },
         { name: "#74 Merchant Ship"
         , decks:
-            [   {"name": "Guard", "deck_name": "Guard" }
-            ,   {"name": "Archer", "deck_name": "Archer" }
+            [   {"name": "Bandit Guard", "deck_name": "Guard" }
+            ,   {"name": "Bandit Archer", "deck_name": "Archer" }
             ,   {"name": "Lurker", "deck_name": "Lurker" }
             ,   {"name": "Deep Terror", "deck_name": "Deep Terror" }
             ]
@@ -605,32 +608,32 @@ SCENARIO_DEFINITIONS =
         },
         { name: "#77 Vault of Secrets"
         , decks:
-            [   {"name": "Guard", "deck_name": "Guard" }
-            ,   {"name": "Archer", "deck_name": "Archer" }
+            [   {"name": "City Guard", "deck_name": "Guard" }
+            ,   {"name": "City Archer", "deck_name": "Archer" }
             ,   {"name": "Stone Golem", "deck_name": "Stone Golem" }
             ,   {"name": "Hound", "deck_name": "Hound" }
             ]
         },
         { name: "#78 Sacrifice Pit"
         , decks:
-            [   {"name": "Guard", "deck_name": "Guard" }
-            ,   {"name": "Archer", "deck_name": "Archer" }
+            [   {"name": "Bandit Guard", "deck_name": "Guard" }
+            ,   {"name": "Bandit Archer", "deck_name": "Archer" }
             ,   {"name": "Cultist", "deck_name": "Cultist" }
             ,   {"name": "Living Bones", "deck_name": "Living Bones" }
-            ,   {"name": "Imp", "deck_name": "Imp" }
+            ,   {"name": "Black Imp", "deck_name": "Imp" }
             ]
         },
         { name: "#79 Lost Temple"
         , decks:
             [   {"name": "Stone Golem", "deck_name": "Stone Golem" }
             ,   {"name": "Giant Viper", "deck_name": "Giant Viper" }
-            ,   {"name": "Boss", "deck_name": "Boss" }
+            ,   {"name": "Boss: The Betrayer", "deck_name": "Boss" }
             ]
         },
         { name: "#80 Vigil Keep"
         , decks:
-            [   {"name": "Guard", "deck_name": "Guard" }
-            ,   {"name": "Archer", "deck_name": "Archer" }
+            [   {"name": "City Guard", "deck_name": "Guard" }
+            ,   {"name": "City Archer", "deck_name": "Archer" }
             ,   {"name": "Ancient Artillery", "deck_name": "Ancient Artillery" }
             ,   {"name": "Hound", "deck_name": "Hound" }
             ]
@@ -641,7 +644,7 @@ SCENARIO_DEFINITIONS =
             ,   {"name": "Sun Demon", "deck_name": "Sun Demon" }
             ,   {"name": "Stone Golem", "deck_name": "Stone Golem" }
             ,   {"name": "Ancient Artillery", "deck_name": "Ancient Artillery" }
-            ,   {"name": "Boss", "deck_name": "Boss" }
+            ,   {"name": "Boss: The Colorless", "deck_name": "Boss" }
             ]
         },
         { name: "#82 Burning Mountain"
@@ -670,7 +673,7 @@ SCENARIO_DEFINITIONS =
         { name: "#85 Sun Temple"
         , decks:
             [   {"name": "Hound", "deck_name": "Hound" }
-            ,   {"name": "Imp", "deck_name": "Imp" }
+            ,   {"name": "Black Imp", "deck_name": "Imp" }
             ,   {"name": "Night Demon", "deck_name": "Night Demon" }
             ,   {"name": "Sun Demon", "deck_name": "Sun Demon" }
             ]
@@ -678,8 +681,8 @@ SCENARIO_DEFINITIONS =
         { name: "#86 Harried Village"
         , decks:
             [   {"name": "Cave Bear", "deck_name": "Cave Bear" }
-            ,   {"name": "Shaman", "deck_name": "Shaman" }
-            ,   {"name": "Scout", "deck_name": "Scout" }
+            ,   {"name": "Vermling Shaman", "deck_name": "Shaman" }
+            ,   {"name": "Vermling Scout", "deck_name": "Scout" }
             ,   {"name": "Lurker", "deck_name": "Lurker" }
             ]
         },
@@ -688,7 +691,7 @@ SCENARIO_DEFINITIONS =
             [   {"name": "Lurker", "deck_name": "Lurker" }
             ,   {"name": "Deep Terror", "deck_name": "Deep Terror" }
             ,   {"name": "Ooze", "deck_name": "Ooze" }
-            ,   {"name": "Imp", "deck_name": "Imp" }
+            ,   {"name": "Black Imp", "deck_name": "Imp" }
             ]
         },
         { name: "#88 Plane of Water"
@@ -700,8 +703,8 @@ SCENARIO_DEFINITIONS =
         },
         { name: "#89 Syndicate Hideout"
         , decks:
-            [   {"name": "Archer", "deck_name": "Archer" }
-            ,   {"name": "Guard", "deck_name": "Guard" }
+            [   {"name": "Bandit Archer", "deck_name": "Archer" }
+            ,   {"name": "Bandit Guard", "deck_name": "Guard" }
             ,   {"name": "Cultist", "deck_name": "Cultist" }
             ,   {"name": "Giant Viper", "deck_name": "Giant Viper" }
             ]
@@ -718,8 +721,8 @@ SCENARIO_DEFINITIONS =
         , decks:
             [   {"name": "Cave Bear", "deck_name": "Cave Bear" }
             ,   {"name": "Hound", "deck_name": "Hound" }
-            ,   {"name": "Guard", "deck_name": "Guard" }
-            ,   {"name": "Archer", "deck_name": "Archer" }
+            ,   {"name": "Bandit Guard", "deck_name": "Guard" }
+            ,   {"name": "Bandit Archer", "deck_name": "Archer" }
             ,   {"name": "Living Spirit", "deck_name": "Living Spirit" }
             ]
         },
@@ -730,6 +733,12 @@ SCENARIO_DEFINITIONS =
             ,   {"name": "Savvas Icestorm", "deck_name": "Savvas Icestorm" }
             ,   {"name": "Frost Demon", "deck_name": "Frost Demon" }
             ,   {"name": "Wind Demon", "deck_name": "Wind Demon" }
+            // TODO How are we going to display this? We have several guards/Archers
+            //,   {"name": "Bandit Guard", "deck_name": "Guard" }
+            //,   {"name": "Bandit Archer", "deck_name": "Archer" }
+            //,   {"name": "City Guard", "deck_name": "Guard" }
+            //,   {"name": "Inox Guard", "deck_name": "Guard" }
+            //,   {"name": "City Archer", "deck_name": "Archer" }
             ]
         },
         { name: "#93 Sunken Vessel"
@@ -742,8 +751,8 @@ SCENARIO_DEFINITIONS =
         { name: "#94 Vermling Nest"
         , decks:
             [   {"name": "Hound", "deck_name": "Hound" }
-            ,   {"name": "Scout", "deck_name": "Scout" }
-            ,   {"name": "Shaman", "deck_name": "Shaman" }
+            ,   {"name": "Vermling Scout", "deck_name": "Scout" }
+            ,   {"name": "Vermling Shaman", "deck_name": "Shaman" }
             ,   {"name": "Cave Bear", "deck_name": "Cave Bear" }
             ]
         },
