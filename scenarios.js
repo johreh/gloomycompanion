@@ -1,757 +1,759 @@
 SCENARIO_DEFINITIONS =
     [   { name: "#1 Black Barrow"
-        , decks: 
-            [ "Guard"
-            , "Archer"
-            , "Living Bones" ]
+        , decks:
+            [   {"name": "Bandit Guard", "deck_name": "Guard"}
+            ,   {"name": "Bandit Archer", "deck_name": "Archer"}
+            ,   {"name": "Living Bones", "deck_name": "Living Bones"}
+            ]
         },
         { name: "#2 Barrow Lair"
         , decks:
-            [ "Archer"
-            , "Boss"
-            , "Living Bones"
-            , "Living Corpse"
+            [   {"name": "Archer", "deck_name": "Archer" }
+            ,   {"name": "Boss", "deck_name": "Boss" }
+            ,   {"name": "Living Bones", "deck_name": "Living Bones" }
+            ,   {"name": "Living Corpse", "deck_name": "Living Corpse" }
             ]
         },
         { name: "#3 Inox Encampment"
         , decks:
-            [ "Guard" 
-            , "Archer"
-            , "Shaman" ]
+            [   {"name": "Guard", "deck_name": "Guard" }
+            ,   {"name": "Archer", "deck_name": "Archer" }
+            ,   {"name": "Shaman", "deck_name": "Shaman" }
+            ]
         },
         { name: "#4 Crypt of the Damned"
         , decks:
-            [ "Living Bones"
-            , "Archer"
-            , "Cultist"
-            , "Earth Demon"
-            , "Wind Demon"
+            [   {"name": "Living Bones", "deck_name": "Living Bones" }
+            ,   {"name": "Archer", "deck_name": "Archer" }
+            ,   {"name": "Cultist", "deck_name": "Cultist" }
+            ,   {"name": "Earth Demon", "deck_name": "Earth Demon" }
+            ,   {"name": "Wind Demon", "deck_name": "Wind Demon" }
             ]
         },
         { name: "#5 Ruinous Crypt"
         , decks:
-            [ "Cultist"
-            , "Living Bones"
-            , "Living Corpse"
-            , "Night Demon"
-            , "Flame Demon"
-            , "Frost Demon"
+            [   {"name": "Cultist", "deck_name": "Cultist" }
+            ,   {"name": "Living Bones", "deck_name": "Living Bones" }
+            ,   {"name": "Living Corpse", "deck_name": "Living Corpse" }
+            ,   {"name": "Night Demon", "deck_name": "Night Demon" }
+            ,   {"name": "Flame Demon", "deck_name": "Flame Demon" }
+            ,   {"name": "Frost Demon", "deck_name": "Frost Demon" }
             ]
         },
         { name: "#6 Decaying Crypt"
         , decks:
-            [ "Living Bones"
-            , "Living Corpse"
-            , "Living Spirit"
+            [   {"name": "Living Bones", "deck_name": "Living Bones" }
+            ,   {"name": "Living Corpse", "deck_name": "Living Corpse" }
+            ,   {"name": "Living Spirit", "deck_name": "Living Spirit" }
             ]
         },
         { name: "#7 Vibrant Grotto"
         , decks:
-            [ "Imp"
-            , "Cave Bear"
-            , "Shaman"
-            , "Earth Demon"
+            [   {"name": "Imp", "deck_name": "Imp" }
+            ,   {"name": "Cave Bear", "deck_name": "Cave Bear" }
+            ,   {"name": "Shaman", "deck_name": "Shaman" }
+            ,   {"name": "Earth Demon", "deck_name": "Earth Demon" }
             ]
         },
         { name: "#8 Gloomhaven Warehouse"
         , decks:
-            [ "Living Bones"
-            , "Living Corpse"
-            , "Boss"
+            [   {"name": "Living Bones", "deck_name": "Living Bones" }
+            ,   {"name": "Living Corpse", "deck_name": "Living Corpse" }
+            ,   {"name": "Boss", "deck_name": "Boss" }
             ]
         },
         { name: "#9 Diamond Mine"
         , decks:
-            [ "Hound"
-            , "Scout"
-            , "Boss"
+            [   {"name": "Hound", "deck_name": "Hound" }
+            ,   {"name": "Scout", "deck_name": "Scout" }
+            ,   {"name": "Boss", "deck_name": "Boss" }
             ]
         },
         { name: "#10 Plane of Elemental Power"
         , decks:
-            [ "Flame Demon"
-            , "Earth Demon"
-            , "Sun Demon"
+            [   {"name": "Flame Demon", "deck_name": "Flame Demon" }
+            ,   {"name": "Earth Demon", "deck_name": "Earth Demon" }
+            ,   {"name": "Sun Demon", "deck_name": "Sun Demon" }
             ]
         },
         { name: "#11 Gloomhaven Square A"
         , decks:
-            [ "Living Bones"
-            , "Living Corpse"
-            , "Guard"
-            , "Archer"
-            , "Boss"
+            [   {"name": "Living Bones", "deck_name": "Living Bones" }
+            ,   {"name": "Living Corpse", "deck_name": "Living Corpse" }
+            ,   {"name": "Guard", "deck_name": "Guard" }
+            ,   {"name": "Archer", "deck_name": "Archer" }
+            ,   {"name": "Boss", "deck_name": "Boss" }
             ]
         },
         { name: "#12 Gloomhaven Square B"
         , decks:
-            [ "Living Bones"
-            , "Living Corpse"
-            , "Cultist"
-            , "Guard"
-            , "Archer"
-            , "Boss"
+            [   {"name": "Living Bones", "deck_name": "Living Bones" }
+            ,   {"name": "Living Corpse", "deck_name": "Living Corpse" }
+            ,   {"name": "Cultist", "deck_name": "Cultist" }
+            ,   {"name": "Guard", "deck_name": "Guard" }
+            ,   {"name": "Archer", "deck_name": "Archer" }
+            ,   {"name": "Boss", "deck_name": "Boss" }
             ]
         },
         { name: "#13 Temple of the Seer"
         , decks:
-            [ "Stone Golem"
-            , "Cave Bear"
-            , "Living Spirit"
-            , "Spitting Drake"
+            [   {"name": "Stone Golem", "deck_name": "Stone Golem" }
+            ,   {"name": "Cave Bear", "deck_name": "Cave Bear" }
+            ,   {"name": "Living Spirit", "deck_name": "Living Spirit" }
+            ,   {"name": "Spitting Drake", "deck_name": "Spitting Drake" }
             ]
         },
         { name: "#14 Frozen Hollow"
         , decks:
-            [ "Hound"
-            , "Living Spirit"
-            , "Frost Demon"
+            [   {"name": "Hound", "deck_name": "Hound" }
+            ,   {"name": "Living Spirit", "deck_name": "Living Spirit" }
+            ,   {"name": "Frost Demon", "deck_name": "Frost Demon" }
             ]
         },
         { name: "#15 Shrine of Strength"
         , decks:
-            [ "Stone Golem"
-            , "Savvas Icestorm"
-            , "Frost Demon"
-            , "Wind Demon"
-            , "Harrower Infester"
+            [   {"name": "Stone Golem", "deck_name": "Stone Golem" }
+            ,   {"name": "Savvas Icestorm", "deck_name": "Savvas Icestorm" }
+            ,   {"name": "Frost Demon", "deck_name": "Frost Demon" }
+            ,   {"name": "Wind Demon", "deck_name": "Wind Demon" }
+            ,   {"name": "Harrower Infester", "deck_name": "Harrower Infester" }
             ]
         },
         { name: "#16 Mountain Pass"
         , decks:
-            [ "Earth Demon"
-            , "Wind Demon"
-            , "Guard"
-            , "Archer"
+            [   {"name": "Earth Demon", "deck_name": "Earth Demon" }
+            ,   {"name": "Wind Demon", "deck_name": "Wind Demon" }
+            ,   {"name": "Guard", "deck_name": "Guard" }
+            ,   {"name": "Archer", "deck_name": "Archer" }
             ]
         },
         { name: "#17 Lost Island"
         , decks:
-            [ "Scout"
-            , "Shaman"
-            , "Cave Bear"
+            [   {"name": "Scout", "deck_name": "Scout" }
+            ,   {"name": "Shaman", "deck_name": "Shaman" }
+            ,   {"name": "Cave Bear", "deck_name": "Cave Bear" }
             ]
         },
         { name: "#18 Abandoned Sewers"
         , decks:
-            [ "Giant Viper"
-            , "Ooze"
-            , "Scout"
+            [   {"name": "Giant Viper", "deck_name": "Giant Viper" }
+            ,   {"name": "Ooze", "deck_name": "Ooze" }
+            ,   {"name": "Scout", "deck_name": "Scout" }
             ]
         },
         { name: "#19 Forgotten Crypt"
         , decks:
-            [ "Cultist"
-            , "Living Bones"
-            , "Living Spirit"
-            , "Living Corpse"
+            [   {"name": "Cultist", "deck_name": "Cultist" }
+            ,   {"name": "Living Bones", "deck_name": "Living Bones" }
+            ,   {"name": "Living Spirit", "deck_name": "Living Spirit" }
+            ,   {"name": "Living Corpse", "deck_name": "Living Corpse" }
             ]
         },
         { name: "#20 Necromancer's Sanctum"
         , decks:
-            [ "Living Bones"
-            , "Cultist"
-            , "Night Demon"
-            , "Living Corpse"
-            , "Boss"
+            [   {"name": "Living Bones", "deck_name": "Living Bones" }
+            ,   {"name": "Cultist", "deck_name": "Cultist" }
+            ,   {"name": "Night Demon", "deck_name": "Night Demon" }
+            ,   {"name": "Living Corpse", "deck_name": "Living Corpse" }
+            ,   {"name": "Boss", "deck_name": "Boss" }
             ]
         },
         { name: "#21 Infernal Throne"
         , decks:
-            [ "Sun Demon"
-            , "Frost Demon"
-            , "Night Demon"
-            , "Wind Demon"
-            , "Earth Demon"
-            , "Flame Demon"
-            , "Boss"
+            [   {"name": "Sun Demon", "deck_name": "Sun Demon" }
+            ,   {"name": "Frost Demon", "deck_name": "Frost Demon" }
+            ,   {"name": "Night Demon", "deck_name": "Night Demon" }
+            ,   {"name": "Wind Demon", "deck_name": "Wind Demon" }
+            ,   {"name": "Earth Demon", "deck_name": "Earth Demon" }
+            ,   {"name": "Flame Demon", "deck_name": "Flame Demon" }
+            ,   {"name": "Boss", "deck_name": "Boss" }
             ]
         },
         { name: "#22 Temple of the Elements"
         , decks:
-            [ "Living Bones"
-            , "Cultist"
-            , "Earth Demon"
-            , "Flame Demon"
-            , "Frost Demon"
-            , "Wind Demon"
+            [   {"name": "Living Bones", "deck_name": "Living Bones" }
+            ,   {"name": "Cultist", "deck_name": "Cultist" }
+            ,   {"name": "Earth Demon", "deck_name": "Earth Demon" }
+            ,   {"name": "Flame Demon", "deck_name": "Flame Demon" }
+            ,   {"name": "Frost Demon", "deck_name": "Frost Demon" }
+            ,   {"name": "Wind Demon", "deck_name": "Wind Demon" }
             ]
         },
         { name: "#23 Deep Ruins"
         , decks:
-            [ "Stone Golem"
-            , "Ancient Artillery"
-            , "Living Bones"
-            , "Living Spirit"
+            [   {"name": "Stone Golem", "deck_name": "Stone Golem" }
+            ,   {"name": "Ancient Artillery", "deck_name": "Ancient Artillery" }
+            ,   {"name": "Living Bones", "deck_name": "Living Bones" }
+            ,   {"name": "Living Spirit", "deck_name": "Living Spirit" }
             ]
         },
         { name: "#24 Echo Chamber"
         , decks:
-            [ "Rending Drake"
-            , "Ooze"
-            , "Living Spirit"
+            [   {"name": "Rending Drake", "deck_name": "Rending Drake" }
+            ,   {"name": "Ooze", "deck_name": "Ooze" }
+            ,   {"name": "Living Spirit", "deck_name": "Living Spirit" }
             ]
         },
         { name: "#25 Icecrag Ascent"
         , decks:
-            [ "Hound"
-            , "Rending Drake"
-            , "Spitting Drake"
+            [   {"name": "Hound", "deck_name": "Hound" }
+            ,   {"name": "Rending Drake", "deck_name": "Rending Drake" }
+            ,   {"name": "Spitting Drake", "deck_name": "Spitting Drake" }
             ]
         },
         { name: "#26 Ancient Cistern"
         , decks:
-            [ "Living Corpse"
-            , "Ooze"
-            , "Night Demon"
-            , "Imp"
+            [   {"name": "Living Corpse", "deck_name": "Living Corpse" }
+            ,   {"name": "Ooze", "deck_name": "Ooze" }
+            ,   {"name": "Night Demon", "deck_name": "Night Demon" }
+            ,   {"name": "Imp", "deck_name": "Imp" }
             ]
         },
         { name: "#27 Ruinous Rift"
         , decks:
-            [ "Night Demon"
-            , "Wind Demon"
-            , "Frost Demon"
-            , "Sun Demon"
-            , "Earth Demon"
-            , "Flame Demon"
+            [   {"name": "Night Demon", "deck_name": "Night Demon" }
+            ,   {"name": "Wind Demon", "deck_name": "Wind Demon" }
+            ,   {"name": "Frost Demon", "deck_name": "Frost Demon" }
+            ,   {"name": "Sun Demon", "deck_name": "Sun Demon" }
+            ,   {"name": "Earth Demon", "deck_name": "Earth Demon" }
+            ,   {"name": "Flame Demon", "deck_name": "Flame Demon" }
             ]
         },
         { name: "#28 Outer Ritual Chamber"
         , decks:
-            [ "Living Corpse"
-            , "Cultist"
-            , "Living Bones"
-            , "Night Demon"
-            , "Sun Demon"
+            [   {"name": "Living Corpse", "deck_name": "Living Corpse" }
+            ,   {"name": "Cultist", "deck_name": "Cultist" }
+            ,   {"name": "Living Bones", "deck_name": "Living Bones" }
+            ,   {"name": "Night Demon", "deck_name": "Night Demon" }
+            ,   {"name": "Sun Demon", "deck_name": "Sun Demon" }
             ]
         },
         { name: "#29 Sanctuary of Gloom"
         , decks:
-            [ "Living Bones"
-            , "Living Corpse"
-            , "Living Spirit"
-            , "Imp"
+            [   {"name": "Living Bones", "deck_name": "Living Bones" }
+            ,   {"name": "Living Corpse", "deck_name": "Living Corpse" }
+            ,   {"name": "Living Spirit", "deck_name": "Living Spirit" }
+            ,   {"name": "Imp", "deck_name": "Imp" }
             ]
         },
         { name: "#30 Shrine of the Depths"
         , decks:
-            [ "Ooze"
-            , "Lurker"
-            , "Deep Terror"
+            [   {"name": "Ooze", "deck_name": "Ooze" }
+            ,   {"name": "Lurker", "deck_name": "Lurker" }
+            ,   {"name": "Deep Terror", "deck_name": "Deep Terror" }
             ]
         },
         { name: "#31 Plane of the Night"
         , decks:
-            [ "Deep Terror"
-            , "Night Demon"
-            , "Imp"
+            [   {"name": "Deep Terror", "deck_name": "Deep Terror" }
+            ,   {"name": "Night Demon", "deck_name": "Night Demon" }
+            ,   {"name": "Imp", "deck_name": "Imp" }
             ]
         },
         { name: "#32 Decrepit Wood"
         , decks:
-            [ "Harrower Infester"
-            , "Giant Viper"
-            , "Deep Terror"
-            , "Imp"
+            [   {"name": "Harrower Infester", "deck_name": "Harrower Infester" }
+            ,   {"name": "Giant Viper", "deck_name": "Giant Viper" }
+            ,   {"name": "Deep Terror", "deck_name": "Deep Terror" }
+            ,   {"name": "Imp", "deck_name": "Imp" }
             ]
         },
         { name: "#33 Savvas Armory"
         , decks:
-            [ "Savvas Icestorm"
-            , "Savvas Lavaflow"
-            , "Frost Demon"
-            , "Flame Demon"
-            , "Wind Demon"
-            , "Earth Demon"
+            [   {"name": "Savvas Icestorm", "deck_name": "Savvas Icestorm" }
+            ,   {"name": "Savvas Lavaflow", "deck_name": "Savvas Lavaflow" }
+            ,   {"name": "Frost Demon", "deck_name": "Frost Demon" }
+            ,   {"name": "Flame Demon", "deck_name": "Flame Demon" }
+            ,   {"name": "Wind Demon", "deck_name": "Wind Demon" }
+            ,   {"name": "Earth Demon", "deck_name": "Earth Demon" }
             ]
         },
         { name: "#34 Scorched Summit"
         , decks:
-            [ "Rending Drake"
-            , "Spitting Drake"
-            , "Boss"
+            [   {"name": "Rending Drake", "deck_name": "Rending Drake" }
+            ,   {"name": "Spitting Drake", "deck_name": "Spitting Drake" }
+            ,   {"name": "Boss", "deck_name": "Boss" }
             ]
         },
         { name: "#35 Gloomhaven Battlements A"
         , decks:
-            [ "Flame Demon"
-            , "Frost Demon"
-            , "Earth Demon"
-            , "Wind Demon"
-            , "Guard"
-            , "Archer"
-            , "Boss"
+            [   {"name": "Flame Demon", "deck_name": "Flame Demon" }
+            ,   {"name": "Frost Demon", "deck_name": "Frost Demon" }
+            ,   {"name": "Earth Demon", "deck_name": "Earth Demon" }
+            ,   {"name": "Wind Demon", "deck_name": "Wind Demon" }
+            ,   {"name": "Guard", "deck_name": "Guard" }
+            ,   {"name": "Archer", "deck_name": "Archer" }
+            ,   {"name": "Boss", "deck_name": "Boss" }
             ]
         },
         { name: "#36 Gloomhaven Battlements B"
         , decks:
-            [ "Flame Demon"
-            , "Frost Demon"
-            , "Earth Demon"
-            , "Wind Demon"
-            , "Archer"
-            , "Boss"
+            [   {"name": "Flame Demon", "deck_name": "Flame Demon" }
+            ,   {"name": "Frost Demon", "deck_name": "Frost Demon" }
+            ,   {"name": "Earth Demon", "deck_name": "Earth Demon" }
+            ,   {"name": "Wind Demon", "deck_name": "Wind Demon" }
+            ,   {"name": "Archer", "deck_name": "Archer" }
+            ,   {"name": "Boss", "deck_name": "Boss" }
             ]
         },
         { name: "#37 Doom Trench"
         , decks:
-            [ "Lurker"
-            , "Deep Terror"
-            , "Harrower Infester"
+            [   {"name": "Lurker", "deck_name": "Lurker" }
+            ,   {"name": "Deep Terror", "deck_name": "Deep Terror" }
+            ,   {"name": "Harrower Infester", "deck_name": "Harrower Infester" }
             ]
         },
         { name: "#38 Slave Pens"
         , decks:
-            [ "Guard"
-            , "Archer"
-            , "Shaman"
-            , "Stone Golem"
+            [   {"name": "Guard", "deck_name": "Guard" }
+            ,   {"name": "Archer", "deck_name": "Archer" }
+            ,   {"name": "Shaman", "deck_name": "Shaman" }
+            ,   {"name": "Stone Golem", "deck_name": "Stone Golem" }
             ]
         },
         { name: "#39 Treacherous Divide"
         , decks:
-            [ "Cave Bear"
-            , "Frost Demon"
-            , "Spitting Drake"
-            , "Cultist"
-            , "Living Bones"
+            [   {"name": "Cave Bear", "deck_name": "Cave Bear" }
+            ,   {"name": "Frost Demon", "deck_name": "Frost Demon" }
+            ,   {"name": "Spitting Drake", "deck_name": "Spitting Drake" }
+            ,   {"name": "Cultist", "deck_name": "Cultist" }
+            ,   {"name": "Living Bones", "deck_name": "Living Bones" }
             ]
         },
         { name: "#40 Ancient Defense Network"
         , decks:
-            [ "Living Corpse"
-            , "Flame Demon"
-            , "Cave Bear"
-            , "Stone Golem"
-            , "Imp"
+            [   {"name": "Living Corpse", "deck_name": "Living Corpse" }
+            ,   {"name": "Flame Demon", "deck_name": "Flame Demon" }
+            ,   {"name": "Cave Bear", "deck_name": "Cave Bear" }
+            ,   {"name": "Stone Golem", "deck_name": "Stone Golem" }
+            ,   {"name": "Imp", "deck_name": "Imp" }
             ]
         },
         { name: "#41 Timeworn Tomb"
         , decks:
-            [ "Ancient Artillery"
-            , "Living Corpse"
-            , "Living Spirit"
-            , "Stone Golem"
+            [   {"name": "Ancient Artillery", "deck_name": "Ancient Artillery" }
+            ,   {"name": "Living Corpse", "deck_name": "Living Corpse" }
+            ,   {"name": "Living Spirit", "deck_name": "Living Spirit" }
+            ,   {"name": "Stone Golem", "deck_name": "Stone Golem" }
             ]
         },
         { name: "#42 Realm of the Voice"
         , decks:
-            [ "Night Demon"
-            , "Wind Demon"
-            , "Living Spirit"
+            [   {"name": "Night Demon", "deck_name": "Night Demon" }
+            ,   {"name": "Wind Demon", "deck_name": "Wind Demon" }
+            ,   {"name": "Living Spirit", "deck_name": "Living Spirit" }
             ]
         },
         { name: "#43 - Drake Nest"
         , decks:
-            [ "Flame Demon"
-            , "Rending Drake"
-            , "Spitting Drake"
+            [   {"name": "Flame Demon", "deck_name": "Flame Demon" }
+            ,   {"name": "Rending Drake", "deck_name": "Rending Drake" }
+            ,   {"name": "Spitting Drake", "deck_name": "Spitting Drake" }
             ]
         },
         { name: "#44 Tribal Assault"
         , decks:
-            [ "Guard"
-            , "Archer"
-            , "Hound"
-            , "Shaman"
+            [   {"name": "Guard", "deck_name": "Guard" }
+            ,   {"name": "Archer", "deck_name": "Archer" }
+            ,   {"name": "Hound", "deck_name": "Hound" }
+            ,   {"name": "Shaman", "deck_name": "Shaman" }
             ]
         },
         { name: "#45 Rebel Swamp"
         , decks:
-            [ "Guard"
-            , "Archer"
-            , "Hound"
+            [   {"name": "Guard", "deck_name": "Guard" }
+            ,   {"name": "Archer", "deck_name": "Archer" }
+            ,   {"name": "Hound", "deck_name": "Hound" }
             ]
         },
         { name: "#46 Nightmare Peak"
         , decks:
-            [ "Night Demon"
-            , "Frost Demon"
-            , "Wind Demon"
-            , "Savvas Icestorm"
-            , "Boss"
+            [   {"name": "Night Demon", "deck_name": "Night Demon" }
+            ,   {"name": "Frost Demon", "deck_name": "Frost Demon" }
+            ,   {"name": "Wind Demon", "deck_name": "Wind Demon" }
+            ,   {"name": "Savvas Icestorm", "deck_name": "Savvas Icestorm" }
+            ,   {"name": "Boss", "deck_name": "Boss" }
             ]
         },
         { name: "#47 Lair of the Unseeing Eye"
         , decks:
-            [ "Lurker"
-            , "Deep Terror"
-            , "Harrower Infester"
-            , "Boss"
+            [   {"name": "Lurker", "deck_name": "Lurker" }
+            ,   {"name": "Deep Terror", "deck_name": "Deep Terror" }
+            ,   {"name": "Harrower Infester", "deck_name": "Harrower Infester" }
+            ,   {"name": "Boss", "deck_name": "Boss" }
             ]
         },
         { name: "#48 - Shadow Weald"
         , decks:
-            [ "Imp"
-            , "Earth Demon"
-            , "Harrower Infester"
-            , "Boss"
+            [   {"name": "Imp", "deck_name": "Imp" }
+            ,   {"name": "Earth Demon", "deck_name": "Earth Demon" }
+            ,   {"name": "Harrower Infester", "deck_name": "Harrower Infester" }
+            ,   {"name": "Boss", "deck_name": "Boss" }
             ]
         },
         { name: "#49 Rebel's Stand"
         , decks:
-            [ "Giant Viper"
-            , "Archer"
-            , "Guard"
-            , "Ancient Artillery"
+            [   {"name": "Giant Viper", "deck_name": "Giant Viper" }
+            ,   {"name": "Archer", "deck_name": "Archer" }
+            ,   {"name": "Guard", "deck_name": "Guard" }
+            ,   {"name": "Ancient Artillery", "deck_name": "Ancient Artillery" }
             ]
         },
         { name: "#50 Ghost Fortress"
         , decks:
-            [ "Night Demon"
-            , "Sun Demon"
-            , "Earth Demon"
+            [   {"name": "Night Demon", "deck_name": "Night Demon" }
+            ,   {"name": "Sun Demon", "deck_name": "Sun Demon" }
+            ,   {"name": "Earth Demon", "deck_name": "Earth Demon" }
             ]
         },
         { name: "#51 The Void"
         , decks:
-            [ "Boss"
+            [   {"name": "Boss", "deck_name": "Boss" }
             ]
         },
         { name: "#52 Noxious Cellar"
         , decks:
-            [ "Spitting Drake"
-            , "Ooze"
-            , "Scout"
-            , "Living Corpse"
-            , "Shaman"
+            [   {"name": "Spitting Drake", "deck_name": "Spitting Drake" }
+            ,   {"name": "Ooze", "deck_name": "Ooze" }
+            ,   {"name": "Scout", "deck_name": "Scout" }
+            ,   {"name": "Living Corpse", "deck_name": "Living Corpse" }
+            ,   {"name": "Shaman", "deck_name": "Shaman" }
             ]
         },
         { name: "#53 Crypt Basement"
         , decks:
-            [ "Ooze"
-            , "Living Corpse"
-            , "Living Spirit"
-            , "Living Bones"
-            , "Giant Viper"
+            [   {"name": "Ooze", "deck_name": "Ooze" }
+            ,   {"name": "Living Corpse", "deck_name": "Living Corpse" }
+            ,   {"name": "Living Spirit", "deck_name": "Living Spirit" }
+            ,   {"name": "Living Bones", "deck_name": "Living Bones" }
+            ,   {"name": "Giant Viper", "deck_name": "Giant Viper" }
             ]
         },
         { name: "#54 Palace of Ice"
         , decks:
-            [ "Cave Bear"
-            , "Living Spirit"
-            , "Frost Demon"
-            , "Harrower Infester"
+            [   {"name": "Cave Bear", "deck_name": "Cave Bear" }
+            ,   {"name": "Living Spirit", "deck_name": "Living Spirit" }
+            ,   {"name": "Frost Demon", "deck_name": "Frost Demon" }
+            ,   {"name": "Harrower Infester", "deck_name": "Harrower Infester" }
             ]
         },
 /*
         { name: "#55 Foggy Thicket"
         , decks:
-            [ "Random"
+            [   {"name": "Random", "deck_name": "Random" }
             ]
         },
 */
         { name: "#56 Bandit's Wood"
         , decks:
-            [ "Hound"
-            , "Archer"
-            , "Rending Drake"
-            , "Guard"
+            [   {"name": "Hound", "deck_name": "Hound" }
+            ,   {"name": "Archer", "deck_name": "Archer" }
+            ,   {"name": "Rending Drake", "deck_name": "Rending Drake" }
+            ,   {"name": "Guard", "deck_name": "Guard" }
             ]
         },
         { name: "#57 Investigation"
         , decks:
-            [ "Guard"
-            , "Archer"
-            , "Hound"
+            [   {"name": "Guard", "deck_name": "Guard" }
+            ,   {"name": "Archer", "deck_name": "Archer" }
+            ,   {"name": "Hound", "deck_name": "Hound" }
             ]
         },
         { name: "#58 Bloody Shack"
         , decks:
-            [ "Earth Demon"
-            , "Harrower Infester"
-            , "Imp"
-            , "Guard"
+            [   {"name": "Earth Demon", "deck_name": "Earth Demon" }
+            ,   {"name": "Harrower Infester", "deck_name": "Harrower Infester" }
+            ,   {"name": "Imp", "deck_name": "Imp" }
+            ,   {"name": "Guard", "deck_name": "Guard" }
             ]
         },
         { name: "#59 Forgotten Grove"
         , decks:
-            [ "Cave Bear"
-            , "Hound"
-            , "Imp"
+            [   {"name": "Cave Bear", "deck_name": "Cave Bear" }
+            ,   {"name": "Hound", "deck_name": "Hound" }
+            ,   {"name": "Imp", "deck_name": "Imp" }
             ]
         },
         { name: "#60 Alchemy Lab"
         , decks:
-            [ "Ooze"
-            , "Giant Viper"
-            , "Hound"
-            , "Rending Drake"
-            , "Spitting Drake"
+            [   {"name": "Ooze", "deck_name": "Ooze" }
+            ,   {"name": "Giant Viper", "deck_name": "Giant Viper" }
+            ,   {"name": "Hound", "deck_name": "Hound" }
+            ,   {"name": "Rending Drake", "deck_name": "Rending Drake" }
+            ,   {"name": "Spitting Drake", "deck_name": "Spitting Drake" }
             ]
         },
         { name: "#61 Fading Lighthouse"
         , decks:
-            [ "Ooze"
-            , "Giant Viper"
-            , "Frost Demon"
-            , "Flame Demon"
+            [   {"name": "Ooze", "deck_name": "Ooze" }
+            ,   {"name": "Giant Viper", "deck_name": "Giant Viper" }
+            ,   {"name": "Frost Demon", "deck_name": "Frost Demon" }
+            ,   {"name": "Flame Demon", "deck_name": "Flame Demon" }
             ]
         },
         { name: "#62 Pit of Souls"
         , decks:
-            [ "Living Bones"
-            , "Living Spirit"
+            [   {"name": "Living Bones", "deck_name": "Living Bones" }
+            ,   {"name": "Living Spirit", "deck_name": "Living Spirit" }
             ]
         },
         { name: "#63 Magma Pit"
         , decks:
-            [ "Scout"
-            , "Guard"
-            , "Archer"
+            [   {"name": "Scout", "deck_name": "Scout" }
+            ,   {"name": "Guard", "deck_name": "Guard" }
+            ,   {"name": "Archer", "deck_name": "Archer" }
             ]
         },
         { name: "#64 Underwater Lagoon"
         , decks:
-            [ "Ooze"
-            , "Imp"
-            , "Rending Drake"
+            [   {"name": "Ooze", "deck_name": "Ooze" }
+            ,   {"name": "Imp", "deck_name": "Imp" }
+            ,   {"name": "Rending Drake", "deck_name": "Rending Drake" }
             ]
         },
         { name: "#65 Sulfur Mine"
         , decks:
-            [ "Scout"
-            , "Hound"
-            , "Shaman"
+            [   {"name": "Scout", "deck_name": "Scout" }
+            ,   {"name": "Hound", "deck_name": "Hound" }
+            ,   {"name": "Shaman", "deck_name": "Shaman" }
             ]
         },
         { name: "#66 Clockwork Cove"
         , decks:
-            [ "Ooze"
-            , "Ancient Artillery"
-            , "Living Spirit"
-            , "Stone Golem"
+            [   {"name": "Ooze", "deck_name": "Ooze" }
+            ,   {"name": "Ancient Artillery", "deck_name": "Ancient Artillery" }
+            ,   {"name": "Living Spirit", "deck_name": "Living Spirit" }
+            ,   {"name": "Stone Golem", "deck_name": "Stone Golem" }
             ]
         },
         { name: "#67 Arcane Library"
         , decks:
-            [ "Imp"
-            , "Cave Bear"
-            , "Stone Golem"
+            [   {"name": "Imp", "deck_name": "Imp" }
+            ,   {"name": "Cave Bear", "deck_name": "Cave Bear" }
+            ,   {"name": "Stone Golem", "deck_name": "Stone Golem" }
             ]
         },
         { name: "#68 Toxic Moor"
         , decks:
-            [ "Rending Drake"
-            , "Imp"
-            , "Giant Viper"
-            , "Living Corpse"
+            [   {"name": "Rending Drake", "deck_name": "Rending Drake" }
+            ,   {"name": "Imp", "deck_name": "Imp" }
+            ,   {"name": "Giant Viper", "deck_name": "Giant Viper" }
+            ,   {"name": "Living Corpse", "deck_name": "Living Corpse" }
             ]
         },
         { name: "#69 Well of the Unfortunate"
         , decks:
-            [ "Scout"
-            , "Shaman"
-            , "Imp"
-            , "Stone Golem"
-            , "Living Spirit"
+            [   {"name": "Scout", "deck_name": "Scout" }
+            ,   {"name": "Shaman", "deck_name": "Shaman" }
+            ,   {"name": "Imp", "deck_name": "Imp" }
+            ,   {"name": "Stone Golem", "deck_name": "Stone Golem" }
+            ,   {"name": "Living Spirit", "deck_name": "Living Spirit" }
             ]
         },
         { name: "#70 Chained Isle"
         , decks:
-            [ "Night Demon"
-            , "Wind Demon"
-            , "Living Spirit"
+            [   {"name": "Night Demon", "deck_name": "Night Demon" }
+            ,   {"name": "Wind Demon", "deck_name": "Wind Demon" }
+            ,   {"name": "Living Spirit", "deck_name": "Living Spirit" }
             ]
         },
         { name: "#71 Windswept Highlands"
         , decks:
-            [ "Spitting Drake"
-            , "Wind Demon"
-            , "Sun Demon"
+            [   {"name": "Spitting Drake", "deck_name": "Spitting Drake" }
+            ,   {"name": "Wind Demon", "deck_name": "Wind Demon" }
+            ,   {"name": "Sun Demon", "deck_name": "Sun Demon" }
             ]
         },
         { name: "#72 Oozing Grove"
         , decks:
-            [ "Ooze"
-            , "Imp"
-            , "Giant Viper"
+            [   {"name": "Ooze", "deck_name": "Ooze" }
+            ,   {"name": "Imp", "deck_name": "Imp" }
+            ,   {"name": "Giant Viper", "deck_name": "Giant Viper" }
             ]
         },
         { name: "#73 Rockslide Ridge"
         , decks:
-            [ "Hound"
-            , "Archer"
-            , "Ancient Artillery"
-            , "Guard"
-            , "Shaman"
+            [   {"name": "Hound", "deck_name": "Hound" }
+            ,   {"name": "Archer", "deck_name": "Archer" }
+            ,   {"name": "Ancient Artillery", "deck_name": "Ancient Artillery" }
+            ,   {"name": "Guard", "deck_name": "Guard" }
+            ,   {"name": "Shaman", "deck_name": "Shaman" }
             ]
         },
         { name: "#74 Merchant Ship"
         , decks:
-            [ "Guard"
-            , "Archer"
-            , "Lurker"
-            , "Deep Terror"
+            [   {"name": "Guard", "deck_name": "Guard" }
+            ,   {"name": "Archer", "deck_name": "Archer" }
+            ,   {"name": "Lurker", "deck_name": "Lurker" }
+            ,   {"name": "Deep Terror", "deck_name": "Deep Terror" }
             ]
         },
         { name: "#75 Overgrown Graveyard"
         , decks:
-            [ "Living Bones"
-            , "Living Corpse"
-            , "Living Spirit"
+            [   {"name": "Living Bones", "deck_name": "Living Bones" }
+            ,   {"name": "Living Corpse", "deck_name": "Living Corpse" }
+            ,   {"name": "Living Spirit", "deck_name": "Living Spirit" }
             ]
         },
         { name: "#76 Harrower Hive"
         , decks:
-            [ "Giant Viper"
-            , "Living Bones"
-            , "Night Demon"
-            , "Harrower Infester"
+            [   {"name": "Giant Viper", "deck_name": "Giant Viper" }
+            ,   {"name": "Living Bones", "deck_name": "Living Bones" }
+            ,   {"name": "Night Demon", "deck_name": "Night Demon" }
+            ,   {"name": "Harrower Infester", "deck_name": "Harrower Infester" }
             ]
         },
         { name: "#77 Vault of Secrets"
         , decks:
-            [ "Guard"
-            , "Archer"
-            , "Stone Golem"
-            , "Hound"
+            [   {"name": "Guard", "deck_name": "Guard" }
+            ,   {"name": "Archer", "deck_name": "Archer" }
+            ,   {"name": "Stone Golem", "deck_name": "Stone Golem" }
+            ,   {"name": "Hound", "deck_name": "Hound" }
             ]
         },
         { name: "#78 Sacrifice Pit"
         , decks:
-            [ "Guard"
-            , "Archer"
-            , "Cultist"
-            , "Living Bones"
-            , "Imp"
+            [   {"name": "Guard", "deck_name": "Guard" }
+            ,   {"name": "Archer", "deck_name": "Archer" }
+            ,   {"name": "Cultist", "deck_name": "Cultist" }
+            ,   {"name": "Living Bones", "deck_name": "Living Bones" }
+            ,   {"name": "Imp", "deck_name": "Imp" }
             ]
         },
         { name: "#79 Lost Temple"
         , decks:
-            [ "Stone Golem"
-            , "Giant Viper"
-            , "Boss"
+            [   {"name": "Stone Golem", "deck_name": "Stone Golem" }
+            ,   {"name": "Giant Viper", "deck_name": "Giant Viper" }
+            ,   {"name": "Boss", "deck_name": "Boss" }
             ]
         },
         { name: "#80 Vigil Keep"
         , decks:
-            [ "Guard"
-            , "Archer"
-            , "Ancient Artillery"
-            , "Hound"
+            [   {"name": "Guard", "deck_name": "Guard" }
+            ,   {"name": "Archer", "deck_name": "Archer" }
+            ,   {"name": "Ancient Artillery", "deck_name": "Ancient Artillery" }
+            ,   {"name": "Hound", "deck_name": "Hound" }
             ]
         },
         { name: "#81 Temple of the Eclipse"
         , decks:
-            [ "Night Demon"
-            , "Sun Demon"
-            , "Stone Golem"
-            , "Ancient Artillery"
-            , "Boss"
+            [   {"name": "Night Demon", "deck_name": "Night Demon" }
+            ,   {"name": "Sun Demon", "deck_name": "Sun Demon" }
+            ,   {"name": "Stone Golem", "deck_name": "Stone Golem" }
+            ,   {"name": "Ancient Artillery", "deck_name": "Ancient Artillery" }
+            ,   {"name": "Boss", "deck_name": "Boss" }
             ]
         },
         { name: "#82 Burning Mountain"
         , decks:
-            [ "Earth Demon"
-            , "Flame Demon"
-            , "Stone Golem"
+            [   {"name": "Earth Demon", "deck_name": "Earth Demon" }
+            ,   {"name": "Flame Demon", "deck_name": "Flame Demon" }
+            ,   {"name": "Stone Golem", "deck_name": "Stone Golem" }
             ]
         },
         { name: "#83 Shadows Within"
         , decks:
-            [ "Hound"
-            , "Cultist"
-            , "Living Bones"
-            , "Living Spirit"
-            , "Flame Demon"
+            [   {"name": "Hound", "deck_name": "Hound" }
+            ,   {"name": "Cultist", "deck_name": "Cultist" }
+            ,   {"name": "Living Bones", "deck_name": "Living Bones" }
+            ,   {"name": "Living Spirit", "deck_name": "Living Spirit" }
+            ,   {"name": "Flame Demon", "deck_name": "Flame Demon" }
             ]
         },
         { name: "#84 Crystalline Cave"
         , decks:
-            [ "Flame Demon"
-            , "Frost Demon"
-            , "Earth Demon"
+            [   {"name": "Flame Demon", "deck_name": "Flame Demon" }
+            ,   {"name": "Frost Demon", "deck_name": "Frost Demon" }
+            ,   {"name": "Earth Demon", "deck_name": "Earth Demon" }
             ]
         },
         { name: "#85 Sun Temple"
         , decks:
-            [ "Hound"
-            , "Imp"
-            , "Night Demon"
-            , "Sun Demon"
+            [   {"name": "Hound", "deck_name": "Hound" }
+            ,   {"name": "Imp", "deck_name": "Imp" }
+            ,   {"name": "Night Demon", "deck_name": "Night Demon" }
+            ,   {"name": "Sun Demon", "deck_name": "Sun Demon" }
             ]
         },
         { name: "#86 Harried Village"
         , decks:
-            [ "Cave Bear"
-            , "Shaman"
-            , "Scout"
-            , "Lurker"
+            [   {"name": "Cave Bear", "deck_name": "Cave Bear" }
+            ,   {"name": "Shaman", "deck_name": "Shaman" }
+            ,   {"name": "Scout", "deck_name": "Scout" }
+            ,   {"name": "Lurker", "deck_name": "Lurker" }
             ]
         },
         { name: "#87 Corrupted Cove"
         , decks:
-            [ "Lurker"
-            , "Deep Terror"
-            , "Ooze"
-            , "Imp"
+            [   {"name": "Lurker", "deck_name": "Lurker" }
+            ,   {"name": "Deep Terror", "deck_name": "Deep Terror" }
+            ,   {"name": "Ooze", "deck_name": "Ooze" }
+            ,   {"name": "Imp", "deck_name": "Imp" }
             ]
         },
         { name: "#88 Plane of Water"
         , decks:
-            [ "Frost Demon"
-            , "Ooze"
-            , "Lurker"
+            [   {"name": "Frost Demon", "deck_name": "Frost Demon" }
+            ,   {"name": "Ooze", "deck_name": "Ooze" }
+            ,   {"name": "Lurker", "deck_name": "Lurker" }
             ]
         },
         { name: "#89 Syndicate Hideout"
         , decks:
-            [ "Archer"
-            , "Guard"
-            , "Cultist"
-            , "Giant Viper"
+            [   {"name": "Archer", "deck_name": "Archer" }
+            ,   {"name": "Guard", "deck_name": "Guard" }
+            ,   {"name": "Cultist", "deck_name": "Cultist" }
+            ,   {"name": "Giant Viper", "deck_name": "Giant Viper" }
             ]
         },
         { name: "#90 Demonic Rift"
         , decks:
-            [ "Earth Demon"
-            , "Wind Demon"
-            , "Night Demon"
-            , "Living Spirit"
+            [   {"name": "Earth Demon", "deck_name": "Earth Demon" }
+            ,   {"name": "Wind Demon", "deck_name": "Wind Demon" }
+            ,   {"name": "Night Demon", "deck_name": "Night Demon" }
+            ,   {"name": "Living Spirit", "deck_name": "Living Spirit" }
             ]
         },
         { name: "#91 Wild Melee"
         , decks:
-            [ "Cave Bear"
-            , "Hound"
-            , "Guard"
-            , "Archer"
-            , "Living Spirit"
+            [   {"name": "Cave Bear", "deck_name": "Cave Bear" }
+            ,   {"name": "Hound", "deck_name": "Hound" }
+            ,   {"name": "Guard", "deck_name": "Guard" }
+            ,   {"name": "Archer", "deck_name": "Archer" }
+            ,   {"name": "Living Spirit", "deck_name": "Living Spirit" }
             ]
         },
         { name: "#92 Back Alley Brawl"
         , decks:
-            [ "Guard"
-            , "Archer"
-            , "Savvas Icestorm"
-            , "Frost Demon"
-            , "Wind Demon"
+            [   {"name": "Guard", "deck_name": "Guard" }
+            ,   {"name": "Archer", "deck_name": "Archer" }
+            ,   {"name": "Savvas Icestorm", "deck_name": "Savvas Icestorm" }
+            ,   {"name": "Frost Demon", "deck_name": "Frost Demon" }
+            ,   {"name": "Wind Demon", "deck_name": "Wind Demon" }
             ]
         },
         { name: "#93 Sunken Vessel"
         , decks:
-            [ "Lurker"
-            , "Frost Demon"
-            , "Living Spirit"
+            [   {"name": "Lurker", "deck_name": "Lurker" }
+            ,   {"name": "Frost Demon", "deck_name": "Frost Demon" }
+            ,   {"name": "Living Spirit", "deck_name": "Living Spirit" }
             ]
         },
         { name: "#94 Vermling Nest"
         , decks:
-            [ "Hound"
-            , "Scout"
-            , "Shaman"
-            , "Cave Bear"
+            [   {"name": "Hound", "deck_name": "Hound" }
+            ,   {"name": "Scout", "deck_name": "Scout" }
+            ,   {"name": "Shaman", "deck_name": "Shaman" }
+            ,   {"name": "Cave Bear", "deck_name": "Cave Bear" }
             ]
         },
         { name: "#95 Payment Due"
         , decks:
-            [ "Deep Terror"
-            , "Flame Demon"
-            , "Earth Demon"
-            , "Savvas Lavaflow"
+            [   {"name": "Deep Terror", "deck_name": "Deep Terror" }
+            ,   {"name": "Flame Demon", "deck_name": "Flame Demon" }
+            ,   {"name": "Earth Demon", "deck_name": "Earth Demon" }
+            ,   {"name": "Savvas Lavaflow", "deck_name": "Savvas Lavaflow" }
             ]
-        },
+        }
 
     ];
