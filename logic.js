@@ -170,7 +170,27 @@ function load_deck(deck_definition)
             shuffle_next:   shuffle
         };
 
+        card.change_displaying_name = function (new_name)
+            {
+                Array.prototype.forEach.call(this.ui.front.getElementsByClassName("name"), function(element) {
+                    element.innerText = new_name;
+                });
+                Array.prototype.forEach.call(this.ui.back.getElementsByClassName("name"), function(element) {
+                    element.innerText = new_name;
+                });
+            }
+
         deck_state.draw_pile.push(card);
+    }
+
+    deck_state.set_real_name = function(real_name) 
+    {
+        deck_state.real_name = real_name;
+        deck_state.draw_pile.concat(deck_state.discard).forEach( 
+            function(card) { 
+                console.log(card);
+                card.change_displaying_name(real_name);
+            });
     }
 
     return deck_state;
@@ -424,6 +444,27 @@ function ScenarioList(scenarios)
     return scenariolist;
 }
 
+function discard_monster_adjetives(monster_name)
+{
+    var words_in_name = monster_name.split(" ");
+
+    if (words_in_name.length > 1)
+    {
+        var short_name = "";
+        for (var i=0; i < words_in_name.length; i++)
+        {
+            if (!MONSTER_ADJETIVES.includes(words_in_name[i]))
+            {
+                short_name = short_name.concat(words_in_name[i] + " ");
+            }
+        }
+        return {'short_name': short_name.trim(), 'real_name': monster_name};
+    } else 
+    {
+        return {'short_name': monster_name, 'real_name': monster_name};
+    }
+}
+
 function init()
 {
     decks = load(DECK_DEFINITONS);
@@ -448,7 +489,13 @@ function init()
     applyscenariobtn.onclick = function()
     {
         var selected_deck_names = scenariolist.get_scenario_decks();
-        var selected_decks = selected_deck_names.map( function(name) { return decks[name]; } );
+        var selected_decks = selected_deck_names.map( function(name) 
+            { 
+                var name_dict = discard_monster_adjetives(name);
+                var deck = decks[name_dict.short_name];
+                deck.set_real_name(name_dict.real_name);
+                return deck; 
+            } );
         decklist.set_selection(selected_decks.map( function(deck) { return deck.name; } ));
         apply_deck_selection(selected_decks, false);
     };
