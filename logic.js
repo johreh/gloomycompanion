@@ -328,13 +328,6 @@ function prevent_pull_animation(deck)
     }
 }
 
-function repaint_modifier_deck(deck, prevent_pull)
-{
-    prevent_pull_animation(deck);
-    remove_child(document.getElementById("topmenu").getElementsByClassName("base")[0]);
-    place_deck(deck, document.getElementById("topmenu").getElementsByClassName("base")[0]);
-}
-
 function reshuffle_modifier_deck(deck)
 {
     deck.clean_discard_pile();
@@ -445,7 +438,7 @@ function load_modifier_deck(number_bless, number_curses)
         }
 
         // This is needed every time we update 
-        repaint_modifier_deck(deck);
+        repaint_modifier_deck(this);
 
     }
 
@@ -564,7 +557,7 @@ function click_end_of_round()
         modifier_deck.clean_advantage_deck();
         reshuffle_modifier_deck(modifier_deck);
     }
-    visible_decks.forEach(function(deck) { deck.new_round()});
+    visible_ability_decks.forEach(function(deck) { deck.new_round()});
 }
 
 function load_definition(card_database)
@@ -596,20 +589,18 @@ function write_value_deck_status()
     }
 }
 
+function repaint_modifier_deck(deck, prevent_pull)
+{
+    prevent_pull_animation(deck);
+    var modifier_deck_space = document.getElementById("tableau").getElementsByClassName("modifier")[0];
+    remove_child(modifier_deck_space);
+    place_deck(deck, modifier_deck_space);
+}
+
 function apply_deck_selection(decks, preserve_existing_deck_state)
 {
     var container = document.getElementById("tableau");
     var modifier_container = document.getElementById("topmenu");
-
-    if (!preserve_existing_deck_state) 
-    {
-        remove_child(modifier_container);
-        add_modifier_deck(modifier_container);
-
-    } else if (!modifier_deck)
-    {
-        add_modifier_deck(modifier_container);
-    }
 
     var decks_to_remove = visible_ability_decks.filter(function(deck) {
         return !preserve_existing_deck_state || decks.indexOf(deck) === -1;
@@ -618,6 +609,19 @@ function apply_deck_selection(decks, preserve_existing_deck_state)
     var decks_to_add = decks.filter(function(deck) {
         return !preserve_existing_deck_state || visible_ability_decks.indexOf(deck) === -1;
     });
+
+    if (!modifier_deck)
+    {
+        init_modifier_deck();
+        create_top_menu_elements(container);
+        add_modifier_deck(container, modifier_deck);
+    } else if (!preserve_existing_deck_state) 
+    {
+        remove_child(modifier_container);
+        create_top_menu_elements(container);
+        decks_to_remove.unshift(modifier_deck);
+        add_modifier_deck(container, modifier_deck);
+    }
 
     decks_to_remove.forEach(function(deck) { deck.discard_deck(); });
 
@@ -649,25 +653,28 @@ function apply_deck_selection(decks, preserve_existing_deck_state)
     refresh_ui();
 }
 
-function add_modifier_deck(container)
+function init_modifier_deck()
 {
     var deck = load_modifier_deck(0,0);
+    modifier_deck = deck;
+}
 
-    var modifier_deck_div = document.createElement("div");
-    modifier_deck_div.id = "modifier-deck";
+function add_modifier_deck(container, deck)
+{
     var deck_space = document.createElement("div");
-    deck_space.className = "card-container base";
-    modifier_deck_div.appendChild(deck_space);
+    deck_space.className = "card-container modifier";
 
+    container.appendChild(deck_space);
+    
     place_deck(deck, deck_space);
     reshuffle(deck);
     deck_space.onclick = draw_modifier_card.bind(null, deck);
 
-    container.appendChild(modifier_deck_div);
-
-    modifier_deck = deck;
-
-    create_top_menu_elements(container);
+    deck.discard_deck = function()
+        {
+            container.removeChild(deck_space);
+            init_modifier_deck();
+        };
 }
 
 function create_top_menu_elements(container)
