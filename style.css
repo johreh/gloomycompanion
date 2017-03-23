@@ -3,11 +3,29 @@ body
 {
     margin:             0;
     overflow-x:         hidden;
+    
+    margin-top:         30px;
 }
 
 .nobr
 {
     white-space:        nowrap;
+}
+
+#modifier-decks
+{
+    margin-top:         30px;
+    display:            inline-flex;
+    flex-wrap:          wrap;
+    justify-content:    space-around;
+}
+
+#topmenu
+{
+    display:            block;
+    flex-wrap:          wrap;
+    justify-content:    space-around;
+    width:              100%;
 }
 
 #tableau
@@ -31,7 +49,6 @@ body
         -webkit-box-orient: vertical;
     }
 }
-
 
 ul.tabcontainer
 {
@@ -136,4 +153,3 @@ ul.tabcontainer .inactive
     cursor:             pointer;
     z-index:            1;
 }
-
