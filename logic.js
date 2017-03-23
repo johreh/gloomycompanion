@@ -193,6 +193,19 @@ function load_ability_deck(deck_definition)
       }
     }
 
+    // In case any deck has started
+    deck.new_round = function() {
+        if (this.discard)
+        {
+            draw_ability_card(this);
+            // Maybe the last card was a reshuffle.
+            if (!this.discard)
+            {
+                draw_ability_card(this);
+            }
+        }
+    }
+
     return deck;
 }
 
