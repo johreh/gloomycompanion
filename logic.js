@@ -195,11 +195,11 @@ function load_ability_deck(deck_definition)
 
     // In case any deck has started
     deck.new_round = function() {
-        if (this.discard)
+        if (this.discard.length > 0)
         {
             draw_ability_card(this);
             // Maybe the last card was a reshuffle.
-            if (!this.discard)
+            if (this.discard == 0)
             {
                 draw_ability_card(this);
             }
@@ -450,7 +450,6 @@ function load_modifier_deck(number_bless, number_curses)
 
     deck.clean_advantage_deck = function( force_clean = false )
     {
-<<<<<<< HEAD
         if ((deck.advantage_to_clean || force_clean) && deck.discard[1])
         {
             deck.advantage_to_clean = false;
@@ -458,13 +457,6 @@ function load_modifier_deck(number_bless, number_curses)
             deck.discard[0].ui.removeClass("left");
             deck.discard[1].ui.removeClass("left");
             deck.discard[1].ui.removeClass("left");
-=======
-        if (this.advantage_deck.discard.length)
-        {
-            this.advantage_deck.discard.splice(0, 1);
-            remove_child(document.getElementById("topmenu").getElementsByClassName("extra")[0]);
-            place_deck(deck.advantage_deck, document.getElementById("topmenu").getElementsByClassName("extra")[0]);
->>>>>>> attack-modifier-deck-pr
         }
 
     }
@@ -571,6 +563,7 @@ function click_end_of_round(deck)
         deck.clean_advantage_deck();
         reshuffle_modifier_deck(deck);
     }
+    visible_decks.forEach(function(deck) { deck.new_round()});
 }
 
 function load_definition(card_database)
