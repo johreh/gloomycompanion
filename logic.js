@@ -182,13 +182,13 @@ function load_ability_deck(deck_definition)
 
     deck.must_reshuffle = function()
     {
-      if (!deck.draw_pile.length)
+      if (!this.draw_pile.length)
       {
           return true;
       } else {
-          if (do_shuffles && deck.discard.length)
+          if (do_shuffles && this.discard.length)
           {
-              return deck.discard[0].shuffle_next;
+              return this.discard[0].shuffle_next;
           }
       }
     }
@@ -412,34 +412,33 @@ function load_modifier_deck(number_bless, number_curses)
 
     deck.shuffle_end_of_round = function()
     {
-        // This can be optimized returning true as soon as the first hits.
-        return deck.discard.filter(function(card) { return card.shuffle_next_round; })
+        return this.discard.filter(function(card) { return card.shuffle_next_round; }).length > 0;
     }
 
     deck.bless_count = function()
     {
-        return (deck.draw_pile.filter(function(card) { return card.card_type === CARD_TYPES_MODIFIER.BLESS; }).length);
+        return (this.draw_pile.filter(function(card) { return card.card_type === CARD_TYPES_MODIFIER.BLESS; }).length);
     }
 
     deck.curse_count = function()
     {
-        return (deck.draw_pile.filter(function(card) { return card.card_type === CARD_TYPES_MODIFIER.CURSE; }).length);
+        return (this.draw_pile.filter(function(card) { return card.card_type === CARD_TYPES_MODIFIER.CURSE; }).length);
     }
 
     deck.must_reshuffle = function()
     {
-        return !deck.draw_pile.length;
+        return !this.draw_pile.length;
     }
 
     deck.clean_discard_pile = function()
     {
         for (var i = 0; i < deck.discard.length; i++)
         {
-            if (deck.discard[i].card_type == CARD_TYPES_MODIFIER.BLESS
-                || deck.discard[i].card_type == CARD_TYPES_MODIFIER.CURSE)
+            if (this.discard[i].card_type == CARD_TYPES_MODIFIER.BLESS
+                || this.discard[i].card_type == CARD_TYPES_MODIFIER.CURSE)
             {
             //Delete this curse/bless that has been used
-            deck.discard.splice(i, 1);
+            this.discard.splice(i, 1);
             i--;
             }
         }
@@ -451,6 +450,7 @@ function load_modifier_deck(number_bless, number_curses)
 
     deck.clean_advantage_deck = function( force_clean = false )
     {
+<<<<<<< HEAD
         if ((deck.advantage_to_clean || force_clean) && deck.discard[1])
         {
             deck.advantage_to_clean = false;
@@ -458,6 +458,13 @@ function load_modifier_deck(number_bless, number_curses)
             deck.discard[0].ui.removeClass("left");
             deck.discard[1].ui.removeClass("left");
             deck.discard[1].ui.removeClass("left");
+=======
+        if (this.advantage_deck.discard.length)
+        {
+            this.advantage_deck.discard.splice(0, 1);
+            remove_child(document.getElementById("topmenu").getElementsByClassName("extra")[0]);
+            place_deck(deck.advantage_deck, document.getElementById("topmenu").getElementsByClassName("extra")[0]);
+>>>>>>> attack-modifier-deck-pr
         }
 
     }
