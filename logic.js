@@ -405,8 +405,7 @@ function load_modifier_deck(number_bless, number_curses)
 
     deck.shuffle_end_of_round = function()
     {
-        // This can be optimized returning true as soon as the first hits.
-        return this.discard.filter(function(card) { return card.shuffle_next_round; })
+        return this.discard.filter(function(card) { return card.shuffle_next_round; }).length > 0;
     }
 
     deck.bless_count = function()
