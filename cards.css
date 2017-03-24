@@ -36,6 +36,13 @@
     margin:                     8px;
 }
 
+/* TODO come here*/
+.card-container.modifier
+{
+/*    padding-left:               226px;
+    padding-right:              226px;*/
+}
+
 .card-container::before
 {
     content:                    "";
@@ -184,7 +191,7 @@
 {
     position:                   absolute;
     top:                        0;
-    left:                       0;
+    left:                       0%;
     width:                      100%;
     height:                     100%;
     border-radius:              15px;
@@ -192,20 +199,14 @@
 
 .card.modifier.front.left img.cover
 {
-    position:                   absolute;
-    top:                        0;
-    left:                       -50%;
-    width:                      100%;
-    height:                     100%;
+    left:                       -30%;
+    clip-path: inset(0% 20% 0% 20%);
 }
 
 .card.modifier.front.right img.cover
 {
-    position:                   absolute;
-    top:                        0;
-    left:                       50%;
-    width:                      100%;
-    height:                     100%;
+    left:                       30%;
+    clip-path: inset(0% 20% 0% 20%);
 }
 
 .card ul
