@@ -579,6 +579,10 @@ function write_value_deck_status()
     var displaylabel = document.getElementById("displaylabel").childNodes[0];
     displaylabel.nodeValue="Curses in draw deck: " + curses +
                             "Blesses in draw deck: " + blesses;
+    
+    document.getElementById("curse_text").innerText = curses;
+    // document.getElementById("curse_icon").innerText = blesses;
+
     if (!curses)
     {
         document.getElementById("rmvcursebtn").disabled = true;
@@ -593,7 +597,9 @@ function repaint_modifier_deck(deck, prevent_pull)
 {
     prevent_pull_animation(deck);
     var modifier_deck_space = document.getElementById("tableau").getElementsByClassName("modifier")[0];
+    var counter_div = document.getElementById("tableau").getElementsByClassName("counter-div")[0];
     remove_child(modifier_deck_space);
+    modifier_deck_space.appendChild(counter_div);
     place_deck(deck, modifier_deck_space);
 }
 
@@ -613,14 +619,14 @@ function apply_deck_selection(decks, preserve_existing_deck_state)
     if (!modifier_deck)
     {
         init_modifier_deck();
-        create_top_menu_elements(container);
         add_modifier_deck(container, modifier_deck);
+        create_top_menu_elements(modifier_container);
     } else if (!preserve_existing_deck_state) 
     {
-        remove_child(modifier_container);
-        create_top_menu_elements(container);
-        decks_to_remove.unshift(modifier_deck);
         add_modifier_deck(container, modifier_deck);
+        decks_to_remove.unshift(modifier_deck);
+        remove_child(modifier_container);
+        create_top_menu_elements(modifier_container);
     }
 
     decks_to_remove.forEach(function(deck) { deck.discard_deck(); });
@@ -663,6 +669,38 @@ function add_modifier_deck(container, deck)
 {
     var deck_space = document.createElement("div");
     deck_space.className = "card-container modifier";
+
+    var button_div = document.createElement("div");
+    button_div.className = "counter-div";
+
+    var bless_button = document.createElement("button");
+    bless_button.className = "counter-icon right";
+    bless_button.id = "bless_button";
+    button_div.appendChild(bless_button);
+
+    bless_button.onclick = add_bless_to_deck.bind(null, deck);
+
+    var curse_icon = document.createElement("icon");
+    curse_icon.className = "counter-icon left";
+    curse_icon.id = "curse_icon";
+
+    var text_curse_span = document.createElement("span");
+    text_curse_span.className = "icon-text";
+    text_curse_span.id = "curse_text";
+    curse_icon.appendChild(text_curse_span); 
+
+    var curse_top_button = document.createElement("button");
+    curse_top_button.className = "increasing-button";
+    curse_top_button.onclick = add_curse_to_deck.bind(null, deck);
+    curse_icon.appendChild(curse_top_button);
+
+    var curse_botton_button = document.createElement("button");
+    curse_botton_button.className = "decreasing-button";
+    curse_botton_button.onclick = remove_curse_from_deck.bind(null, deck);
+    curse_icon.appendChild(curse_botton_button);      
+
+    button_div.appendChild(curse_icon);
+    deck_space.appendChild(button_div);
 
     container.appendChild(deck_space);
     
