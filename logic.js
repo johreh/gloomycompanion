@@ -2,10 +2,14 @@ var do_shuffles = true;
 var visible_ability_decks = [];
 var modifier_deck = null;
 
-var DECK_TYPES = 
+var DECK_TYPES =
 {
     MODIFIER : "modifier",
     ABILITY:  "ability"
+};
+
+var EVENT_NAMES = {
+    MODIFIER_CARD_DRAWN: "modifierCardDrawn"
 };
 
 function UICard(front_element, back_element)
@@ -323,7 +327,7 @@ function prevent_pull_animation(deck)
             deck.discard[1].ui.removeClass("lift");
             deck.discard[0].ui.addClass("lift");
         }
-        
+
         deck.discard[0].ui.removeClass("pull");
     }
 }
@@ -345,11 +349,21 @@ function draw_modifier_card(deck)
     else
     {
         flip_up_top_card(deck);
-        if (deck.discard[0].card_type == CARD_TYPES_MODIFIER.BLESS
-            || deck.discard[0].card_type == CARD_TYPES_MODIFIER.CURSE)
-        {
-            write_value_deck_status();
-        }
+
+        document.body.dispatchEvent(new CustomEvent(
+            EVENT_NAMES.MODIFIER_CARD_DRAWN,
+            {
+                detail: {
+                    card_type: deck.discard[0].card_type,
+                    count: deck.count(deck.discard[0].card_type)
+                }
+            }));
+
+        // if (deck.discard[0].card_type == CARD_TYPES_MODIFIER.BLESS
+        //     || deck.discard[0].card_type == CARD_TYPES_MODIFIER.CURSE)
+        // {
+        //     write_value_deck_status();
+        // }
     }
 }
 
@@ -395,34 +409,59 @@ function double_draw(deck)
 
 function load_modifier_deck(number_bless, number_curses)
 {
-    var deck = 
+    var deck =
     {
         name: "Monster modifier deck",
         type: DECK_TYPES.MODIFIER,
         draw_pile: [],
         discard: [],
-        advantage_to_clean: false
+        advantage_to_clean: false,
     }
+
+    deck.count = (function(card_type)
+    {
+        return (this.draw_pile.filter(function(card) { return card.card_type === card_type; }).length);
+    }).bind(deck);
+
+    deck.remove_card = (function(card_type)
+    {
+        for (var i = 0; i < deck.draw_pile.length; i++)
+        {
+            if (deck.draw_pile[i].card_type == card_type)
+            {
+                deck.draw_pile.splice(i, 1);
+                reshuffle(deck, include_discards = false);
+
+                // TODO: Move repaint out of deck logic
+                repaint_modifier_deck(deck);
+                break;
+            }
+        }
+
+        return this.count(card_type);
+    }).bind(deck);
+
+    deck.add_card = (function(card_type)
+    {
+        // TOOD: Brittle
+        deck.draw_pile.push(define_modifier_card(MODIFIER_CARDS[card_type.toUpperCase()]));
+
+        // TODO: Move repaint out of deck logic
+        repaint_modifier_deck(deck);
+        reshuffle(deck, include_discards = false);
+
+        return this.count(card_type);
+    }).bind(deck);
 
     deck.shuffle_end_of_round = function()
     {
         return this.discard.filter(function(card) { return card.shuffle_next_round; }).length > 0;
-    }
-
-    deck.bless_count = function()
-    {
-        return (this.draw_pile.filter(function(card) { return card.card_type === CARD_TYPES_MODIFIER.BLESS; }).length);
-    }
-
-    deck.curse_count = function()
-    {
-        return (this.draw_pile.filter(function(card) { return card.card_type === CARD_TYPES_MODIFIER.CURSE; }).length);
-    }
+    }.bind(deck);
 
     deck.must_reshuffle = function()
     {
         return !this.draw_pile.length;
-    }
+    }.bind(deck);
 
     deck.clean_discard_pile = function()
     {
@@ -437,10 +476,9 @@ function load_modifier_deck(number_bless, number_curses)
             }
         }
 
-        // This is needed every time we update 
+        // This is needed every time we update
         repaint_modifier_deck(this);
-
-    }
+    }.bind(deck);
 
     deck.clean_advantage_deck = function( force_clean = false )
     {
@@ -452,8 +490,7 @@ function load_modifier_deck(number_bless, number_curses)
             deck.discard[1].ui.removeClass("left");
             deck.discard[1].ui.removeClass("left");
         }
-
-    }
+    }.bind(deck);
 
     MODIFIER_DECK.forEach( function(card_definition) {
         var card = define_modifier_card(card_definition);
@@ -494,60 +531,7 @@ function define_modifier_card(card_definition)
         shuffle_next_round:     card_definition.shuffle
     };
 
-    return card
-}
-
-function remove_curse_from_deck(deck)
-{
-    if (deck.curse_count())
-    {
-        for (var i = 0; i < deck.draw_pile.length; i++)
-        {
-            if (deck.draw_pile[i].card_type == CARD_TYPES_MODIFIER.CURSE)
-            {
-                deck.draw_pile.splice(i, 1);
-                repaint_modifier_deck(deck);
-                write_value_deck_status();
-                break;
-            }
-        }
-    }
-}
-
-function remove_bless_from_deck(deck)
-{
-    if (deck.bless_count())
-    {
-        for (var i = 0; i < deck.draw_pile.length; i++)
-        {
-            if (deck.draw_pile[i].card_type == CARD_TYPES_MODIFIER.BLESS)
-            {
-                deck.draw_pile.splice(i, 1);
-                repaint_modifier_deck(deck);
-                write_value_deck_status();
-                break;
-            }
-        }
-    }
-
-}
-
-function add_bless_to_deck(deck)
-{
-    deck.draw_pile.push(define_modifier_card(MODIFIER_CARDS.BLESS));
-    repaint_modifier_deck(deck);
-    reshuffle(deck, include_discards = false);
-    write_value_deck_status();
-    document.getElementById("rmvblessbtn").disabled = false;
-}
-
-function add_curse_to_deck(deck)
-{
-    deck.draw_pile.push(define_modifier_card(MODIFIER_CARDS.CURSE));
-    repaint_modifier_deck(deck);
-    reshuffle(deck, include_discards = false);
-    write_value_deck_status();
-    document.getElementById("rmvcursebtn").disabled = false;
+    return card;
 }
 
 function click_end_of_round()
@@ -573,33 +557,31 @@ function load_definition(card_database)
 
 function write_value_deck_status()
 {
-    var curses = modifier_deck.curse_count();
-    var blesses = modifier_deck.bless_count();
+    // var curses = modifier_deck.curse_count();
+    // var blesses = modifier_deck.bless_count();
 
-    var displaylabel = document.getElementById("displaylabel").childNodes[0];
-    displaylabel.nodeValue="Curses in draw deck: " + curses +
-                            "Blesses in draw deck: " + blesses;
-    
-    document.getElementById("curse_text").innerText = curses;
-    // document.getElementById("curse_icon").innerText = blesses;
+    // var displaylabel = document.getElementById("displaylabel").childNodes[0];
+    // displaylabel.nodeValue="Curses in draw deck: " + curses +
+    //                         "Blesses in draw deck: " + blesses;
 
-    if (!curses)
-    {
-        document.getElementById("rmvcursebtn").disabled = true;
-    }
-    if (!blesses)
-    {
-        document.getElementById("rmvblessbtn").disabled = true;
-    }
+    // document.getElementById("curse_text").innerText = curses;
+    // // document.getElementById("curse_icon").innerText = blesses;
+
+    // if (!curses)
+    // {
+    //     document.getElementById("rmvcursebtn").disabled = true;
+    // }
+    // if (!blesses)
+    // {
+    //     document.getElementById("rmvblessbtn").disabled = true;
+    // }
 }
 
 function repaint_modifier_deck(deck, prevent_pull)
 {
     prevent_pull_animation(deck);
     var modifier_deck_space = document.getElementById("tableau").getElementsByClassName("modifier")[0];
-    var counter_div = document.getElementById("tableau").getElementsByClassName("counter-div")[0];
     remove_child(modifier_deck_space);
-    modifier_deck_space.appendChild(counter_div);
     place_deck(deck, modifier_deck_space);
 }
 
@@ -621,7 +603,7 @@ function apply_deck_selection(decks, preserve_existing_deck_state)
         init_modifier_deck();
         add_modifier_deck(container, modifier_deck);
         create_top_menu_elements(modifier_container);
-    } else if (!preserve_existing_deck_state) 
+    } else if (!preserve_existing_deck_state)
     {
         add_modifier_deck(container, modifier_deck);
         decks_to_remove.unshift(modifier_deck);
@@ -667,98 +649,135 @@ function init_modifier_deck()
 
 function add_modifier_deck(container, deck)
 {
+    function create_counter(card_type, increment_func, decrement_func)
+    {
+        function create_button(class_name, text, func, text_span)
+        {
+            var button = document.createElement("div");
+            button.className = class_name + " button";
+            button.innerText = text;
+
+            button.onclick = function() {
+                text_span.innerText = func(card_type);
+            };
+
+            return button;
+        }
+
+        var widget_container = document.createElement("div");
+        widget_container.className = "counter-icon";
+
+        var background = document.createElement("div");
+        background.className = "background " + card_type;
+        widget_container.appendChild(background);
+
+        var text_span = document.createElement("span");
+        text_span.className = "icon-text";
+        text_span.innerText = "0";
+        widget_container.appendChild(text_span);
+
+        widget_container.appendChild(create_button("increment", "+", increment_func, text_span));
+        widget_container.appendChild(create_button("decrement", "-", decrement_func, text_span));
+
+        document.body.addEventListener(EVENT_NAMES.MODIFIER_CARD_DRAWN, function(e)
+        {
+            if (e.detail.card_type === card_type)
+            {
+                text_span.innerText = e.detail.count;
+            }
+        });
+
+        return widget_container;
+    }
+
+    var modifier_container = document.createElement("div");
+    modifier_container.className = "card-container";
+
+    var button_div = document.createElement("div");
+    button_div.className = "modifier-deck-column-1";
+
+    button_div.appendChild(create_counter("bless", deck.add_card, deck.remove_card));
+    button_div.appendChild(create_counter("curse", deck.add_card, deck.remove_card));
+
+    var end_round_div = document.createElement("div");
+    end_round_div.className = "counter-icon shuffle";
+    end_round_div.onclick = click_end_of_round;
+
+    button_div.appendChild(end_round_div);
+
+    var deck_column = document.createElement("div");
+    deck_column.className = "modifier-deck-column-2";
+
     var deck_space = document.createElement("div");
     deck_space.className = "card-container modifier";
 
-    var button_div = document.createElement("div");
-    button_div.className = "counter-div";
+    var draw_two_button = document.createElement("div");
+    draw_two_button.className = "button draw-two";
+    draw_two_button.onclick = double_draw.bind(null, modifier_deck);
 
-    var bless_button = document.createElement("button");
-    bless_button.className = "counter-icon right";
-    bless_button.id = "bless_button";
-    button_div.appendChild(bless_button);
+    deck_column.appendChild(deck_space);
+    deck_column.appendChild(draw_two_button);
 
-    bless_button.onclick = add_bless_to_deck.bind(null, deck);
+    modifier_container.appendChild(deck_column);
+    modifier_container.appendChild(button_div);
 
-    var curse_icon = document.createElement("icon");
-    curse_icon.className = "counter-icon left";
-    curse_icon.id = "curse_icon";
+    container.appendChild(modifier_container);
 
-    var text_curse_span = document.createElement("span");
-    text_curse_span.className = "icon-text";
-    text_curse_span.id = "curse_text";
-    curse_icon.appendChild(text_curse_span); 
-
-    var curse_top_button = document.createElement("button");
-    curse_top_button.className = "increasing-button";
-    curse_top_button.onclick = add_curse_to_deck.bind(null, deck);
-    curse_icon.appendChild(curse_top_button);
-
-    var curse_botton_button = document.createElement("button");
-    curse_botton_button.className = "decreasing-button";
-    curse_botton_button.onclick = remove_curse_from_deck.bind(null, deck);
-    curse_icon.appendChild(curse_botton_button);      
-
-    button_div.appendChild(curse_icon);
-    deck_space.appendChild(button_div);
-
-    container.appendChild(deck_space);
-    
     place_deck(deck, deck_space);
     reshuffle(deck);
     deck_space.onclick = draw_modifier_card.bind(null, deck);
 
     deck.discard_deck = function()
-        {
-            container.removeChild(deck_space);
-            init_modifier_deck();
-        };
+    {
+        modifier_container.removeChild(deck_space);
+        init_modifier_deck();
+    };
 }
 
 function create_top_menu_elements(container)
 {
-    var draw_two_div = document.createElement("div");
-    var draw_two_button = create_button("button", "draw2button", "Draw 2 cards (advantage/disadvatage)");
-    draw_two_div.appendChild(draw_two_button);
-    draw_two_button.onclick = double_draw.bind(null, modifier_deck);
-    container.appendChild(draw_two_div);
+    // var draw_two_div = document.createElement("div");
+    // var draw_two_button = create_button("button", "draw2button", "Draw 2 cards (advantage/disadvatage)");
+    // draw_two_div.appendChild(draw_two_button);
+    // draw_two_button.onclick = double_draw.bind(null, modifier_deck);
+    // container.appendChild(draw_two_div);
 
-    var curse_button_div = document.createElement("div");
-    var add_curse_button = create_button("button", "cursebtn", "Add curse");
-    curse_button_div.appendChild(add_curse_button);
-    add_curse_button.onclick = add_curse_to_deck.bind(null, modifier_deck);
+    // var curse_button_div = document.createElement("div");
+    // var add_curse_button = create_button("button", "cursebtn", "Add curse");
+    // curse_button_div.appendChild(add_curse_button);
+    // add_curse_button.onclick = add_curse_to_deck.bind(null, modifier_deck);
 
-    var remove_curse_button = create_button("button", "rmvcursebtn", "Remove curse");
-    curse_button_div.appendChild(remove_curse_button);
-    remove_curse_button.onclick = remove_curse_from_deck.bind(null, modifier_deck);
-    remove_curse_button.disabled = true;
+    // var remove_curse_button = create_button("button", "rmvcursebtn", "Remove curse");
+    // curse_button_div.appendChild(remove_curse_button);
+    // remove_curse_button.onclick = remove_curse_from_deck.bind(null, modifier_deck);
+    // remove_curse_button.disabled = true;
 
-    container.appendChild(curse_button_div);
+    // container.appendChild(curse_button_div);
 
-    var display_cards_added = document.createElement("label");
-    display_cards_added.id = "displaylabel";
-    display_cards_added.style = "inline";
-    var display_text = document.createTextNode("");
-    display_cards_added.appendChild(display_text);
-    container.appendChild(display_cards_added);
+    // var display_cards_added = document.createElement("label");
+    // display_cards_added.id = "displaylabel";
+    // display_cards_added.style = "inline";
+    // var display_text = document.createTextNode("");
+    // display_cards_added.appendChild(display_text);
+    // container.appendChild(display_cards_added);
 
-    var bless_button_div = document.createElement("div");
-    var add_bless_button = create_button("button", "blessbtn", "Add bless");
-    bless_button_div.appendChild(add_bless_button);
-    add_bless_button.onclick = add_bless_to_deck.bind(null, modifier_deck);
+    // var bless_button_div = document.createElement("div");
+    // var add_bless_button = create_button("button", "blessbtn", "Add bless");
+    // bless_button_div.appendChild(add_bless_button);
+    // add_bless_button.onclick = add_bless_to_deck.bind(null, modifier_deck);
 
-    var remove_bless_button = create_button("button", "rmvblessbtn", "Remove bless");
-    bless_button_div.appendChild(remove_bless_button);
-    remove_bless_button.onclick = remove_bless_from_deck.bind(null, modifier_deck);
-    remove_bless_button.disabled = true;
+    // var remove_bless_button = create_button("button", "rmvblessbtn", "Remove bless");
+    // bless_button_div.appendChild(remove_bless_button);
+    // remove_bless_button.onclick = remove_bless_from_deck.bind(null, modifier_deck);
+    // remove_bless_button.disabled = true;
 
-    container.appendChild(bless_button_div);
+    // container.appendChild(bless_button_div);
 
-    var end_of_round_button = create_button("button", "endofroundbtn", "End of round");
-    container.appendChild(end_of_round_button);
-    end_of_round_button.onclick = click_end_of_round.bind(null);
+    // var end_of_round_button = create_button("button", "endofroundbtn", "End of round");
+    // container.appendChild(end_of_round_button);
+    // end_of_round_button.onclick = click_end_of_round.bind(null);
 
-    write_value_deck_status();
+    // write_value_deck_status();
 }
 
 
