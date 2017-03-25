@@ -541,7 +541,6 @@ function click_end_of_round()
         modifier_deck.clean_advantage_deck();
         reshuffle_modifier_deck(modifier_deck);
     }
-    visible_ability_decks.forEach(function(deck) { deck.new_round()});
 }
 
 function load_definition(card_database)
