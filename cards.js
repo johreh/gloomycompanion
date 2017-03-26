@@ -3,8 +3,8 @@ DECK_DEFINITONS =
         { name: "Ancient Artillery"
         , cards:
             [ [false, "46", "* %attack% -1", "** %range% +2"]
-            , [true,  "71", "* %attack% +0", "** All adjacent enemies suffer 2 dammage"]
-            , [true,  "71", "* %attack% +0", "** All adjacent enemies suffer 2 dammage"]
+            , [true,  "71", "* %attack% +0", "** All adjacent enemies suffer 2 damage"]
+            , [true,  "71", "* %attack% +0", "** All adjacent enemies suffer 2 damage"]
             , [false, "37", "* %push% 1", "** Target all adjacent enemies", "* %attack% -1 %aoe-triangle-2-side%", "** %range% -1"]
             , [false, "37", "* %push% 1", "** Target all adjacent enemies", "* %attack% -1 %aoe-circle%", "** %range% -1"]
             , [false, "17", "* %push% 2", "** Target all adjacent enemies", "* %shield% 2", "* %attack% -2"]
