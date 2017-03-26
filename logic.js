@@ -235,13 +235,18 @@ function refresh_ui()
 
     var tableau = document.getElementById("tableau");
     var cards = tableau.getElementsByClassName("card");
-    if (cards.length)
+    for (var i = 1 ; i < cards.length; i++)
     {
-        var scale               = cards[0].getBoundingClientRect().height / actual_card_height;
-        var scaled_font_size    = base_font_size * scale;
+        if (cards[i].className.indexOf("ability") != -1)
+        {
+            var scale               = cards[i].getBoundingClientRect().height / actual_card_height;
+            var scaled_font_size    = base_font_size * scale ;
 
-        var font_pixel_size     = Math.min(scaled_font_size, base_font_size);
-        tableau.style.fontSize  = font_pixel_size + "px";
+            var font_pixel_size     = Math.min(scaled_font_size, base_font_size);
+            tableau.style.fontSize  = font_pixel_size + "px";
+            break;
+        }
+        
     }
 }
 
