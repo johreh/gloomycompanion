@@ -1,6 +1,6 @@
 CACHE MANIFEST
 #
-# Version 201703191534
+# Version 201703260000
 #
 
 app.webmanifest
@@ -72,4 +72,5 @@ images/attack_mod_back.jpg
 images/attack_mod_bless.jpg
 images/attack_mod_curse.jpg
 images/attack_mod_null.jpg
-
+images/draw_two.svg
+images/shuffle_black.svg

@@ -61,7 +61,6 @@ ul.tabcontainer li
     text-align:         center;
     padding:            1em;
     cursor:             pointer;
-
 }
 
 ul.tabcontainer li:not(:first-child)

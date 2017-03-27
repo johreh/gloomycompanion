@@ -791,9 +791,9 @@ function init()
     var decklist = new DeckList(decks);
     var scenariolist = new ScenarioList(SCENARIO_DEFINITIONS);
 
-    deckspage.insertAdjacentElement('afterbegin', decklist.ul);
-    scenariospage.insertAdjacentElement('afterbegin', scenariolist.ul);
-
+    deckspage.insertAdjacentElement("afterbegin", decklist.ul);
+    scenariospage.insertAdjacentElement("afterbegin", scenariolist.ul);
+    
     applydeckbtn.onclick = function()
     {
         var selected_deck_names = decklist.get_selection();
