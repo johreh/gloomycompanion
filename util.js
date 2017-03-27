@@ -22,6 +22,40 @@ function toggle_class(element, class_name, enable_class)
     }
 }
 
+function remove_child(myNode)
+{
+    while (myNode.firstChild)
+    {
+        myNode.removeChild(myNode.firstChild);
+    }
+}
+
+function create_input(type, name, value, text)
+{
+    var input = document.createElement("input");
+    input.type = type;
+    input.name = name;
+    input.value = value;
+
+    var textnode = document.createTextNode(text);
+
+    var label = document.createElement("label");
+    label.appendChild(input);
+    label.appendChild(textnode);
+
+    return {'root': label, 'input': input};
+}
+
+function create_button(type, id, value)
+{
+    var button = document.createElement("input");
+    button.type = type;
+    button.id = id;
+    button.value = value;
+
+    return button;
+}
+
 function dict_values(dict)
 {
     var values = [];
