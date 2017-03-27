@@ -563,7 +563,6 @@ function repaint_modifier_deck(deck, prevent_pull)
 function apply_deck_selection(decks, preserve_existing_deck_state)
 {
     var container = document.getElementById("tableau");
-    var modifier_container = document.getElementById("topmenu");
 
     var decks_to_remove = visible_ability_decks.filter(function(deck) {
         return !preserve_existing_deck_state || decks.indexOf(deck) === -1;
@@ -580,9 +579,9 @@ function apply_deck_selection(decks, preserve_existing_deck_state)
     }
     else if (!preserve_existing_deck_state)
     {
+        container.removeChild(document.getElementById("modifier-container"));
+        init_modifier_deck();
         add_modifier_deck(container, modifier_deck);
-        decks_to_remove.unshift(modifier_deck);
-        remove_child(modifier_container);
     }
 
     decks_to_remove.forEach(function(deck) { deck.discard_deck(); });
@@ -666,6 +665,7 @@ function add_modifier_deck(container, deck)
 
     var modifier_container = document.createElement("div");
     modifier_container.className = "card-container";
+    modifier_container.id = "modifier-container";
 
     var button_div = document.createElement("div");
     button_div.className = "modifier-deck-column-1";
@@ -700,6 +700,7 @@ function add_modifier_deck(container, deck)
     place_deck(deck, deck_space);
     reshuffle(deck);
     deck_space.onclick = draw_modifier_card.bind(null, deck);
+
 }
 
 function DeckList(decks)

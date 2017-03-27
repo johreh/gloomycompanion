@@ -12,14 +12,6 @@ body
     white-space:        nowrap;
 }
 
-#topmenu
-{
-    display:            block;
-    flex-wrap:          wrap;
-    justify-content:    space-around;
-    width:              100%;
-}
-
 #tableau
 {
     display:            -webkit-box;
