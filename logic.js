@@ -51,10 +51,10 @@ function UICard(front_element, back_element)
     return card;
 }
 
-function create_ability_card_back(name)
+function create_skill_card_back(name)
 {
     var card = document.createElement("div");
-    card.className = "card ability back down";
+    card.className = "card skill back down";
 
     var name_span = document.createElement("span");
     name_span.className = "name";
@@ -64,10 +64,10 @@ function create_ability_card_back(name)
     return card;
 }
 
-function create_ability_card_front(initiative, name, shuffle, lines)
+function create_skill_card_front(initiative, name, shuffle, lines)
 {
     var card = document.createElement("div");
-    card.className = "card ability front down";
+    card.className = "card skill front down";
 
     var name_span = document.createElement("span");
     name_span.className = "name";
@@ -146,7 +146,7 @@ function create_ability_card_front(initiative, name, shuffle, lines)
     return card;
 }
 
-function load_ability_deck(deck_definition)
+function load_skill_deck(deck_definition)
 {
     var deck_state = {
         name:                   deck_definition.name,
@@ -161,8 +161,8 @@ function load_ability_deck(deck_definition)
         var initiative = definition[1];
         var lines = definition.slice(2);
 
-        var card_front = create_ability_card_front(initiative, deck_definition.name, shuffle, lines);
-        var card_back = create_ability_card_back(deck_definition.name);
+        var card_front = create_skill_card_front(initiative, deck_definition.name, shuffle, lines);
+        var card_back = create_skill_card_back(deck_definition.name);
 
         var card = {
             ui:             new UICard(card_front, card_back),
@@ -292,7 +292,7 @@ function flip_up_top_card(deck)
         deck.discard.unshift(card);
 }
 
-function draw_ability_card(deck)
+function draw_skill_card(deck)
 {
     if (must_reshuffle_abilities(deck))
     {
@@ -337,7 +337,7 @@ function clean_discard_pile(deck)
     }
 }
 
-function draw_modifier_modifier(deck)
+function draw_modifier_card(deck)
 {
     if (must_reshuffle_modifier(deck))
     {
@@ -481,7 +481,7 @@ function load_definition(card_database)
     var decks = {};
     for (var i = 0; i < card_database.length; i++)
     {
-        var deck = load_ability_deck(card_database[i]);
+        var deck = load_skill_deck(card_database[i]);
         decks[deck.name] = deck;
     }
     return decks;
@@ -518,7 +518,7 @@ function apply_deck_selection(decks)
         var deck = decks[i];
         place_deck(deck, deck_space);
         reshuffle(deck);
-        deck_space.onclick = draw_ability_card.bind(null, deck);
+        deck_space.onclick = draw_skill_card.bind(null, deck);
 
         deck.discard_deck = function()
         {
@@ -541,7 +541,7 @@ function add_modifier_deck(container)
 
     place_deck(deck, deck_space);
     reshuffle(deck);
-    deck_space.onclick = draw_modifier_modifier.bind(null, deck);
+    deck_space.onclick = draw_modifier_card.bind(null, deck);
 
     create_top_menu_elements(container, deck);
 
