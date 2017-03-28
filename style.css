@@ -12,30 +12,6 @@ body
     white-space:        nowrap;
 }
 
-#modifier-deck
-{
-    display:            -webkit-box;
-    -webkit-box-orient: horizontal;
-    -webkit-box-pack:   center;
-    -webkit-box-lines:  multiple;
-
-    display:            -webkit-flex;
-    -webkit-flex-wrap:  wrap;
-    -webkit-justify-content: space-around;
-
-    display:            flex;
-    flex-wrap:          wrap;
-    justify-content:    space-around;
-}
-
-#topmenu
-{
-    display:            block;
-    flex-wrap:          wrap;
-    justify-content:    space-around;
-    width:              100%;
-}
-
 #tableau
 {
     display:            -webkit-box;
@@ -54,9 +30,6 @@ body
 
 @media only screen and (max-height: 480px) and (orientation: portrait) {
     #tableau {
-        -webkit-box-orient: vertical;
-    }
-    #modifier-deck{
         -webkit-box-orient: vertical;
     }
 }
@@ -80,7 +53,6 @@ ul.tabcontainer li
     text-align:         center;
     padding:            1em;
     cursor:             pointer;
-
 }
 
 ul.tabcontainer li:not(:first-child)
