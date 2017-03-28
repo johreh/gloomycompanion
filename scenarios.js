@@ -1,11 +1,13 @@
 SCENARIO_DEFINITIONS =
-    [   { name: "#1 Black Barrow"
+    [   { number: 1
+        , name: "#1 Black Barrow"
         , decks: 
             [ "Guard"
             , "Archer"
             , "Living Bones" ]
         },
-        { name: "#2 Barrow Lair"
+        { number: 2
+        , name: "#2 Barrow Lair"
         , decks:
             [ "Archer"
             , "Boss"
@@ -13,13 +15,15 @@ SCENARIO_DEFINITIONS =
             , "Living Corpse"
             ]
         },
-        { name: "#3 Inox Encampment"
+        { number: 3
+        , name: "#3 Inox Encampment"
         , decks:
             [ "Guard" 
             , "Archer"
             , "Shaman" ]
         },
-        { name: "#4 Crypt of the Damned"
+        { number: 4
+        , name: "#4 Crypt of the Damned"
         , decks:
             [ "Living Bones"
             , "Archer"
@@ -28,7 +32,8 @@ SCENARIO_DEFINITIONS =
             , "Wind Demon"
             ]
         },
-        { name: "#5 Ruinous Crypt"
+        { number: 5
+        , name: "#5 Ruinous Crypt"
         , decks:
             [ "Cultist"
             , "Living Bones"
@@ -38,14 +43,16 @@ SCENARIO_DEFINITIONS =
             , "Frost Demon"
             ]
         },
-        { name: "#6 Decaying Crypt"
+        { number: 6
+        , name: "#6 Decaying Crypt"
         , decks:
             [ "Living Bones"
             , "Living Corpse"
             , "Living Spirit"
             ]
         },
-        { name: "#7 Vibrant Grotto"
+        { number: 7
+        , name: "#7 Vibrant Grotto"
         , decks:
             [ "Imp"
             , "Cave Bear"
@@ -53,28 +60,32 @@ SCENARIO_DEFINITIONS =
             , "Earth Demon"
             ]
         },
-        { name: "#8 Gloomhaven Warehouse"
+        { number: 8
+        , name: "#8 Gloomhaven Warehouse"
         , decks:
             [ "Living Bones"
             , "Living Corpse"
             , "Boss"
             ]
         },
-        { name: "#9 Diamond Mine"
+        { number: 9
+        , name: "#9 Diamond Mine"
         , decks:
             [ "Hound"
             , "Scout"
             , "Boss"
             ]
         },
-        { name: "#10 Plane of Elemental Power"
+        { number: 10
+        , name: "#10 Plane of Elemental Power"
         , decks:
             [ "Flame Demon"
             , "Earth Demon"
             , "Sun Demon"
             ]
         },
-        { name: "#11 Gloomhaven Square A"
+        { number: 11
+        , name: "#11 Gloomhaven Square A"
         , decks:
             [ "Living Bones"
             , "Living Corpse"
@@ -83,7 +94,8 @@ SCENARIO_DEFINITIONS =
             , "Boss"
             ]
         },
-        { name: "#12 Gloomhaven Square B"
+        { number: 12
+        , name: "#12 Gloomhaven Square B"
         , decks:
             [ "Living Bones"
             , "Living Corpse"
@@ -93,7 +105,8 @@ SCENARIO_DEFINITIONS =
             , "Boss"
             ]
         },
-        { name: "#13 Temple of the Seer"
+        { number: 13
+        , name: "#13 Temple of the Seer"
         , decks:
             [ "Stone Golem"
             , "Cave Bear"
@@ -101,14 +114,16 @@ SCENARIO_DEFINITIONS =
             , "Spitting Drake"
             ]
         },
-        { name: "#14 Frozen Hollow"
+        { number: 14
+        , name: "#14 Frozen Hollow"
         , decks:
             [ "Hound"
             , "Living Spirit"
             , "Frost Demon"
             ]
         },
-        { name: "#15 Shrine of Strength"
+        { number: 15
+        , name: "#15 Shrine of Strength"
         , decks:
             [ "Stone Golem"
             , "Savvas Icestorm"
@@ -117,7 +132,8 @@ SCENARIO_DEFINITIONS =
             , "Harrower Infester"
             ]
         },
-        { name: "#16 Mountain Pass"
+        { number: 16
+        , name: "#16 Mountain Pass"
         , decks:
             [ "Earth Demon"
             , "Wind Demon"
@@ -125,21 +141,24 @@ SCENARIO_DEFINITIONS =
             , "Archer"
             ]
         },
-        { name: "#17 Lost Island"
+        { number: 17
+        , name: "#17 Lost Island"
         , decks:
             [ "Scout"
             , "Shaman"
             , "Cave Bear"
             ]
         },
-        { name: "#18 Abandoned Sewers"
+        { number: 18
+        , name: "#18 Abandoned Sewers"
         , decks:
             [ "Giant Viper"
             , "Ooze"
             , "Scout"
             ]
         },
-        { name: "#19 Forgotten Crypt"
+        { number: 19
+        , name: "#19 Forgotten Crypt"
         , decks:
             [ "Cultist"
             , "Living Bones"
@@ -147,7 +166,8 @@ SCENARIO_DEFINITIONS =
             , "Living Corpse"
             ]
         },
-        { name: "#20 Necromancer's Sanctum"
+        { number: 20
+        , name: "#20 Necromancer's Sanctum"
         , decks:
             [ "Living Bones"
             , "Cultist"
@@ -156,7 +176,8 @@ SCENARIO_DEFINITIONS =
             , "Boss"
             ]
         },
-        { name: "#21 Infernal Throne"
+        { number: 21
+        , name: "#21 Infernal Throne"
         , decks:
             [ "Sun Demon"
             , "Frost Demon"
@@ -167,7 +188,8 @@ SCENARIO_DEFINITIONS =
             , "Boss"
             ]
         },
-        { name: "#22 Temple of the Elements"
+        { number: 22
+        , name: "#22 Temple of the Elements"
         , decks:
             [ "Living Bones"
             , "Cultist"
@@ -177,7 +199,8 @@ SCENARIO_DEFINITIONS =
             , "Wind Demon"
             ]
         },
-        { name: "#23 Deep Ruins"
+        { number: 23
+        , name: "#23 Deep Ruins"
         , decks:
             [ "Stone Golem"
             , "Ancient Artillery"
@@ -185,21 +208,24 @@ SCENARIO_DEFINITIONS =
             , "Living Spirit"
             ]
         },
-        { name: "#24 Echo Chamber"
+        { number: 24
+        , name: "#24 Echo Chamber"
         , decks:
             [ "Rending Drake"
             , "Ooze"
             , "Living Spirit"
             ]
         },
-        { name: "#25 Icecrag Ascent"
+        { number: 25
+        , name: "#25 Icecrag Ascent"
         , decks:
             [ "Hound"
             , "Rending Drake"
             , "Spitting Drake"
             ]
         },
-        { name: "#26 Ancient Cistern"
+        { number: 26
+        , name: "#26 Ancient Cistern"
         , decks:
             [ "Living Corpse"
             , "Ooze"
@@ -207,7 +233,8 @@ SCENARIO_DEFINITIONS =
             , "Imp"
             ]
         },
-        { name: "#27 Ruinous Rift"
+        { number: 27
+        , name: "#27 Ruinous Rift"
         , decks:
             [ "Night Demon"
             , "Wind Demon"
@@ -217,7 +244,8 @@ SCENARIO_DEFINITIONS =
             , "Flame Demon"
             ]
         },
-        { name: "#28 Outer Ritual Chamber"
+        { number: 28
+        , name: "#28 Outer Ritual Chamber"
         , decks:
             [ "Living Corpse"
             , "Cultist"
@@ -226,7 +254,8 @@ SCENARIO_DEFINITIONS =
             , "Sun Demon"
             ]
         },
-        { name: "#29 Sanctuary of Gloom"
+        { number: 29
+        , name: "#29 Sanctuary of Gloom"
         , decks:
             [ "Living Bones"
             , "Living Corpse"
@@ -234,21 +263,24 @@ SCENARIO_DEFINITIONS =
             , "Imp"
             ]
         },
-        { name: "#30 Shrine of the Depths"
+        { number: 30
+        , name: "#30 Shrine of the Depths"
         , decks:
             [ "Ooze"
             , "Lurker"
             , "Deep Terror"
             ]
         },
-        { name: "#31 Plane of the Night"
+        { number: 31
+        , name: "#31 Plane of the Night"
         , decks:
             [ "Deep Terror"
             , "Night Demon"
             , "Imp"
             ]
         },
-        { name: "#32 Decrepit Wood"
+        { number: 32
+        , name: "#32 Decrepit Wood"
         , decks:
             [ "Harrower Infester"
             , "Giant Viper"
@@ -256,7 +288,9 @@ SCENARIO_DEFINITIONS =
             , "Imp"
             ]
         },
-        { name: "#33 Savvas Armory"
+        { number: 33
+        , number: 33
+        , name: "#33 Savvas Armory"
         , decks:
             [ "Savvas Icestorm"
             , "Savvas Lavaflow"
@@ -266,14 +300,17 @@ SCENARIO_DEFINITIONS =
             , "Earth Demon"
             ]
         },
-        { name: "#34 Scorched Summit"
+        { number: 34
+        , number: 34
+        , name: "#34 Scorched Summit"
         , decks:
             [ "Rending Drake"
             , "Spitting Drake"
             , "Boss"
             ]
         },
-        { name: "#35 Gloomhaven Battlements A"
+        { number: 35
+        , name: "#35 Gloomhaven Battlements A"
         , decks:
             [ "Flame Demon"
             , "Frost Demon"
@@ -284,7 +321,8 @@ SCENARIO_DEFINITIONS =
             , "Boss"
             ]
         },
-        { name: "#36 Gloomhaven Battlements B"
+        { number: 36
+        , name: "#36 Gloomhaven Battlements B"
         , decks:
             [ "Flame Demon"
             , "Frost Demon"
@@ -294,14 +332,16 @@ SCENARIO_DEFINITIONS =
             , "Boss"
             ]
         },
-        { name: "#37 Doom Trench"
+        { number: 37
+        , name: "#37 Doom Trench"
         , decks:
             [ "Lurker"
             , "Deep Terror"
             , "Harrower Infester"
             ]
         },
-        { name: "#38 Slave Pens"
+        { number: 38
+        , name: "#38 Slave Pens"
         , decks:
             [ "Guard"
             , "Archer"
@@ -309,7 +349,8 @@ SCENARIO_DEFINITIONS =
             , "Stone Golem"
             ]
         },
-        { name: "#39 Treacherous Divide"
+        { number: 39
+        , name: "#39 Treacherous Divide"
         , decks:
             [ "Cave Bear"
             , "Frost Demon"
@@ -318,7 +359,8 @@ SCENARIO_DEFINITIONS =
             , "Living Bones"
             ]
         },
-        { name: "#40 Ancient Defense Network"
+        { number: 40
+        , name: "#40 Ancient Defense Network"
         , decks:
             [ "Living Corpse"
             , "Flame Demon"
@@ -327,7 +369,8 @@ SCENARIO_DEFINITIONS =
             , "Imp"
             ]
         },
-        { name: "#41 Timeworn Tomb"
+        { number: 41
+        , name: "#41 Timeworn Tomb"
         , decks:
             [ "Ancient Artillery"
             , "Living Corpse"
@@ -335,21 +378,24 @@ SCENARIO_DEFINITIONS =
             , "Stone Golem"
             ]
         },
-        { name: "#42 Realm of the Voice"
+        { number: 42
+        , name: "#42 Realm of the Voice"
         , decks:
             [ "Night Demon"
             , "Wind Demon"
             , "Living Spirit"
             ]
         },
-        { name: "#43 - Drake Nest"
+        { number: 43
+        , name: "#43 - Drake Nest"
         , decks:
             [ "Flame Demon"
             , "Rending Drake"
             , "Spitting Drake"
             ]
         },
-        { name: "#44 Tribal Assault"
+        { number: 44
+        , name: "#44 Tribal Assault"
         , decks:
             [ "Guard"
             , "Archer"
@@ -357,14 +403,16 @@ SCENARIO_DEFINITIONS =
             , "Shaman"
             ]
         },
-        { name: "#45 Rebel Swamp"
+        { number: 45
+        , name: "#45 Rebel Swamp"
         , decks:
             [ "Guard"
             , "Archer"
             , "Hound"
             ]
         },
-        { name: "#46 Nightmare Peak"
+        { number: 46
+        , name: "#46 Nightmare Peak"
         , decks:
             [ "Night Demon"
             , "Frost Demon"
@@ -373,7 +421,8 @@ SCENARIO_DEFINITIONS =
             , "Boss"
             ]
         },
-        { name: "#47 Lair of the Unseeing Eye"
+        { number: 47
+        , name: "#47 Lair of the Unseeing Eye"
         , decks:
             [ "Lurker"
             , "Deep Terror"
@@ -381,7 +430,8 @@ SCENARIO_DEFINITIONS =
             , "Boss"
             ]
         },
-        { name: "#48 - Shadow Weald"
+        { number: 48
+        , name: "#48 - Shadow Weald"
         , decks:
             [ "Imp"
             , "Earth Demon"
@@ -389,7 +439,8 @@ SCENARIO_DEFINITIONS =
             , "Boss"
             ]
         },
-        { name: "#49 Rebel's Stand"
+        { number: 49
+        , name: "#49 Rebel's Stand"
         , decks:
             [ "Giant Viper"
             , "Archer"
@@ -397,19 +448,22 @@ SCENARIO_DEFINITIONS =
             , "Ancient Artillery"
             ]
         },
-        { name: "#50 Ghost Fortress"
+        { number: 50
+        , name: "#50 Ghost Fortress"
         , decks:
             [ "Night Demon"
             , "Sun Demon"
             , "Earth Demon"
             ]
         },
-        { name: "#51 The Void"
+        { number: 51
+        , name: "#51 The Void"
         , decks:
             [ "Boss"
             ]
         },
-        { name: "#52 Noxious Cellar"
+        { number: 52
+        , name: "#52 Noxious Cellar"
         , decks:
             [ "Spitting Drake"
             , "Ooze"
@@ -418,7 +472,8 @@ SCENARIO_DEFINITIONS =
             , "Shaman"
             ]
         },
-        { name: "#53 Crypt Basement"
+        { number: 53
+        , name: "#53 Crypt Basement"
         , decks:
             [ "Ooze"
             , "Living Corpse"
@@ -427,7 +482,8 @@ SCENARIO_DEFINITIONS =
             , "Giant Viper"
             ]
         },
-        { name: "#54 Palace of Ice"
+        { number: 54
+        , name: "#54 Palace of Ice"
         , decks:
             [ "Cave Bear"
             , "Living Spirit"
@@ -436,13 +492,15 @@ SCENARIO_DEFINITIONS =
             ]
         },
 /*
-        { name: "#55 Foggy Thicket"
+        { number: 55
+        , name: "#55 Foggy Thicket"
         , decks:
             [ "Random"
             ]
         },
 */
-        { name: "#56 Bandit's Wood"
+        { number: 56
+        , name: "#56 Bandit's Wood"
         , decks:
             [ "Hound"
             , "Archer"
@@ -450,14 +508,16 @@ SCENARIO_DEFINITIONS =
             , "Guard"
             ]
         },
-        { name: "#57 Investigation"
+        { number: 57
+        , name: "#57 Investigation"
         , decks:
             [ "Guard"
             , "Archer"
             , "Hound"
             ]
         },
-        { name: "#58 Bloody Shack"
+        { number: 58
+        , name: "#58 Bloody Shack"
         , decks:
             [ "Earth Demon"
             , "Harrower Infester"
@@ -465,14 +525,16 @@ SCENARIO_DEFINITIONS =
             , "Guard"
             ]
         },
-        { name: "#59 Forgotten Grove"
+        { number: 59
+        , name: "#59 Forgotten Grove"
         , decks:
             [ "Cave Bear"
             , "Hound"
             , "Imp"
             ]
         },
-        { name: "#60 Alchemy Lab"
+        { number: 60
+        , name: "#60 Alchemy Lab"
         , decks:
             [ "Ooze"
             , "Giant Viper"
@@ -481,7 +543,8 @@ SCENARIO_DEFINITIONS =
             , "Spitting Drake"
             ]
         },
-        { name: "#61 Fading Lighthouse"
+        { number: 61
+        , name: "#61 Fading Lighthouse"
         , decks:
             [ "Ooze"
             , "Giant Viper"
@@ -489,34 +552,39 @@ SCENARIO_DEFINITIONS =
             , "Flame Demon"
             ]
         },
-        { name: "#62 Pit of Souls"
+        { number: 62
+        , name: "#62 Pit of Souls"
         , decks:
             [ "Living Bones"
             , "Living Spirit"
             ]
         },
-        { name: "#63 Magma Pit"
+        { number: 63
+        , name: "#63 Magma Pit"
         , decks:
             [ "Scout"
             , "Guard"
             , "Archer"
             ]
         },
-        { name: "#64 Underwater Lagoon"
+        { number: 64
+        , name: "#64 Underwater Lagoon"
         , decks:
             [ "Ooze"
             , "Imp"
             , "Rending Drake"
             ]
         },
-        { name: "#65 Sulfur Mine"
+        { number: 65
+        , name: "#65 Sulfur Mine"
         , decks:
             [ "Scout"
             , "Hound"
             , "Shaman"
             ]
         },
-        { name: "#66 Clockwork Cove"
+        { number: 66
+        , name: "#66 Clockwork Cove"
         , decks:
             [ "Ooze"
             , "Ancient Artillery"
@@ -524,14 +592,16 @@ SCENARIO_DEFINITIONS =
             , "Stone Golem"
             ]
         },
-        { name: "#67 Arcane Library"
+        { number: 67
+        , name: "#67 Arcane Library"
         , decks:
             [ "Imp"
             , "Cave Bear"
             , "Stone Golem"
             ]
         },
-        { name: "#68 Toxic Moor"
+        { number: 68
+        , name: "#68 Toxic Moor"
         , decks:
             [ "Rending Drake"
             , "Imp"
@@ -539,7 +609,8 @@ SCENARIO_DEFINITIONS =
             , "Living Corpse"
             ]
         },
-        { name: "#69 Well of the Unfortunate"
+        { number: 69
+        , name: "#69 Well of the Unfortunate"
         , decks:
             [ "Scout"
             , "Shaman"
@@ -548,28 +619,32 @@ SCENARIO_DEFINITIONS =
             , "Living Spirit"
             ]
         },
-        { name: "#70 Chained Isle"
+        { number: 70
+        , name: "#70 Chained Isle"
         , decks:
             [ "Night Demon"
             , "Wind Demon"
             , "Living Spirit"
             ]
         },
-        { name: "#71 Windswept Highlands"
+        { number: 71
+        , name: "#71 Windswept Highlands"
         , decks:
             [ "Spitting Drake"
             , "Wind Demon"
             , "Sun Demon"
             ]
         },
-        { name: "#72 Oozing Grove"
+        { number: 72
+        , name: "#72 Oozing Grove"
         , decks:
             [ "Ooze"
             , "Imp"
             , "Giant Viper"
             ]
         },
-        { name: "#73 Rockslide Ridge"
+        { number: 73
+        , name: "#73 Rockslide Ridge"
         , decks:
             [ "Hound"
             , "Archer"
@@ -578,7 +653,8 @@ SCENARIO_DEFINITIONS =
             , "Shaman"
             ]
         },
-        { name: "#74 Merchant Ship"
+        { number: 74
+        , name: "#74 Merchant Ship"
         , decks:
             [ "Guard"
             , "Archer"
@@ -586,14 +662,16 @@ SCENARIO_DEFINITIONS =
             , "Deep Terror"
             ]
         },
-        { name: "#75 Overgrown Graveyard"
+        { number: 75
+        , name: "#75 Overgrown Graveyard"
         , decks:
             [ "Living Bones"
             , "Living Corpse"
             , "Living Spirit"
             ]
         },
-        { name: "#76 Harrower Hive"
+        { number: 76
+        , name: "#76 Harrower Hive"
         , decks:
             [ "Giant Viper"
             , "Living Bones"
@@ -601,7 +679,8 @@ SCENARIO_DEFINITIONS =
             , "Harrower Infester"
             ]
         },
-        { name: "#77 Vault of Secrets"
+        { number: 77
+        , name: "#77 Vault of Secrets"
         , decks:
             [ "Guard"
             , "Archer"
@@ -609,7 +688,8 @@ SCENARIO_DEFINITIONS =
             , "Hound"
             ]
         },
-        { name: "#78 Sacrifice Pit"
+        { number: 78
+        , name: "#78 Sacrifice Pit"
         , decks:
             [ "Guard"
             , "Archer"
@@ -618,14 +698,16 @@ SCENARIO_DEFINITIONS =
             , "Imp"
             ]
         },
-        { name: "#79 Lost Temple"
+        { number: 79
+        , name: "#79 Lost Temple"
         , decks:
             [ "Stone Golem"
             , "Giant Viper"
             , "Boss"
             ]
         },
-        { name: "#80 Vigil Keep"
+        { number: 80
+        , name: "#80 Vigil Keep"
         , decks:
             [ "Guard"
             , "Archer"
@@ -633,7 +715,8 @@ SCENARIO_DEFINITIONS =
             , "Hound"
             ]
         },
-        { name: "#81 Temple of the Eclipse"
+        { number: 81
+        , name: "#81 Temple of the Eclipse"
         , decks:
             [ "Night Demon"
             , "Sun Demon"
@@ -642,14 +725,16 @@ SCENARIO_DEFINITIONS =
             , "Boss"
             ]
         },
-        { name: "#82 Burning Mountain"
+        { number: 82
+        , name: "#82 Burning Mountain"
         , decks:
             [ "Earth Demon"
             , "Flame Demon"
             , "Stone Golem"
             ]
         },
-        { name: "#83 Shadows Within"
+        { number: 83
+        , name: "#83 Shadows Within"
         , decks:
             [ "Hound"
             , "Cultist"
@@ -658,14 +743,16 @@ SCENARIO_DEFINITIONS =
             , "Flame Demon"
             ]
         },
-        { name: "#84 Crystalline Cave"
+        { number: 84
+        , name: "#84 Crystalline Cave"
         , decks:
             [ "Flame Demon"
             , "Frost Demon"
             , "Earth Demon"
             ]
         },
-        { name: "#85 Sun Temple"
+        { number: 85
+        , name: "#85 Sun Temple"
         , decks:
             [ "Hound"
             , "Imp"
@@ -673,7 +760,8 @@ SCENARIO_DEFINITIONS =
             , "Sun Demon"
             ]
         },
-        { name: "#86 Harried Village"
+        { number: 86
+        , name: "#86 Harried Village"
         , decks:
             [ "Cave Bear"
             , "Shaman"
@@ -681,7 +769,8 @@ SCENARIO_DEFINITIONS =
             , "Lurker"
             ]
         },
-        { name: "#87 Corrupted Cove"
+        { number: 87
+        , name: "#87 Corrupted Cove"
         , decks:
             [ "Lurker"
             , "Deep Terror"
@@ -689,14 +778,16 @@ SCENARIO_DEFINITIONS =
             , "Imp"
             ]
         },
-        { name: "#88 Plane of Water"
+        { number: 88
+        , name: "#88 Plane of Water"
         , decks:
             [ "Frost Demon"
             , "Ooze"
             , "Lurker"
             ]
         },
-        { name: "#89 Syndicate Hideout"
+        { number: 89
+        , name: "#89 Syndicate Hideout"
         , decks:
             [ "Archer"
             , "Guard"
@@ -704,7 +795,8 @@ SCENARIO_DEFINITIONS =
             , "Giant Viper"
             ]
         },
-        { name: "#90 Demonic Rift"
+        { number: 90
+        , name: "#90 Demonic Rift"
         , decks:
             [ "Earth Demon"
             , "Wind Demon"
@@ -712,7 +804,8 @@ SCENARIO_DEFINITIONS =
             , "Living Spirit"
             ]
         },
-        { name: "#91 Wild Melee"
+        { number: 91
+        , name: "#91 Wild Melee"
         , decks:
             [ "Cave Bear"
             , "Hound"
@@ -721,7 +814,8 @@ SCENARIO_DEFINITIONS =
             , "Living Spirit"
             ]
         },
-        { name: "#92 Back Alley Brawl"
+        { number: 92
+        , name: "#92 Back Alley Brawl"
         , decks:
             [ "Guard"
             , "Archer"
@@ -730,14 +824,16 @@ SCENARIO_DEFINITIONS =
             , "Wind Demon"
             ]
         },
-        { name: "#93 Sunken Vessel"
+        { number: 93
+        , name: "#93 Sunken Vessel"
         , decks:
             [ "Lurker"
             , "Frost Demon"
             , "Living Spirit"
             ]
         },
-        { name: "#94 Vermling Nest"
+        { number: 94
+        , name: "#94 Vermling Nest"
         , decks:
             [ "Hound"
             , "Scout"
@@ -745,7 +841,8 @@ SCENARIO_DEFINITIONS =
             , "Cave Bear"
             ]
         },
-        { name: "#95 Payment Due"
+        { number: 95
+        , name: "#95 Payment Due"
         , decks:
             [ "Deep Terror"
             , "Flame Demon"
