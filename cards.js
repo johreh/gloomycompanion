@@ -1,3 +1,4 @@
+<<<<<<< 95643d1fe4105276401b2dee128d6ce0ca3cbb93
 AVAILABLE_DECKS = 
     [   {name: "Ancient Artillery", deck_name: "Ancient Artillery"}
     ,   {name: "Bandit Archer", deck_name: "Archer"}
@@ -38,6 +39,10 @@ AVAILABLE_DECKS =
 
 DECK_DEFINITONS = 
     [   
+=======
+DECK_DEFINITONS =
+    [
+>>>>>>> Fix typo for the Ooze deck, and the way we display the info on Wind Demon
         { name: "Ancient Artillery"
         , cards:
             [ [false, "46", "* %attack% -1", "** %range% +2"]
@@ -380,7 +385,7 @@ DECK_DEFINITONS =
             , [true,  "21", "* %move% +0", "* %attack% +0", "** %pull% 1", "* %air%"]
             , [true,  "21", "* %move% +0", "* %attack% +0", "** %pull% 1", "* %air%"]
             , [false, "29", "* %move% +0", "* %attack% -1", "** %target% 2", "** %air%%use_element%: %push% 2"]
-            , [false, "37", "* %move% +0", "* %attack% +0 <div style='display: inline-block; width: 0; margin-top: -1.5em; vertical-align: bottom'>%aoe-4-with-black%</div>", "** %air%%use_element%: +1 %attack% <div style='display: inline-block; margin-right: -3em'>%aoe-circle-with-side-black%</div>"]
+            , [false, "37", "* %move% +0", "* %attack% +0 <div style='display: inline-block; width: 0; margin-top: -1.5em; vertical-align: bottom'>%aoe-4-with-black%</div>", "** %air%%use_element%: %attack% +1 <div style='display: inline-block; margin-right: -3em'>%aoe-circle-with-side-black%</div>"]
             , [false, "43", "* %move% -1", "* %attack% +1", "** %air%%use_element%: %target% 2"]
             , [false, "43", "* %push% 1", "** Target all adjacent enemies", "* %attack% +0", "** %earth%%use_element%: -2 %range%"]
             , [false, "02", "* %shield% 1", "* %move% -1", "* %attack% -1", "* %any%%use_element%: %air%"]
