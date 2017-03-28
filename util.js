@@ -29,3 +29,29 @@ function clean_node(myNode)
     myNode.removeChild(myNode.firstChild);
   }
 }
+
+function create_input(type, name, value, text)
+{
+    var checkbox = document.createElement("input");
+    checkbox.type = type;
+    checkbox.name = name;
+    checkbox.value = value;
+
+    var textnode = document.createTextNode(text);
+
+    var listitem = document.createElement("li");
+    listitem.appendChild(checkbox);
+    listitem.appendChild(textnode);
+
+    return listitem;
+}
+
+function create_button(type, id, value)
+{
+  var button = document.createElement("input");
+  button.type = type;
+  button.id = id;
+  button.value = value;
+
+  return button;
+}
