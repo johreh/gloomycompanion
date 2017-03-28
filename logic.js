@@ -182,15 +182,28 @@ function load_ability_deck(deck_definition)
 
     deck.must_reshuffle = function()
     {
-      if (!deck.draw_pile.length)
+      if (!this.draw_pile.length)
       {
           return true;
       } else {
-          if (do_shuffles && deck.discard.length)
+          if (do_shuffles && this.discard.length)
           {
-              return deck.discard[0].shuffle_next;
+              return this.discard[0].shuffle_next;
           }
       }
+    }
+
+    // In case any deck has started
+    deck.new_round = function() {
+        if (this.discard.length > 0)
+        {
+            draw_ability_card(this);
+            // Maybe the last card was a reshuffle.
+            if (this.discard == 0)
+            {
+                draw_ability_card(this);
+            }
+        }
     }
 
     return deck;
@@ -316,15 +329,9 @@ function prevent_pull_animation(deck)
 
 function repaint_modifier_deck(deck, prevent_pull)
 {
-    // use discard... but it kills the deck!
     prevent_pull_animation(deck);
     remove_child(document.getElementById("topmenu").getElementsByClassName("base")[0]);
     place_deck(deck, document.getElementById("topmenu").getElementsByClassName("base")[0]);
-    remove_child(document.getElementById("topmenu").getElementsByClassName("extra")[0]);
-    if (deck.advantage_deck.discard.length)
-    {
-        place_deck(deck.advantage_deck, document.getElementById("topmenu").getElementsByClassName("extra")[0]);
-    }
 }
 
 function reshuffle_modifier_deck(deck)
@@ -363,6 +370,9 @@ function double_draw(deck)
         draw_modifier_card(deck);
         advantage_card = deck.discard[0];
         reshuffle_modifier_deck(deck);
+        advantage_card = deck.draw_pile.shift(advantage_card);
+        send_to_discard(advantage_card, pull_animation=false);
+        deck.discard.unshift(advantage_card);
         draw_modifier_card(deck);
     }
     // Case there were 0 cards in draw_pile when we clicked "draw 2".
@@ -370,6 +380,8 @@ function double_draw(deck)
     //    draw the next
     else if (deck.draw_pile.length == 0)
     {
+        // This is in case the previous draw was double as well
+        deck.clean_advantage_deck();
         reshuffle_modifier_deck(deck);
         draw_modifier_card(deck);
         advantage_card = deck.discard[0];
@@ -382,14 +394,9 @@ function double_draw(deck)
         advantage_card = deck.discard[0];
         draw_modifier_card(deck);
     }
-    send_to_discard(advantage_card, pull_animation=false);
-    paint_card_on_advantage_deck_space(advantage_card, deck.advantage_deck);
-}
-
-function paint_card_on_advantage_deck_space(card, advantage_deck)
-{
-    advantage_deck.discard.push(card);
-    place_deck(advantage_deck, document.getElementById("topmenu").getElementsByClassName("extra")[0]);
+    deck.discard[0].ui.addClass("right");
+    advantage_card.ui.addClass("left");
+    deck.advantage_to_clean = true;
 }
 
 function load_modifier_deck(number_bless, number_curses)
@@ -400,39 +407,38 @@ function load_modifier_deck(number_bless, number_curses)
         type: DECK_TYPES.MODIFIER,
         draw_pile: [],
         discard: [],
-        advantage_deck: null
+        advantage_to_clean: false
     }
 
     deck.shuffle_end_of_round = function()
     {
-        // This can be optimized returning true as soon as the first hits.
-        return deck.discard.filter(function(card) { return card.shuffle_next_round; })
+        return this.discard.filter(function(card) { return card.shuffle_next_round; }).length > 0;
     }
 
     deck.bless_count = function()
     {
-        return (deck.draw_pile.filter(function(card) { return card.card_type === CARD_TYPES_MODIFIER.BLESS; }).length);
+        return (this.draw_pile.filter(function(card) { return card.card_type === CARD_TYPES_MODIFIER.BLESS; }).length);
     }
 
     deck.curse_count = function()
     {
-        return (deck.draw_pile.filter(function(card) { return card.card_type === CARD_TYPES_MODIFIER.CURSE; }).length);
+        return (this.draw_pile.filter(function(card) { return card.card_type === CARD_TYPES_MODIFIER.CURSE; }).length);
     }
 
     deck.must_reshuffle = function()
     {
-        return !deck.draw_pile.length;
+        return !this.draw_pile.length;
     }
 
     deck.clean_discard_pile = function()
     {
         for (var i = 0; i < deck.discard.length; i++)
         {
-            if (deck.discard[i].card_type == CARD_TYPES_MODIFIER.BLESS
-                || deck.discard[i].card_type == CARD_TYPES_MODIFIER.CURSE)
+            if (this.discard[i].card_type == CARD_TYPES_MODIFIER.BLESS
+                || this.discard[i].card_type == CARD_TYPES_MODIFIER.CURSE)
             {
             //Delete this curse/bless that has been used
-            deck.discard.splice(i, 1);
+            this.discard.splice(i, 1);
             i--;
             }
         }
@@ -442,14 +448,17 @@ function load_modifier_deck(number_bless, number_curses)
 
     }
 
-    deck.clean_advantage_deck = function()
+    deck.clean_advantage_deck = function( force_clean = false )
     {
-        if (deck.advantage_deck.discard.length)
+        if ((deck.advantage_to_clean || force_clean) && deck.discard[1])
         {
-            deck.advantage_deck.discard.splice(0, 1);
-            remove_child(document.getElementById("topmenu").getElementsByClassName("extra")[0]);
-            place_deck(deck.advantage_deck, document.getElementById("topmenu").getElementsByClassName("extra")[0]);
+            deck.advantage_to_clean = false;
+            deck.discard[0].ui.removeClass("right");
+            deck.discard[0].ui.removeClass("left");
+            deck.discard[1].ui.removeClass("left");
+            deck.discard[1].ui.removeClass("left");
         }
+
     }
 
     MODIFIER_DECK.forEach( function(card_definition) {
@@ -554,6 +563,7 @@ function click_end_of_round(deck)
         deck.clean_advantage_deck();
         reshuffle_modifier_deck(deck);
     }
+    visible_decks.forEach(function(deck) { deck.new_round()});
 }
 
 function load_definition(card_database)
@@ -594,7 +604,7 @@ function apply_deck_selection(decks, preserve_existing_deck_state)
     {
         remove_child(modifier_container);
         add_modifier_deck(modifier_container);
-    } else if (!document.getElementById("modifier-decks"))
+    } else if (!document.getElementById("modifier-deck"))
     {
         add_modifier_deck(modifier_container);
     }
@@ -640,33 +650,18 @@ function apply_deck_selection(decks, preserve_existing_deck_state)
 function add_modifier_deck(container)
 {
     var deck = load_modifier_deck(0,0);
-    var attack_modifier_decks = document.createElement("div");
-    attack_modifier_decks.id = "modifier-decks";
+
+    var modifier_deck_div = document.createElement("div");
+    modifier_deck_div.id = "modifier-deck";
     var deck_space = document.createElement("div");
     deck_space.className = "card-container base";
-    attack_modifier_decks.appendChild(deck_space);
+    modifier_deck_div.appendChild(deck_space);
 
     place_deck(deck, deck_space);
     reshuffle(deck);
     deck_space.onclick = draw_modifier_card.bind(null, deck);
 
-    var advantage_deck =
-    {
-        name: "Monster modifier deck advantage",
-        draw_pile: [],
-        discard: []
-    }
-
-    var deck_space_advantage = document.createElement("div");
-    deck_space_advantage.className = "card-container extra";
-    deck_space_advantage.id = "advantageDeck";
-    attack_modifier_decks.appendChild(deck_space_advantage);
-
-    place_deck(advantage_deck, deck_space_advantage);
-    deck_space_advantage.onclick = draw_modifier_card.bind(null, deck);
-    deck.advantage_deck = advantage_deck;
-
-    container.appendChild(attack_modifier_decks);
+    container.appendChild(modifier_deck_div);
 
     create_top_menu_elements(container, deck);
 }

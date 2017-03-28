@@ -19,8 +19,8 @@ var MODIFIER_CARDS =
     , PLUS2:  { 'type': CARD_TYPES_MODIFIER.PLUS2,  'shuffle': false, 'image': 'images/attack_mod_+2.jpg' }
     , MINUS1: { 'type': CARD_TYPES_MODIFIER.MINUS1, 'shuffle': false, 'image': 'images/attack_mod_-1.jpg' }
     , MINUS2: { 'type': CARD_TYPES_MODIFIER.MINUS2, 'shuffle': false, 'image': 'images/attack_mod_-2.jpg' }
-    , NULL:   { 'type': CARD_TYPES_MODIFIER.NULL,   'shuffle': true, 'image': 'images/attack_mod_null.jpg' }
-    , DOUBLE: { 'type': CARD_TYPES_MODIFIER.DOUBLE, 'shuffle': true, 'image': 'images/attack_mod_2x.jpg' }
+    , NULL:   { 'type': CARD_TYPES_MODIFIER.NULL,   'shuffle': true,  'image': 'images/attack_mod_null.jpg' }
+    , DOUBLE: { 'type': CARD_TYPES_MODIFIER.DOUBLE, 'shuffle': true,  'image': 'images/attack_mod_2x.jpg' }
     };
 
 var MODIFIER_DECK =
