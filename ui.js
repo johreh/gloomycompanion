@@ -27,7 +27,7 @@ function init_ui()
     };
     var pages =
     {
-        scenarios:      document.getElementById("scenariopage"),
+        scenarios:      document.getElementById("scenariospage"),
         decks:          document.getElementById("deckspage")
     };
 

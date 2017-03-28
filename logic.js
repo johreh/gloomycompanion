@@ -1,4 +1,5 @@
 var do_shuffles = true;
+var visible_decks = [];
 
 var DeckTypes = 
 {
@@ -112,7 +113,7 @@ function create_skill_card_front(initiative, name, shuffle, lines)
         var line = lines[i];
 
         var new_depth = 0;
-        while (line.startsWith("*"))
+        while (line.indexOf("*") >= 0)
         {
             new_depth += 1;
             line = line.substr(1);
@@ -264,10 +265,10 @@ function reshuffle(deck, include_discards = true)
         card.ui.removeClass("discard");
         card.ui.addClass("draw");
 
-        card.ui.set_depth(-i - 6);
+        card.ui.set_depth(-i - 4);
     }
 
-    shuffle_list(deck.draw_pile);
+    shuffle_list(deck.draw_pile); // ?? Needed?
 
 }
 
@@ -277,13 +278,15 @@ function flip_up_top_card(deck)
     {
         var card = deck.discard[i];
         card.ui.removeClass("lift");
-        card.ui.removeClass("pull");555
+        card.ui.removeClass("pull");
         card.ui.push_down();
     }
+
     if (deck.discard.length > 0)
     {
         deck.discard[0].ui.addClass("lift");
     }
+
     var card = deck.draw_pile.shift(card);
     send_to_discard(card, pull_animation=true);
     deck.discard.unshift(card);
@@ -464,7 +467,6 @@ function load_modifier_deck(number_bless, number_curses)
             remove_child(document.getElementById("topmenu").getElementsByClassName("extra")[0]);
             place_deck(deck.advantage_deck, document.getElementById("topmenu").getElementsByClassName("extra")[0]);
         }
-        
     }
 
     //Start the Deck with the default values: Six +0, five +1, five -1 and a single +2, -2, 2x and Null card each.
@@ -591,31 +593,53 @@ function write_value_deck_status(deck)
     }
 }
 
-function apply_deck_selection(decks)
+function apply_deck_selection(decks, preserve_existing_deck_state)
 {
     var container = document.getElementById("tableau");
     var modifier_container = document.getElementById("topmenu");
-    remove_child(container);
-    remove_child(modifier_container);
 
-    for (var i = 0; i < decks.length; i++)
+    if (!preserve_existing_deck_state) 
     {
+        remove_child(modifier_container);
+        add_modifier_deck(modifier_container);
+    } else if (!document.getElementById("modifier-decks"))
+    {
+        add_modifier_deck(modifier_container);
+    }
+
+    var decks_to_remove = visible_decks.filter(function(deck) {
+        return !preserve_existing_deck_state || decks.indexOf(deck) === -1;
+    });
+
+    var decks_to_add = decks.filter(function(deck) {
+        return !preserve_existing_deck_state || visible_decks.indexOf(deck) === -1;
+    });
+
+    decks_to_remove.forEach(function(deck) { deck.discard_deck(); });
+
+    decks_to_add.forEach(function(deck) {
         var deck_space = document.createElement("div");
         deck_space.className = "card-container";
+
         container.appendChild(deck_space);
 
-        var deck = decks[i];
         place_deck(deck, deck_space);
         reshuffle(deck);
         deck_space.onclick = draw_skill_card.bind(null, deck);
 
         deck.discard_deck = function()
         {
-            container.removeChild(deck_space);
-        }
-    }
+            var index = visible_decks.indexOf(this);
 
-    add_modifier_deck(modifier_container);
+            if (index > -1) {
+                visible_decks.splice(index, 1);
+            }
+
+            container.removeChild(deck_space);
+        };
+
+        visible_decks.push(deck);
+    });
 
     // Rescale card text if necessary
     refresh_ui();
@@ -653,33 +677,6 @@ function add_modifier_deck(container)
     container.appendChild(attack_modifier_decks);
 
     create_top_menu_elements(container, deck);
-
-    deck.discard_deck = function()
-    {
-        container.removeChild(deck_space);
-    }
-}
-
-function get_checkbox_selection(checkboxes)
-{
-    var selected_decks = [];
-
-    for (var i = 0; i < checkboxes.length; i++)
-    {
-        var checkbox = checkboxes[i];
-        if (checkbox.checked)
-        {
-            selected_decks.push(checkbox.value);
-        }
-    }
-
-    return selected_decks;
-}
-
-function clear_list(list)
-{
-    list.splice(0, list.length);
-    return list;
 }
 
 function create_top_menu_elements(container, modifier_deck)
@@ -728,67 +725,113 @@ function create_top_menu_elements(container, modifier_deck)
     write_value_deck_status(modifier_deck);
 }
 
-function create_deck_list(decks)
+
+function DeckList(decks)
 {
-    var checkboxlist = []
+    var decklist = {};
+    decklist.ul = document.createElement("ul");
+    decklist.ul.className = "selectionlist";
+    decklist.checkboxes = {};
+
     for (var deck_name in decks)
     {
-        var label = document.createElement("label");
-        var checkbox = create_input("checkbox", "deck", deck_name, deck_name);
-        label.appendChild(checkbox);
-        checkboxlist.push(label);
+        var listitem = document.createElement("li");
+        var dom_dict = create_input("checkbox", "deck", deck_name, deck_name);
+
+        listitem.appendChild(dom_dict.root);
+        decklist.ul.appendChild(listitem);
+        decklist.checkboxes[deck_name] = dom_dict.input;
     }
-    return checkboxlist;
+
+    decklist.get_selection = function()
+    {
+        return dict_values(this.checkboxes).filter(is_checked).map(input_value);
+    }
+
+    decklist.set_selection = function(selected_decks)
+    {
+        dict_values(this.checkboxes).forEach( function(checkbox) {
+            checkbox.checked = false;
+        });
+
+        selected_decks.forEach(function(deck_name) {
+            var checkbox = this.checkboxes[deck_name];
+            if (checkbox)
+            {
+                checkbox.checked = true;
+            }
+        }.bind(this));
+    }
+
+    return decklist;
 }
 
-function create_scenario_list(scenarios, decklist, retobj)
+function ScenarioList(scenarios)
 {
-    var radiolist = []
+    var scenariolist = {};
+    scenariolist.ul = document.createElement("ul");
+    scenariolist.ul.className = "selectionlist";
+    scenariolist.radios = [];
+    scenariolist.decks = {};
+
     for (var i = 0; i < scenarios.length; i++)
     {
         var scenario = scenarios[i];
-        var label = document.createElement("label");
-        var radio = create_input("radio", "scenario", scenario.name, scenario.name);
+        var listitem = document.createElement("li");
+        var dom_dict = create_input("radio", "scenario", scenario.name, scenario.name);
 
-        function update_retobj(decknames, e)
-        {
-            clear_list(retobj);
-            var selected_decks = decknames.map( function(name) { return decklist[name]; } );
-            selected_decks.map( function(deck) { retobj.push(deck); } );
-        }
-
-        radio.onchange = update_retobj.bind(null, scenario.decks);
-        label.appendChild(radio);
-        radiolist.push(label);
+        listitem.appendChild(dom_dict.root);
+        scenariolist.ul.appendChild(listitem);
+        scenariolist.radios.push(dom_dict.input);
+        scenariolist.decks[scenario.name] = scenario.decks;
     }
-    return radiolist;
+
+    scenariolist.get_selection = function()
+    {
+        return scenariolist.radios.filter(is_checked).map(input_value);
+    }
+
+    scenariolist.get_scenario_decks = function()
+    {
+        var selected_scenarios = this.get_selection();
+        var selected_decks = concat_arrays(selected_scenarios.map( function(scenario_name) {
+            return ((scenario_name in this.decks) ? this.decks[scenario_name] : []);
+        }.bind(this)));
+        return selected_decks;
+    }
+
+    return scenariolist;
 }
 
 function init()
 {
     decks = load_definition(DECK_DEFINITONS);
 
-    var decklist = document.getElementById("decklist");
-    var scenariolist = document.getElementById("scenariolist");
+    var deckspage = document.getElementById("deckspage");
+    var scenariospage = document.getElementById("scenariospage");
     var applydeckbtn = document.getElementById("applydecks");
     var applyscenariobtn = document.getElementById("applyscenario");
 
-    var selected_decks = [];
+    var decklist = new DeckList(decks);
+    var scenariolist = new ScenarioList(SCENARIO_DEFINITIONS);
 
-    create_deck_list(decks).map( function(checkbox) { decklist.appendChild(checkbox); } );
-    create_scenario_list(SCENARIO_DEFINITIONS, decks, selected_decks).map( function(radiobtn) { scenariolist.appendChild(radiobtn); } );
+    deckspage.insertAdjacentElement('afterbegin', decklist.ul);
+    scenariospage.insertAdjacentElement('afterbegin', scenariolist.ul);
+
     applydeckbtn.onclick = function()
     {
-        var checkboxes = document.getElementsByName("deck");
-        var selected_deck_names = get_checkbox_selection(checkboxes);
-        clear_list(selected_decks);
-        selected_deck_names.map( function(name) { selected_decks.push(decks[name]); } );
-        apply_deck_selection(selected_decks);
-    };
-    applyscenariobtn.onclick = function()
-    {
-        apply_deck_selection(selected_decks);
+        var selected_deck_names = decklist.get_selection();
+        var selected_decks = selected_deck_names.map( function(name) { return decks[name]; } );
+        apply_deck_selection(selected_decks, true);
     };
 
-    window.onresize = refresh_ui.bind(null, selected_decks);
+    applyscenariobtn.onclick = function()
+    {
+        var selected_deck_names = scenariolist.get_scenario_decks();
+        var selected_decks = selected_deck_names.map( function(name) { return decks[name]; } );
+        decklist.set_selection(selected_decks.map( function(deck) { return deck.name; } ));
+        apply_deck_selection(selected_decks, false);
+    };
+
+    window.onresize = refresh_ui.bind(null, visible_decks);
 }
