@@ -3,10 +3,10 @@
 MACROS =    
     { "%air%":                                      "<img class='element' src='images/air.svg'>"
     , "%any%":                                      "<img class='element' src='images/any_element.svg'>"
-    , "%aoe-4-with-black%":                         "<img class='aoe h2' src='images/aoe-4-with-black.svg'>"
+    , "%aoe-4-with-black%":                         "<div class='collapse'><img class='aoe h2' src='images/aoe-4-with-black.svg'></div>"
     , "%aoe-circle%":                               "<div class='collapse'><img class='aoe h3' src='images/aoe-circle.svg'></div>"
     , "%aoe-circle-with-middle-black%":             "<div class='collapse'><img class='aoe h3' src='images/aoe-circle-with-middle-black.svg'></div>"
-    , "%aoe-circle-with-side-black%":               "<img class='aoe h3' src='images/aoe-circle-with-side-black.svg'>"
+    , "%aoe-circle-with-side-black%":               "<div class='collapse'><img class='aoe h3' src='images/aoe-circle-with-side-black.svg'></div>"
     , "%aoe-line-3-with-black%":                    "<div class='collapse'><img class='aoe h1 rotated' src='images/aoe-line-3-with-black.svg'></div>"
     , "%aoe-line-4-with-black%":                    "<div class='collapse'><img class='aoe h1 rotated' src='images/aoe-line-4-with-black.svg'></div>"
     , "%aoe-line-6-with-black%":                    "<img class='aoe h6 right-aligned' src='images/aoe-line-6-with-black.svg'></div>"

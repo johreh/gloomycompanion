@@ -1,5 +1,5 @@
+
 var do_shuffles = true;
-var visible_decks = [];
 
 function UICard(front_element, back_element)
 {
@@ -94,7 +94,7 @@ function create_card_front(initiative, name, shuffle, lines)
         var line = lines[i];
 
         var new_depth = 0;
-        while (line.indexOf("*") >= 0)
+        while (line.startsWith("*"))
         {
             new_depth += 1;
             line = line.substr(1);
@@ -114,7 +114,7 @@ function create_card_front(initiative, name, shuffle, lines)
                 var list_item = document.createElement("li");
                 current_parent.appendChild(list_item);
                 current_parent = list_item;
-
+                
                 current_depth += 1;
             }
             else
@@ -176,6 +176,7 @@ function load_deck(deck_definition)
     return deck_state;
 }
 
+
 function place_deck(deck, container)
 {
     for (var i = 0; i < deck.draw_pile.length; i++)
@@ -235,10 +236,24 @@ function must_reshuffle(deck)
     {
         return true;
     }
-    else if (do_shuffles && deck.discard.length)
+    
+    if (deck.name.includes("modifier")) 
     {
-        return deck.discard[0].shuffle_next;
+        // Modifier decks should reshuffle when the end of round has been selected and they've seen 2x or Null cards.
+        if (deck.end_of_round)
+        {
+            deck.end_of_round = true;
+            var should_shuffle = deck.shuffle_end_of_the_turn;
+            deck.shuffle_end_of_the_turn = false;
+            return should_shuffle;
+        }
+    } else {
+        if (do_shuffles && deck.discard.length)
+        {
+            return deck.discard[0].shuffle_next;
+        } 
     }
+
 }
 
 function draw_card(deck)
@@ -249,7 +264,13 @@ function draw_card(deck)
     }
     else
     {
-        for (var i = 0; i < deck.discard.length; i++)
+        flip_up_top_card(deck);
+    }
+}
+
+function flip_up_top_card(deck)
+{
+    for (var i = 0; i < deck.discard.length; i++)
         {
             var card = deck.discard[i];
             card.ui.removeClass("lift");
@@ -265,12 +286,103 @@ function draw_card(deck)
         card.ui.set_depth(-3);
         card.ui.addClass("pull");
         card.ui.flip_up(true);
-
+        
         card.ui.removeClass("draw");
         card.ui.addClass("discard");
         deck.discard.unshift(card);
+}
+
+function draw_card_modifier(deck)
+{
+    if (must_reshuffle(deck))
+    {
+        reshuffle(deck);
+    }
+    else
+    {
+        flip_up_top_card(deck);
+        if (deck.discard[0].shuffle_next_round)
+        {
+            deck.shuffle_end_of_the_turn = true;
+        }
+        if (deck.discard[0].card_type == "bless")
+        {
+            deck.discard.splice(0);
+            deck.bless_count--;
+        }else if (deck.discard[0].card_type == "curse")
+        {
+            deck.discard.splice(0);
+            deck.curse_count--;
+        }
     }
 }
+
+function load_modifier_deck(number_bless, number_curses)
+{
+
+    var deck_state = {
+        name: "Monster modifier deck",
+        draw_pile: [],
+        discard: [],
+        bless_count: 0,
+        curse_count: 0,
+        shuffle_end_of_the_turn: false,
+        end_of_round: true // !!!!!!!!!!!!!!
+        // To fix, this is just temporal until we make the "end of turn" button
+    }
+
+    //Start the Deck with the default values: Six +0, five +1, five -1 and a single +2, -2, 2x and Null card each. 
+    for (var i = 0 ; i < 6 ; i++) deck_state.draw_pile.push(define_modifier_card(false, "plus0")); 
+    for (var i = 0 ; i < 5 ; i++) deck_state.draw_pile.push(define_modifier_card(false, "plus1"));
+    for (var i = 0 ; i < 5 ; i++) deck_state.draw_pile.push(define_modifier_card(false, "minus1"));
+    deck_state.draw_pile.push(define_modifier_card(false, "plus2"));
+    deck_state.draw_pile.push(define_modifier_card(false, "minus2"));
+    deck_state.draw_pile.push(define_modifier_card(true, "null"));
+    deck_state.draw_pile.push(define_modifier_card(true, "double"));
+
+    return deck_state;
+}
+
+function define_modifier_card(shuffle, card_type) 
+{
+    var card_front = create_modifier_card(card_type);
+    var card_back = create_modifier_card("back");
+
+    var card = {
+        ui:                     new UICard(card_front, card_back),
+        card_type:              card_type,
+        shuffle_next_round:     shuffle
+    };
+
+    return card
+}
+
+function create_modifier_card(card_type)
+{
+    var card = document.createElement("div");
+    card.className = "card modifier " + card_type + " down";
+
+    return card;
+
+}
+
+function add_bless_to_discard(deck)
+{
+    deck.discard.push(define_modifier_card(false, "bless"));
+    deck.bless_count++;
+}
+
+function add_curse_to_discard(deck)
+{
+    deck.discard.push(define_modifier_card(false, "curse"));
+    deck.curse_count++;
+}
+
+function click_end_of_turn(deck)
+{
+    deck.end_of_round = true;
+}
+
 
 function load(card_database)
 {
@@ -285,60 +397,79 @@ function load(card_database)
 
 function create_input(type, name, value, text)
 {
-    var input = document.createElement("input");
-    input.type = type;
-    input.name = name;
-    input.value = value;
+    var checkbox = document.createElement("input");
+    checkbox.type = type;
+    checkbox.name = name;
+    checkbox.value = value;
 
     var textnode = document.createTextNode(text);
 
-    var label = document.createElement("label");
-    label.appendChild(input);
-    label.appendChild(textnode);
+    var listitem = document.createElement("li");
+    listitem.appendChild(checkbox);
+    listitem.appendChild(textnode);
 
-    return {'root': label, 'input': input};
+    return listitem;
 }
 
-function apply_deck_selection(decks, preserve_existing_deck_state)
+function apply_deck_selection(decks)
 {
     var container = document.getElementById("tableau");
+    container.innerHTML = ""; // TODO use deck.discard_deck instead
 
-    var decks_to_remove = visible_decks.filter(function(deck) {
-        return !preserve_existing_deck_state || decks.indexOf(deck) === -1;
-    });
+    //TO FIX! this is for testing, but it should be always added as a deck, and it's own div (with buttons)
+    add_modifier_deck(container);
 
-    var decks_to_add = decks.filter(function(deck) {
-        return !preserve_existing_deck_state || visible_decks.indexOf(deck) === -1;
-    });
-
-    decks_to_remove.forEach(function(deck) { deck.discard_deck(); });
-
-    decks_to_add.forEach(function(deck) {
+    for (var i = 0; i < decks.length; i++)
+    {
         var deck_space = document.createElement("div");
         deck_space.className = "card-container";
-
         container.appendChild(deck_space);
 
+        var deck = decks[i];
         place_deck(deck, deck_space);
         reshuffle(deck);
         deck_space.onclick = draw_card.bind(null, deck);
 
         deck.discard_deck = function()
         {
-            var index = visible_decks.indexOf(this);
-
-            if (index > -1) {
-                visible_decks.splice(index, 1);
-            }
-
             container.removeChild(deck_space);
-        };
-
-        visible_decks.push(deck);
-    });
-
+        }
+    }
     // Rescale card text if necessary
     refresh_ui(decks);
+}
+
+function add_modifier_deck(container)
+{
+    var deck = load_modifier_deck(0,0);
+    var deck_space = document.createElement("div");
+    deck_space.className = "card-container";
+    container.appendChild(deck_space);
+
+    place_deck(deck, deck_space);
+    reshuffle(deck);
+    deck_space.onclick = draw_card_modifier.bind(null, deck);
+
+    deck.discard_deck = function()
+    {
+        container.removeChild(deck_space);
+    }
+}
+
+function get_checkbox_selection(checkboxes)
+{
+    var selected_decks = [];
+
+    for (var i = 0; i < checkboxes.length; i++)
+    {
+        var checkbox = checkboxes[i];
+        if (checkbox.checked)
+        {
+            selected_decks.push(checkbox.value);
+        }
+    }
+
+    return selected_decks;
 }
 
 function clear_list(list)
@@ -347,112 +478,69 @@ function clear_list(list)
     return list;
 }
 
-function DeckList(decks)
+function create_deck_list(decks)
 {
-    var decklist = {};
-    decklist.ul = document.createElement("ul");
-    decklist.ul.className = "selectionlist";
-    decklist.checkboxes = {};
-
+    var checkboxlist = []
     for (var deck_name in decks)
     {
-        var listitem = document.createElement("li");
-        var dom_dict = create_input("checkbox", "deck", deck_name, deck_name);
-
-        listitem.appendChild(dom_dict.root);
-        decklist.ul.appendChild(listitem);
-        decklist.checkboxes[deck_name] = dom_dict.input;
+        var label = document.createElement("label");
+        var checkbox = create_input("checkbox", "deck", deck_name, deck_name);
+        label.appendChild(checkbox);
+        checkboxlist.push(label);
     }
-
-    decklist.get_selection = function()
-    {
-        return dict_values(this.checkboxes).filter(is_checked).map(input_value);
-    }
-
-    decklist.set_selection = function(selected_decks)
-    {
-        dict_values(this.checkboxes).forEach( function(checkbox) {
-            checkbox.checked = false;
-        });
-
-        selected_decks.forEach(function(deck_name) {
-            var checkbox = this.checkboxes[deck_name];
-            if (checkbox)
-            {
-                checkbox.checked = true;
-            }
-        }.bind(this));
-    }
-
-    return decklist;
+    return checkboxlist;
 }
 
-function ScenarioList(scenarios)
+function create_scenario_list(scenarios, decklist, retobj)
 {
-    var scenariolist = {};
-    scenariolist.ul = document.createElement("ul");
-    scenariolist.ul.className = "selectionlist";
-    scenariolist.radios = [];
-    scenariolist.decks = {};
-
+    var radiolist = []
     for (var i = 0; i < scenarios.length; i++)
     {
         var scenario = scenarios[i];
-        var listitem = document.createElement("li");
-        var dom_dict = create_input("radio", "scenario", scenario.name, scenario.name);
+        var label = document.createElement("label");
+        var radio = create_input("radio", "scenario", scenario.name, scenario.name);
 
-        listitem.appendChild(dom_dict.root);
-        scenariolist.ul.appendChild(listitem);
-        scenariolist.radios.push(dom_dict.input);
-        scenariolist.decks[scenario.name] = scenario.decks;
+        function update_retobj(decknames, e)
+        {
+            clear_list(retobj);
+            var selected_decks = decknames.map( function(name) { return decklist[name]; } );
+            selected_decks.map( function(deck) { retobj.push(deck); } );
+        }
+
+        radio.onchange = update_retobj.bind(null, scenario.decks);
+        label.appendChild(radio);
+        radiolist.push(label);
     }
-
-    scenariolist.get_selection = function()
-    {
-        return scenariolist.radios.filter(is_checked).map(input_value);
-    }
-
-    scenariolist.get_scenario_decks = function()
-    {
-        var selected_scenarios = this.get_selection();
-        var selected_decks = concat_arrays(selected_scenarios.map( function(scenario_name) {
-            return ((scenario_name in this.decks) ? this.decks[scenario_name] : []);
-        }.bind(this)));
-        return selected_decks;
-    }
-
-    return scenariolist;
+    return radiolist;
 }
 
 function init()
 {
     decks = load(DECK_DEFINITONS);
 
-    var deckspage = document.getElementById("deckspage");
-    var scenariospage = document.getElementById("scenariospage");
+    var decklist = document.getElementById("decklist");
+    var scenariolist = document.getElementById("scenariolist");
     var applydeckbtn = document.getElementById("applydecks");
     var applyscenariobtn = document.getElementById("applyscenario");
 
-    var decklist = new DeckList(decks);
-    var scenariolist = new ScenarioList(SCENARIO_DEFINITIONS);
-
-    deckspage.insertAdjacentElement('afterbegin', decklist.ul);
-    scenariospage.insertAdjacentElement('afterbegin', scenariolist.ul);
+    var selected_decks = [];
+    
+    create_deck_list(decks).map( function(checkbox) { decklist.appendChild(checkbox); } );
+    create_scenario_list(SCENARIO_DEFINITIONS, decks, selected_decks).map( function(radiobtn) { scenariolist.appendChild(radiobtn); } );
 
     applydeckbtn.onclick = function()
     {
-        var selected_deck_names = decklist.get_selection();
-        var selected_decks = selected_deck_names.map( function(name) { return decks[name]; } );
-        apply_deck_selection(selected_decks, true);
+        var checkboxes = document.getElementsByName("deck");
+        var selected_deck_names = get_checkbox_selection(checkboxes);
+        clear_list(selected_decks);
+        selected_deck_names.map( function(name) { selected_decks.push(decks[name]); } );
+        apply_deck_selection(selected_decks);
     };
     applyscenariobtn.onclick = function()
     {
-        var selected_deck_names = scenariolist.get_scenario_decks();
-        var selected_decks = selected_deck_names.map( function(name) { return decks[name]; } );
-        decklist.set_selection(selected_decks.map( function(deck) { return deck.name; } ));
-        apply_deck_selection(selected_decks, false);
+        apply_deck_selection(selected_decks);
     };
 
-    window.onresize = refresh_ui.bind(null, visible_decks);
+    window.onresize = refresh_ui.bind(null, selected_decks);
 }
 

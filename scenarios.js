@@ -588,7 +588,7 @@ SCENARIO_DEFINITIONS =
         },
         { name: "#75 Overgrown Graveyard"
         , decks:
-            [ "Living Bones"
+            [ "Living bones"
             , "Living Corpse"
             , "Living Spirit"
             ]
@@ -605,7 +605,7 @@ SCENARIO_DEFINITIONS =
         , decks:
             [ "Guard"
             , "Archer"
-            , "Stone Golem"
+            , "Golem"
             , "Hound"
             ]
         },
@@ -645,7 +645,7 @@ SCENARIO_DEFINITIONS =
         { name: "#82 Burning Mountain"
         , decks:
             [ "Earth Demon"
-            , "Flame Demon"
+            , "Fire Demon"
             , "Stone Golem"
             ]
         },

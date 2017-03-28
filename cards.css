@@ -28,9 +28,6 @@
     position:                   relative;
     text-align:                 center;
 
-    -webkit-box-flex:           1.0;
-
-    width:                      453px;
     width:                      calc(437px + 1rem); /* 437px == card image width */
     max-width:                  147.6vh;
     margin:                     8px;
@@ -41,14 +38,14 @@
     content:                    "";
     visibility:                 hidden;
     display:                    inline-block;
-    padding-bottom:             67.7%;              /* 100% / (card aspect ratio) */
+    padding-bottom:             calc(67.7%);        /* 100% / (card aspect ratio) */
 }
 
 .card
 {
     position:                   absolute;
 
-    -webkit-backface-visibility: hidden;
+    box-shadow:                 5px 5px 5px rgba(0, 0, 0, 0.1);
     backface-visibility:        hidden;
 
     color:                      white;
@@ -62,79 +59,27 @@
     background-size:            cover;
 
     border-radius:              15px;
-    box-shadow:                 5px 5px 5px rgba(0, 0, 0, 0.1);
 }
 
-@-webkit-keyframes pull-front
+@keyframes pull
 {
-    0%                          { z-index: -3; -webkit-transform: translate3d(-1rem, -1rem, 1000px) rotateY(180deg); }
-    49%                         { z-index: -2; -webkit-transform: translate3d(-50%, -20%, 2000px)   rotateY(90deg); }
-    51%                         { z-index:  0; -webkit-transform: translate3d(-50%, -20%, 4000px)   rotateY(90deg); }
-    100%                        { z-index:  0; -webkit-transform: translate3d(0, 0, 4000px)         rotateY(0deg); }
-}
-
-@-webkit-keyframes pull-back
-{
-    0%                          { z-index: -3; -webkit-transform: translate3d(-1rem, -1rem, 1000px) rotateY(0deg); }
-    49%                         { z-index: -2; -webkit-transform: translate3d(-50%, -20%, 2000px)   rotateY(90deg); }
-    51%                         { z-index:  0; -webkit-transform: translate3d(-50%, -20%, 4000px)   rotateY(90deg); }
-    100%                        { z-index:  0; -webkit-transform: translate3d(0, 0, 4000px)         rotateY(180deg); }
-}
-
-@keyframes pull-front
-{
-    0%                          { z-index: -3; transform: translate(-1rem, -1rem)   rotateY(180deg); }
-    49%                         { z-index: -2; transform: translate(-50%, -20%)     rotateY(90deg); }
-    51%                         { z-index:  0; transform: translate(-50%, -20%)     rotateY(90deg); }
-    100%                        { z-index:  0; transform: translate(0, 0)           rotateY(0deg); }
-}
-
-@keyframes pull-back
-{
-    0%                          { z-index: -3; transform: translate(-1rem, -1rem)   rotateY(0deg); }
-    49%                         { z-index: -2; transform: translate(-50%, -20%)     rotateY(90deg); }
-    51%                         { z-index:  0; transform: translate(-50%, -20%)     rotateY(90deg); }
-    100%                        { z-index:  0; transform: translate(0, 0)           rotateY(180deg); }
-}
-
-@-webkit-keyframes lift
-{
-    0%                          { z-index: -1; -webkit-transform: translateZ(3000px); }
-    50%                         { z-index: -1; -webkit-transform: translateZ(3000px); }
-    100%                        { z-index: -4: }
+    50%                         { z-index: -2; top: -20%; bottom: 20%; left: -50%; right: 50%; }
+    100%                        { z-index:  0; }
 }
 
 @keyframes lift
 {
-    0%                          { z-index: -1; }
     50%                         { z-index: -1; }
-    100%                        { z-index: -4: }
 }
 
-.card.front.pull
+.card.pull
 {
-    -webkit-animation-name:     pull-front;
-    -webkit-animation-duration: 0.5s;
-
-    animation-name:             pull-front;
-    animation-duration:         0.5s;
-}
-
-.card.back.pull
-{
-    -webkit-animation-name:     pull-back;
-    -webkit-animation-duration: 0.5s;
-
-    animation-name:             pull-back;
+    animation-name:             pull;
     animation-duration:         0.5s;
 }
 
 .card.lift
 {
-    -webkit-animation-name:     lift;
-    -webkit-animation-duration: 0.5s;
-    -webkit-animation-timing-function: step-start;
-
     animation-name:             lift;
     animation-duration:         0.5s;
     animation-timing-function:  step-start;
@@ -146,6 +91,9 @@
     left:                       1rem;
     bottom:                     0;
     right:                      0;
+
+    transition-property:        top,    bottom, left,   right,  transform;
+    transition-duration:        0.5s;
 }
 
 .card.draw
@@ -154,10 +102,6 @@
     left:                       0;
     bottom:                     1rem;
     right:                      1rem;
-
-    -webkit-transition-property: top,   left,   bottom, right,  -webkit-transform,  z-index;
-    -webkit-transition-duration: 0.4s,  0.4s,   0.4s,   0.4s,   0.4s,               0s;
-    -webkit-transition-delay:   0s,     0s,     0s,     0s,     0s,                 0.4s;
 
     transition-property:        top,    left,   bottom, right,  transform,  z-index;
     transition-duration:        0.4s,   0.4s,   0.4s,   0.4s,   0.4s,       0s;
@@ -174,10 +118,52 @@
     background-image:           url(images/back.jpg);
 }
 
+.card.modifier.back
+{
+    background-image:           url(images/attack_mod_back.jpg);
+}
+
+.card.modifier.plus0
+{
+    background-image:           url(images/attack_mod_+0.jpg);
+}
+.card.modifier.plus1
+{
+    background-image:           url(images/attack_mod_+1.jpg);
+}
+.card.modifier.plus2
+{
+    background-image:           url(images/attack_mod_+2.jpg);
+}
+.card.modifier.minus1
+{
+    background-image:           url(images/attack_mod_-1.jpg);
+}
+.card.modifier.minus2
+{
+    background-image:           url(images/attack_mod_-2.jpg);
+}
+.card.modifier.null
+{
+    background-image:           url(images/attack_mod_null.jpg);
+}
+.card.modifier.double
+{
+    background-image:           url(images/attack_mod_2x.jpg);
+}
+.card.modifier.bless
+{
+    background-image:           url(images/attack_mod_bless.jpg);
+}
+.card.modifier.curse
+{
+    background-image:           url(images/attack_mod_curse.jpg);
+}
+
+
 .card ul
 {
     padding:                    0;
-    margin:                     0;
 
     list-style:                 none;
     text-align:                 center;
@@ -188,20 +174,10 @@
 .card>ul
 {
     position:                   relative;
-    height:                     100%;
-    margin:                     0 2ch;
-    padding-top:                2.5em;
-    box-sizing:                 border-box;
+    top:                        15%;
+    height:                     85%;
     overflow:                   hidden;
-
-    display:                    -webkit-box;
-    -webkit-box-orient:         vertical;
-    -webkit-box-align:          center;
-    -webkit-box-pack:           center;
-
-    display:                    -webkit-flex;
-    -webkit-flex-direction:     column;
-    -webkit-justify-content:    center;
+    margin:                     0 2ch;
 
     display:                    flex;
     flex-direction:             column;
@@ -340,13 +316,11 @@ img[src="images/shuffle.svg"]
 
 .up
 {
-    -webkit-transform:          rotateY(0deg);
     transform:                  rotateY(0deg);
 }
 
 .down
 {
-    -webkit-transform:          rotateY(180deg);
     transform:                  rotateY(180deg);
 }
 
