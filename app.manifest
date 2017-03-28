@@ -1,23 +1,16 @@
 CACHE MANIFEST
 #
-# Version 201703271000
+# Version Tue Mar 28 20:17:37 UTC 2017
 #
 
 app.webmanifest
 cards.css
 cards.js
-logic.js
-macros.js
-Philosopher-Bold.ttf
-PirataOne-Gloomhaven.ttf
-scenarios.js
-style.css
-ui.js
-util.js
-
 images/add_target.svg
 images/air.svg
 images/any_element.svg
+images/aoe1.svg
+images/aoe2.svg
 images/aoe-4-with-black.svg
 images/aoe-circle.svg
 images/aoe-circle-with-middle-black.svg
@@ -28,6 +21,16 @@ images/aoe-line-6-with-black.svg
 images/aoe-triangle-2-side.svg
 images/aoe-triangle-2-side-with-black.svg
 images/aoe-triangle-3-side-with-corner-black.svg
+images/attack_mod_+0.jpg
+images/attack_mod_-1.jpg
+images/attack_mod_+1.jpg
+images/attack_mod_-2.jpg
+images/attack_mod_+2.jpg
+images/attack_mod_2x.jpg
+images/attack_mod_back.jpg
+images/attack_mod_bless.jpg
+images/attack_mod_curse.jpg
+images/attack_mod_null.jpg
 images/attack.svg
 images/back.jpg
 images/back.svg
@@ -35,6 +38,7 @@ images/bless.svg
 images/curse.svg
 images/dark.svg
 images/disarm.svg
+images/draw-two.svg
 images/earth.svg
 images/fire.svg
 images/fly.svg
@@ -56,21 +60,20 @@ images/range.svg
 images/retaliate.svg
 images/settings.svg
 images/shield.svg
+images/shuffle-black.svg
 images/shuffle.svg
 images/strengthen.svg
 images/stun.svg
 images/target.svg
 images/use_element.svg
 images/wound.svg
-images/attack_mod_+0.jpg
-images/attack_mod_+1.jpg
-images/attack_mod_+2.jpg
-images/attack_mod_-1.jpg
-images/attack_mod_-2.jpg
-images/attack_mod_2x.jpg
-images/attack_mod_back.jpg
-images/attack_mod_bless.jpg
-images/attack_mod_curse.jpg
-images/attack_mod_null.jpg
-images/draw_two.svg
-images/shuffle_black.svg
+index.html
+logic.js
+macros.js
+modifiers.js
+Philosopher-Bold.ttf
+PirataOne-Gloomhaven.ttf
+scenarios.js
+style.css
+ui.js
+util.js
