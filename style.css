@@ -15,8 +15,17 @@ body
     height: 35px;  /* aoe icons need to be bigger */
 }
 
+#topmenu
+{
+  display:            flex;
+  flex-wrap:          wrap;
+  justify-content:    space-around;
+  width:              100%;
+}
+
 #tableau
 {
+    margin-top:         30px;
     display:            flex;
     flex-wrap:          wrap;
     justify-content:    space-around;
@@ -115,4 +124,3 @@ ul.tabcontainer .inactive
     cursor:             pointer;
     z-index:            1;
 }
-
