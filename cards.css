@@ -11,11 +11,6 @@
     src:                        url(PirataOne-Gloomhaven.ttf);
 }
 
-/* This was not affecting ability decks, only making modifier deck smaller */
-@media only screen and (min-width: 900px) and (orientation: landscape) {
-
-}
-
 @media only screen and (min-height: 500px) and (orientation: portrait) {
     .card-container {
         max-width:              49.2vh !important;  /* 33vh * (card aspect ratio == 1.476) */
@@ -212,8 +207,9 @@
     background-repeat:          no-repeat;
     background-size:            cover;
 
-    border-radius:              15px;
     box-shadow:                 5px 5px 5px rgba(0, 0, 0, 0.1);
+    border-radius:              15px;
+    overflow:                   hidden;
 }
 
 @-webkit-keyframes pull-front
@@ -262,8 +258,7 @@
     100%                        { z-index: -4: }
 }
 
-/* Think a smarter way. Problem is that modifier cards are named: card modifier plus0 , so we can't use front.pull */
-.card.pull
+.card.front.pull
 {
     -webkit-animation-name:     pull-front;
     -webkit-animation-duration: 0.5s;
@@ -335,10 +330,9 @@
 {
     position:                   absolute;
     top:                        0;
-    left:                       0%;
+    left:                       0;
     width:                      100%;
     height:                     100%;
-    border-radius:              15px;
 }
 
 .card.modifier.front.left img.cover
@@ -356,6 +350,7 @@
 .card ul
 {
     padding:                    0;
+    margin:                     0;
 
     list-style:                 none;
     text-align:                 center;
@@ -366,10 +361,11 @@
 .card>ul
 {
     position:                   relative;
-    top:                        20%;
-    height:                     80%;
-    overflow:                   hidden;
+    height:                     100%;
     margin:                     0 2ch;
+    padding-top:                2.5em;
+    box-sizing:                 border-box;
+    overflow:                   hidden;
 
     display:                    -webkit-box;
     -webkit-box-orient:         vertical;
@@ -409,11 +405,13 @@
 
 .mirrored
 {
+    -webkit-transform:          scale(-1,1);
     transform:                  scale(-1,1);
 }
 
 .rotated
 {
+    -webkit-transform:          rotateZ(-60deg);
     transform:                  rotateZ(-60deg);
 }
 
