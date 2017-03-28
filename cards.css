@@ -33,7 +33,89 @@
     width:                      453px;
     width:                      calc(437px + 1rem); /* 437px == card image width */
     max-width:                  147.6vh;
-    margin:                     8px;
+    margin:                     15px;
+}
+
+.counter-div
+{
+    width: 100%;
+    /*height: 20%;*/
+}
+
+.counter-icon
+{
+    width:                      15%;
+    height:                     22%;
+    z-index:                    1;
+
+    top:                        5%;
+
+    list-style:                 none;
+
+    background-color:   Transparent;
+    background-repeat:  no-repeat;
+    border:             none;
+    overflow:           hidden;
+    outline:            none;
+}
+
+.icon-text span
+{
+    padding:                    0;
+    display: none;
+
+    text-align:                 center;
+
+    font-family:                'Nyala', 'Sakkal Majalla', 'Philosopher', sans-serif;
+}
+
+.increasing-button
+{
+    width:                      100%;
+    height:                     50%;
+    top:                        0%; 
+    background-color:           Transparent;
+    background-repeat:          no-repeat;
+    border:                     none;
+    overflow:                   hidden;
+    outline:                    none;
+}
+
+.decreasing-button
+{
+    width:                      100%;
+    height:                     50%;
+    top:                        50%; 
+    background-color:           Transparent;
+    background-repeat:          no-repeat;
+    border:                     none;
+    overflow:                   hidden;
+    outline:                    none;
+}
+
+.counter-icon.left
+{
+    position:                   absolute;
+    left:                       10%;
+
+    background-image:           url(images/curse.svg);
+    background-size:            cover;
+}
+
+.counter-icon.right
+{
+    position:                   absolute;
+    left:                       75%;
+
+    background-image:           url(images/bless.svg);
+    background-size:            cover;
+}
+
+/* TODO come here*/
+.card-container.modifier
+{
+/*    padding-left:               226px;
+    padding-right:              226px;*/
 }
 
 .card-container::before
@@ -184,7 +266,7 @@
 {
     position:                   absolute;
     top:                        0;
-    left:                       0;
+    left:                       0%;
     width:                      100%;
     height:                     100%;
     border-radius:              15px;
@@ -192,20 +274,14 @@
 
 .card.modifier.front.left img.cover
 {
-    position:                   absolute;
-    top:                        0;
-    left:                       -50%;
-    width:                      100%;
-    height:                     100%;
+    left:                       -30%;
+    clip-path: inset(0% 20% 0% 20%);
 }
 
 .card.modifier.front.right img.cover
 {
-    position:                   absolute;
-    top:                        0;
-    left:                       50%;
-    width:                      100%;
-    height:                     100%;
+    left:                       30%;
+    clip-path: inset(0% 20% 0% 20%);
 }
 
 .card ul
