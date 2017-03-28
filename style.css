@@ -12,18 +12,10 @@ body
     white-space:        nowrap;
 }
 
-#modifier-deck
+#modifier-decks
 {
-    display:            -webkit-box;
-    -webkit-box-orient: horizontal;
-    -webkit-box-pack:   center;
-    -webkit-box-lines:  multiple;
-
-    display:            -webkit-flex;
-    -webkit-flex-wrap:  wrap;
-    -webkit-justify-content: space-around;
-
-    display:            flex;
+    margin-top:         30px;
+    display:            inline-flex;
     flex-wrap:          wrap;
     justify-content:    space-around;
 }
@@ -54,9 +46,6 @@ body
 
 @media only screen and (max-height: 480px) and (orientation: portrait) {
     #tableau {
-        -webkit-box-orient: vertical;
-    }
-    #modifier-deck{
         -webkit-box-orient: vertical;
     }
 }
