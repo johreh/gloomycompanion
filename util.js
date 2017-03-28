@@ -22,12 +22,12 @@ function toggle_class(element, class_name, enable_class)
     }
 }
 
-function clean_node(myNode)
+function remove_child(myNode)
 {
-  while (myNode.firstChild)
-  {
-    myNode.removeChild(myNode.firstChild);
-  }
+    while (myNode.firstChild)
+    {
+        myNode.removeChild(myNode.firstChild);
+    }
 }
 
 function create_input(type, name, value, text)
@@ -48,10 +48,10 @@ function create_input(type, name, value, text)
 
 function create_button(type, id, value)
 {
-  var button = document.createElement("input");
-  button.type = type;
-  button.id = id;
-  button.value = value;
+    var button = document.createElement("input");
+    button.type = type;
+    button.id = id;
+    button.value = value;
 
-  return button;
+    return button;
 }
