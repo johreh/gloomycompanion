@@ -741,7 +741,7 @@ function ScenarioList(scenarios)
     for (var i = 0; i < scenarios.length; i++)
     {
         var scenario = scenarios[i];
-        scenariolist.decks[scenario.number] = scenario.decks;
+        scenariolist.decks[i] = scenario.decks;
     }
 
     var listitem = document.createElement("li");
@@ -749,14 +749,15 @@ function ScenarioList(scenarios)
     scenariolist.ul.appendChild(listitem);
 
     var scenario_spinner = create_input("number", "scenario_number", "1", "");
-    scenario_spinner.input.min = 0;
-    scenario_spinner.input.max = scenarios.length + 1;
+    scenario_spinner.input.min = 1;
+    scenario_spinner.input.max = scenarios.length;
     scenariolist.ul.appendChild(scenario_spinner.input);
     scenariolist.spinner = scenario_spinner.input;
 
     scenariolist.get_selection = function()
     {
-        var current_value = scenariolist.spinner.value;
+        // We're using the scenario index that is zero-based, but the scenario list is 1-based
+        var current_value = scenariolist.spinner.value - 1;
         return (current_value > scenarios.length) ? scenarios.length + 1 : current_value;
     }
 
