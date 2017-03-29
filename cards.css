@@ -58,7 +58,7 @@
     list-style:                 none;
 
     border:                     none;
-    overflow:                   hidden;
+    overflow:                   visible;
     outline:                    none;
 
     display:                    -webkit-flex;
