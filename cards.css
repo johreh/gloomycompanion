@@ -337,14 +337,14 @@
 
 .card.modifier.front.left img.cover
 {
-    left:                       -30%;
-    clip-path:                  inset(0% 20% 0% 20%);
+    left:                       -25%;
+    clip-path:                  inset(0% 24.5% 0% 24.5%);
 }
 
 .card.modifier.front.right img.cover
 {
-    left:                       30%;
-    clip-path:                  inset(0% 20% 0% 20%);
+    left:                       25%;
+    clip-path:                  inset(0% 24.5% 0% 24.5%);
 }
 
 .card ul
