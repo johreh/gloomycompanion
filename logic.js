@@ -735,33 +735,35 @@ function ScenarioList(scenarios)
     var scenariolist = {};
     scenariolist.ul = document.createElement("ul");
     scenariolist.ul.className = "selectionlist";
-    scenariolist.radios = [];
+    scenariolist.spinner = null;
     scenariolist.decks = {};
 
     for (var i = 0; i < scenarios.length; i++)
     {
         var scenario = scenarios[i];
-        var listitem = document.createElement("li");
-        var dom_dict = create_input("radio", "scenario", scenario.name, scenario.name);
-
-        listitem.appendChild(dom_dict.root);
-        scenariolist.ul.appendChild(listitem);
-        scenariolist.radios.push(dom_dict.input);
-        scenariolist.decks[scenario.name] = scenario.decks;
+        scenariolist.decks[i] = scenario.decks;
     }
+
+    var listitem = document.createElement("li");
+    listitem.innerText = "Select scenario number";
+    scenariolist.ul.appendChild(listitem);
+
+    var scenario_spinner = create_input("number", "scenario_number", "1", "");
+    scenario_spinner.input.min = 1;
+    scenario_spinner.input.max = scenarios.length;
+    scenariolist.ul.appendChild(scenario_spinner.input);
+    scenariolist.spinner = scenario_spinner.input;
 
     scenariolist.get_selection = function()
     {
-        return scenariolist.radios.filter(is_checked).map(input_value);
+        // We're using the scenario index that is zero-based, but the scenario list is 1-based
+        var current_value = scenariolist.spinner.value - 1;
+        return (current_value > scenarios.length) ? scenarios.length + 1 : current_value;
     }
 
     scenariolist.get_scenario_decks = function()
     {
-        var selected_scenarios = this.get_selection();
-        var selected_decks = concat_arrays(selected_scenarios.map( function(scenario_name) {
-            return ((scenario_name in this.decks) ? this.decks[scenario_name] : []);
-        }.bind(this)));
-        return selected_decks;
+        return this.decks[this.get_selection()];
     }
 
     return scenariolist;

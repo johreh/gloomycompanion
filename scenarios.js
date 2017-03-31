@@ -1,6 +1,6 @@
 SCENARIO_DEFINITIONS =
     [   { name: "#1 Black Barrow"
-        , decks: 
+        , decks:
             [ "Guard"
             , "Archer"
             , "Living Bones" ]
@@ -15,7 +15,7 @@ SCENARIO_DEFINITIONS =
         },
         { name: "#3 Inox Encampment"
         , decks:
-            [ "Guard" 
+            [ "Guard"
             , "Archer"
             , "Shaman" ]
         },
@@ -435,13 +435,11 @@ SCENARIO_DEFINITIONS =
             , "Harrower Infester"
             ]
         },
-/*
+        //TODO Show message that this is random, use deck tab instead
         { name: "#55 Foggy Thicket"
         , decks:
-            [ "Random"
-            ]
+            [ ]
         },
-*/
         { name: "#56 Bandit's Wood"
         , decks:
             [ "Hound"
