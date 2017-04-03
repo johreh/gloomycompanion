@@ -1,6 +1,6 @@
 
 /* Macros used in card text, alphabetical order */
-MACROS =    
+MACROS =
     { "%air%":                                      "<img class='element' src='images/air.svg'>"
     , "%any%":                                      "<img class='element' src='images/any_element.svg'>"
     , "%aoe-4-with-black%":                         "<img class='aoe h2' src='images/aoe-4-with-black.svg'>"
@@ -56,8 +56,91 @@ function expand_macro(macro)
     }
 }
 
-function expand_string(s)
+function expand_stat(s, stat, value)
 {
+    var re = new RegExp("%" + stat + "% (\\+|-)(\\d)+", "i");
+    var found = s.match(re);
+    var has_elite_value = (value.length == 2);
+    if (found) {
+      if (found[1] == "+")
+      {
+            var value_normal = value[0] + parseInt(found[2]);
+            if (has_elite_value)
+            {
+                var value_elite = value[1] + parseInt(found[2]);
+                return ("%" + stat + "% " + value_normal + " / " + value_elite);
+            } else 
+            {
+                 return ("%" + stat + "% " + value_normal );
+            }
+      } else if (found[1] == "-")
+      {
+            var value_normal = value[0] - parseInt(found[2]);
+            if (has_elite_value)
+            {
+                var value_elite = value[1] - parseInt(found[2]);
+                return ("%" + stat + "% " + value_normal + " / " + value_elite);
+            } else 
+            {
+                 return ("%" + stat + "% " + value_normal );
+            }
+      }
+    }
+
+    return s;
+}
+
+function attributes_to_lines(attribtues)
+{
+    var value = "";
+    attribtues.forEach(function(line){
+        value = value + "* " + line + "\n";
+    });
+
+    return value.replace(/\n$/, "");
+}
+
+function immunities_to_lines(immunities)
+{
+    var value = "* Immunities";
+    immunities.forEach(function(line){
+        value = value + "** " + line + "\n";
+    });
+
+    return value.replace(/\n$/, "");
+}
+
+function expand_special(s, special_value)
+{
+    var value = "";
+    special_value.forEach(function(line){
+        value = value + "* " + line + "\n";
+    });
+
+    return value.replace(/\n$/, "");
+}
+
+function replace_specials(s, special1, special2)
+{
+    if (special1 && s.includes("Special 1"))
+    {
+        s = expand_special(s, special1);
+    }
+    if (special2 && s.includes("Special 1"))
+    {
+        s = expand_special(s, special2);
+    }
+    return s;
+}
+
+function expand_string(s, attack, move, special1, special2)
+{
+    s = expand_stat(s, "attack", attack);
+    s = expand_stat(s, "move", move);
     return s.replace(/%[^%]*%/gi, expand_macro);
 }
 
+function expand_boss_stirng(s, special1, special2)
+{
+
+}

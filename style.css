@@ -137,3 +137,5 @@ ul.tabcontainer .inactive
     cursor:             pointer;
     z-index:            1;
 }
+
+.force-redraw::before { content: "" }

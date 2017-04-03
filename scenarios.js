@@ -53,7 +53,7 @@ SCENARIO_DEFINITIONS =
             [   {"name": "Forest Imp", "deck_name": "Imp" }
             ,   {"name": "Cave Bear", "deck_name": "Cave Bear" }
             ,   {"name": "Inox Shaman", "deck_name": "Shaman" }
-            ,   {"name": "Earth Demon", "decsk_name": "Earth Demon" }
+            ,   {"name": "Earth Demon", "deck_name": "Earth Demon" }
             ]
         },
         { name: "#8 Gloomhaven Warehouse"

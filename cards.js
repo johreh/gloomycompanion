@@ -1,4 +1,3 @@
-<<<<<<< 95643d1fe4105276401b2dee128d6ce0ca3cbb93
 AVAILABLE_DECKS = 
     [   {name: "Ancient Artillery", deck_name: "Ancient Artillery"}
     ,   {name: "Bandit Archer", deck_name: "Archer"}
@@ -38,11 +37,7 @@ AVAILABLE_DECKS =
 ];
 
 DECK_DEFINITONS = 
-    [   
-=======
-DECK_DEFINITONS =
-    [
->>>>>>> Fix typo for the Ooze deck, and the way we display the info on Wind Demon
+[       
         { name: "Ancient Artillery"
         , cards:
             [ [false, "46", "* %attack% -1", "** %range% +2"]
@@ -391,4 +386,4 @@ DECK_DEFINITONS =
             , [false, "02", "* %shield% 1", "* %move% -1", "* %attack% -1", "* %any%%use_element%: %air%"]
             ]
         }
-    ];
+];
