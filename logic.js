@@ -233,11 +233,11 @@ function refresh_ui()
             tableau.style.fontSize  = font_pixel_size + "px";
             break;
         }
-        
+
     }
 }
 
-function reshuffle(deck, include_discards = true)
+function reshuffle(deck, include_discards)
 {
     if (include_discards)
     {
@@ -284,7 +284,7 @@ function flip_up_top_card(deck)
     deck.discard.unshift(card);
 }
 
-function send_to_discard(card, pull_animation = true)
+function send_to_discard(card, pull_animation)
 {
     card.ui.set_depth(-3);
 
@@ -303,7 +303,7 @@ function draw_ability_card(deck)
 {
     if (deck.must_reshuffle())
     {
-        reshuffle(deck);
+        reshuffle(deck, include_discards=true);
     }
     else
     {
@@ -328,7 +328,7 @@ function prevent_pull_animation(deck)
 function reshuffle_modifier_deck(deck)
 {
     deck.clean_discard_pile();
-    reshuffle(deck);
+    reshuffle(deck, include_discards=true);
 }
 
 function draw_modifier_card(deck)
@@ -465,9 +465,9 @@ function load_modifier_deck(number_bless, number_curses)
         repaint_modifier_deck(this);
     }.bind(deck);
 
-    deck.clean_advantage_deck = function( force_clean = false )
+    deck.clean_advantage_deck = function()
     {
-        if ((deck.advantage_to_clean || force_clean) && deck.discard[1])
+        if ((deck.advantage_to_clean) && deck.discard[1])
         {
             deck.advantage_to_clean = false;
             deck.discard[0].ui.removeClass("right");
@@ -580,7 +580,7 @@ function apply_deck_selection(decks, preserve_existing_deck_state)
         container.appendChild(deck_space);
 
         place_deck(deck, deck_space);
-        reshuffle(deck);
+        reshuffle(deck, include_discards=true);
         deck_space.onclick = draw_ability_card.bind(null, deck);
 
         deck.discard_deck = function()
@@ -685,7 +685,7 @@ function add_modifier_deck(container, deck)
     container.appendChild(modifier_container);
 
     place_deck(deck, deck_space);
-    reshuffle(deck);
+    reshuffle(deck, include_discards=true);
     deck_space.onclick = draw_modifier_card.bind(null, deck);
 
 }
@@ -783,7 +783,7 @@ function init()
 
     deckspage.insertAdjacentElement("afterbegin", decklist.ul);
     scenariospage.insertAdjacentElement("afterbegin", scenariolist.ul);
-    
+
     applydeckbtn.onclick = function()
     {
         var selected_deck_names = decklist.get_selection();
