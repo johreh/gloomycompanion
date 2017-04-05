@@ -1,5 +1,5 @@
-DECK_DEFINITONS = 
-    [   
+DECK_DEFINITONS =
+    [
         { name: "Ancient Artillery"
         , cards:
             [ [false, "46", "* %attack% -1", "** %range% +2"]
@@ -167,7 +167,7 @@ DECK_DEFINITONS =
             , [true,  "43", "* %move% +0", "* %attack% -1", "** %target% 2", "** %curse%"]
             , [false, "24", "* %strengthen% -1", "** Affect all allies within %range% 2", "* %muddle%", "** Target all enemies within %range% 2"]
             ]
-        },	
+        },
         { name: "Living Bones"
         , cards:
             [ [false, "64", "* %move% -1", "* %attack% +1"]
@@ -231,7 +231,7 @@ DECK_DEFINITONS =
         { name: "Ooze"
         , cards:
             [ [false, "36", "* %move% +1", "* %attack% -1"]
-            , [false, "57", "* %move% +0", "* %attack% 0"]
+            , [false, "57", "* %move% +0", "* %attack% +0"]
             , [false, "59", "* %attack% +0", "** %target% 2", "** %poison%"]
             , [false, "66", "* %move% -1", "* %attack% +1", "** %range% +1"]
             , [true,  "94", "* Ooze suffers 2 damage ", "** Summons normal Ooze with a hit point value equal to the summoning Ooze's current hit point value (limited by a normal Ooze's specified maximum hit point value)"]
@@ -347,6 +347,5 @@ DECK_DEFINITONS =
             , [false, "43", "* %push% 1", "** Target all adjacent enemies", "* %attack% +0", "** %earth%%use_element%: -2 %range%"]
             , [false, "02", "* %shield% 1", "* %move% -1", "* %attack% -1", "* %any%%use_element%: %air%"]
             ]
-        }         
+        }
     ];
-
