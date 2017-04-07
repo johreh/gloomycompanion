@@ -85,7 +85,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 6,
             "attributes": [
-              "Target 2"
+              "%target% 2"
             ]
           }
         },
@@ -104,7 +104,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 7,
             "attributes": [
-              "Target 2"
+              "%target% 2"
             ]
           }
         },
@@ -123,7 +123,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 7,
             "attributes": [
-              "Target 2"
+              "%target% 2"
             ]
           }
         },
@@ -142,7 +142,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 7,
             "attributes": [
-              "Target 2"
+              "%target% 2"
             ]
           }
         }
@@ -233,7 +233,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 6,
             "attributes": [
-              "Poison"
+              "%poison%"
             ]
           }
         },
@@ -252,7 +252,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 6,
             "attributes": [
-              "Poison"
+              "%poison%"
             ]
           }
         },
@@ -271,7 +271,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 6,
             "attributes": [
-              "Poison"
+              "%poison%"
             ]
           }
         },
@@ -290,7 +290,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 6,
             "attributes": [
-              "Poison"
+              "%poison%"
             ]
           }
         }
@@ -330,7 +330,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Shield 1"
+              "%shield% 1"
             ]
           }
         },
@@ -349,7 +349,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Shield 1"
+              "%shield% 1"
             ]
           }
         },
@@ -368,7 +368,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Shield 2"
+              "%shield% 2"
             ]
           }
         },
@@ -387,8 +387,8 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Muddle",
-              "Shield 2"
+              "%muddle%",
+              "%shield% 2"
             ]
           }
         },
@@ -407,8 +407,8 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "Muddle",
-              "Shield 2"
+              "%muddle%",
+              "%shield% 2"
             ]
           }
         },
@@ -427,8 +427,8 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "Muddle",
-              "Shield 2"
+              "%muddle%",
+              "%shield% 2"
             ]
           }
         },
@@ -447,8 +447,8 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "Muddle",
-              "Shield 3"
+              "%muddle%",
+              "%shield% 3"
             ]
           }
         }
@@ -471,7 +471,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 3,
             "attributes": [
-              "Poison"
+              "%poison%"
             ]
           }
         },
@@ -483,7 +483,7 @@ MONSTER_STATS = {
             "attack": 1,
             "range": 3,
             "attributes": [
-              "Poison"
+              "%poison%"
             ]
           },
           "elite": {
@@ -492,7 +492,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 3,
             "attributes": [
-              "Poison"
+              "%poison%"
             ]
           }
         },
@@ -504,7 +504,7 @@ MONSTER_STATS = {
             "attack": 1,
             "range": 4,
             "attributes": [
-              "Poison"
+              "%poison%"
             ]
           },
           "elite": {
@@ -513,7 +513,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 4,
             "attributes": [
-              "Poison"
+              "%poison%"
             ]
           }
         },
@@ -525,7 +525,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 4,
             "attributes": [
-              "Poison"
+              "%poison%"
             ]
           },
           "elite": {
@@ -534,8 +534,8 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 4,
             "attributes": [
-              "Attackers gain Disadvantage",
-              "Poison"
+              "%attack%ers gain Disadvantage",
+              "%poison%"
             ]
           }
         },
@@ -547,7 +547,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 4,
             "attributes": [
-              "Poison"
+              "%poison%"
             ]
           },
           "elite": {
@@ -556,8 +556,8 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 4,
             "attributes": [
-              "Attackers gain Disadvantage",
-              "Poison"
+              "%attack%ers gain Disadvantage",
+              "%poison%"
             ]
           }
         },
@@ -569,7 +569,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 4,
             "attributes": [
-              "Poison"
+              "%poison%"
             ]
           },
           "elite": {
@@ -578,8 +578,8 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 5,
             "attributes": [
-              "Attackers gain Disadvantage",
-              "Poison"
+              "%attack%ers gain Disadvantage",
+              "%poison%"
             ]
           }
         },
@@ -591,7 +591,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 4,
             "attributes": [
-              "Poison"
+              "%poison%"
             ]
           },
           "elite": {
@@ -600,8 +600,8 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 5,
             "attributes": [
-              "Attackers gain Disadvantage",
-              "Poison"
+              "%attack%ers gain Disadvantage",
+              "%poison%"
             ]
           }
         },
@@ -613,7 +613,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 4,
             "attributes": [
-              "Poison"
+              "%poison%"
             ]
           },
           "elite": {
@@ -622,8 +622,8 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 5,
             "attributes": [
-              "Attackers gain Disadvantage",
-              "Poison"
+              "%attack%ers gain Disadvantage",
+              "%poison%"
             ]
           }
         }
@@ -714,7 +714,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "Wound"
+              "%wound%"
             ]
           }
         },
@@ -726,7 +726,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Wound"
+              "%wound%"
             ]
           },
           "elite": {
@@ -735,7 +735,7 @@ MONSTER_STATS = {
             "attack": 6,
             "range": 0,
             "attributes": [
-              "Wound"
+              "%wound%"
             ]
           }
         },
@@ -747,7 +747,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "Wound"
+              "%wound%"
             ]
           },
           "elite": {
@@ -756,7 +756,7 @@ MONSTER_STATS = {
             "attack": 7,
             "range": 0,
             "attributes": [
-              "Wound"
+              "%wound%"
             ]
           }
         },
@@ -768,7 +768,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "Wound"
+              "%wound%"
             ]
           },
           "elite": {
@@ -777,7 +777,7 @@ MONSTER_STATS = {
             "attack": 7,
             "range": 0,
             "attributes": [
-              "Wound"
+              "%wound%"
             ]
           }
         }
@@ -817,8 +817,8 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 5,
             "attributes": [
-              "Pierce 1",
-              "Shield 1"
+              "%pierce% 1",
+              "%shield% 1"
             ]
           }
         },
@@ -837,8 +837,8 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 5,
             "attributes": [
-              "Pierce 2",
-              "Shield 1"
+              "%pierce% 2",
+              "%shield% 1"
             ]
           }
         },
@@ -850,7 +850,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 4,
             "attributes": [
-              "Shield 1"
+              "%shield% 1"
             ]
           },
           "elite": {
@@ -859,8 +859,8 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 5,
             "attributes": [
-              "Pierce 2",
-              "Shield 2"
+              "%pierce% 2",
+              "%shield% 2"
             ]
           }
         },
@@ -872,7 +872,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 5,
             "attributes": [
-              "Shield 1"
+              "%shield% 1"
             ]
           },
           "elite": {
@@ -881,8 +881,8 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 6,
             "attributes": [
-              "Pierce 2",
-              "Shield 2"
+              "%pierce% 2",
+              "%shield% 2"
             ]
           }
         },
@@ -894,7 +894,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 5,
             "attributes": [
-              "Shield 1"
+              "%shield% 1"
             ]
           },
           "elite": {
@@ -903,8 +903,8 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 6,
             "attributes": [
-              "Pierce 3",
-              "Shield 2"
+              "%pierce% 3",
+              "%shield% 2"
             ]
           }
         },
@@ -916,7 +916,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 5,
             "attributes": [
-              "Shield 2"
+              "%shield% 2"
             ]
           },
           "elite": {
@@ -925,8 +925,8 @@ MONSTER_STATS = {
             "attack": 6,
             "range": 6,
             "attributes": [
-              "Pierce 3",
-              "Shield 2"
+              "%pierce% 3",
+              "%shield% 2"
             ]
           }
         },
@@ -938,7 +938,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 6,
             "attributes": [
-              "Shield 2"
+              "%shield% 2"
             ]
           },
           "elite": {
@@ -947,8 +947,8 @@ MONSTER_STATS = {
             "attack": 6,
             "range": 7,
             "attributes": [
-              "Pierce 3",
-              "Shield 3"
+              "%pierce% 3",
+              "%shield% 3"
             ]
           }
         }
@@ -971,7 +971,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Shield 1"
+              "%shield% 1"
             ]
           }
         },
@@ -983,7 +983,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 0,
             "attributes": [
-              "Shield 1"
+              "%shield% 1"
             ]
           },
           "elite": {
@@ -992,7 +992,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Shield 2"
+              "%shield% 2"
             ]
           }
         },
@@ -1004,7 +1004,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 0,
             "attributes": [
-              "Shield 1"
+              "%shield% 1"
             ]
           },
           "elite": {
@@ -1013,7 +1013,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Shield 2"
+              "%shield% 2"
             ]
           }
         },
@@ -1025,7 +1025,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Shield 1"
+              "%shield% 1"
             ]
           },
           "elite": {
@@ -1034,8 +1034,8 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Retaliate 1",
-              "Shield 2"
+              "%retaliate% 1",
+              "%shield% 2"
             ]
           }
         },
@@ -1047,7 +1047,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Shield 1"
+              "%shield% 1"
             ]
           },
           "elite": {
@@ -1056,8 +1056,8 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Retaliate 2",
-              "Shield 2"
+              "%retaliate% 2",
+              "%shield% 2"
             ]
           }
         },
@@ -1069,7 +1069,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Shield 2"
+              "%shield% 2"
             ]
           },
           "elite": {
@@ -1078,8 +1078,8 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Retaliate 2",
-              "Shield 3"
+              "%retaliate% 2",
+              "%shield% 3"
             ]
           }
         },
@@ -1091,7 +1091,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Shield 2"
+              "%shield% 2"
             ]
           },
           "elite": {
@@ -1100,8 +1100,8 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "Retaliate 3",
-              "Shield 3"
+              "%retaliate% 3",
+              "%shield% 3"
             ]
           }
         },
@@ -1113,7 +1113,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Shield 2"
+              "%shield% 2"
             ]
           },
           "elite": {
@@ -1122,8 +1122,8 @@ MONSTER_STATS = {
             "attack": 6,
             "range": 0,
             "attributes": [
-              "Retaliate 3",
-              "Shield 3"
+              "%retaliate% 3",
+              "%shield% 3"
             ]
           }
         }
@@ -1197,7 +1197,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 0,
             "attributes": [
-              "Curse"
+              "%curse%"
             ]
           }
         },
@@ -1216,7 +1216,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Curse"
+              "%curse%"
             ]
           }
         },
@@ -1228,7 +1228,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 0,
             "attributes": [
-              "Curse"
+              "%curse%"
             ]
           },
           "elite": {
@@ -1237,7 +1237,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Curse"
+              "%curse%"
             ]
           }
         },
@@ -1249,7 +1249,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 0,
             "attributes": [
-              "Curse"
+              "%curse%"
             ]
           },
           "elite": {
@@ -1258,7 +1258,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Curse"
+              "%curse%"
             ]
           }
         },
@@ -1270,7 +1270,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Curse"
+              "%curse%"
             ]
           },
           "elite": {
@@ -1279,7 +1279,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Curse"
+              "%curse%"
             ]
           }
         }
@@ -1312,7 +1312,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 0,
             "attributes": [
-              "Retaliate 1"
+              "%retaliate% 1"
             ]
           },
           "elite": {
@@ -1321,7 +1321,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Retaliate 1"
+              "%retaliate% 1"
             ]
           }
         },
@@ -1333,7 +1333,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Retaliate 1"
+              "%retaliate% 1"
             ]
           },
           "elite": {
@@ -1342,7 +1342,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Retaliate 1"
+              "%retaliate% 1"
             ]
           }
         },
@@ -1354,7 +1354,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Retaliate 2"
+              "%retaliate% 2"
             ]
           },
           "elite": {
@@ -1363,7 +1363,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Retaliate 2"
+              "%retaliate% 2"
             ]
           }
         },
@@ -1375,7 +1375,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Retaliate 2"
+              "%retaliate% 2"
             ]
           },
           "elite": {
@@ -1384,7 +1384,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "Retaliate 2"
+              "%retaliate% 2"
             ]
           }
         },
@@ -1396,7 +1396,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Retaliate 3"
+              "%retaliate% 3"
             ]
           },
           "elite": {
@@ -1405,7 +1405,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "Retaliate 3"
+              "%retaliate% 3"
             ]
           }
         },
@@ -1417,7 +1417,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "Retaliate 3"
+              "%retaliate% 3"
             ]
           },
           "elite": {
@@ -1426,7 +1426,7 @@ MONSTER_STATS = {
             "attack": 6,
             "range": 0,
             "attributes": [
-              "Retaliate 3"
+              "%retaliate% 3"
             ]
           }
         },
@@ -1438,7 +1438,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "Retaliate 4"
+              "%retaliate% 4"
             ]
           },
           "elite": {
@@ -1447,7 +1447,7 @@ MONSTER_STATS = {
             "attack": 6,
             "range": 0,
             "attributes": [
-              "Retaliate 4"
+              "%retaliate% 4"
             ]
           }
         }
@@ -1521,7 +1521,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Immobilize"
+              "%immobilize%"
             ]
           }
         },
@@ -1540,7 +1540,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "Immobilize"
+              "%immobilize%"
             ]
           }
         },
@@ -1552,7 +1552,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Immobilize"
+              "%immobilize%"
             ]
           },
           "elite": {
@@ -1561,7 +1561,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "Immobilize"
+              "%immobilize%"
             ]
           }
         },
@@ -1573,7 +1573,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Immobilize"
+              "%immobilize%"
             ]
           },
           "elite": {
@@ -1582,7 +1582,7 @@ MONSTER_STATS = {
             "attack": 6,
             "range": 0,
             "attributes": [
-              "Immobilize"
+              "%immobilize%"
             ]
           }
         },
@@ -1594,7 +1594,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Immobilize"
+              "%immobilize%"
             ]
           },
           "elite": {
@@ -1603,7 +1603,7 @@ MONSTER_STATS = {
             "attack": 6,
             "range": 0,
             "attributes": [
-              "Immobilize"
+              "%immobilize%"
             ]
           }
         }
@@ -1620,7 +1620,7 @@ MONSTER_STATS = {
             "range": 3,
             "attributes": [
               "Flying",
-              "Shield 2"
+              "%shield% 2"
             ]
           },
           "elite": {
@@ -1630,7 +1630,7 @@ MONSTER_STATS = {
             "range": 3,
             "attributes": [
               "Flying",
-              "Shield 3"
+              "%shield% 3"
             ]
           }
         },
@@ -1653,8 +1653,8 @@ MONSTER_STATS = {
             "range": 4,
             "attributes": [
               "Flying",
-              "Retaliate 2, Range 2",
-              "Shield 4"
+              "%retaliate% 2, %range% 2",
+              "%shield% 4"
             ]
           }
         },
@@ -1667,7 +1667,7 @@ MONSTER_STATS = {
             "range": 3,
             "attributes": [
               "Flying",
-              "Shield 3"
+              "%shield% 3"
             ]
           },
           "elite": {
@@ -1677,8 +1677,8 @@ MONSTER_STATS = {
             "range": 4,
             "attributes": [
               "Flying",
-              "Retaliate 3, Range 2",
-              "Shield 4"
+              "%retaliate% 3, %range% 2",
+              "%shield% 4"
             ]
           }
         },
@@ -1691,8 +1691,8 @@ MONSTER_STATS = {
             "range": 4,
             "attributes": [
               "Flying",
-              "Retaliate 2, Range 2",
-              "Shield 3"
+              "%retaliate% 2, %range% 2",
+              "%shield% 3"
             ]
           },
           "elite": {
@@ -1702,8 +1702,8 @@ MONSTER_STATS = {
             "range": 5,
             "attributes": [
               "Flying",
-              "Retaliate 3, Range 3",
-              "Shield 4"
+              "%retaliate% 3, %range% 3",
+              "%shield% 4"
             ]
           }
         },
@@ -1716,8 +1716,8 @@ MONSTER_STATS = {
             "range": 4,
             "attributes": [
               "Flying",
-              "Retaliate 3, Range 2",
-              "Shield 3"
+              "%retaliate% 3, %range% 2",
+              "%shield% 3"
             ]
           },
           "elite": {
@@ -1727,8 +1727,8 @@ MONSTER_STATS = {
             "range": 5,
             "attributes": [
               "Flying",
-              "Retaliate 4, Range 3",
-              "Shield 4"
+              "%retaliate% 4, %range% 3",
+              "%shield% 4"
             ]
           }
         },
@@ -1741,8 +1741,8 @@ MONSTER_STATS = {
             "range": 4,
             "attributes": [
               "Flying",
-              "Retaliate 3, Range 2",
-              "Shield 4"
+              "%retaliate% 3, %range% 2",
+              "%shield% 4"
             ]
           },
           "elite": {
@@ -1752,8 +1752,8 @@ MONSTER_STATS = {
             "range": 5,
             "attributes": [
               "Flying",
-              "Retaliate 4, Range 3",
-              "Shield 5"
+              "%retaliate% 4, %range% 3",
+              "%shield% 5"
             ]
           }
         },
@@ -1766,8 +1766,8 @@ MONSTER_STATS = {
             "range": 4,
             "attributes": [
               "Flying",
-              "Retaliate 4, Range 2",
-              "Shield 4"
+              "%retaliate% 4, %range% 2",
+              "%shield% 4"
             ]
           },
           "elite": {
@@ -1777,8 +1777,8 @@ MONSTER_STATS = {
             "range": 5,
             "attributes": [
               "Flying",
-              "Retaliate 5, Range 3",
-              "Shield 5"
+              "%retaliate% 5, %range% 3",
+              "%shield% 5"
             ]
           }
         },
@@ -1791,8 +1791,8 @@ MONSTER_STATS = {
             "range": 5,
             "attributes": [
               "Flying",
-              "Retaliate 4, Range 3",
-              "Shield 4"
+              "%retaliate% 4, %range% 3",
+              "%shield% 4"
             ]
           },
           "elite": {
@@ -1802,8 +1802,8 @@ MONSTER_STATS = {
             "range": 6,
             "attributes": [
               "Flying",
-              "Retaliate 5, Range 4",
-              "Shield 5"
+              "%retaliate% 5, %range% 4",
+              "%shield% 5"
             ]
           }
         }
@@ -1836,7 +1836,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Retaliate 1"
+              "%retaliate% 1"
             ]
           },
           "elite": {
@@ -1845,7 +1845,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Retaliate 2"
+              "%retaliate% 2"
             ]
           }
         },
@@ -1857,7 +1857,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Retaliate 2"
+              "%retaliate% 2"
             ]
           },
           "elite": {
@@ -1866,7 +1866,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Retaliate 2"
+              "%retaliate% 2"
             ]
           }
         },
@@ -1878,7 +1878,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Retaliate 2"
+              "%retaliate% 2"
             ]
           },
           "elite": {
@@ -1887,7 +1887,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Retaliate 3"
+              "%retaliate% 3"
             ]
           }
         },
@@ -1899,7 +1899,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Retaliate 2"
+              "%retaliate% 2"
             ]
           },
           "elite": {
@@ -1908,7 +1908,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Retaliate 3"
+              "%retaliate% 3"
             ]
           }
         },
@@ -1920,7 +1920,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Retaliate 3"
+              "%retaliate% 3"
             ]
           },
           "elite": {
@@ -1929,7 +1929,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "Retaliate 3"
+              "%retaliate% 3"
             ]
           }
         },
@@ -1941,7 +1941,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "Retaliate 3"
+              "%retaliate% 3"
             ]
           },
           "elite": {
@@ -1950,7 +1950,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "Retaliate 4"
+              "%retaliate% 4"
             ]
           }
         },
@@ -1962,7 +1962,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "Retaliate 3"
+              "%retaliate% 3"
             ]
           },
           "elite": {
@@ -1971,7 +1971,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "Retaliate 4"
+              "%retaliate% 4"
             ]
           }
         }
@@ -1987,7 +1987,7 @@ MONSTER_STATS = {
             "attack": 1,
             "range": 3,
             "attributes": [
-              "Shield 1"
+              "%shield% 1"
             ]
           },
           "elite": {
@@ -1996,7 +1996,7 @@ MONSTER_STATS = {
             "attack": 1,
             "range": 3,
             "attributes": [
-              "Shield 1"
+              "%shield% 1"
             ]
           }
         },
@@ -2008,7 +2008,7 @@ MONSTER_STATS = {
             "attack": 1,
             "range": 3,
             "attributes": [
-              "Shield 1"
+              "%shield% 1"
             ]
           },
           "elite": {
@@ -2017,7 +2017,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 3,
             "attributes": [
-              "Shield 1"
+              "%shield% 1"
             ]
           }
         },
@@ -2029,7 +2029,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 3,
             "attributes": [
-              "Shield 1"
+              "%shield% 1"
             ]
           },
           "elite": {
@@ -2038,8 +2038,8 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 3,
             "attributes": [
-              "Curse",
-              "Shield 1"
+              "%curse%",
+              "%shield% 1"
             ]
           }
         },
@@ -2051,7 +2051,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 4,
             "attributes": [
-              "Shield 1"
+              "%shield% 1"
             ]
           },
           "elite": {
@@ -2060,8 +2060,8 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 4,
             "attributes": [
-              "Curse",
-              "Shield 1"
+              "%curse%",
+              "%shield% 1"
             ]
           }
         },
@@ -2073,7 +2073,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 4,
             "attributes": [
-              "Shield 2"
+              "%shield% 2"
             ]
           },
           "elite": {
@@ -2082,8 +2082,8 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 4,
             "attributes": [
-              "Curse",
-              "Shield 2"
+              "%curse%",
+              "%shield% 2"
             ]
           }
         },
@@ -2095,8 +2095,8 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 4,
             "attributes": [
-              "Curse",
-              "Shield 2"
+              "%curse%",
+              "%shield% 2"
             ]
           },
           "elite": {
@@ -2105,8 +2105,8 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 4,
             "attributes": [
-              "Curse",
-              "Shield 2"
+              "%curse%",
+              "%shield% 2"
             ]
           }
         },
@@ -2118,8 +2118,8 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 4,
             "attributes": [
-              "Curse",
-              "Shield 2"
+              "%curse%",
+              "%shield% 2"
             ]
           },
           "elite": {
@@ -2128,8 +2128,8 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 4,
             "attributes": [
-              "Curse",
-              "Shield 2"
+              "%curse%",
+              "%shield% 2"
             ]
           }
         },
@@ -2141,8 +2141,8 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 4,
             "attributes": [
-              "Curse",
-              "Shield 2"
+              "%curse%",
+              "%shield% 2"
             ]
           },
           "elite": {
@@ -2151,8 +2151,8 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 4,
             "attributes": [
-              "Curse",
-              "Shield 2"
+              "%curse%",
+              "%shield% 2"
             ]
           }
         }
@@ -2168,7 +2168,7 @@ MONSTER_STATS = {
             "attack": 1,
             "range": 0,
             "attributes": [
-              "Poison"
+              "%poison%"
             ]
           },
           "elite": {
@@ -2177,7 +2177,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 0,
             "attributes": [
-              "Poison"
+              "%poison%"
             ]
           }
         },
@@ -2189,7 +2189,7 @@ MONSTER_STATS = {
             "attack": 1,
             "range": 0,
             "attributes": [
-              "Poison"
+              "%poison%"
             ]
           },
           "elite": {
@@ -2198,7 +2198,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 0,
             "attributes": [
-              "Poison"
+              "%poison%"
             ]
           }
         },
@@ -2210,7 +2210,7 @@ MONSTER_STATS = {
             "attack": 1,
             "range": 0,
             "attributes": [
-              "Poison"
+              "%poison%"
             ]
           },
           "elite": {
@@ -2219,7 +2219,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 0,
             "attributes": [
-              "Poison"
+              "%poison%"
             ]
           }
         },
@@ -2231,7 +2231,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 0,
             "attributes": [
-              "Poison"
+              "%poison%"
             ]
           },
           "elite": {
@@ -2240,7 +2240,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Poison"
+              "%poison%"
             ]
           }
         },
@@ -2252,7 +2252,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 0,
             "attributes": [
-              "Poison"
+              "%poison%"
             ]
           },
           "elite": {
@@ -2261,7 +2261,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Poison"
+              "%poison%"
             ]
           }
         },
@@ -2273,7 +2273,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Poison"
+              "%poison%"
             ]
           },
           "elite": {
@@ -2282,7 +2282,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Poison"
+              "%poison%"
             ]
           }
         },
@@ -2294,7 +2294,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Poison"
+              "%poison%"
             ]
           },
           "elite": {
@@ -2303,7 +2303,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Poison"
+              "%poison%"
             ]
           }
         },
@@ -2315,7 +2315,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Poison"
+              "%poison%"
             ]
           },
           "elite": {
@@ -2324,7 +2324,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Poison"
+              "%poison%"
             ]
           }
         }
@@ -2357,7 +2357,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 0,
             "attributes": [
-              "Retaliate 1"
+              "%retaliate% 1"
             ]
           },
           "elite": {
@@ -2366,7 +2366,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 0,
             "attributes": [
-              "Retaliate 2"
+              "%retaliate% 2"
             ]
           }
         },
@@ -2378,7 +2378,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 0,
             "attributes": [
-              "Retaliate 2"
+              "%retaliate% 2"
             ]
           },
           "elite": {
@@ -2387,7 +2387,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Retaliate 2"
+              "%retaliate% 2"
             ]
           }
         },
@@ -2399,7 +2399,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Retaliate 2"
+              "%retaliate% 2"
             ]
           },
           "elite": {
@@ -2408,7 +2408,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Retaliate 3"
+              "%retaliate% 3"
             ]
           }
         },
@@ -2420,7 +2420,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Retaliate 2"
+              "%retaliate% 2"
             ]
           },
           "elite": {
@@ -2429,7 +2429,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Retaliate 3"
+              "%retaliate% 3"
             ]
           }
         },
@@ -2441,7 +2441,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Retaliate 3"
+              "%retaliate% 3"
             ]
           },
           "elite": {
@@ -2450,7 +2450,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "Retaliate 3"
+              "%retaliate% 3"
             ]
           }
         },
@@ -2462,7 +2462,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Retaliate 3"
+              "%retaliate% 3"
             ]
           },
           "elite": {
@@ -2471,7 +2471,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "Retaliate 4"
+              "%retaliate% 4"
             ]
           }
         },
@@ -2483,7 +2483,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Retaliate 4"
+              "%retaliate% 4"
             ]
           },
           "elite": {
@@ -2492,7 +2492,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "Retaliate 4"
+              "%retaliate% 4"
             ]
           }
         }
@@ -2525,7 +2525,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 0,
             "attributes": [
-              "Retaliate 1"
+              "%retaliate% 1"
             ]
           },
           "elite": {
@@ -2534,7 +2534,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 0,
             "attributes": [
-              "Retaliate 2"
+              "%retaliate% 2"
             ]
           }
         },
@@ -2546,7 +2546,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 0,
             "attributes": [
-              "Retaliate 1"
+              "%retaliate% 1"
             ]
           },
           "elite": {
@@ -2555,7 +2555,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Retaliate 2"
+              "%retaliate% 2"
             ]
           }
         },
@@ -2567,7 +2567,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 0,
             "attributes": [
-              "Retaliate 1"
+              "%retaliate% 1"
             ]
           },
           "elite": {
@@ -2576,7 +2576,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Retaliate 2"
+              "%retaliate% 2"
             ]
           }
         },
@@ -2588,7 +2588,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Retaliate 1"
+              "%retaliate% 1"
             ]
           },
           "elite": {
@@ -2597,7 +2597,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Retaliate 2"
+              "%retaliate% 2"
             ]
           }
         },
@@ -2609,7 +2609,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Retaliate 2"
+              "%retaliate% 2"
             ]
           },
           "elite": {
@@ -2618,7 +2618,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Retaliate 3"
+              "%retaliate% 3"
             ]
           }
         },
@@ -2630,7 +2630,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Retaliate 2"
+              "%retaliate% 2"
             ]
           },
           "elite": {
@@ -2639,7 +2639,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Retaliate 3"
+              "%retaliate% 3"
             ]
           }
         },
@@ -2651,7 +2651,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Retaliate 2"
+              "%retaliate% 2"
             ]
           },
           "elite": {
@@ -2660,7 +2660,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "Retaliate 4"
+              "%retaliate% 4"
             ]
           }
         }
@@ -2751,7 +2751,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 4,
             "attributes": [
-              "Wound"
+              "%wound%"
             ]
           }
         },
@@ -2770,7 +2770,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 5,
             "attributes": [
-              "Wound"
+              "%wound%"
             ]
           }
         },
@@ -2782,7 +2782,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 4,
             "attributes": [
-              "Wound"
+              "%wound%"
             ]
           },
           "elite": {
@@ -2791,7 +2791,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 5,
             "attributes": [
-              "Wound"
+              "%wound%"
             ]
           }
         },
@@ -2803,7 +2803,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 4,
             "attributes": [
-              "Wound"
+              "%wound%"
             ]
           },
           "elite": {
@@ -2812,7 +2812,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 5,
             "attributes": [
-              "Wound"
+              "%wound%"
             ]
           }
         }
@@ -2835,7 +2835,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Retaliate 1"
+              "%retaliate% 1"
             ]
           }
         },
@@ -2854,7 +2854,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Retaliate 2"
+              "%retaliate% 2"
             ]
           }
         },
@@ -2873,7 +2873,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Retaliate 2"
+              "%retaliate% 2"
             ]
           }
         },
@@ -2892,7 +2892,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Retaliate 3"
+              "%retaliate% 3"
             ]
           }
         },
@@ -2904,7 +2904,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Retaliate 1"
+              "%retaliate% 1"
             ]
           },
           "elite": {
@@ -2913,7 +2913,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "Retaliate 3"
+              "%retaliate% 3"
             ]
           }
         },
@@ -2925,7 +2925,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Retaliate 1"
+              "%retaliate% 1"
             ]
           },
           "elite": {
@@ -2934,7 +2934,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "Retaliate 4"
+              "%retaliate% 4"
             ]
           }
         },
@@ -2946,7 +2946,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Retaliate 1"
+              "%retaliate% 1"
             ]
           },
           "elite": {
@@ -2955,7 +2955,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "Retaliate 4"
+              "%retaliate% 4"
             ]
           }
         },
@@ -2967,7 +2967,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Retaliate 2"
+              "%retaliate% 2"
             ]
           },
           "elite": {
@@ -2976,7 +2976,7 @@ MONSTER_STATS = {
             "attack": 6,
             "range": 0,
             "attributes": [
-              "Retaliate 4"
+              "%retaliate% 4"
             ]
           }
         }
@@ -3132,7 +3132,7 @@ MONSTER_STATS = {
             "attack": 1,
             "range": 0,
             "attributes": [
-              "Target 2"
+              "%target% 2"
             ]
           },
           "elite": {
@@ -3141,7 +3141,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 0,
             "attributes": [
-              "Target 2"
+              "%target% 2"
             ]
           }
         },
@@ -3153,8 +3153,8 @@ MONSTER_STATS = {
             "attack": 1,
             "range": 0,
             "attributes": [
-              "Target 2",
-              "Shield 1"
+              "%target% 2",
+              "%shield% 1"
             ]
           },
           "elite": {
@@ -3163,8 +3163,8 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 0,
             "attributes": [
-              "Target 3",
-              "Shield 1"
+              "%target% 3",
+              "%shield% 1"
             ]
           }
         },
@@ -3176,8 +3176,8 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 0,
             "attributes": [
-              "Target 2",
-              "Shield 1"
+              "%target% 2",
+              "%shield% 1"
             ]
           },
           "elite": {
@@ -3186,8 +3186,8 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Target 3",
-              "Shield 1"
+              "%target% 3",
+              "%shield% 1"
             ]
           }
         },
@@ -3199,8 +3199,8 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 0,
             "attributes": [
-              "Target 2",
-              "Shield 1"
+              "%target% 2",
+              "%shield% 1"
             ]
           },
           "elite": {
@@ -3209,8 +3209,8 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Target 3",
-              "Shield 1"
+              "%target% 3",
+              "%shield% 1"
             ]
           }
         },
@@ -3222,8 +3222,8 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Target 2",
-              "Shield 1"
+              "%target% 2",
+              "%shield% 1"
             ]
           },
           "elite": {
@@ -3232,8 +3232,8 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Target 3",
-              "Shield 1"
+              "%target% 3",
+              "%shield% 1"
             ]
           }
         },
@@ -3245,8 +3245,8 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Target 2",
-              "Shield 1"
+              "%target% 2",
+              "%shield% 1"
             ]
           },
           "elite": {
@@ -3255,8 +3255,8 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Target 3",
-              "Shield 2"
+              "%target% 3",
+              "%shield% 2"
             ]
           }
         },
@@ -3268,8 +3268,8 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Target 2",
-              "Shield 1"
+              "%target% 2",
+              "%shield% 1"
             ]
           },
           "elite": {
@@ -3278,8 +3278,8 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Target 3",
-              "Shield 2"
+              "%target% 3",
+              "%shield% 2"
             ]
           }
         },
@@ -3291,8 +3291,8 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Target 2",
-              "Shield 1"
+              "%target% 2",
+              "%shield% 1"
             ]
           },
           "elite": {
@@ -3301,8 +3301,8 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Target 3",
-              "Shield 2"
+              "%target% 3",
+              "%shield% 2"
             ]
           }
         }
@@ -3393,7 +3393,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "Poison"
+              "%poison%"
             ]
           }
         },
@@ -3412,7 +3412,7 @@ MONSTER_STATS = {
             "attack": 6,
             "range": 0,
             "attributes": [
-              "Poison"
+              "%poison%"
             ]
           }
         },
@@ -3424,7 +3424,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Poison"
+              "%poison%"
             ]
           },
           "elite": {
@@ -3433,7 +3433,7 @@ MONSTER_STATS = {
             "attack": 6,
             "range": 0,
             "attributes": [
-              "Poison"
+              "%poison%"
             ]
           }
         },
@@ -3445,7 +3445,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "Poison"
+              "%poison%"
             ]
           },
           "elite": {
@@ -3454,7 +3454,7 @@ MONSTER_STATS = {
             "attack": 6,
             "range": 0,
             "attributes": [
-              "Poison"
+              "%poison%"
             ]
           }
         }
@@ -3470,7 +3470,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 2,
             "attributes": [
-              "Shield 1"
+              "%shield% 1"
             ]
           },
           "elite": {
@@ -3479,7 +3479,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 3,
             "attributes": [
-              "Shield 2"
+              "%shield% 2"
             ]
           }
         },
@@ -3491,7 +3491,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 2,
             "attributes": [
-              "Shield 2"
+              "%shield% 2"
             ]
           },
           "elite": {
@@ -3500,7 +3500,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 3,
             "attributes": [
-              "Shield 3"
+              "%shield% 3"
             ]
           }
         },
@@ -3512,7 +3512,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 3,
             "attributes": [
-              "Shield 2"
+              "%shield% 2"
             ]
           },
           "elite": {
@@ -3521,7 +3521,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 4,
             "attributes": [
-              "Shield 3"
+              "%shield% 3"
             ]
           }
         },
@@ -3533,7 +3533,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 3,
             "attributes": [
-              "Shield 2"
+              "%shield% 2"
             ]
           },
           "elite": {
@@ -3542,7 +3542,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 4,
             "attributes": [
-              "Shield 3"
+              "%shield% 3"
             ]
           }
         },
@@ -3554,7 +3554,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 3,
             "attributes": [
-              "Shield 3"
+              "%shield% 3"
             ]
           },
           "elite": {
@@ -3563,7 +3563,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 4,
             "attributes": [
-              "Shield 4"
+              "%shield% 4"
             ]
           }
         },
@@ -3575,7 +3575,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 4,
             "attributes": [
-              "Shield 3"
+              "%shield% 3"
             ]
           },
           "elite": {
@@ -3584,7 +3584,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 4,
             "attributes": [
-              "Shield 4"
+              "%shield% 4"
             ]
           }
         },
@@ -3596,7 +3596,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 4,
             "attributes": [
-              "Shield 3"
+              "%shield% 3"
             ]
           },
           "elite": {
@@ -3605,7 +3605,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 5,
             "attributes": [
-              "Shield 4"
+              "%shield% 4"
             ]
           }
         },
@@ -3617,7 +3617,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 4,
             "attributes": [
-              "Shield 3"
+              "%shield% 3"
             ]
           },
           "elite": {
@@ -3626,7 +3626,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 5,
             "attributes": [
-              "Shield 4"
+              "%shield% 4"
             ]
           }
         }
@@ -3642,7 +3642,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 0,
             "attributes": [
-              "Target 2"
+              "%target% 2"
             ]
           },
           "elite": {
@@ -3651,8 +3651,8 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Target 2",
-              "Shield 1"
+              "%target% 2",
+              "%shield% 1"
             ]
           }
         },
@@ -3664,8 +3664,8 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 0,
             "attributes": [
-              "Target 2",
-              "Pierce 1"
+              "%target% 2",
+              "%pierce% 1"
             ]
           },
           "elite": {
@@ -3674,9 +3674,9 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Target 2",
-              "Pierce 1",
-              "Shield 1"
+              "%target% 2",
+              "%pierce% 1",
+              "%shield% 1"
             ]
           }
         },
@@ -3688,8 +3688,8 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 0,
             "attributes": [
-              "Target 2",
-              "Pierce 1"
+              "%target% 2",
+              "%pierce% 1"
             ]
           },
           "elite": {
@@ -3698,9 +3698,9 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Target 2",
-              "Pierce 2",
-              "Shield 1"
+              "%target% 2",
+              "%pierce% 2",
+              "%shield% 1"
             ]
           }
         },
@@ -3712,8 +3712,8 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Target 2",
-              "Pierce 2"
+              "%target% 2",
+              "%pierce% 2"
             ]
           },
           "elite": {
@@ -3722,9 +3722,9 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Target 2",
-              "Pierce 2",
-              "Shield 1"
+              "%target% 2",
+              "%pierce% 2",
+              "%shield% 1"
             ]
           }
         },
@@ -3736,9 +3736,9 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Target 2",
-              "Pierce 2",
-              "Shield 1"
+              "%target% 2",
+              "%pierce% 2",
+              "%shield% 1"
             ]
           },
           "elite": {
@@ -3747,9 +3747,9 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Target 2",
-              "Pierce 3",
-              "Shield 2"
+              "%target% 2",
+              "%pierce% 3",
+              "%shield% 2"
             ]
           }
         },
@@ -3761,9 +3761,9 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Target 2",
-              "Pierce 2",
-              "Shield 1"
+              "%target% 2",
+              "%pierce% 2",
+              "%shield% 1"
             ]
           },
           "elite": {
@@ -3772,9 +3772,9 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "Target 2",
-              "Pierce 3",
-              "Shield 2"
+              "%target% 2",
+              "%pierce% 3",
+              "%shield% 2"
             ]
           }
         },
@@ -3786,9 +3786,9 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Target 2",
-              "Pierce 3",
-              "Shield 1"
+              "%target% 2",
+              "%pierce% 3",
+              "%shield% 1"
             ]
           },
           "elite": {
@@ -3797,9 +3797,9 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "Target 2",
-              "Pierce 4",
-              "Shield 2"
+              "%target% 2",
+              "%pierce% 4",
+              "%shield% 2"
             ]
           }
         },
@@ -3811,9 +3811,9 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Target 2",
-              "Pierce 3",
-              "Shield 1"
+              "%target% 2",
+              "%pierce% 3",
+              "%shield% 1"
             ]
           },
           "elite": {
@@ -3822,9 +3822,9 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "Target 2",
-              "Pierce 4",
-              "Shield 2"
+              "%target% 2",
+              "%pierce% 4",
+              "%shield% 2"
             ]
           }
         }
@@ -3857,7 +3857,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 2,
             "attributes": [
-              "Shield 1"
+              "%shield% 1"
             ]
           },
           "elite": {
@@ -3866,7 +3866,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 3,
             "attributes": [
-              "Shield 1"
+              "%shield% 1"
             ]
           }
         },
@@ -3878,7 +3878,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 3,
             "attributes": [
-              "Shield 1"
+              "%shield% 1"
             ]
           },
           "elite": {
@@ -3887,7 +3887,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 3,
             "attributes": [
-              "Shield 1"
+              "%shield% 1"
             ]
           }
         },
@@ -3899,7 +3899,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 3,
             "attributes": [
-              "Shield 1"
+              "%shield% 1"
             ]
           },
           "elite": {
@@ -3908,8 +3908,8 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 4,
             "attributes": [
-              "Poison",
-              "Shield 1"
+              "%poison%",
+              "%shield% 1"
             ]
           }
         },
@@ -3921,7 +3921,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 3,
             "attributes": [
-              "Shield 1"
+              "%shield% 1"
             ]
           },
           "elite": {
@@ -3930,8 +3930,8 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 4,
             "attributes": [
-              "Poison",
-              "Shield 1"
+              "%poison%",
+              "%shield% 1"
             ]
           }
         },
@@ -3943,8 +3943,8 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 3,
             "attributes": [
-              "Poison",
-              "Shield 1"
+              "%poison%",
+              "%shield% 1"
             ]
           },
           "elite": {
@@ -3953,8 +3953,8 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 4,
             "attributes": [
-              "Poison",
-              "Shield 1"
+              "%poison%",
+              "%shield% 1"
             ]
           }
         },
@@ -3966,8 +3966,8 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 3,
             "attributes": [
-              "Poison",
-              "Shield 1"
+              "%poison%",
+              "%shield% 1"
             ]
           },
           "elite": {
@@ -3976,8 +3976,8 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 4,
             "attributes": [
-              "Poison",
-              "Shield 2"
+              "%poison%",
+              "%shield% 2"
             ]
           }
         },
@@ -3989,8 +3989,8 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 3,
             "attributes": [
-              "Poison",
-              "Shield 1"
+              "%poison%",
+              "%shield% 1"
             ]
           },
           "elite": {
@@ -3999,8 +3999,8 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 4,
             "attributes": [
-              "Poison",
-              "Shield 2"
+              "%poison%",
+              "%shield% 2"
             ]
           }
         }
@@ -4016,7 +4016,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Attackers gain Disadvantage"
+              "%attack%ers gain Disadvantage"
             ]
           },
           "elite": {
@@ -4025,7 +4025,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Attackers gain Disadvantage"
+              "%attack%ers gain Disadvantage"
             ]
           }
         },
@@ -4037,7 +4037,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Attackers gain Disadvantage"
+              "%attack%ers gain Disadvantage"
             ]
           },
           "elite": {
@@ -4046,7 +4046,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Attackers gain Disadvantage"
+              "%attack%ers gain Disadvantage"
             ]
           }
         },
@@ -4058,7 +4058,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Attackers gain Disadvantage"
+              "%attack%ers gain Disadvantage"
             ]
           },
           "elite": {
@@ -4067,7 +4067,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Attackers gain Disadvantage"
+              "%attack%ers gain Disadvantage"
             ]
           }
         },
@@ -4079,7 +4079,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Attackers gain Disadvantage"
+              "%attack%ers gain Disadvantage"
             ]
           },
           "elite": {
@@ -4088,7 +4088,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "Attackers gain Disadvantage"
+              "%attack%ers gain Disadvantage"
             ]
           }
         },
@@ -4100,7 +4100,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "Attackers gain Disadvantage"
+              "%attack%ers gain Disadvantage"
             ]
           },
           "elite": {
@@ -4109,7 +4109,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "Attackers gain Disadvantage"
+              "%attack%ers gain Disadvantage"
             ]
           }
         },
@@ -4121,7 +4121,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "Attackers gain Disadvantage"
+              "%attack%ers gain Disadvantage"
             ]
           },
           "elite": {
@@ -4130,7 +4130,7 @@ MONSTER_STATS = {
             "attack": 6,
             "range": 0,
             "attributes": [
-              "Attackers gain Disadvantage"
+              "%attack%ers gain Disadvantage"
             ]
           }
         },
@@ -4142,7 +4142,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "Attackers gain Disadvantage"
+              "%attack%ers gain Disadvantage"
             ]
           },
           "elite": {
@@ -4151,7 +4151,7 @@ MONSTER_STATS = {
             "attack": 6,
             "range": 0,
             "attributes": [
-              "Attackers gain Disadvantage"
+              "%attack%ers gain Disadvantage"
             ]
           }
         },
@@ -4163,7 +4163,7 @@ MONSTER_STATS = {
             "attack": 6,
             "range": 0,
             "attributes": [
-              "Attackers gain Disadvantage"
+              "%attack%ers gain Disadvantage"
             ]
           },
           "elite": {
@@ -4172,7 +4172,7 @@ MONSTER_STATS = {
             "attack": 8,
             "range": 0,
             "attributes": [
-              "Attackers gain Disadvantage"
+              "%attack%ers gain Disadvantage"
             ]
           }
         }
@@ -4205,7 +4205,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Wound"
+              "%wound%"
             ]
           },
           "elite": {
@@ -4214,7 +4214,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "Wound"
+              "%wound%"
             ]
           }
         },
@@ -4226,7 +4226,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Wound"
+              "%wound%"
             ]
           },
           "elite": {
@@ -4235,7 +4235,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "Wound"
+              "%wound%"
             ]
           }
         },
@@ -4247,7 +4247,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Wound"
+              "%wound%"
             ]
           },
           "elite": {
@@ -4256,7 +4256,7 @@ MONSTER_STATS = {
             "attack": 6,
             "range": 0,
             "attributes": [
-              "Wound"
+              "%wound%"
             ]
           }
         },
@@ -4268,7 +4268,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Wound"
+              "%wound%"
             ]
           },
           "elite": {
@@ -4277,7 +4277,7 @@ MONSTER_STATS = {
             "attack": 6,
             "range": 0,
             "attributes": [
-              "Wound"
+              "%wound%"
             ]
           }
         },
@@ -4289,7 +4289,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "Wound"
+              "%wound%"
             ]
           },
           "elite": {
@@ -4298,7 +4298,7 @@ MONSTER_STATS = {
             "attack": 6,
             "range": 0,
             "attributes": [
-              "Wound"
+              "%wound%"
             ]
           }
         },
@@ -4310,7 +4310,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "Wound"
+              "%wound%"
             ]
           },
           "elite": {
@@ -4319,7 +4319,7 @@ MONSTER_STATS = {
             "attack": 7,
             "range": 0,
             "attributes": [
-              "Wound"
+              "%wound%"
             ]
           }
         },
@@ -4331,7 +4331,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "Wound"
+              "%wound%"
             ]
           },
           "elite": {
@@ -4340,7 +4340,7 @@ MONSTER_STATS = {
             "attack": 7,
             "range": 0,
             "attributes": [
-              "Wound"
+              "%wound%"
             ]
           }
         }
@@ -4356,7 +4356,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 3,
             "attributes": [
-              "Pierce 3"
+              "%pierce% 3"
             ]
           },
           "elite": {
@@ -4365,7 +4365,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 4,
             "attributes": [
-              "Pierce 3"
+              "%pierce% 3"
             ]
           }
         },
@@ -4377,7 +4377,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 4,
             "attributes": [
-              "Pierce 3"
+              "%pierce% 3"
             ]
           },
           "elite": {
@@ -4386,8 +4386,8 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 5,
             "attributes": [
-              "Pierce 3",
-              "Shield 1"
+              "%pierce% 3",
+              "%shield% 1"
             ]
           }
         },
@@ -4399,7 +4399,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 4,
             "attributes": [
-              "Pierce 3"
+              "%pierce% 3"
             ]
           },
           "elite": {
@@ -4408,8 +4408,8 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 5,
             "attributes": [
-              "Pierce 3",
-              "Shield 1"
+              "%pierce% 3",
+              "%shield% 1"
             ]
           }
         },
@@ -4421,8 +4421,8 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 4,
             "attributes": [
-              "Pierce 3",
-              "Shield 1"
+              "%pierce% 3",
+              "%shield% 1"
             ]
           },
           "elite": {
@@ -4431,8 +4431,8 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 6,
             "attributes": [
-              "Pierce 3",
-              "Shield 1"
+              "%pierce% 3",
+              "%shield% 1"
             ]
           }
         },
@@ -4444,8 +4444,8 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 5,
             "attributes": [
-              "Pierce 3",
-              "Shield 1"
+              "%pierce% 3",
+              "%shield% 1"
             ]
           },
           "elite": {
@@ -4454,8 +4454,8 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 6,
             "attributes": [
-              "Pierce 3",
-              "Shield 2"
+              "%pierce% 3",
+              "%shield% 2"
             ]
           }
         },
@@ -4467,8 +4467,8 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 5,
             "attributes": [
-              "Pierce 3",
-              "Shield 1"
+              "%pierce% 3",
+              "%shield% 1"
             ]
           },
           "elite": {
@@ -4477,8 +4477,8 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 6,
             "attributes": [
-              "Pierce 3",
-              "Shield 2"
+              "%pierce% 3",
+              "%shield% 2"
             ]
           }
         },
@@ -4490,8 +4490,8 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 5,
             "attributes": [
-              "Pierce 3",
-              "Shield 2"
+              "%pierce% 3",
+              "%shield% 2"
             ]
           },
           "elite": {
@@ -4500,8 +4500,8 @@ MONSTER_STATS = {
             "attack": 6,
             "range": 6,
             "attributes": [
-              "Pierce 3",
-              "Shield 2"
+              "%pierce% 3",
+              "%shield% 2"
             ]
           }
         },
@@ -4513,8 +4513,8 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 6,
             "attributes": [
-              "Pierce 3",
-              "Shield 2"
+              "%pierce% 3",
+              "%shield% 2"
             ]
           },
           "elite": {
@@ -4523,8 +4523,8 @@ MONSTER_STATS = {
             "attack": 6,
             "range": 6,
             "attributes": [
-              "Pierce 4",
-              "Shield 3"
+              "%pierce% 4",
+              "%shield% 3"
             ]
           }
         }
@@ -4557,7 +4557,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 0,
             "attributes": [
-              "Poison"
+              "%poison%"
             ]
           },
           "elite": {
@@ -4566,7 +4566,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Wound"
+              "%wound%"
             ]
           }
         },
@@ -4578,7 +4578,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Poison"
+              "%poison%"
             ]
           },
           "elite": {
@@ -4587,8 +4587,8 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Poison",
-              "Wound"
+              "%poison%",
+              "%wound%"
             ]
           }
         },
@@ -4600,7 +4600,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Poison"
+              "%poison%"
             ]
           },
           "elite": {
@@ -4609,8 +4609,8 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Poison",
-              "Wound"
+              "%poison%",
+              "%wound%"
             ]
           }
         },
@@ -4622,7 +4622,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Poison"
+              "%poison%"
             ]
           },
           "elite": {
@@ -4631,8 +4631,8 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Poison",
-              "Wound"
+              "%poison%",
+              "%wound%"
             ]
           }
         },
@@ -4644,8 +4644,8 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Poison",
-              "Wound"
+              "%poison%",
+              "%wound%"
             ]
           },
           "elite": {
@@ -4654,8 +4654,8 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "Poison",
-              "Wound"
+              "%poison%",
+              "%wound%"
             ]
           }
         },
@@ -4667,8 +4667,8 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Poison",
-              "Wound"
+              "%poison%",
+              "%wound%"
             ]
           },
           "elite": {
@@ -4677,8 +4677,8 @@ MONSTER_STATS = {
             "attack": 6,
             "range": 0,
             "attributes": [
-              "Poison",
-              "Wound"
+              "%poison%",
+              "%wound%"
             ]
           }
         },
@@ -4690,8 +4690,8 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Poison",
-              "Wound"
+              "%poison%",
+              "%wound%"
             ]
           },
           "elite": {
@@ -4700,8 +4700,8 @@ MONSTER_STATS = {
             "attack": 6,
             "range": 0,
             "attributes": [
-              "Poison",
-              "Wound"
+              "%poison%",
+              "%wound%"
             ]
           }
         }
@@ -4741,7 +4741,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 4,
             "attributes": [
-              "Muddle"
+              "%muddle%"
             ]
           }
         },
@@ -4753,7 +4753,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 3,
             "attributes": [
-              "Muddle"
+              "%muddle%"
             ]
           },
           "elite": {
@@ -4762,7 +4762,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 4,
             "attributes": [
-              "Muddle"
+              "%muddle%"
             ]
           }
         },
@@ -4774,7 +4774,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 4,
             "attributes": [
-              "Muddle"
+              "%muddle%"
             ]
           },
           "elite": {
@@ -4783,7 +4783,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 5,
             "attributes": [
-              "Muddle"
+              "%muddle%"
             ]
           }
         },
@@ -4795,7 +4795,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 4,
             "attributes": [
-              "Muddle"
+              "%muddle%"
             ]
           },
           "elite": {
@@ -4804,7 +4804,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 5,
             "attributes": [
-              "Muddle"
+              "%muddle%"
             ]
           }
         },
@@ -4816,7 +4816,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 4,
             "attributes": [
-              "Muddle"
+              "%muddle%"
             ]
           },
           "elite": {
@@ -4825,7 +4825,7 @@ MONSTER_STATS = {
             "attack": 6,
             "range": 5,
             "attributes": [
-              "Muddle"
+              "%muddle%"
             ]
           }
         },
@@ -4837,7 +4837,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 4,
             "attributes": [
-              "Muddle"
+              "%muddle%"
             ]
           },
           "elite": {
@@ -4846,7 +4846,7 @@ MONSTER_STATS = {
             "attack": 6,
             "range": 5,
             "attributes": [
-              "Muddle"
+              "%muddle%"
             ]
           }
         },
@@ -4858,7 +4858,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 4,
             "attributes": [
-              "Muddle"
+              "%muddle%"
             ]
           },
           "elite": {
@@ -4867,7 +4867,7 @@ MONSTER_STATS = {
             "attack": 7,
             "range": 5,
             "attributes": [
-              "Muddle"
+              "%muddle%"
             ]
           }
         }
@@ -4890,7 +4890,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Shield 1"
+              "%shield% 1"
             ]
           }
         },
@@ -4902,7 +4902,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "Shield 1"
+              "%shield% 1"
             ]
           },
           "elite": {
@@ -4911,7 +4911,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Shield 2"
+              "%shield% 2"
             ]
           }
         },
@@ -4923,7 +4923,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Shield 1"
+              "%shield% 1"
             ]
           },
           "elite": {
@@ -4932,7 +4932,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "Shield 2"
+              "%shield% 2"
             ]
           }
         },
@@ -4944,7 +4944,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Shield 2"
+              "%shield% 2"
             ]
           },
           "elite": {
@@ -4953,7 +4953,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "Shield 3"
+              "%shield% 3"
             ]
           }
         },
@@ -4965,7 +4965,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "Shield 2"
+              "%shield% 2"
             ]
           },
           "elite": {
@@ -4974,7 +4974,7 @@ MONSTER_STATS = {
             "attack": 6,
             "range": 0,
             "attributes": [
-              "Shield 3"
+              "%shield% 3"
             ]
           }
         },
@@ -4986,7 +4986,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "Shield 2"
+              "%shield% 2"
             ]
           },
           "elite": {
@@ -4995,7 +4995,7 @@ MONSTER_STATS = {
             "attack": 6,
             "range": 0,
             "attributes": [
-              "Shield 3"
+              "%shield% 3"
             ]
           }
         },
@@ -5007,7 +5007,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "Shield 2"
+              "%shield% 2"
             ]
           },
           "elite": {
@@ -5016,7 +5016,7 @@ MONSTER_STATS = {
             "attack": 7,
             "range": 0,
             "attributes": [
-              "Shield 3"
+              "%shield% 3"
             ]
           }
         },
@@ -5028,7 +5028,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "Shield 3"
+              "%shield% 3"
             ]
           },
           "elite": {
@@ -5037,7 +5037,7 @@ MONSTER_STATS = {
             "attack": 7,
             "range": 0,
             "attributes": [
-              "Shield 4"
+              "%shield% 4"
             ]
           }
         }
@@ -5054,7 +5054,7 @@ MONSTER_STATS = {
             "range": 0,
             "attributes": [
               "Advantage",
-              "Shield 1"
+              "%shield% 1"
             ]
           },
           "elite": {
@@ -5064,7 +5064,7 @@ MONSTER_STATS = {
             "range": 0,
             "attributes": [
               "Advantage",
-              "Shield 1"
+              "%shield% 1"
             ]
           }
         },
@@ -5077,7 +5077,7 @@ MONSTER_STATS = {
             "range": 0,
             "attributes": [
               "Advantage",
-              "Shield 1"
+              "%shield% 1"
             ]
           },
           "elite": {
@@ -5087,7 +5087,7 @@ MONSTER_STATS = {
             "range": 0,
             "attributes": [
               "Advantage",
-              "Shield 1"
+              "%shield% 1"
             ]
           }
         },
@@ -5100,7 +5100,7 @@ MONSTER_STATS = {
             "range": 0,
             "attributes": [
               "Advantage",
-              "Shield 1"
+              "%shield% 1"
             ]
           },
           "elite": {
@@ -5110,7 +5110,7 @@ MONSTER_STATS = {
             "range": 0,
             "attributes": [
               "Advantage",
-              "Shield 1"
+              "%shield% 1"
             ]
           }
         },
@@ -5123,7 +5123,7 @@ MONSTER_STATS = {
             "range": 0,
             "attributes": [
               "Advantage",
-              "Shield 1"
+              "%shield% 1"
             ]
           },
           "elite": {
@@ -5133,7 +5133,7 @@ MONSTER_STATS = {
             "range": 0,
             "attributes": [
               "Advantage",
-              "Shield 1"
+              "%shield% 1"
             ]
           }
         },
@@ -5146,7 +5146,7 @@ MONSTER_STATS = {
             "range": 0,
             "attributes": [
               "Advantage",
-              "Shield 1"
+              "%shield% 1"
             ]
           },
           "elite": {
@@ -5156,7 +5156,7 @@ MONSTER_STATS = {
             "range": 0,
             "attributes": [
               "Advantage",
-              "Shield 1"
+              "%shield% 1"
             ]
           }
         },
@@ -5169,7 +5169,7 @@ MONSTER_STATS = {
             "range": 0,
             "attributes": [
               "Advantage",
-              "Shield 2"
+              "%shield% 2"
             ]
           },
           "elite": {
@@ -5179,7 +5179,7 @@ MONSTER_STATS = {
             "range": 0,
             "attributes": [
               "Advantage",
-              "Shield 2"
+              "%shield% 2"
             ]
           }
         },
@@ -5192,7 +5192,7 @@ MONSTER_STATS = {
             "range": 0,
             "attributes": [
               "Advantage",
-              "Shield 2"
+              "%shield% 2"
             ]
           },
           "elite": {
@@ -5202,7 +5202,7 @@ MONSTER_STATS = {
             "range": 0,
             "attributes": [
               "Advantage",
-              "Shield 2"
+              "%shield% 2"
             ]
           }
         },
@@ -5215,7 +5215,7 @@ MONSTER_STATS = {
             "range": 0,
             "attributes": [
               "Advantage",
-              "Shield 2"
+              "%shield% 2"
             ]
           },
           "elite": {
@@ -5225,7 +5225,7 @@ MONSTER_STATS = {
             "range": 0,
             "attributes": [
               "Advantage",
-              "Shield 2"
+              "%shield% 2"
             ]
           }
         }
@@ -5381,7 +5381,7 @@ MONSTER_STATS = {
             "attack": 1,
             "range": 3,
             "attributes": [
-              "Shield 2"
+              "%shield% 2"
             ]
           },
           "elite": {
@@ -5390,7 +5390,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 3,
             "attributes": [
-              "Shield 2"
+              "%shield% 2"
             ]
           }
         },
@@ -5402,7 +5402,7 @@ MONSTER_STATS = {
             "attack": 1,
             "range": 3,
             "attributes": [
-              "Shield 3"
+              "%shield% 3"
             ]
           },
           "elite": {
@@ -5411,7 +5411,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 3,
             "attributes": [
-              "Shield 3"
+              "%shield% 3"
             ]
           }
         },
@@ -5423,7 +5423,7 @@ MONSTER_STATS = {
             "attack": 1,
             "range": 4,
             "attributes": [
-              "Shield 3"
+              "%shield% 3"
             ]
           },
           "elite": {
@@ -5432,7 +5432,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 4,
             "attributes": [
-              "Shield 3"
+              "%shield% 3"
             ]
           }
         },
@@ -5444,7 +5444,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 4,
             "attributes": [
-              "Shield 3"
+              "%shield% 3"
             ]
           },
           "elite": {
@@ -5453,7 +5453,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 4,
             "attributes": [
-              "Shield 3"
+              "%shield% 3"
             ]
           }
         },
@@ -5465,8 +5465,8 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 4,
             "attributes": [
-              "Muddle",
-              "Shield 3"
+              "%muddle%",
+              "%shield% 3"
             ]
           },
           "elite": {
@@ -5475,8 +5475,8 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 4,
             "attributes": [
-              "Muddle",
-              "Shield 4"
+              "%muddle%",
+              "%shield% 4"
             ]
           }
         },
@@ -5488,8 +5488,8 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 4,
             "attributes": [
-              "Muddle",
-              "Shield 3"
+              "%muddle%",
+              "%shield% 3"
             ]
           },
           "elite": {
@@ -5498,8 +5498,8 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 4,
             "attributes": [
-              "Muddle",
-              "Shield 4"
+              "%muddle%",
+              "%shield% 4"
             ]
           }
         },
@@ -5511,8 +5511,8 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 4,
             "attributes": [
-              "Muddle",
-              "Shield 3"
+              "%muddle%",
+              "%shield% 3"
             ]
           },
           "elite": {
@@ -5521,8 +5521,8 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 4,
             "attributes": [
-              "Muddle",
-              "Shield 5"
+              "%muddle%",
+              "%shield% 5"
             ]
           }
         },
@@ -5534,8 +5534,8 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 4,
             "attributes": [
-              "Muddle",
-              "Shield 3"
+              "%muddle%",
+              "%shield% 3"
             ]
           },
           "elite": {
@@ -5544,8 +5544,8 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 4,
             "attributes": [
-              "Muddle",
-              "Shield 5"
+              "%muddle%",
+              "%shield% 5"
             ]
           }
         }
@@ -5561,7 +5561,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 3,
             "attributes": [
-              "Shield 1"
+              "%shield% 1"
             ]
           },
           "elite": {
@@ -5570,7 +5570,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 4,
             "attributes": [
-              "Shield 1"
+              "%shield% 1"
             ]
           }
         },
@@ -5582,7 +5582,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 3,
             "attributes": [
-              "Shield 2"
+              "%shield% 2"
             ]
           },
           "elite": {
@@ -5591,7 +5591,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 4,
             "attributes": [
-              "Shield 2"
+              "%shield% 2"
             ]
           }
         },
@@ -5603,7 +5603,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 3,
             "attributes": [
-              "Shield 2"
+              "%shield% 2"
             ]
           },
           "elite": {
@@ -5612,7 +5612,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 4,
             "attributes": [
-              "Shield 2"
+              "%shield% 2"
             ]
           }
         },
@@ -5624,7 +5624,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 3,
             "attributes": [
-              "Shield 2"
+              "%shield% 2"
             ]
           },
           "elite": {
@@ -5633,7 +5633,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 4,
             "attributes": [
-              "Shield 2"
+              "%shield% 2"
             ]
           }
         },
@@ -5645,7 +5645,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 3,
             "attributes": [
-              "Shield 2"
+              "%shield% 2"
             ]
           },
           "elite": {
@@ -5654,8 +5654,8 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 4,
             "attributes": [
-              "Disarm",
-              "Shield 2"
+              "%disarm%",
+              "%shield% 2"
             ]
           }
         },
@@ -5667,7 +5667,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 4,
             "attributes": [
-              "Shield 2"
+              "%shield% 2"
             ]
           },
           "elite": {
@@ -5676,8 +5676,8 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 4,
             "attributes": [
-              "Disarm",
-              "Shield 2"
+              "%disarm%",
+              "%shield% 2"
             ]
           }
         },
@@ -5689,7 +5689,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 4,
             "attributes": [
-              "Shield 3"
+              "%shield% 3"
             ]
           },
           "elite": {
@@ -5698,8 +5698,8 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 4,
             "attributes": [
-              "Disarm",
-              "Shield 3"
+              "%disarm%",
+              "%shield% 3"
             ]
           }
         },
@@ -5711,7 +5711,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 4,
             "attributes": [
-              "Shield 3"
+              "%shield% 3"
             ]
           },
           "elite": {
@@ -5720,8 +5720,8 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 4,
             "attributes": [
-              "Disarm",
-              "Shield 3"
+              "%disarm%",
+              "%shield% 3"
             ]
           }
         }
@@ -5738,15 +5738,15 @@ MONSTER_STATS = {
           "attack": 3,
           "range": 0,
           "special1": [
-            "Move to next door and reveal room"
+            "%move% to next door and reveal room"
           ],
           "special2": [
             "Summon Living Bones"
           ],
           "immunities": [
-            "Stun",
-            "Immobilize",
-            "Curse"
+            "%stun%",
+            "%immobilize%",
+            "%curse%"
           ],
           "notes": ""
         },
@@ -5757,15 +5757,15 @@ MONSTER_STATS = {
           "attack": 3,
           "range": 0,
           "special1": [
-            "Move to next door and reveal room"
+            "%move% to next door and reveal room"
           ],
           "special2": [
             "Summon Living Bones"
           ],
           "immunities": [
-            "Stun",
-            "Immobilize",
-            "Curse"
+            "%stun%",
+            "%immobilize%",
+            "%curse%"
           ],
           "notes": ""
         },
@@ -5776,15 +5776,15 @@ MONSTER_STATS = {
           "attack": 3,
           "range": 0,
           "special1": [
-            "Move to next door and reveal room"
+            "%move% to next door and reveal room"
           ],
           "special2": [
             "Summon Living Bones"
           ],
           "immunities": [
-            "Stun",
-            "Immobilize",
-            "Curse"
+            "%stun%",
+            "%immobilize%",
+            "%curse%"
           ],
           "notes": ""
         },
@@ -5795,15 +5795,15 @@ MONSTER_STATS = {
           "attack": 4,
           "range": 0,
           "special1": [
-            "Move to next door and reveal room"
+            "%move% to next door and reveal room"
           ],
           "special2": [
             "Summon Living Bones"
           ],
           "immunities": [
-            "Stun",
-            "Immobilize",
-            "Curse"
+            "%stun%",
+            "%immobilize%",
+            "%curse%"
           ],
           "notes": ""
         },
@@ -5814,15 +5814,15 @@ MONSTER_STATS = {
           "attack": 4,
           "range": 0,
           "special1": [
-            "Move to next door and reveal room"
+            "%move% to next door and reveal room"
           ],
           "special2": [
             "Summon Living Bones"
           ],
           "immunities": [
-            "Stun",
-            "Immobilize",
-            "Curse"
+            "%stun%",
+            "%immobilize%",
+            "%curse%"
           ],
           "notes": ""
         },
@@ -5833,15 +5833,15 @@ MONSTER_STATS = {
           "attack": 5,
           "range": 0,
           "special1": [
-            "Move to next door and reveal room"
+            "%move% to next door and reveal room"
           ],
           "special2": [
             "Summon Living Bones"
           ],
           "immunities": [
-            "Stun",
-            "Immobilize",
-            "Curse"
+            "%stun%",
+            "%immobilize%",
+            "%curse%"
           ],
           "notes": ""
         },
@@ -5852,15 +5852,15 @@ MONSTER_STATS = {
           "attack": 5,
           "range": 0,
           "special1": [
-            "Move to next door and reveal room"
+            "%move% to next door and reveal room"
           ],
           "special2": [
             "Summon Living Bones"
           ],
           "immunities": [
-            "Stun",
-            "Immobilize",
-            "Curse"
+            "%stun%",
+            "%immobilize%",
+            "%curse%"
           ],
           "notes": ""
         },
@@ -5871,15 +5871,15 @@ MONSTER_STATS = {
           "attack": 5,
           "range": 0,
           "special1": [
-            "Move to next door and reveal room"
+            "%move% to next door and reveal room"
           ],
           "special2": [
             "Summon Living Bones"
           ],
           "immunities": [
-            "Stun",
-            "Immobilize",
-            "Curse"
+            "%stun%",
+            "%immobilize%",
+            "%curse%"
           ],
           "notes": ""
         }
@@ -5900,11 +5900,11 @@ MONSTER_STATS = {
             "Mind Control"
           ],
           "immunities": [
-            "Wound",
-            "Poison",
-            "Stun",
-            "Disarm",
-            "Curse"
+            "%wound%",
+            "%poison%",
+            "%stun%",
+            "%disarm%",
+            "%curse%"
           ],
           "notes": ""
         },
@@ -5921,11 +5921,11 @@ MONSTER_STATS = {
             "Mind Control"
           ],
           "immunities": [
-            "Wound",
-            "Poison",
-            "Stun",
-            "Disarm",
-            "Curse"
+            "%wound%",
+            "%poison%",
+            "%stun%",
+            "%disarm%",
+            "%curse%"
           ],
           "notes": ""
         },
@@ -5942,11 +5942,11 @@ MONSTER_STATS = {
             "Mind Control"
           ],
           "immunities": [
-            "Wound",
-            "Poison",
-            "Stun",
-            "Disarm",
-            "Curse"
+            "%wound%",
+            "%poison%",
+            "%stun%",
+            "%disarm%",
+            "%curse%"
           ],
           "notes": ""
         },
@@ -5963,11 +5963,11 @@ MONSTER_STATS = {
             "Mind Control"
           ],
           "immunities": [
-            "Wound",
-            "Poison",
-            "Stun",
-            "Disarm",
-            "Curse"
+            "%wound%",
+            "%poison%",
+            "%stun%",
+            "%disarm%",
+            "%curse%"
           ],
           "notes": ""
         },
@@ -5984,11 +5984,11 @@ MONSTER_STATS = {
             "Mind Control"
           ],
           "immunities": [
-            "Wound",
-            "Poison",
-            "Stun",
-            "Disarm",
-            "Curse"
+            "%wound%",
+            "%poison%",
+            "%stun%",
+            "%disarm%",
+            "%curse%"
           ],
           "notes": ""
         },
@@ -6005,11 +6005,11 @@ MONSTER_STATS = {
             "Mind Control"
           ],
           "immunities": [
-            "Wound",
-            "Poison",
-            "Stun",
-            "Disarm",
-            "Curse"
+            "%wound%",
+            "%poison%",
+            "%stun%",
+            "%disarm%",
+            "%curse%"
           ],
           "notes": ""
         },
@@ -6026,11 +6026,11 @@ MONSTER_STATS = {
             "Mind Control"
           ],
           "immunities": [
-            "Wound",
-            "Poison",
-            "Stun",
-            "Disarm",
-            "Curse"
+            "%wound%",
+            "%poison%",
+            "%stun%",
+            "%disarm%",
+            "%curse%"
           ],
           "notes": ""
         },
@@ -6047,11 +6047,11 @@ MONSTER_STATS = {
             "Mind Control"
           ],
           "immunities": [
-            "Wound",
-            "Poison",
-            "Stun",
-            "Disarm",
-            "Curse"
+            "%wound%",
+            "%poison%",
+            "%stun%",
+            "%disarm%",
+            "%curse%"
           ],
           "notes": ""
         }
@@ -6066,17 +6066,17 @@ MONSTER_STATS = {
           "attack": 3,
           "range": 0,
           "special1": [
-            "Heal 2, Affect self and all allies"
+            "%heal% 2, Affect self and all allies"
           ],
           "special2": [
             "All allies add +1 Attack to all attacks this round",
-            "Attack +1"
+            "%attack% +1"
           ],
           "immunities": [
-            "Disarm",
-            "Wound",
-            "Muddle",
-            "Stun"
+            "%disarm%",
+            "%wound%",
+            "%muddle%",
+            "%stun%"
           ],
           "notes": ""
         },
@@ -6087,11 +6087,11 @@ MONSTER_STATS = {
           "attack": 3,
           "range": 0,
           "special1": [
-            "Heal 2, Affect self and all allies"
+            "%heal% 2, Affect self and all allies"
           ],
           "special2": [
             "All allies add +1 Attack to all attacks this round",
-            "Attack +1"
+            "%attack% +1"
           ],
           "immunities": [],
           "notes": ""
@@ -6103,11 +6103,11 @@ MONSTER_STATS = {
           "attack": 4,
           "range": 0,
           "special1": [
-            "Heal 2, Affect self and all allies"
+            "%heal% 2, Affect self and all allies"
           ],
           "special2": [
             "All allies add +1 Attack to all attacks this round",
-            "Attack +1"
+            "%attack% +1"
           ],
           "immunities": [],
           "notes": ""
@@ -6119,11 +6119,11 @@ MONSTER_STATS = {
           "attack": 4,
           "range": 0,
           "special1": [
-            "Heal 2, Affect self and all allies"
+            "%heal% 2, Affect self and all allies"
           ],
           "special2": [
             "All allies add +1 Attack to all attacks this round",
-            "Attack +1"
+            "%attack% +1"
           ],
           "immunities": [],
           "notes": ""
@@ -6135,11 +6135,11 @@ MONSTER_STATS = {
           "attack": 5,
           "range": 0,
           "special1": [
-            "Heal 2, Affect self and all allies"
+            "%heal% 2, Affect self and all allies"
           ],
           "special2": [
             "All allies add +1 Attack to all attacks this round",
-            "Attack +1"
+            "%attack% +1"
           ],
           "immunities": [],
           "notes": ""
@@ -6151,11 +6151,11 @@ MONSTER_STATS = {
           "attack": 5,
           "range": 0,
           "special1": [
-            "Heal 2, Affect self and all allies"
+            "%heal% 2, Affect self and all allies"
           ],
           "special2": [
             "All allies add +1 Attack to all attacks this round",
-            "Attack +1"
+            "%attack% +1"
           ],
           "immunities": [],
           "notes": ""
@@ -6167,11 +6167,11 @@ MONSTER_STATS = {
           "attack": 6,
           "range": 0,
           "special1": [
-            "Heal 2, Affect self and all allies"
+            "%heal% 2, Affect self and all allies"
           ],
           "special2": [
             "All allies add +1 Attack to all attacks this round",
-            "Attack +1"
+            "%attack% +1"
           ],
           "immunities": [],
           "notes": ""
@@ -6183,11 +6183,11 @@ MONSTER_STATS = {
           "attack": 6,
           "range": 0,
           "special1": [
-            "Heal 2, Affect self and all allies"
+            "%heal% 2, Affect self and all allies"
           ],
           "special2": [
             "All allies add +1 Attack to all attacks this round",
-            "Attack +1"
+            "%attack% +1"
           ],
           "immunities": [],
           "notes": ""
@@ -6203,20 +6203,20 @@ MONSTER_STATS = {
           "attack": 2,
           "range": 0,
           "special1": [
-            "{{resources.elements.consumeNight}}: Summon Night Demon",
-            "Invisible, Self"
+            "%dark%%use_element%: Summon Night Demon",
+            "%invisible%, Self"
           ],
           "special2": [
-            "{{resources.elements.consumeDay}}: Summon Sun Demon",
-            "Heal 4, Self",
-            "Shield 1"
+            "%light%%use_element%: Summon Sun Demon",
+            "%heal% 4, Self",
+            "%shield% 1"
           ],
           "immunities": [
-            "Wound",
-            "Poison",
-            "Muddle",
-            "Stun",
-            "Disarm"
+            "%wound%",
+            "%poison%",
+            "%muddle%",
+            "%stun%",
+            "%disarm%"
           ],
           "notes": ""
         },
@@ -6227,20 +6227,20 @@ MONSTER_STATS = {
           "attack": 3,
           "range": 0,
           "special1": [
-            "{{resources.elements.consumeNight}}: Summon Night Demon",
-            "Invisible, Self"
+            "%dark%%use_element%: Summon Night Demon",
+            "%invisible%, Self"
           ],
           "special2": [
-            "{{resources.elements.consumeDay}}: Summon Sun Demon",
-            "Heal 4, Self",
-            "Shield 1"
+            "%light%%use_element%: Summon Sun Demon",
+            "%heal% 4, Self",
+            "%shield% 1"
           ],
           "immunities": [
-            "Wound",
-            "Poison",
-            "Muddle",
-            "Stun",
-            "Disarm"
+            "%wound%",
+            "%poison%",
+            "%muddle%",
+            "%stun%",
+            "%disarm%"
           ],
           "notes": ""
         },
@@ -6251,20 +6251,20 @@ MONSTER_STATS = {
           "attack": 3,
           "range": 0,
           "special1": [
-            "{{resources.elements.consumeNight}}: Summon Night Demon",
-            "Invisible, Self"
+            "%dark%%use_element%: Summon Night Demon",
+            "%invisible%, Self"
           ],
           "special2": [
-            "{{resources.elements.consumeDay}}: Summon Sun Demon",
-            "Heal 5, Self",
-            "Shield 1"
+            "%light%%use_element%: Summon Sun Demon",
+            "%heal% 5, Self",
+            "%shield% 1"
           ],
           "immunities": [
-            "Wound",
-            "Poison",
-            "Muddle",
-            "Stun",
-            "Disarm"
+            "%wound%",
+            "%poison%",
+            "%muddle%",
+            "%stun%",
+            "%disarm%"
           ],
           "notes": ""
         },
@@ -6275,20 +6275,20 @@ MONSTER_STATS = {
           "attack": 4,
           "range": 0,
           "special1": [
-            "{{resources.elements.consumeNight}}: Summon Night Demon",
-            "Invisible, Self"
+            "%dark%%use_element%: Summon Night Demon",
+            "%invisible%, Self"
           ],
           "special2": [
-            "{{resources.elements.consumeDay}}: Summon Sun Demon",
-            "Heal 5, Self",
-            "Shield 1"
+            "%light%%use_element%: Summon Sun Demon",
+            "%heal% 5, Self",
+            "%shield% 1"
           ],
           "immunities": [
-            "Wound",
-            "Poison",
-            "Muddle",
-            "Stun",
-            "Disarm"
+            "%wound%",
+            "%poison%",
+            "%muddle%",
+            "%stun%",
+            "%disarm%"
           ],
           "notes": ""
         },
@@ -6299,20 +6299,20 @@ MONSTER_STATS = {
           "attack": 4,
           "range": 0,
           "special1": [
-            "{{resources.elements.consumeNight}}: Summon Night Demon",
-            "Invisible, Self"
+            "%dark%%use_element%: Summon Night Demon",
+            "%invisible%, Self"
           ],
           "special2": [
-            "{{resources.elements.consumeDay}}: Summon Sun Demon",
-            "Heal 6, Self",
-            "Shield 1"
+            "%light%%use_element%: Summon Sun Demon",
+            "%heal% 6, Self",
+            "%shield% 1"
           ],
           "immunities": [
-            "Wound",
-            "Poison",
-            "Muddle",
-            "Stun",
-            "Disarm"
+            "%wound%",
+            "%poison%",
+            "%muddle%",
+            "%stun%",
+            "%disarm%"
           ],
           "notes": ""
         },
@@ -6323,20 +6323,20 @@ MONSTER_STATS = {
           "attack": 5,
           "range": 0,
           "special1": [
-            "{{resources.elements.consumeNight}}: Summon Night Demon",
-            "Invisible, Self"
+            "%dark%%use_element%: Summon Night Demon",
+            "%invisible%, Self"
           ],
           "special2": [
-            "{{resources.elements.consumeDay}}: Summon Sun Demon",
-            "Heal 6, Self",
-            "Shield 1"
+            "%light%%use_element%: Summon Sun Demon",
+            "%heal% 6, Self",
+            "%shield% 1"
           ],
           "immunities": [
-            "Wound",
-            "Poison",
-            "Muddle",
-            "Stun",
-            "Disarm"
+            "%wound%",
+            "%poison%",
+            "%muddle%",
+            "%stun%",
+            "%disarm%"
           ],
           "notes": ""
         },
@@ -6347,20 +6347,20 @@ MONSTER_STATS = {
           "attack": 6,
           "range": 0,
           "special1": [
-            "{{resources.elements.consumeNight}}: Summon Night Demon",
-            "Invisible, Self"
+            "%dark%%use_element%: Summon Night Demon",
+            "%invisible%, Self"
           ],
           "special2": [
-            "{{resources.elements.consumeDay}}: Summon Sun Demon",
-            "Heal 7, Self",
-            "Shield 1"
+            "%light%%use_element%: Summon Sun Demon",
+            "%heal% 7, Self",
+            "%shield% 1"
           ],
           "immunities": [
-            "Wound",
-            "Poison",
-            "Muddle",
-            "Stun",
-            "Disarm"
+            "%wound%",
+            "%poison%",
+            "%muddle%",
+            "%stun%",
+            "%disarm%"
           ],
           "notes": ""
         },
@@ -6371,20 +6371,20 @@ MONSTER_STATS = {
           "attack": 7,
           "range": 0,
           "special1": [
-            "{{resources.elements.consumeNight}}: Summon Night Demon",
-            "Invisible, Self"
+            "%dark%%use_element%: Summon Night Demon",
+            "%invisible%, Self"
           ],
           "special2": [
-            "{{resources.elements.consumeDay}}: Summon Sun Demon",
-            "Heal 7, Self",
-            "Shield 1"
+            "%light%%use_element%: Summon Sun Demon",
+            "%heal% 7, Self",
+            "%shield% 1"
           ],
           "immunities": [
-            "Wound",
-            "Poison",
-            "Muddle",
-            "Stun",
-            "Disarm"
+            "%wound%",
+            "%poison%",
+            "%muddle%",
+            "%stun%",
+            "%disarm%"
           ],
           "notes": ""
         }
@@ -6399,19 +6399,19 @@ MONSTER_STATS = {
           "attack": "3+X",
           "range": 0,
           "special1": [
-            "Move +2",
-            "Attack +0"
+            "%move% +2",
+            "%attack% +0"
           ],
           "special2": [
-            "Move +0",
+            "%move% +0",
             "Summon Imp",
-            "Attack -1"
+            "%attack% -1"
           ],
           "immunities": [
-            "Immobilize",
-            "Poison",
-            "Stun",
-            "Disarm"
+            "%immobilize%",
+            "%poison%",
+            "%stun%",
+            "%disarm%"
           ],
           "notes": "X = Hexes moved"
         },
@@ -6422,19 +6422,19 @@ MONSTER_STATS = {
           "attack": "3+X",
           "range": 0,
           "special1": [
-            "Move +2",
-            "Attack +0"
+            "%move% +2",
+            "%attack% +0"
           ],
           "special2": [
-            "Move +0",
+            "%move% +0",
             "Summon Imp",
-            "Attack -1"
+            "%attack% -1"
           ],
           "immunities": [
-            "Immobilize",
-            "Poison",
-            "Stun",
-            "Disarm"
+            "%immobilize%",
+            "%poison%",
+            "%stun%",
+            "%disarm%"
           ],
           "notes": "X = Hexes moved"
         },
@@ -6445,19 +6445,19 @@ MONSTER_STATS = {
           "attack": "3+X",
           "range": 0,
           "special1": [
-            "Move +2",
-            "Attack +0"
+            "%move% +2",
+            "%attack% +0"
           ],
           "special2": [
-            "Move +0",
+            "%move% +0",
             "Summon Imp",
-            "Attack -1"
+            "%attack% -1"
           ],
           "immunities": [
-            "Immobilize",
-            "Poison",
-            "Stun",
-            "Disarm"
+            "%immobilize%",
+            "%poison%",
+            "%stun%",
+            "%disarm%"
           ],
           "notes": "X = Hexes moved"
         },
@@ -6468,19 +6468,19 @@ MONSTER_STATS = {
           "attack": "4+X",
           "range": 0,
           "special1": [
-            "Move +2",
-            "Attack +0"
+            "%move% +2",
+            "%attack% +0"
           ],
           "special2": [
-            "Move +0",
+            "%move% +0",
             "Summon Imp",
-            "Attack -1"
+            "%attack% -1"
           ],
           "immunities": [
-            "Immobilize",
-            "Poison",
-            "Stun",
-            "Disarm"
+            "%immobilize%",
+            "%poison%",
+            "%stun%",
+            "%disarm%"
           ],
           "notes": "X = Hexes moved"
         },
@@ -6491,19 +6491,19 @@ MONSTER_STATS = {
           "attack": "4+X",
           "range": 0,
           "special1": [
-            "Move +2",
-            "Attack +0"
+            "%move% +2",
+            "%attack% +0"
           ],
           "special2": [
-            "Move +0",
+            "%move% +0",
             "Summon Imp",
-            "Attack -1"
+            "%attack% -1"
           ],
           "immunities": [
-            "Immobilize",
-            "Poison",
-            "Stun",
-            "Disarm"
+            "%immobilize%",
+            "%poison%",
+            "%stun%",
+            "%disarm%"
           ],
           "notes": "X = Hexes moved"
         },
@@ -6514,19 +6514,19 @@ MONSTER_STATS = {
           "attack": "5+X",
           "range": 0,
           "special1": [
-            "Move +2",
-            "Attack +0"
+            "%move% +2",
+            "%attack% +0"
           ],
           "special2": [
-            "Move +0",
+            "%move% +0",
             "Summon Imp",
-            "Attack -1"
+            "%attack% -1"
           ],
           "immunities": [
-            "Immobilize",
-            "Poison",
-            "Stun",
-            "Disarm"
+            "%immobilize%",
+            "%poison%",
+            "%stun%",
+            "%disarm%"
           ],
           "notes": "X = Hexes moved"
         },
@@ -6537,19 +6537,19 @@ MONSTER_STATS = {
           "attack": "5+X",
           "range": 0,
           "special1": [
-            "Move +2",
-            "Attack +0"
+            "%move% +2",
+            "%attack% +0"
           ],
           "special2": [
-            "Move +0",
+            "%move% +0",
             "Summon Imp",
-            "Attack -1"
+            "%attack% -1"
           ],
           "immunities": [
-            "Immobilize",
-            "Poison",
-            "Stun",
-            "Disarm"
+            "%immobilize%",
+            "%poison%",
+            "%stun%",
+            "%disarm%"
           ],
           "notes": "X = Hexes moved"
         },
@@ -6560,19 +6560,19 @@ MONSTER_STATS = {
           "attack": "6+X",
           "range": 0,
           "special1": [
-            "Move +2",
-            "Attack +0"
+            "%move% +2",
+            "%attack% +0"
           ],
           "special2": [
-            "Move +0",
+            "%move% +0",
             "Summon Imp",
-            "Attack -1"
+            "%attack% -1"
           ],
           "immunities": [
-            "Immobilize",
-            "Poison",
-            "Stun",
-            "Disarm"
+            "%immobilize%",
+            "%poison%",
+            "%stun%",
+            "%disarm%"
           ],
           "notes": "X = Hexes moved"
         }
@@ -6587,17 +6587,17 @@ MONSTER_STATS = {
           "attack": 3,
           "range": 0,
           "special1": [
-            "Attack +0 {{resources.elderDrake.special1Area}}"
+            "%attack% +0 {{resources.elderDrake.special1Area}}"
           ],
           "special2": [
-            "Move and summon 2 Zephyrs"
+            "%move% and summon 2 Zephyrs"
           ],
           "immunities": [
-            "Wound",
-            "Poison",
-            "Disarm",
-            "Immobilize",
-            "Stun"
+            "%wound%",
+            "%poison%",
+            "%disarm%",
+            "%immobilize%",
+            "%stun%"
           ],
           "notes": ""
         },
@@ -6608,17 +6608,17 @@ MONSTER_STATS = {
           "attack": 4,
           "range": 0,
           "special1": [
-            "Attack +0 {{resources.elderDrake.special1Area}}"
+            "%attack% +0 {{resources.elderDrake.special1Area}}"
           ],
           "special2": [
-            "Move and summon 2 Zephyrs"
+            "%move% and summon 2 Zephyrs"
           ],
           "immunities": [
-            "Wound",
-            "Poison",
-            "Disarm",
-            "Immobilize",
-            "Stun"
+            "%wound%",
+            "%poison%",
+            "%disarm%",
+            "%immobilize%",
+            "%stun%"
           ],
           "notes": ""
         },
@@ -6629,17 +6629,17 @@ MONSTER_STATS = {
           "attack": 4,
           "range": 0,
           "special1": [
-            "Attack +0 {{resources.elderDrake.special1Area}}"
+            "%attack% +0 {{resources.elderDrake.special1Area}}"
           ],
           "special2": [
-            "Move and summon 2 Zephyrs"
+            "%move% and summon 2 Zephyrs"
           ],
           "immunities": [
-            "Wound",
-            "Poison",
-            "Disarm",
-            "Immobilize",
-            "Stun"
+            "%wound%",
+            "%poison%",
+            "%disarm%",
+            "%immobilize%",
+            "%stun%"
           ],
           "notes": ""
         },
@@ -6650,17 +6650,17 @@ MONSTER_STATS = {
           "attack": 5,
           "range": 0,
           "special1": [
-            "Attack +0 {{resources.elderDrake.special1Area}}"
+            "%attack% +0 {{resources.elderDrake.special1Area}}"
           ],
           "special2": [
-            "Move and summon 2 Zephyrs"
+            "%move% and summon 2 Zephyrs"
           ],
           "immunities": [
-            "Wound",
-            "Poison",
-            "Disarm",
-            "Immobilize",
-            "Stun"
+            "%wound%",
+            "%poison%",
+            "%disarm%",
+            "%immobilize%",
+            "%stun%"
           ],
           "notes": ""
         },
@@ -6671,17 +6671,17 @@ MONSTER_STATS = {
           "attack": 5,
           "range": 0,
           "special1": [
-            "Attack +0 {{resources.elderDrake.special1Area}}"
+            "%attack% +0 {{resources.elderDrake.special1Area}}"
           ],
           "special2": [
-            "Move and summon 2 Zephyrs"
+            "%move% and summon 2 Zephyrs"
           ],
           "immunities": [
-            "Wound",
-            "Poison",
-            "Disarm",
-            "Immobilize",
-            "Stun"
+            "%wound%",
+            "%poison%",
+            "%disarm%",
+            "%immobilize%",
+            "%stun%"
           ],
           "notes": ""
         },
@@ -6692,17 +6692,17 @@ MONSTER_STATS = {
           "attack": 6,
           "range": 0,
           "special1": [
-            "Attack +0 {{resources.elderDrake.special1Area}}"
+            "%attack% +0 {{resources.elderDrake.special1Area}}"
           ],
           "special2": [
-            "Move and summon 2 Zephyrs"
+            "%move% and summon 2 Zephyrs"
           ],
           "immunities": [
-            "Wound",
-            "Poison",
-            "Disarm",
-            "Immobilize",
-            "Stun"
+            "%wound%",
+            "%poison%",
+            "%disarm%",
+            "%immobilize%",
+            "%stun%"
           ],
           "notes": ""
         },
@@ -6713,17 +6713,17 @@ MONSTER_STATS = {
           "attack": 6,
           "range": 0,
           "special1": [
-            "Attack +0 {{resources.elderDrake.special1Area}}"
+            "%attack% +0 {{resources.elderDrake.special1Area}}"
           ],
           "special2": [
-            "Move and summon 2 Zephyrs"
+            "%move% and summon 2 Zephyrs"
           ],
           "immunities": [
-            "Wound",
-            "Poison",
-            "Disarm",
-            "Immobilize",
-            "Stun"
+            "%wound%",
+            "%poison%",
+            "%disarm%",
+            "%immobilize%",
+            "%stun%"
           ],
           "notes": ""
         },
@@ -6734,17 +6734,17 @@ MONSTER_STATS = {
           "attack": 7,
           "range": 0,
           "special1": [
-            "Attack +0 {{resources.elderDrake.special1Area}}"
+            "%attack% +0 {{resources.elderDrake.special1Area}}"
           ],
           "special2": [
-            "Move and summon 2 Zephyrs"
+            "%move% and summon 2 Zephyrs"
           ],
           "immunities": [
-            "Wound",
-            "Poison",
-            "Disarm",
-            "Immobilize",
-            "Stun"
+            "%wound%",
+            "%poison%",
+            "%disarm%",
+            "%immobilize%",
+            "%stun%"
           ],
           "notes": ""
         }
@@ -6759,25 +6759,25 @@ MONSTER_STATS = {
           "attack": 5,
           "range": 0,
           "special1": [
-            "Move +9",
-            "Attack +9"
+            "%move% +9",
+            "%attack% +9"
           ],
           "special2": [
             "Teleport",
-            "Attack +1",
-            "Range 5",
-            "Poison",
-            "Wound",
-            "Stun"
+            "%attack% +1",
+            "%range% 5",
+            "%poison%",
+            "%wound%",
+            "%stun%"
           ],
           "immunities": [
-            "Wound",
-            "Poison",
-            "Disarm",
-            "Immobilize",
-            "Muddle",
-            "Stun",
-            "Curse"
+            "%wound%",
+            "%poison%",
+            "%disarm%",
+            "%immobilize%",
+            "%muddle%",
+            "%stun%",
+            "%curse%"
           ],
           "notes": ""
         },
@@ -6788,25 +6788,25 @@ MONSTER_STATS = {
           "attack": 5,
           "range": 0,
           "special1": [
-            "Move +9",
-            "Attack +9"
+            "%move% +9",
+            "%attack% +9"
           ],
           "special2": [
             "Teleport",
-            "Attack +1",
-            "Range 5",
-            "Poison",
-            "Wound",
-            "Stun"
+            "%attack% +1",
+            "%range% 5",
+            "%poison%",
+            "%wound%",
+            "%stun%"
           ],
           "immunities": [
-            "Wound",
-            "Poison",
-            "Disarm",
-            "Immobilize",
-            "Muddle",
-            "Stun",
-            "Curse"
+            "%wound%",
+            "%poison%",
+            "%disarm%",
+            "%immobilize%",
+            "%muddle%",
+            "%stun%",
+            "%curse%"
           ],
           "notes": ""
         },
@@ -6817,25 +6817,25 @@ MONSTER_STATS = {
           "attack": 6,
           "range": 0,
           "special1": [
-            "Move +9",
-            "Attack +9"
+            "%move% +9",
+            "%attack% +9"
           ],
           "special2": [
             "Teleport",
-            "Attack +1",
-            "Range 5",
-            "Poison",
-            "Wound",
-            "Stun"
+            "%attack% +1",
+            "%range% 5",
+            "%poison%",
+            "%wound%",
+            "%stun%"
           ],
           "immunities": [
-            "Wound",
-            "Poison",
-            "Disarm",
-            "Immobilize",
-            "Muddle",
-            "Stun",
-            "Curse"
+            "%wound%",
+            "%poison%",
+            "%disarm%",
+            "%immobilize%",
+            "%muddle%",
+            "%stun%",
+            "%curse%"
           ],
           "notes": ""
         },
@@ -6846,25 +6846,25 @@ MONSTER_STATS = {
           "attack": 6,
           "range": 0,
           "special1": [
-            "Move +9",
-            "Attack +9"
+            "%move% +9",
+            "%attack% +9"
           ],
           "special2": [
             "Teleport",
-            "Attack +1",
-            "Range 5",
-            "Poison",
-            "Wound",
-            "Stun"
+            "%attack% +1",
+            "%range% 5",
+            "%poison%",
+            "%wound%",
+            "%stun%"
           ],
           "immunities": [
-            "Wound",
-            "Poison",
-            "Disarm",
-            "Immobilize",
-            "Muddle",
-            "Stun",
-            "Curse"
+            "%wound%",
+            "%poison%",
+            "%disarm%",
+            "%immobilize%",
+            "%muddle%",
+            "%stun%",
+            "%curse%"
           ],
           "notes": ""
         },
@@ -6875,25 +6875,25 @@ MONSTER_STATS = {
           "attack": 7,
           "range": 0,
           "special1": [
-            "Move +9",
-            "Attack +9"
+            "%move% +9",
+            "%attack% +9"
           ],
           "special2": [
             "Teleport",
-            "Attack +1",
-            "Range 5",
-            "Poison",
-            "Wound",
-            "Stun"
+            "%attack% +1",
+            "%range% 5",
+            "%poison%",
+            "%wound%",
+            "%stun%"
           ],
           "immunities": [
-            "Wound",
-            "Poison",
-            "Disarm",
-            "Immobilize",
-            "Muddle",
-            "Stun",
-            "Curse"
+            "%wound%",
+            "%poison%",
+            "%disarm%",
+            "%immobilize%",
+            "%muddle%",
+            "%stun%",
+            "%curse%"
           ],
           "notes": ""
         },
@@ -6904,25 +6904,25 @@ MONSTER_STATS = {
           "attack": 7,
           "range": 0,
           "special1": [
-            "Move +9",
-            "Attack +9"
+            "%move% +9",
+            "%attack% +9"
           ],
           "special2": [
             "Teleport",
-            "Attack +1",
-            "Range 5",
-            "Poison",
-            "Wound",
-            "Stun"
+            "%attack% +1",
+            "%range% 5",
+            "%poison%",
+            "%wound%",
+            "%stun%"
           ],
           "immunities": [
-            "Wound",
-            "Poison",
-            "Disarm",
-            "Immobilize",
-            "Muddle",
-            "Stun",
-            "Curse"
+            "%wound%",
+            "%poison%",
+            "%disarm%",
+            "%immobilize%",
+            "%muddle%",
+            "%stun%",
+            "%curse%"
           ],
           "notes": ""
         },
@@ -6933,25 +6933,25 @@ MONSTER_STATS = {
           "attack": 8,
           "range": 0,
           "special1": [
-            "Move +9",
-            "Attack +9"
+            "%move% +9",
+            "%attack% +9"
           ],
           "special2": [
             "Teleport",
-            "Attack +1",
-            "Range 5",
-            "Poison",
-            "Wound",
-            "Stun"
+            "%attack% +1",
+            "%range% 5",
+            "%poison%",
+            "%wound%",
+            "%stun%"
           ],
           "immunities": [
-            "Wound",
-            "Poison",
-            "Disarm",
-            "Immobilize",
-            "Muddle",
-            "Stun",
-            "Curse"
+            "%wound%",
+            "%poison%",
+            "%disarm%",
+            "%immobilize%",
+            "%muddle%",
+            "%stun%",
+            "%curse%"
           ],
           "notes": ""
         },
@@ -6962,25 +6962,25 @@ MONSTER_STATS = {
           "attack": 9,
           "range": 0,
           "special1": [
-            "Move +9",
-            "Attack +9"
+            "%move% +9",
+            "%attack% +9"
           ],
           "special2": [
             "Teleport",
-            "Attack +1",
-            "Range 5",
-            "Poison",
-            "Wound",
-            "Stun"
+            "%attack% +1",
+            "%range% 5",
+            "%poison%",
+            "%wound%",
+            "%stun%"
           ],
           "immunities": [
-            "Wound",
-            "Poison",
-            "Disarm",
-            "Immobilize",
-            "Muddle",
-            "Stun",
-            "Curse"
+            "%wound%",
+            "%poison%",
+            "%disarm%",
+            "%immobilize%",
+            "%muddle%",
+            "%stun%",
+            "%curse%"
           ],
           "notes": ""
         }
@@ -6995,19 +6995,19 @@ MONSTER_STATS = {
           "attack": "C",
           "range": 0,
           "special1": [
-            "Move -1",
-            "Attack -1 {{resources.inoxBodyguard.special1Area}}"
+            "%move% -1",
+            "%attack% -1 {{resources.inoxBodyguard.special1Area}}"
           ],
           "special2": [
-            "Move +0",
-            "Attack +0",
-            "Retaliate 3"
+            "%move% +0",
+            "%attack% +0",
+            "%retaliate% 3"
           ],
           "immunities": [
-            "Disarm",
-            "Poison",
-            "Muddle",
-            "Stun"
+            "%disarm%",
+            "%poison%",
+            "%muddle%",
+            "%stun%"
           ],
           "notes": ""
         },
@@ -7018,19 +7018,19 @@ MONSTER_STATS = {
           "attack": "1+C",
           "range": 0,
           "special1": [
-            "Move -1",
-            "Attack -1 {{resources.inoxBodyguard.special1Area}}"
+            "%move% -1",
+            "%attack% -1 {{resources.inoxBodyguard.special1Area}}"
           ],
           "special2": [
-            "Move +0",
-            "Attack +0",
-            "Retaliate 3"
+            "%move% +0",
+            "%attack% +0",
+            "%retaliate% 3"
           ],
           "immunities": [
-            "Disarm",
-            "Poison",
-            "Muddle",
-            "Stun"
+            "%disarm%",
+            "%poison%",
+            "%muddle%",
+            "%stun%"
           ],
           "notes": ""
         },
@@ -7041,19 +7041,19 @@ MONSTER_STATS = {
           "attack": "1+C",
           "range": 0,
           "special1": [
-            "Move -1",
-            "Attack -1 {{resources.inoxBodyguard.special1Area}}"
+            "%move% -1",
+            "%attack% -1 {{resources.inoxBodyguard.special1Area}}"
           ],
           "special2": [
-            "Move +0",
-            "Attack +0",
-            "Retaliate 3"
+            "%move% +0",
+            "%attack% +0",
+            "%retaliate% 3"
           ],
           "immunities": [
-            "Disarm",
-            "Poison",
-            "Muddle",
-            "Stun"
+            "%disarm%",
+            "%poison%",
+            "%muddle%",
+            "%stun%"
           ],
           "notes": ""
         },
@@ -7064,19 +7064,19 @@ MONSTER_STATS = {
           "attack": "2+C",
           "range": 0,
           "special1": [
-            "Move -1",
-            "Attack -1 {{resources.inoxBodyguard.special1Area}}"
+            "%move% -1",
+            "%attack% -1 {{resources.inoxBodyguard.special1Area}}"
           ],
           "special2": [
-            "Move +0",
-            "Attack +0",
-            "Retaliate 4"
+            "%move% +0",
+            "%attack% +0",
+            "%retaliate% 4"
           ],
           "immunities": [
-            "Disarm",
-            "Poison",
-            "Muddle",
-            "Stun"
+            "%disarm%",
+            "%poison%",
+            "%muddle%",
+            "%stun%"
           ],
           "notes": ""
         },
@@ -7087,19 +7087,19 @@ MONSTER_STATS = {
           "attack": "2+C",
           "range": 0,
           "special1": [
-            "Move -1",
-            "Attack -1 {{resources.inoxBodyguard.special1Area}}"
+            "%move% -1",
+            "%attack% -1 {{resources.inoxBodyguard.special1Area}}"
           ],
           "special2": [
-            "Move +0",
-            "Attack +0",
-            "Retaliate 4"
+            "%move% +0",
+            "%attack% +0",
+            "%retaliate% 4"
           ],
           "immunities": [
-            "Disarm",
-            "Poison",
-            "Muddle",
-            "Stun"
+            "%disarm%",
+            "%poison%",
+            "%muddle%",
+            "%stun%"
           ],
           "notes": ""
         },
@@ -7110,19 +7110,19 @@ MONSTER_STATS = {
           "attack": "3+C",
           "range": 0,
           "special1": [
-            "Move -1",
-            "Attack -1 {{resources.inoxBodyguard.special1Area}}"
+            "%move% -1",
+            "%attack% -1 {{resources.inoxBodyguard.special1Area}}"
           ],
           "special2": [
-            "Move +0",
-            "Attack +0",
-            "Retaliate 5"
+            "%move% +0",
+            "%attack% +0",
+            "%retaliate% 5"
           ],
           "immunities": [
-            "Disarm",
-            "Poison",
-            "Muddle",
-            "Stun"
+            "%disarm%",
+            "%poison%",
+            "%muddle%",
+            "%stun%"
           ],
           "notes": ""
         },
@@ -7133,19 +7133,19 @@ MONSTER_STATS = {
           "attack": "3+C",
           "range": 0,
           "special1": [
-            "Move -1",
-            "Attack -1 {{resources.inoxBodyguard.special1Area}}"
+            "%move% -1",
+            "%attack% -1 {{resources.inoxBodyguard.special1Area}}"
           ],
           "special2": [
-            "Move +0",
-            "Attack +0",
-            "Retaliate 5"
+            "%move% +0",
+            "%attack% +0",
+            "%retaliate% 5"
           ],
           "immunities": [
-            "Disarm",
-            "Poison",
-            "Muddle",
-            "Stun"
+            "%disarm%",
+            "%poison%",
+            "%muddle%",
+            "%stun%"
           ],
           "notes": ""
         },
@@ -7156,19 +7156,19 @@ MONSTER_STATS = {
           "attack": "4+C",
           "range": 0,
           "special1": [
-            "Move -1",
-            "Attack -1 {{resources.inoxBodyguard.special1Area}}"
+            "%move% -1",
+            "%attack% -1 {{resources.inoxBodyguard.special1Area}}"
           ],
           "special2": [
-            "Move +0",
-            "Attack +0",
-            "Retaliate 5"
+            "%move% +0",
+            "%attack% +0",
+            "%retaliate% 5"
           ],
           "immunities": [
-            "Disarm",
-            "Poison",
-            "Muddle",
-            "Stun"
+            "%disarm%",
+            "%poison%",
+            "%muddle%",
+            "%stun%"
           ],
           "notes": ""
         }
@@ -7184,18 +7184,18 @@ MONSTER_STATS = {
           "range": 0,
           "special1": [
             "Summon Living Bones",
-            "Attack -1, Target all adjacent enemies"
+            "%attack% -1, Target all adjacent enemies"
           ],
           "special2": [
             "Summon Living Corpse",
-            "Move -1",
-            "Attack +2"
+            "%move% -1",
+            "%attack% +2"
           ],
           "immunities": [
-            "Disarm",
-            "Wound",
-            "Curse",
-            "Stun"
+            "%disarm%",
+            "%wound%",
+            "%curse%",
+            "%stun%"
           ],
           "notes": ""
         },
@@ -7207,18 +7207,18 @@ MONSTER_STATS = {
           "range": 0,
           "special1": [
             "Summon Living Bones",
-            "Attack -1, Target all adjacent enemies"
+            "%attack% -1, Target all adjacent enemies"
           ],
           "special2": [
             "Summon Living Corpse",
-            "Move -1",
-            "Attack +2"
+            "%move% -1",
+            "%attack% +2"
           ],
           "immunities": [
-            "Disarm",
-            "Wound",
-            "Curse",
-            "Stun"
+            "%disarm%",
+            "%wound%",
+            "%curse%",
+            "%stun%"
           ],
           "notes": ""
         },
@@ -7230,18 +7230,18 @@ MONSTER_STATS = {
           "range": 0,
           "special1": [
             "Summon Living Bones",
-            "Attack -1, Target all adjacent enemies"
+            "%attack% -1, Target all adjacent enemies"
           ],
           "special2": [
             "Summon Living Corpse",
-            "Move -1",
-            "Attack +2"
+            "%move% -1",
+            "%attack% +2"
           ],
           "immunities": [
-            "Disarm",
-            "Wound",
-            "Curse",
-            "Stun"
+            "%disarm%",
+            "%wound%",
+            "%curse%",
+            "%stun%"
           ],
           "notes": ""
         },
@@ -7253,18 +7253,18 @@ MONSTER_STATS = {
           "range": 0,
           "special1": [
             "Summon Living Bones",
-            "Attack -1, Target all adjacent enemies"
+            "%attack% -1, Target all adjacent enemies"
           ],
           "special2": [
             "Summon Living Corpse",
-            "Move -1",
-            "Attack +2"
+            "%move% -1",
+            "%attack% +2"
           ],
           "immunities": [
-            "Disarm",
-            "Wound",
-            "Curse",
-            "Stun"
+            "%disarm%",
+            "%wound%",
+            "%curse%",
+            "%stun%"
           ],
           "notes": ""
         },
@@ -7276,18 +7276,18 @@ MONSTER_STATS = {
           "range": 0,
           "special1": [
             "Summon Living Bones",
-            "Attack -1, Target all adjacent enemies"
+            "%attack% -1, Target all adjacent enemies"
           ],
           "special2": [
             "Summon Living Corpse",
-            "Move -1",
-            "Attack +2"
+            "%move% -1",
+            "%attack% +2"
           ],
           "immunities": [
-            "Disarm",
-            "Wound",
-            "Curse",
-            "Stun"
+            "%disarm%",
+            "%wound%",
+            "%curse%",
+            "%stun%"
           ],
           "notes": ""
         },
@@ -7299,18 +7299,18 @@ MONSTER_STATS = {
           "range": 0,
           "special1": [
             "Summon Living Bones",
-            "Attack -1, Target all adjacent enemies"
+            "%attack% -1, Target all adjacent enemies"
           ],
           "special2": [
             "Summon Living Corpse",
-            "Move -1",
-            "Attack +2"
+            "%move% -1",
+            "%attack% +2"
           ],
           "immunities": [
-            "Disarm",
-            "Wound",
-            "Curse",
-            "Stun"
+            "%disarm%",
+            "%wound%",
+            "%curse%",
+            "%stun%"
           ],
           "notes": ""
         },
@@ -7322,18 +7322,18 @@ MONSTER_STATS = {
           "range": 0,
           "special1": [
             "Summon Living Bones",
-            "Attack -1, Target all adjacent enemies"
+            "%attack% -1, Target all adjacent enemies"
           ],
           "special2": [
             "Summon Living Corpse",
-            "Move -1",
-            "Attack +2"
+            "%move% -1",
+            "%attack% +2"
           ],
           "immunities": [
-            "Disarm",
-            "Wound",
-            "Curse",
-            "Stun"
+            "%disarm%",
+            "%wound%",
+            "%curse%",
+            "%stun%"
           ],
           "notes": ""
         },
@@ -7345,18 +7345,18 @@ MONSTER_STATS = {
           "range": 0,
           "special1": [
             "Summon Living Bones",
-            "Attack -1, Target all adjacent enemies"
+            "%attack% -1, Target all adjacent enemies"
           ],
           "special2": [
             "Summon Living Corpse",
-            "Move -1",
-            "Attack +2"
+            "%move% -1",
+            "%attack% +2"
           ],
           "immunities": [
-            "Disarm",
-            "Wound",
-            "Curse",
-            "Stun"
+            "%disarm%",
+            "%wound%",
+            "%curse%",
+            "%stun%"
           ],
           "notes": ""
         }
@@ -7377,10 +7377,10 @@ MONSTER_STATS = {
             "Summon Vermling Scout"
           ],
           "immunities": [
-            "Disarm",
-            "Wound",
-            "Curse",
-            "Stun"
+            "%disarm%",
+            "%wound%",
+            "%curse%",
+            "%stun%"
           ],
           "notes": "V = Number of Scouts present"
         },
@@ -7397,10 +7397,10 @@ MONSTER_STATS = {
             "Summon Vermling Scout"
           ],
           "immunities": [
-            "Disarm",
-            "Wound",
-            "Curse",
-            "Stun"
+            "%disarm%",
+            "%wound%",
+            "%curse%",
+            "%stun%"
           ],
           "notes": "V = Number of Scouts present"
         },
@@ -7417,10 +7417,10 @@ MONSTER_STATS = {
             "Summon Vermling Scout"
           ],
           "immunities": [
-            "Disarm",
-            "Wound",
-            "Curse",
-            "Stun"
+            "%disarm%",
+            "%wound%",
+            "%curse%",
+            "%stun%"
           ],
           "notes": "V = Number of Scouts present"
         },
@@ -7437,10 +7437,10 @@ MONSTER_STATS = {
             "Summon Vermling Scout"
           ],
           "immunities": [
-            "Disarm",
-            "Wound",
-            "Curse",
-            "Stun"
+            "%disarm%",
+            "%wound%",
+            "%curse%",
+            "%stun%"
           ],
           "notes": "V = Number of Scouts present"
         },
@@ -7457,10 +7457,10 @@ MONSTER_STATS = {
             "Summon Vermling Scout"
           ],
           "immunities": [
-            "Disarm",
-            "Wound",
-            "Curse",
-            "Stun"
+            "%disarm%",
+            "%wound%",
+            "%curse%",
+            "%stun%"
           ],
           "notes": "V = Number of Scouts present"
         },
@@ -7477,10 +7477,10 @@ MONSTER_STATS = {
             "Summon Vermling Scout"
           ],
           "immunities": [
-            "Disarm",
-            "Wound",
-            "Curse",
-            "Stun"
+            "%disarm%",
+            "%wound%",
+            "%curse%",
+            "%stun%"
           ],
           "notes": "V = Number of Scouts present"
         },
@@ -7497,10 +7497,10 @@ MONSTER_STATS = {
             "Summon Vermling Scout"
           ],
           "immunities": [
-            "Disarm",
-            "Wound",
-            "Curse",
-            "Stun"
+            "%disarm%",
+            "%wound%",
+            "%curse%",
+            "%stun%"
           ],
           "notes": "V = Number of Scouts present"
         },
@@ -7517,10 +7517,10 @@ MONSTER_STATS = {
             "Summon Vermling Scout"
           ],
           "immunities": [
-            "Disarm",
-            "Wound",
-            "Curse",
-            "Stun"
+            "%disarm%",
+            "%wound%",
+            "%curse%",
+            "%stun%"
           ],
           "notes": "V = Number of Scouts present"
         }
@@ -7537,22 +7537,22 @@ MONSTER_STATS = {
           "special1": [
             "Throne moves",
             "Summon Demon",
-            "Move +2",
-            "Attack -1"
+            "%move% +2",
+            "%attack% -1"
           ],
           "special2": [
             "Throne moves",
             "Summon Demon",
-            "Move +2",
-            "Attack -1"
+            "%move% +2",
+            "%attack% -1"
           ],
           "immunities": [
-            "Wound",
-            "Poison",
-            "Disarm",
-            "Immobilize",
-            "Muddle",
-            "Stun"
+            "%wound%",
+            "%poison%",
+            "%disarm%",
+            "%immobilize%",
+            "%muddle%",
+            "%stun%"
           ],
           "notes": ""
         },
@@ -7565,22 +7565,22 @@ MONSTER_STATS = {
           "special1": [
             "Throne moves",
             "Summon Demon",
-            "Move +2",
-            "Attack -1"
+            "%move% +2",
+            "%attack% -1"
           ],
           "special2": [
             "Throne moves",
             "Summon Demon",
-            "Move +2",
-            "Attack -1"
+            "%move% +2",
+            "%attack% -1"
           ],
           "immunities": [
-            "Wound",
-            "Poison",
-            "Disarm",
-            "Immobilize",
-            "Muddle",
-            "Stun"
+            "%wound%",
+            "%poison%",
+            "%disarm%",
+            "%immobilize%",
+            "%muddle%",
+            "%stun%"
           ],
           "notes": ""
         },
@@ -7593,22 +7593,22 @@ MONSTER_STATS = {
           "special1": [
             "Throne moves",
             "Summon Demon",
-            "Move +2",
-            "Attack -1"
+            "%move% +2",
+            "%attack% -1"
           ],
           "special2": [
             "Throne moves",
             "Summon Demon",
-            "Move +2",
-            "Attack -1"
+            "%move% +2",
+            "%attack% -1"
           ],
           "immunities": [
-            "Wound",
-            "Poison",
-            "Disarm",
-            "Immobilize",
-            "Muddle",
-            "Stun"
+            "%wound%",
+            "%poison%",
+            "%disarm%",
+            "%immobilize%",
+            "%muddle%",
+            "%stun%"
           ],
           "notes": ""
         },
@@ -7621,22 +7621,22 @@ MONSTER_STATS = {
           "special1": [
             "Throne moves",
             "Summon Demon",
-            "Move +2",
-            "Attack -1"
+            "%move% +2",
+            "%attack% -1"
           ],
           "special2": [
             "Throne moves",
             "Summon Demon",
-            "Move +2",
-            "Attack -1"
+            "%move% +2",
+            "%attack% -1"
           ],
           "immunities": [
-            "Wound",
-            "Poison",
-            "Disarm",
-            "Immobilize",
-            "Muddle",
-            "Stun"
+            "%wound%",
+            "%poison%",
+            "%disarm%",
+            "%immobilize%",
+            "%muddle%",
+            "%stun%"
           ],
           "notes": ""
         },
@@ -7649,22 +7649,22 @@ MONSTER_STATS = {
           "special1": [
             "Throne moves",
             "Summon Demon",
-            "Move +2",
-            "Attack -1"
+            "%move% +2",
+            "%attack% -1"
           ],
           "special2": [
             "Throne moves",
             "Summon Demon",
-            "Move +2",
-            "Attack -1"
+            "%move% +2",
+            "%attack% -1"
           ],
           "immunities": [
-            "Wound",
-            "Poison",
-            "Disarm",
-            "Immobilize",
-            "Muddle",
-            "Stun"
+            "%wound%",
+            "%poison%",
+            "%disarm%",
+            "%immobilize%",
+            "%muddle%",
+            "%stun%"
           ],
           "notes": ""
         },
@@ -7677,22 +7677,22 @@ MONSTER_STATS = {
           "special1": [
             "Throne moves",
             "Summon Demon",
-            "Move +2",
-            "Attack -1"
+            "%move% +2",
+            "%attack% -1"
           ],
           "special2": [
             "Throne moves",
             "Summon Demon",
-            "Move +2",
-            "Attack -1"
+            "%move% +2",
+            "%attack% -1"
           ],
           "immunities": [
-            "Wound",
-            "Poison",
-            "Disarm",
-            "Immobilize",
-            "Muddle",
-            "Stun"
+            "%wound%",
+            "%poison%",
+            "%disarm%",
+            "%immobilize%",
+            "%muddle%",
+            "%stun%"
           ],
           "notes": ""
         },
@@ -7705,22 +7705,22 @@ MONSTER_STATS = {
           "special1": [
             "Throne moves",
             "Summon Demon",
-            "Move +2",
-            "Attack -1"
+            "%move% +2",
+            "%attack% -1"
           ],
           "special2": [
             "Throne moves",
             "Summon Demon",
-            "Move +2",
-            "Attack -1"
+            "%move% +2",
+            "%attack% -1"
           ],
           "immunities": [
-            "Wound",
-            "Poison",
-            "Disarm",
-            "Immobilize",
-            "Muddle",
-            "Stun"
+            "%wound%",
+            "%poison%",
+            "%disarm%",
+            "%immobilize%",
+            "%muddle%",
+            "%stun%"
           ],
           "notes": ""
         },
@@ -7733,22 +7733,22 @@ MONSTER_STATS = {
           "special1": [
             "Throne moves",
             "Summon Demon",
-            "Move +2",
-            "Attack -1"
+            "%move% +2",
+            "%attack% -1"
           ],
           "special2": [
             "Throne moves",
             "Summon Demon",
-            "Move +2",
-            "Attack -1"
+            "%move% +2",
+            "%attack% -1"
           ],
           "immunities": [
-            "Wound",
-            "Poison",
-            "Disarm",
-            "Immobilize",
-            "Muddle",
-            "Stun"
+            "%wound%",
+            "%poison%",
+            "%disarm%",
+            "%immobilize%",
+            "%muddle%",
+            "%stun%"
           ],
           "notes": ""
         }
@@ -7764,17 +7764,17 @@ MONSTER_STATS = {
           "range": 3,
           "special1": [
             "Summon Deep Terror",
-            "Attack -3 {{resources.sightlessEye.special1Area}}"
+            "%attack% -3 {{resources.sightlessEye.special1Area}}"
           ],
           "special2": [
             "Summon Deep Terror",
-            "Attack -2 {{resources.sightlessEye.special2Area}}"
+            "%attack% -2 {{resources.sightlessEye.special2Area}}"
           ],
           "immunities": [
-            "Stun",
-            "Disarm",
-            "Curse",
-            "Muddle"
+            "%stun%",
+            "%disarm%",
+            "%curse%",
+            "%muddle%"
           ],
           "notes": ""
         },
@@ -7786,17 +7786,17 @@ MONSTER_STATS = {
           "range": 3,
           "special1": [
             "Summon Deep Terror",
-            "Attack -3 {{resources.sightlessEye.special1Area}}"
+            "%attack% -3 {{resources.sightlessEye.special1Area}}"
           ],
           "special2": [
             "Summon Deep Terror",
-            "Attack -2 {{resources.sightlessEye.special2Area}}"
+            "%attack% -2 {{resources.sightlessEye.special2Area}}"
           ],
           "immunities": [
-            "Stun",
-            "Disarm",
-            "Curse",
-            "Muddle"
+            "%stun%",
+            "%disarm%",
+            "%curse%",
+            "%muddle%"
           ],
           "notes": ""
         },
@@ -7808,17 +7808,17 @@ MONSTER_STATS = {
           "range": 3,
           "special1": [
             "Summon Deep Terror",
-            "Attack -3 {{resources.sightlessEye.special1Area}}"
+            "%attack% -3 {{resources.sightlessEye.special1Area}}"
           ],
           "special2": [
             "Summon Deep Terror",
-            "Attack -2 {{resources.sightlessEye.special2Area}}"
+            "%attack% -2 {{resources.sightlessEye.special2Area}}"
           ],
           "immunities": [
-            "Stun",
-            "Disarm",
-            "Curse",
-            "Muddle"
+            "%stun%",
+            "%disarm%",
+            "%curse%",
+            "%muddle%"
           ],
           "notes": ""
         },
@@ -7830,17 +7830,17 @@ MONSTER_STATS = {
           "range": 3,
           "special1": [
             "Summon Deep Terror",
-            "Attack -3 {{resources.sightlessEye.special1Area}}"
+            "%attack% -3 {{resources.sightlessEye.special1Area}}"
           ],
           "special2": [
             "Summon Deep Terror",
-            "Attack -2 {{resources.sightlessEye.special2Area}}"
+            "%attack% -2 {{resources.sightlessEye.special2Area}}"
           ],
           "immunities": [
-            "Stun",
-            "Disarm",
-            "Curse",
-            "Muddle"
+            "%stun%",
+            "%disarm%",
+            "%curse%",
+            "%muddle%"
           ],
           "notes": ""
         },
@@ -7852,17 +7852,17 @@ MONSTER_STATS = {
           "range": 3,
           "special1": [
             "Summon Deep Terror",
-            "Attack -3 {{resources.sightlessEye.special1Area}}"
+            "%attack% -3 {{resources.sightlessEye.special1Area}}"
           ],
           "special2": [
             "Summon Deep Terror",
-            "Attack -2 {{resources.sightlessEye.special2Area}}"
+            "%attack% -2 {{resources.sightlessEye.special2Area}}"
           ],
           "immunities": [
-            "Stun",
-            "Disarm",
-            "Curse",
-            "Muddle"
+            "%stun%",
+            "%disarm%",
+            "%curse%",
+            "%muddle%"
           ],
           "notes": ""
         },
@@ -7874,17 +7874,17 @@ MONSTER_STATS = {
           "range": 3,
           "special1": [
             "Summon Deep Terror",
-            "Attack -3 {{resources.sightlessEye.special1Area}}"
+            "%attack% -3 {{resources.sightlessEye.special1Area}}"
           ],
           "special2": [
             "Summon Deep Terror",
-            "Attack -2 {{resources.sightlessEye.special2Area}}"
+            "%attack% -2 {{resources.sightlessEye.special2Area}}"
           ],
           "immunities": [
-            "Stun",
-            "Disarm",
-            "Curse",
-            "Muddle"
+            "%stun%",
+            "%disarm%",
+            "%curse%",
+            "%muddle%"
           ],
           "notes": ""
         },
@@ -7896,17 +7896,17 @@ MONSTER_STATS = {
           "range": 3,
           "special1": [
             "Summon Deep Terror",
-            "Attack -3 {{resources.sightlessEye.special1Area}}"
+            "%attack% -3 {{resources.sightlessEye.special1Area}}"
           ],
           "special2": [
             "Summon Deep Terror",
-            "Attack -2 {{resources.sightlessEye.special2Area}}"
+            "%attack% -2 {{resources.sightlessEye.special2Area}}"
           ],
           "immunities": [
-            "Stun",
-            "Disarm",
-            "Curse",
-            "Muddle"
+            "%stun%",
+            "%disarm%",
+            "%curse%",
+            "%muddle%"
           ],
           "notes": ""
         },
@@ -7918,17 +7918,17 @@ MONSTER_STATS = {
           "range": 3,
           "special1": [
             "Summon Deep Terror",
-            "Attack -3 {{resources.sightlessEye.special1Area}}"
+            "%attack% -3 {{resources.sightlessEye.special1Area}}"
           ],
           "special2": [
             "Summon Deep Terror",
-            "Attack -2 {{resources.sightlessEye.special2Area}}"
+            "%attack% -2 {{resources.sightlessEye.special2Area}}"
           ],
           "immunities": [
-            "Stun",
-            "Disarm",
-            "Curse",
-            "Muddle"
+            "%stun%",
+            "%disarm%",
+            "%curse%",
+            "%muddle%"
           ],
           "notes": ""
         }
@@ -7943,21 +7943,21 @@ MONSTER_STATS = {
           "attack": 3,
           "range": 0,
           "special1": [
-            "Attack -1, Target all adjacent enemies",
-            "Attack +0, Range 3",
+            "%attack% -1, Target all adjacent enemies",
+            "%attack% +0, %range% 3",
             "Hatch eggs"
           ],
           "special2": [
             "Summon C eggs",
-            "Move -1",
-            "Attack +0"
+            "%move% -1",
+            "%attack% +0"
           ],
           "immunities": [
-            "Disarm",
-            "Poison",
-            "Muddle",
-            "Stun",
-            "Curse"
+            "%disarm%",
+            "%poison%",
+            "%muddle%",
+            "%stun%",
+            "%curse%"
           ],
           "notes": ""
         },
@@ -7968,21 +7968,21 @@ MONSTER_STATS = {
           "attack": 3,
           "range": 0,
           "special1": [
-            "Attack -1, Target all adjacent enemies",
-            "Attack +0, Range 3",
+            "%attack% -1, Target all adjacent enemies",
+            "%attack% +0, %range% 3",
             "Hatch eggs"
           ],
           "special2": [
             "Summon C eggs",
-            "Move -1",
-            "Attack +0"
+            "%move% -1",
+            "%attack% +0"
           ],
           "immunities": [
-            "Disarm",
-            "Poison",
-            "Muddle",
-            "Stun",
-            "Curse"
+            "%disarm%",
+            "%poison%",
+            "%muddle%",
+            "%stun%",
+            "%curse%"
           ],
           "notes": ""
         },
@@ -7993,21 +7993,21 @@ MONSTER_STATS = {
           "attack": 4,
           "range": 0,
           "special1": [
-            "Attack -1, Target all adjacent enemies",
-            "Attack +0, Range 3",
+            "%attack% -1, Target all adjacent enemies",
+            "%attack% +0, %range% 3",
             "Hatch eggs"
           ],
           "special2": [
             "Summon C eggs",
-            "Move -1",
-            "Attack +0"
+            "%move% -1",
+            "%attack% +0"
           ],
           "immunities": [
-            "Disarm",
-            "Poison",
-            "Muddle",
-            "Stun",
-            "Curse"
+            "%disarm%",
+            "%poison%",
+            "%muddle%",
+            "%stun%",
+            "%curse%"
           ],
           "notes": ""
         },
@@ -8018,21 +8018,21 @@ MONSTER_STATS = {
           "attack": 4,
           "range": 0,
           "special1": [
-            "Attack -1, Target all adjacent enemies",
-            "Attack +0, Range 3",
+            "%attack% -1, Target all adjacent enemies",
+            "%attack% +0, %range% 3",
             "Hatch eggs"
           ],
           "special2": [
             "Summon C eggs",
-            "Move -1",
-            "Attack +0"
+            "%move% -1",
+            "%attack% +0"
           ],
           "immunities": [
-            "Disarm",
-            "Poison",
-            "Muddle",
-            "Stun",
-            "Curse"
+            "%disarm%",
+            "%poison%",
+            "%muddle%",
+            "%stun%",
+            "%curse%"
           ],
           "notes": ""
         },
@@ -8043,21 +8043,21 @@ MONSTER_STATS = {
           "attack": 4,
           "range": 0,
           "special1": [
-            "Attack -1, Target all adjacent enemies",
-            "Attack +0, Range 3",
+            "%attack% -1, Target all adjacent enemies",
+            "%attack% +0, %range% 3",
             "Hatch eggs"
           ],
           "special2": [
             "Summon C eggs",
-            "Move -1",
-            "Attack +0"
+            "%move% -1",
+            "%attack% +0"
           ],
           "immunities": [
-            "Disarm",
-            "Poison",
-            "Muddle",
-            "Stun",
-            "Curse"
+            "%disarm%",
+            "%poison%",
+            "%muddle%",
+            "%stun%",
+            "%curse%"
           ],
           "notes": ""
         },
@@ -8068,21 +8068,21 @@ MONSTER_STATS = {
           "attack": 5,
           "range": 0,
           "special1": [
-            "Attack -1, Target all adjacent enemies",
-            "Attack +0, Range 3",
+            "%attack% -1, Target all adjacent enemies",
+            "%attack% +0, %range% 3",
             "Hatch eggs"
           ],
           "special2": [
             "Summon C eggs",
-            "Move -1",
-            "Attack +0"
+            "%move% -1",
+            "%attack% +0"
           ],
           "immunities": [
-            "Disarm",
-            "Poison",
-            "Muddle",
-            "Stun",
-            "Curse"
+            "%disarm%",
+            "%poison%",
+            "%muddle%",
+            "%stun%",
+            "%curse%"
           ],
           "notes": ""
         },
@@ -8093,21 +8093,21 @@ MONSTER_STATS = {
           "attack": 5,
           "range": 0,
           "special1": [
-            "Attack -1, Target all adjacent enemies",
-            "Attack +0, Range 3",
+            "%attack% -1, Target all adjacent enemies",
+            "%attack% +0, %range% 3",
             "Hatch eggs"
           ],
           "special2": [
             "Summon C eggs",
-            "Move -1",
-            "Attack +0"
+            "%move% -1",
+            "%attack% +0"
           ],
           "immunities": [
-            "Disarm",
-            "Poison",
-            "Muddle",
-            "Stun",
-            "Curse"
+            "%disarm%",
+            "%poison%",
+            "%muddle%",
+            "%stun%",
+            "%curse%"
           ],
           "notes": ""
         },
@@ -8118,21 +8118,21 @@ MONSTER_STATS = {
           "attack": 5,
           "range": 0,
           "special1": [
-            "Attack -1, Target all adjacent enemies",
-            "Attack +0, Range 3",
+            "%attack% -1, Target all adjacent enemies",
+            "%attack% +0, %range% 3",
             "Hatch eggs"
           ],
           "special2": [
             "Summon C eggs",
-            "Move -1",
-            "Attack +0"
+            "%move% -1",
+            "%attack% +0"
           ],
           "immunities": [
-            "Disarm",
-            "Poison",
-            "Muddle",
-            "Stun",
-            "Curse"
+            "%disarm%",
+            "%poison%",
+            "%muddle%",
+            "%stun%",
+            "%curse%"
           ],
           "notes": ""
         }

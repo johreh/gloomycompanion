@@ -79,3 +79,8 @@ function input_value(input)
 {
     return (('value' in input) ? input.value : '');
 }
+
+function remove_empty_strings(array)
+{
+    return array.filter(Boolean);
+}

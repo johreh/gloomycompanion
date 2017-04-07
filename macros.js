@@ -68,7 +68,7 @@ function expand_stat(s, stat, value)
             if (has_elite_value)
             {
                 var value_elite = value[1] + parseInt(found[2]);
-                return ("%" + stat + "% " + value_normal + " / " + value_elite);
+                return ("%" + stat + "% " + value_normal + " / <span class='elite-color'>" + value_elite + "</span>");
             } else 
             {
                  return ("%" + stat + "% " + value_normal );
@@ -79,7 +79,7 @@ function expand_stat(s, stat, value)
             if (has_elite_value)
             {
                 var value_elite = value[1] - parseInt(found[2]);
-                return ("%" + stat + "% " + value_normal + " / " + value_elite);
+                return ("%" + stat + "% " + value_normal + " / <span class='elite-color'>" + value_elite + "</span>");
             } else 
             {
                  return ("%" + stat + "% " + value_normal );
@@ -90,57 +90,101 @@ function expand_stat(s, stat, value)
     return s;
 }
 
-function attributes_to_lines(attribtues)
+function attributes_to_lines(attributes)
 {
-    var value = "";
-    attribtues.forEach(function(line){
-        value = value + "* " + line + "\n";
-    });
+    if (!attributes[0] && !attributes[1])
+    {
+        return [""];
+    } else
+    {
+        // To make it more readable, group 3 elements in the same row abd naje them small
+        var attributes_lines = ["* Attributes"];
 
-    return value.replace(/\n$/, "");
+        // Write common attributes in white
+        var normal_attributes_lines = [""];
+        var line = 0;
+        for (var i=0; i<attributes[0].length; i++)
+        {
+            normal_attributes_lines[line] = normal_attributes_lines[line] ? normal_attributes_lines[line] + attributes[0][i] + ", " : attributes[0][i] + ", ";
+            if ((i+1) % 3 == 0 )
+            {
+                line++;
+            }
+        }
+        attributes_lines = attributes_lines.concat(normal_attributes_lines.map(function(line) { return line ? "** <span class='small'>" + line.replace(/(,\s$)/g, "") + "</span>" : "" }));
+
+        // Write elite only attributes in Gold
+        var elite_attributes_lines = [""];
+        // TODO
+        // In case we want to show Common and Elite only attributes
+        // var elite_attributes = attributes[1].map(function(elite_attribute){
+        //     return ((attributes[0].indexOf(elite_attribute) == -1) ? elite_attribute: "")
+        // });
+        line = 0;
+        for (var i=0; i<attributes[1].length; i++)
+        {
+            elite_attributes_lines[line] = elite_attributes_lines[line] ? elite_attributes_lines[line] + attributes[1][i] + ", " : attributes[1][i] + ", ";
+            if ((i+1) % 3 == 0 )
+            {
+                line++;
+            }
+        }
+        attributes_lines = attributes_lines.concat(elite_attributes_lines.map(function(line) { console.log(line.replace(/(,\s$)/g, "")); return line ? "** <span class='small elite-color'>" + line.replace(/(,\s$)/g, "") + "</span>" : "";}));
+        console.log(attributes_lines);
+
+        return attributes_lines;
+    }
 }
 
 function immunities_to_lines(immunities)
 {
-    var value = "* Immunities";
-    immunities.forEach(function(line){
-        value = value + "** " + line + "\n";
-    });
-
-    return value.replace(/\n$/, "");
+    if (!immunities)
+    {
+        return [""];
+    } else
+    {
+        // To make it more readable, group 3 elements in the same row abd naje them small
+        var immunities_lines = [""];
+        var line = 0;
+        for (var i=0; i<immunities.length; i++)
+        {
+            immunities_lines[line] = immunities_lines[line] ? immunities_lines[line] + immunities[i] + ", " : immunities[i] + ", ";
+            if ((i+1) % 3 == 0 )
+            {
+                line++;
+            }
+        }
+        var result = ["* Immunities"].concat(immunities_lines.map(function(line) { return "** <span class='small'>" + line.replace(/(,\s$)/g, "") + "</span>"}));
+        return result;
+    }
 }
 
 function expand_special(s, special_value)
 {
     var value = "";
-    special_value.forEach(function(line){
-        value = value + "* " + line + "\n";
+    return special_value.map(function(line){
+        return ("* " + line);
     });
-
-    return value.replace(/\n$/, "");
 }
 
-function replace_specials(s, special1, special2)
+function special_to_lines(s, special1, special2)
 {
     if (special1 && s.includes("Special 1"))
     {
         s = expand_special(s, special1);
     }
-    if (special2 && s.includes("Special 1"))
+    if (special2 && s.includes("Special 2"))
     {
         s = expand_special(s, special2);
     }
     return s;
 }
 
-function expand_string(s, attack, move, special1, special2)
+function expand_string(s, attack, move, range)
 {
     s = expand_stat(s, "attack", attack);
     s = expand_stat(s, "move", move);
+    s = expand_stat(s, "range", range);
     return s.replace(/%[^%]*%/gi, expand_macro);
 }
 
-function expand_boss_stirng(s, special1, special2)
-{
-
-}
