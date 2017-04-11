@@ -1,4 +1,4 @@
-SPECIAL_VALUES = 
+SPECIAL_VALUES =
 {
   "X": "X = Hexes moved",
   "C": "C = Number of Characters",
@@ -541,7 +541,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 4,
             "attributes": [
-              "%attack%ers gain Disadvantage",
+              "Attackers gain Disadvantage",
               "%poison%"
             ]
           }
@@ -563,7 +563,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 4,
             "attributes": [
-              "%attack%ers gain Disadvantage",
+              "Attackers gain Disadvantage",
               "%poison%"
             ]
           }
@@ -585,7 +585,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 5,
             "attributes": [
-              "%attack%ers gain Disadvantage",
+              "Attackers gain Disadvantage",
               "%poison%"
             ]
           }
@@ -607,7 +607,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 5,
             "attributes": [
-              "%attack%ers gain Disadvantage",
+              "Attackers gain Disadvantage",
               "%poison%"
             ]
           }
@@ -629,7 +629,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 5,
             "attributes": [
-              "%attack%ers gain Disadvantage",
+              "Attackers gain Disadvantage",
               "%poison%"
             ]
           }
@@ -1650,7 +1650,7 @@ MONSTER_STATS = {
             "range": 3,
             "attributes": [
               "Flying",
-              "Sheild 3"
+              "%shield% 3"
             ]
           },
           "elite": {
@@ -1660,7 +1660,7 @@ MONSTER_STATS = {
             "range": 4,
             "attributes": [
               "Flying",
-              "%retaliate% 2, %range% 2",
+              "%retaliate% 2: %range% 2",
               "%shield% 4"
             ]
           }
@@ -1684,7 +1684,7 @@ MONSTER_STATS = {
             "range": 4,
             "attributes": [
               "Flying",
-              "%retaliate% 3, %range% 2",
+              "%retaliate% 3: %range% 2",
               "%shield% 4"
             ]
           }
@@ -1698,7 +1698,7 @@ MONSTER_STATS = {
             "range": 4,
             "attributes": [
               "Flying",
-              "%retaliate% 2, %range% 2",
+              "%retaliate% 2: %range% 2",
               "%shield% 3"
             ]
           },
@@ -1709,7 +1709,7 @@ MONSTER_STATS = {
             "range": 5,
             "attributes": [
               "Flying",
-              "%retaliate% 3, %range% 3",
+              "%retaliate% 3: %range% 3",
               "%shield% 4"
             ]
           }
@@ -1723,7 +1723,7 @@ MONSTER_STATS = {
             "range": 4,
             "attributes": [
               "Flying",
-              "%retaliate% 3, %range% 2",
+              "%retaliate% 3: %range% 2",
               "%shield% 3"
             ]
           },
@@ -1734,7 +1734,7 @@ MONSTER_STATS = {
             "range": 5,
             "attributes": [
               "Flying",
-              "%retaliate% 4, %range% 3",
+              "%retaliate% 4: %range% 3",
               "%shield% 4"
             ]
           }
@@ -1748,7 +1748,7 @@ MONSTER_STATS = {
             "range": 4,
             "attributes": [
               "Flying",
-              "%retaliate% 3, %range% 2",
+              "%retaliate% 3: %range% 2",
               "%shield% 4"
             ]
           },
@@ -1759,7 +1759,7 @@ MONSTER_STATS = {
             "range": 5,
             "attributes": [
               "Flying",
-              "%retaliate% 4, %range% 3",
+              "%retaliate% 4: %range% 3",
               "%shield% 5"
             ]
           }
@@ -1773,7 +1773,7 @@ MONSTER_STATS = {
             "range": 4,
             "attributes": [
               "Flying",
-              "%retaliate% 4, %range% 2",
+              "%retaliate% 4: %range% 2",
               "%shield% 4"
             ]
           },
@@ -1784,7 +1784,7 @@ MONSTER_STATS = {
             "range": 5,
             "attributes": [
               "Flying",
-              "%retaliate% 5, %range% 3",
+              "%retaliate% 5: %range% 3",
               "%shield% 5"
             ]
           }
@@ -1798,7 +1798,7 @@ MONSTER_STATS = {
             "range": 5,
             "attributes": [
               "Flying",
-              "%retaliate% 4, %range% 3",
+              "%retaliate% 4: %range% 3",
               "%shield% 4"
             ]
           },
@@ -1809,7 +1809,7 @@ MONSTER_STATS = {
             "range": 6,
             "attributes": [
               "Flying",
-              "%retaliate% 5, %range% 4",
+              "%retaliate% 5: %range% 4",
               "%shield% 5"
             ]
           }
@@ -4023,7 +4023,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "%attack%ers gain Disadvantage"
+              "Attackers gain Disadvantage"
             ]
           },
           "elite": {
@@ -4032,7 +4032,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "%attack%ers gain Disadvantage"
+              "Attackers gain Disadvantage"
             ]
           }
         },
@@ -4044,7 +4044,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
-              "%attack%ers gain Disadvantage"
+              "Attackers gain Disadvantage"
             ]
           },
           "elite": {
@@ -4053,7 +4053,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "%attack%ers gain Disadvantage"
+              "Attackers gain Disadvantage"
             ]
           }
         },
@@ -4065,7 +4065,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "%attack%ers gain Disadvantage"
+              "Attackers gain Disadvantage"
             ]
           },
           "elite": {
@@ -4074,7 +4074,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "%attack%ers gain Disadvantage"
+              "Attackers gain Disadvantage"
             ]
           }
         },
@@ -4086,7 +4086,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
-              "%attack%ers gain Disadvantage"
+              "Attackers gain Disadvantage"
             ]
           },
           "elite": {
@@ -4095,7 +4095,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "%attack%ers gain Disadvantage"
+              "Attackers gain Disadvantage"
             ]
           }
         },
@@ -4107,7 +4107,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "%attack%ers gain Disadvantage"
+              "Attackers gain Disadvantage"
             ]
           },
           "elite": {
@@ -4116,7 +4116,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "%attack%ers gain Disadvantage"
+              "Attackers gain Disadvantage"
             ]
           }
         },
@@ -4128,7 +4128,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "%attack%ers gain Disadvantage"
+              "Attackers gain Disadvantage"
             ]
           },
           "elite": {
@@ -4137,7 +4137,7 @@ MONSTER_STATS = {
             "attack": 6,
             "range": 0,
             "attributes": [
-              "%attack%ers gain Disadvantage"
+              "Attackers gain Disadvantage"
             ]
           }
         },
@@ -4149,7 +4149,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
-              "%attack%ers gain Disadvantage"
+              "Attackers gain Disadvantage"
             ]
           },
           "elite": {
@@ -4158,7 +4158,7 @@ MONSTER_STATS = {
             "attack": 6,
             "range": 0,
             "attributes": [
-              "%attack%ers gain Disadvantage"
+              "Attackers gain Disadvantage"
             ]
           }
         },
@@ -4170,7 +4170,7 @@ MONSTER_STATS = {
             "attack": 6,
             "range": 0,
             "attributes": [
-              "%attack%ers gain Disadvantage"
+              "Attackers gain Disadvantage"
             ]
           },
           "elite": {
@@ -4179,7 +4179,7 @@ MONSTER_STATS = {
             "attack": 8,
             "range": 0,
             "attributes": [
-              "%attack%ers gain Disadvantage"
+              "Attackers gain Disadvantage"
             ]
           }
         }
@@ -5745,7 +5745,7 @@ MONSTER_STATS = {
           "attack": 3,
           "range": 0,
           "special1": [
-            "%move% to next door and reveal room"
+            "Move to next door and reveal room"
           ],
           "special2": [
             "Summon Living Bones"
@@ -5764,7 +5764,7 @@ MONSTER_STATS = {
           "attack": 3,
           "range": 0,
           "special1": [
-            "%move% to next door and reveal room"
+            "Move to next door and reveal room"
           ],
           "special2": [
             "Summon Living Bones"
@@ -5783,7 +5783,7 @@ MONSTER_STATS = {
           "attack": 3,
           "range": 0,
           "special1": [
-            "%move% to next door and reveal room"
+            "Move to next door and reveal room"
           ],
           "special2": [
             "Summon Living Bones"
@@ -5802,7 +5802,7 @@ MONSTER_STATS = {
           "attack": 4,
           "range": 0,
           "special1": [
-            "%move% to next door and reveal room"
+            "Move to next door and reveal room"
           ],
           "special2": [
             "Summon Living Bones"
@@ -5821,7 +5821,7 @@ MONSTER_STATS = {
           "attack": 4,
           "range": 0,
           "special1": [
-            "%move% to next door and reveal room"
+            "Move to next door and reveal room"
           ],
           "special2": [
             "Summon Living Bones"
@@ -5840,7 +5840,7 @@ MONSTER_STATS = {
           "attack": 5,
           "range": 0,
           "special1": [
-            "%move% to next door and reveal room"
+            "Move to next door and reveal room"
           ],
           "special2": [
             "Summon Living Bones"
@@ -5859,7 +5859,7 @@ MONSTER_STATS = {
           "attack": 5,
           "range": 0,
           "special1": [
-            "%move% to next door and reveal room"
+            "Move to next door and reveal room"
           ],
           "special2": [
             "Summon Living Bones"
@@ -5878,7 +5878,7 @@ MONSTER_STATS = {
           "attack": 5,
           "range": 0,
           "special1": [
-            "%move% to next door and reveal room"
+            "Move to next door and reveal room"
           ],
           "special2": [
             "Summon Living Bones"

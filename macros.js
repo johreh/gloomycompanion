@@ -82,7 +82,7 @@ function expand_stat(s, stat, value)
             {
                 var value_elite = value[1] + parseInt(line_parsed[2]);
                 return ("%" + stat + "% " + value_normal + " / <span class='elite-color'>" + value_elite + "</span>");
-            } else 
+            } else
             {
                  return ("%" + stat + "% " + extra_text_for_particular_bosses + value_normal);
             }
@@ -93,7 +93,7 @@ function expand_stat(s, stat, value)
             {
                 var value_elite = value[1] - parseInt(line_parsed[2]);
                 return ("%" + stat + "% " + value_normal + " / <span class='elite-color'>" + value_elite + "</span>");
-            } else 
+            } else
             {
                  return ("%" + stat + "% " + extra_text_for_particular_bosses + value_normal );
             }
@@ -124,7 +124,7 @@ function attributes_to_lines(attributes)
                 line++;
             }
         }
-        attributes_lines = attributes_lines.concat(normal_attributes_lines.map(function(line) { return line ? "** <span class='small'>" + line.replace(/(,\s$)/g, "") + "</span>" : "";}));
+        attributes_lines = attributes_lines.concat(normal_attributes_lines.map(function(line) { return line ? "**" + line.replace(/(,\s$)/g, "") : "";}));
 
         // Write elite only attributes in Gold
         var elite_attributes_lines = [""];
@@ -142,7 +142,7 @@ function attributes_to_lines(attributes)
                 line++;
             }
         }
-        attributes_lines = attributes_lines.concat(elite_attributes_lines.map(function(line) { return line ? "** <span class='small elite-color'>" + line.replace(/(,\s$)/g, "") + "</span>" : "";}));
+        attributes_lines = attributes_lines.concat(elite_attributes_lines.map(function(line) { return line ? "** <span class='elite-color'>" + line.replace(/(,\s$)/g, "") + "</span>" : "";}));
 
         return attributes_lines;
     }
@@ -204,4 +204,3 @@ function expand_string(s, attack, move, range)
     s = expand_stat(s, "range", range);
     return s.replace(/%[^%]*%/gi, expand_macro);
 }
-

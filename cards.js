@@ -1,43 +1,43 @@
-AVAILABLE_DECKS = 
-    [   {name: "Ancient Artillery", deck_name: "Ancient Artillery"}
-    ,   {name: "Bandit Archer", deck_name: "Archer"}
-    ,   {name: "City Archer", deck_name: "Archer"}
-    ,   {name: "Inox Archer", deck_name: "Archer"}
-    ,   {name: "Boss", deck_name: "Boss"}
-    ,   {name: "Cave Bear", deck_name: "Cave Bear"}
-    ,   {name: "Cultist", deck_name: "Cultist"}
-    ,   {name: "Deep Terror", deck_name: "Deep Terror"}
-    ,   {name: "Earth Demon", deck_name: "Earth Demon"}
-    ,   {name: "Flame Demon", deck_name: "Flame Demon"}
-    ,   {name: "Frost Demon", deck_name: "Frost Demon"}
-    ,   {name: "Giant Viperr", deck_name: "Giant Viper"}
-    ,   {name: "Bandit Guard", deck_name: "Guard"}
-    ,   {name: "City Guard", deck_name: "Guard"}
-    ,   {name: "Inox Guard", deck_name: "Guard"}
-    ,   {name: "Harrower Infester", deck_name: "Harrower Infester"}
-    ,   {name: "Hound", deck_name: "Hound"}
-    ,   {name: "Black Imp", deck_name: "Imp"}
-    ,   {name: "Forest Imp", deck_name: "Imp"}
-    ,   {name: "Living Bones", deck_name: "Living Bones"}
-    ,   {name: "Living Corpse", deck_name: "Living Corpse"}
-    ,   {name: "Lurker", deck_name: "Lurker"}
-    ,   {name: "Night Demon", deck_name: "Night Demon"}
-    ,   {name: "Ooze", deck_name: "Ooze"}
-    ,   {name: "Rending Drake", deck_name: "Rending Drake"}
-    ,   {name: "Savvas Icestorm", deck_name: "Savvas Icestorm"}
-    ,   {name: "Savvas Lavaflow", deck_name: "Savvas Lavaflow"}
-    ,   {name: "Inox Scout", deck_name: "Scout"}
-    ,   {name: "Vermling Scout", deck_name: "Scout"}
-    ,   {name: "Inox Shaman", deck_name: "Shaman"}
-    ,   {name: "Vermling Shaman", deck_name: "Shaman"}
-    ,   {name: "Spitting Drake", deck_name: "Spitting Drake"}
-    ,   {name: "Stone Golem", deck_name: "Stone Golem"}
-    ,   {name: "Sun Demon", deck_name: "Sun Demon"}
-    ,   {name: "Wind Demon", deck_name: "Wind Demon"}    
-];
+AVAILABLE_DECKS =
+    {   Ancient_Artillery:  {name: "Ancient Artillery", deck_name: "Ancient Artillery"}
+    ,   Bandit_Archer:      {name: "Bandit Archer", deck_name: "Archer"}
+    ,   City_Archer:        {name: "City Archer", deck_name: "Archer"}
+    ,   Inox_Archer:        {name: "Inox Archer", deck_name: "Archer"}
+    ,   Boss:               {name: "Boss", deck_name: "Boss"}
+    ,   Cave_Bear:          {name: "Cave Bear", deck_name: "Cave Bear"}
+    ,   Cultist:            {name: "Cultist", deck_name: "Cultist"}
+    ,   Deep_Terror:        {name: "Deep Terror", deck_name: "Deep Terror"}
+    ,   Earth_Demon:        {name: "Earth Demon", deck_name: "Earth Demon"}
+    ,   Flame_Demon:        {name: "Flame Demon", deck_name: "Flame Demon"}
+    ,   Frost_Demon:        {name: "Frost Demon", deck_name: "Frost Demon"}
+    ,   Giant_Viper:        {name: "Giant Viper", deck_name: "Giant Viper"}
+    ,   Bandit_Guard:       {name: "Bandit Guard", deck_name: "Guard"}
+    ,   City_Guard:         {name: "City Guard", deck_name: "Guard"}
+    ,   Inox_Guard:         {name: "Inox Guard", deck_name: "Guard"}
+    ,   Harrower_infester:  {name: "Harrower Infester", deck_name: "Harrower Infester"}
+    ,   Hound:              {name: "Hound", deck_name: "Hound"}
+    ,   Black_Imp:          {name: "Black Imp", deck_name: "Imp"}
+    ,   Forest_Imp:         {name: "Forest Imp", deck_name: "Imp"}
+    ,   Living_Bones:       {name: "Living Bones", deck_name: "Living Bones"}
+    ,   Living_Corpse:      {name: "Living Corpse", deck_name: "Living Corpse"}
+    ,   Living_Spirit:      {name: "Living Spirit", deck_name: "Living Spirit"}
+    ,   Luker:              {name: "Lurker", deck_name: "Lurker"}
+    ,   Night_Demon:        {name: "Night Demon", deck_name: "Night Demon"}
+    ,   Ooze:               {name: "Ooze", deck_name: "Ooze"}
+    ,   Rending_Drake:      {name: "Rending Drake", deck_name: "Rending Drake"}
+    ,   Savvas_Icestorm:    {name: "Savvas Icestorm", deck_name: "Savvas Icestorm"}
+    ,   Savvas_Lavaflow:    {name: "Savvas Lavaflow", deck_name: "Savvas Lavaflow"}
+    ,   Verminling_Scout:   {name: "Vermling Scout", deck_name: "Scout"}
+    ,   Inox_Shaman:        {name: "Inox Shaman", deck_name: "Shaman"}
+    ,   Vermling_Shaman:    {name: "Vermling Shaman", deck_name: "Shaman"}
+    ,   Spitting_Drake:     {name: "Spitting Drake", deck_name: "Spitting Drake"}
+    ,   Stone_Golem:        {name: "Stone Golem", deck_name: "Stone Golem"}
+    ,   Sun_Demon:          {name: "Sun Demon", deck_name: "Sun Demon"}
+    ,   Wind_Demon:         {name: "Wind Demon", deck_name: "Wind Demon"}
+};
 
-DECK_DEFINITONS = 
-[       
+DECK_DEFINITONS =
+[
         { name: "Ancient Artillery"
         , cards:
             [ [false, "46", "* %attack% -1", "** %range% +2"]
@@ -129,7 +129,7 @@ DECK_DEFINITONS =
             , [true,  "46", "* %attack% +0", "** %fire%%use_element%:  %aoe-circle%"]
             , [false, "49", "* %attack% +0 %aoe-line-3-with-black%", "** %fire%%use_element%: +1 %attack%<br/>%wound%"]
             , [false, "67", "* %move% -1", "* %attack% +1", "** %range% -1", "* %fire%"]
-            , [false, "77", "* %attack% +0", "** Target all adjacent enemies", "* %ice%%use_element%:Flame Demon suffers 1 damage."]
+            , [false, "77", "* %attack% +0", "** Target all adjacent enemies", "** %ice%%use_element%:Flame Demon suffers 1 damage."]
             , [true,  "30", "* %fire%%use_element%: <span class='small'>All adjacent enemies suffer 2 damage.</span>", "* %move% +0", "* %attack% -2", "** %wound%", "** %target% 2"]
             , [false, "08", "* %move% -1", "* Create a 4 damage trap in an adjacent empty hex closest to an enemy", "* %any%%use_element%: %fire%"]
             ]
