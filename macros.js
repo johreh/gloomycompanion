@@ -58,31 +58,44 @@ function expand_macro(macro)
 
 function expand_stat(s, stat, value)
 {
-    var re = new RegExp("%" + stat + "% (\\+|-)(\\d)+", "i");
-    var found = s.match(re);
+    var re = new RegExp("%" + stat + "% (\\+|-)(\\d*)", "i");
+    var line_parsed = s.match(re);
+
     var has_elite_value = (value.length == 2);
-    if (found) {
-      if (found[1] == "+")
+    var normal_attack = value[0];
+    //Check in case of bosses with text in the attack
+    re = new RegExp("(\\d*)(\\+|-)?([a-zA-Z]+)", "i");
+    var extra_text_for_particular_bosses = "";
+    var value_parsed = String(normal_attack).match(re);
+    if (value_parsed && value_parsed[3])
+    {
+        var symbol = (value_parsed[2] == "-") ? "-" : "+";
+        extra_text_for_particular_bosses = value_parsed[3] + symbol;
+        normal_attack = value_parsed[1] !== "" ? parseInt(value_parsed[1]) : 0;
+    }
+
+    if (line_parsed) {
+      if (line_parsed[1] == "+")
       {
-            var value_normal = value[0] + parseInt(found[2]);
+            var value_normal = normal_attack + parseInt(line_parsed[2]);
             if (has_elite_value)
             {
-                var value_elite = value[1] + parseInt(found[2]);
+                var value_elite = value[1] + parseInt(line_parsed[2]);
                 return ("%" + stat + "% " + value_normal + " / <span class='elite-color'>" + value_elite + "</span>");
             } else 
             {
-                 return ("%" + stat + "% " + value_normal );
+                 return ("%" + stat + "% " + extra_text_for_particular_bosses + value_normal);
             }
-      } else if (found[1] == "-")
+      } else if (line_parsed[1] == "-")
       {
-            var value_normal = value[0] - parseInt(found[2]);
+            var value_normal = normal_attack - parseInt(line_parsed[2]);
             if (has_elite_value)
             {
-                var value_elite = value[1] - parseInt(found[2]);
+                var value_elite = value[1] - parseInt(line_parsed[2]);
                 return ("%" + stat + "% " + value_normal + " / <span class='elite-color'>" + value_elite + "</span>");
             } else 
             {
-                 return ("%" + stat + "% " + value_normal );
+                 return ("%" + stat + "% " + extra_text_for_particular_bosses + value_normal );
             }
       }
     }
@@ -92,7 +105,7 @@ function expand_stat(s, stat, value)
 
 function attributes_to_lines(attributes)
 {
-    if (!attributes[0] && !attributes[1])
+    if (!attributes || (attributes[0].length == 0 && attributes[1].length == 0))
     {
         return [""];
     } else
@@ -111,7 +124,7 @@ function attributes_to_lines(attributes)
                 line++;
             }
         }
-        attributes_lines = attributes_lines.concat(normal_attributes_lines.map(function(line) { return line ? "** <span class='small'>" + line.replace(/(,\s$)/g, "") + "</span>" : "" }));
+        attributes_lines = attributes_lines.concat(normal_attributes_lines.map(function(line) { return line ? "** <span class='small'>" + line.replace(/(,\s$)/g, "") + "</span>" : "";}));
 
         // Write elite only attributes in Gold
         var elite_attributes_lines = [""];
@@ -129,8 +142,7 @@ function attributes_to_lines(attributes)
                 line++;
             }
         }
-        attributes_lines = attributes_lines.concat(elite_attributes_lines.map(function(line) { console.log(line.replace(/(,\s$)/g, "")); return line ? "** <span class='small elite-color'>" + line.replace(/(,\s$)/g, "") + "</span>" : "";}));
-        console.log(attributes_lines);
+        attributes_lines = attributes_lines.concat(elite_attributes_lines.map(function(line) { return line ? "** <span class='small elite-color'>" + line.replace(/(,\s$)/g, "") + "</span>" : "";}));
 
         return attributes_lines;
     }
@@ -157,6 +169,11 @@ function immunities_to_lines(immunities)
         var result = ["* Immunities"].concat(immunities_lines.map(function(line) { return "** <span class='small'>" + line.replace(/(,\s$)/g, "") + "</span>"}));
         return result;
     }
+}
+
+function notes_to_lines(notes)
+{
+    return ["* <span class='small'> Notes: " + notes + "</span>"];
 }
 
 function expand_special(s, special_value)

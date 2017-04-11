@@ -1,3 +1,10 @@
+SPECIAL_VALUES = 
+{
+  "X": "X = Hexes moved",
+  "C": "C = Number of Characters",
+  "V": "V = Number of Scouts present"
+}
+
 MONSTER_STATS = {
   "monsters": {
     "Ancient Artillery": {
@@ -7009,7 +7016,7 @@ MONSTER_STATS = {
             "%muddle%",
             "%stun%"
           ],
-          "notes": ""
+          "notes": "C = Number of Characters"
         },
         {
           "level": 1,
@@ -7032,7 +7039,7 @@ MONSTER_STATS = {
             "%muddle%",
             "%stun%"
           ],
-          "notes": ""
+          "notes": "C = Number of Characters"
         },
         {
           "level": 2,
@@ -7055,7 +7062,7 @@ MONSTER_STATS = {
             "%muddle%",
             "%stun%"
           ],
-          "notes": ""
+          "notes": "C = Number of Characters"
         },
         {
           "level": 3,
@@ -7078,7 +7085,7 @@ MONSTER_STATS = {
             "%muddle%",
             "%stun%"
           ],
-          "notes": ""
+          "notes": "C = Number of Characters"
         },
         {
           "level": 4,
@@ -7101,7 +7108,7 @@ MONSTER_STATS = {
             "%muddle%",
             "%stun%"
           ],
-          "notes": ""
+          "notes": "C = Number of Characters"
         },
         {
           "level": 5,
@@ -7124,7 +7131,7 @@ MONSTER_STATS = {
             "%muddle%",
             "%stun%"
           ],
-          "notes": ""
+          "notes": "C = Number of Characters"
         },
         {
           "level": 6,
@@ -7147,7 +7154,7 @@ MONSTER_STATS = {
             "%muddle%",
             "%stun%"
           ],
-          "notes": ""
+          "notes": "C = Number of Characters"
         },
         {
           "level": 7,
@@ -7170,7 +7177,7 @@ MONSTER_STATS = {
             "%muddle%",
             "%stun%"
           ],
-          "notes": ""
+          "notes": "C = Number of Characters"
         }
       ]
     },
