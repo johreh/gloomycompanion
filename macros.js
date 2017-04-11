@@ -1,4 +1,3 @@
-
 /* Macros used in card text, alphabetical order */
 MACROS =
     { "%air%":                                      "<img class='element' src='images/air.svg'>"
@@ -15,6 +14,10 @@ MACROS =
     , "%aoe-triangle-3-side-with-corner-black%":    "<div class='collapse'><img class='aoe h3' src='images/aoe-triangle-3-side-with-corner-black.svg'></div>"
     , "%attack%":                                   "<span class='nobr'>Attack <img class='icon' src='images/attack.svg'></span>"
     , "%bless%":                                    "<span class='nobr'>BLESS <img class='icon' src='images/bless.svg'></span>"
+    , "%boss-aoe-elder-drake-sp1%":                 "<div class='collapse'><img class='aoe h3' src='images/elderDrake.special1Area.svg'></div>"
+    , "%boss-aoe-inox-bodyguard-sp1%":              "<div class='collapse'><img class='aoe h3' src='images/inoxBodyguard.special1Area.svg'></div>"
+    , "%boss-aoe-sightless-eye-sp1%":               "<div class='collapse'><img class='aoe h3' src='images/sightlessEye.special1Area.svg'></div>"
+    , "%boss-aoe-sightless-eye-sp2%":               "<div class='collapse'><img class='aoe h3' src='images/sightlessEye.special2Area.svg'></div>"
     , "%curse%":                                    "<span class='nobr'>CURSE <img class='icon' src='images/curse.svg'></span>"
     , "%dark%":                                     "<img class='element' src='images/dark.svg'>"
     , "%disarm%":                                   "<span class='nobr'>DISARM <img class='icon' src='images/disarm.svg'></span>"
@@ -58,9 +61,9 @@ function expand_macro(macro)
 
 function expand_stat(s, stat, value)
 {
-    var re = new RegExp("%" + stat + "% (\\+|-)(\\d*)", "i");
+    var re = new RegExp("%" + stat + "% (\\+|-)(\\d*)(.*)\$", "i");
     var line_parsed = s.match(re);
-
+    
     var has_elite_value = (value.length == 2);
     var normal_attack = value[0];
     //Check in case of bosses with text in the attack
@@ -75,29 +78,30 @@ function expand_stat(s, stat, value)
     }
 
     if (line_parsed) {
-      if (line_parsed[1] == "+")
-      {
+        var rest_of_line = line_parsed[3] ? line_parsed[3] : "";
+        if (line_parsed[1] == "+")
+        {
             var value_normal = normal_attack + parseInt(line_parsed[2]);
             if (has_elite_value)
             {
                 var value_elite = value[1] + parseInt(line_parsed[2]);
-                return ("%" + stat + "% " + value_normal + " / <span class='elite-color'>" + value_elite + "</span>");
-            } else 
+                return ("%" + stat + "% " + value_normal + " / <span class='elite-color'>" + value_elite + "</span>" + rest_of_line);
+            } else
             {
-                 return ("%" + stat + "% " + extra_text_for_particular_bosses + value_normal);
+                 return ("%" + stat + "% " + extra_text_for_particular_bosses + value_normal + rest_of_line);
             }
-      } else if (line_parsed[1] == "-")
-      {
+        } else if (line_parsed[1] == "-")
+        {
             var value_normal = normal_attack - parseInt(line_parsed[2]);
             if (has_elite_value)
             {
                 var value_elite = value[1] - parseInt(line_parsed[2]);
-                return ("%" + stat + "% " + value_normal + " / <span class='elite-color'>" + value_elite + "</span>");
-            } else 
+                return ("%" + stat + "% " + value_normal + " / <span class='elite-color'>" + value_elite + "</span>" + rest_of_line);
+            } else
             {
-                 return ("%" + stat + "% " + extra_text_for_particular_bosses + value_normal );
+                 return ("%" + stat + "% " + extra_text_for_particular_bosses + value_normal + rest_of_line);
             }
-      }
+        }
     }
 
     return s;
@@ -124,7 +128,7 @@ function attributes_to_lines(attributes)
                 line++;
             }
         }
-        attributes_lines = attributes_lines.concat(normal_attributes_lines.map(function(line) { return line ? "** <span class='small'>" + line.replace(/(,\s$)/g, "") + "</span>" : "";}));
+        attributes_lines = attributes_lines.concat(normal_attributes_lines.map(function(line) { return line ? "**" + line.replace(/(,\s$)/g, "") : "";}));
 
         // Write elite only attributes in Gold
         var elite_attributes_lines = [""];
@@ -142,7 +146,7 @@ function attributes_to_lines(attributes)
                 line++;
             }
         }
-        attributes_lines = attributes_lines.concat(elite_attributes_lines.map(function(line) { return line ? "** <span class='small elite-color'>" + line.replace(/(,\s$)/g, "") + "</span>" : "";}));
+        attributes_lines = attributes_lines.concat(elite_attributes_lines.map(function(line) { return line ? "** <span class='elite-color'>" + line.replace(/(,\s$)/g, "") + "</span>" : "";}));
 
         return attributes_lines;
     }
@@ -204,4 +208,3 @@ function expand_string(s, attack, move, range)
     s = expand_stat(s, "range", range);
     return s.replace(/%[^%]*%/gi, expand_macro);
 }
-
