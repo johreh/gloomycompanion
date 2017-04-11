@@ -1,4 +1,14 @@
 //special_rules should be treated with some kind of macro that recognises them and applies them when loading
+SPECIAL_RULES =
+{
+    living_corpse_two_levels_extra: 
+        {   "description": "All living corpses are two levels higher than the scenario level, up to a max of 7",
+            "affected_deck": "Living Corpse",
+            "extra_levels": 2
+        }
+};
+
+
 SCENARIO_DEFINITIONS =
     [   { name: "#1 Black Barrow"
         , decks:
@@ -228,6 +238,9 @@ SCENARIO_DEFINITIONS =
             ,   {"name": "Night Demon", "deck_name": "Night Demon" }
             ,   {"name": "Sun Demon", "deck_name": "Sun Demon" }
             ]
+        , special_rules:
+            [ SPECIAL_RULES.living_corpse_two_levels_extra
+            ]
         },
         { name: "#29 Sanctuary of Gloom"
         , decks:
@@ -267,9 +280,6 @@ SCENARIO_DEFINITIONS =
             ,   {"name": "Flame Demon", "deck_name": "Flame Demon" }
             ,   {"name": "Wind Demon", "deck_name": "Wind Demon" }
             ,   {"name": "Earth Demon", "deck_name": "Earth Demon" }
-            ]
-        , special_rules:
-            [ "All living corpses are two levels higher than the scenario level, up to a max of 7"
             ]
         },
         { name: "#34 Scorched Summit"
@@ -386,7 +396,7 @@ SCENARIO_DEFINITIONS =
         },
         { name: "#48 - Shadow Weald"
         , decks:
-            [   {"name": "Imp", "deck_name": "Imp" }
+            [   {"name": "Forest Imp", "deck_name": "Imp" }
             ,   {"name": "Earth Demon", "deck_name": "Earth Demon" }
             ,   {"name": "Harrower Infester", "deck_name": "Harrower Infester" }
             ,   {"name": "Boss: Dark Rider", "deck_name": "Boss" }
