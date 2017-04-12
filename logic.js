@@ -1,4 +1,4 @@
-//TODO Keep decks instead of killing them, fix multiple Archer decks, fix scenario 92, AOE resources for bosses, resize text, worth to show common and elite_only attributes?, shield and retaliate only when shown (apparently, attribtues are active at the beginning of the turn, and active after initiative)
+//TODO Fix Ancient Artillery image, Keep decks instead of killing them, fix multiple Archer decks, fix scenario 92, AOE resources for bosses, resize text, worth to show common and elite_only attributes?, shield and retaliate only when shown (apparently, attribtues are active at the beginning of the turn, and active after initiative)
 var do_shuffles = true;
 var visible_ability_decks = [];
 var modifier_deck = null;
@@ -173,7 +173,6 @@ function create_ability_card_front(initiative, name, shuffle, lines, attack, mov
         }
 
         text = expand_string(line.trim(), attack, move, range);
-
         current_parent.insertAdjacentHTML("beforeend", text);
     }
 

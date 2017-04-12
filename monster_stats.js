@@ -6100,7 +6100,12 @@ MONSTER_STATS = {
             "All allies add +1 Attack to all attacks this round",
             "%attack% +1"
           ],
-          "immunities": [],
+          "immunities": [
+            "%disarm%",
+            "%wound%",
+            "%muddle%",
+            "%stun%"
+          ],
           "notes": ""
         },
         {
@@ -6116,7 +6121,12 @@ MONSTER_STATS = {
             "All allies add +1 Attack to all attacks this round",
             "%attack% +1"
           ],
-          "immunities": [],
+          "immunities": [
+            "%disarm%",
+            "%wound%",
+            "%muddle%",
+            "%stun%"
+          ],
           "notes": ""
         },
         {
@@ -6132,7 +6142,12 @@ MONSTER_STATS = {
             "All allies add +1 Attack to all attacks this round",
             "%attack% +1"
           ],
-          "immunities": [],
+          "immunities": [
+            "%disarm%",
+            "%wound%",
+            "%muddle%",
+            "%stun%"
+          ],
           "notes": ""
         },
         {
@@ -6148,7 +6163,12 @@ MONSTER_STATS = {
             "All allies add +1 Attack to all attacks this round",
             "%attack% +1"
           ],
-          "immunities": [],
+          "immunities": [
+            "%disarm%",
+            "%wound%",
+            "%muddle%",
+            "%stun%"
+          ],
           "notes": ""
         },
         {
@@ -6164,7 +6184,12 @@ MONSTER_STATS = {
             "All allies add +1 Attack to all attacks this round",
             "%attack% +1"
           ],
-          "immunities": [],
+          "immunities": [
+            "%disarm%",
+            "%wound%",
+            "%muddle%",
+            "%stun%"
+          ],
           "notes": ""
         },
         {
@@ -6180,7 +6205,12 @@ MONSTER_STATS = {
             "All allies add +1 Attack to all attacks this round",
             "%attack% +1"
           ],
-          "immunities": [],
+          "immunities": [
+            "%disarm%",
+            "%wound%",
+            "%muddle%",
+            "%stun%"
+          ],
           "notes": ""
         },
         {
@@ -6196,7 +6226,12 @@ MONSTER_STATS = {
             "All allies add +1 Attack to all attacks this round",
             "%attack% +1"
           ],
-          "immunities": [],
+          "immunities": [
+            "%disarm%",
+            "%wound%",
+            "%muddle%",
+            "%stun%"
+          ],
           "notes": ""
         }
       ]
@@ -6594,7 +6629,7 @@ MONSTER_STATS = {
           "attack": 3,
           "range": 0,
           "special1": [
-            "%attack% +0 {{resources.elderDrake.special1Area}}"
+            "%attack% +0 %boss-aoe-elder-drake-sp1%"
           ],
           "special2": [
             "%move% and summon 2 Zephyrs"
@@ -6615,7 +6650,7 @@ MONSTER_STATS = {
           "attack": 4,
           "range": 0,
           "special1": [
-            "%attack% +0 {{resources.elderDrake.special1Area}}"
+            "%attack% +0 %boss-aoe-elder-drake-sp1%"
           ],
           "special2": [
             "%move% and summon 2 Zephyrs"
@@ -6636,7 +6671,7 @@ MONSTER_STATS = {
           "attack": 4,
           "range": 0,
           "special1": [
-            "%attack% +0 {{resources.elderDrake.special1Area}}"
+            "%attack% +0 %boss-aoe-elder-drake-sp1%"
           ],
           "special2": [
             "%move% and summon 2 Zephyrs"
@@ -6657,7 +6692,7 @@ MONSTER_STATS = {
           "attack": 5,
           "range": 0,
           "special1": [
-            "%attack% +0 {{resources.elderDrake.special1Area}}"
+            "%attack% +0 %boss-aoe-elder-drake-sp1%"
           ],
           "special2": [
             "%move% and summon 2 Zephyrs"
@@ -6678,7 +6713,7 @@ MONSTER_STATS = {
           "attack": 5,
           "range": 0,
           "special1": [
-            "%attack% +0 {{resources.elderDrake.special1Area}}"
+            "%attack% +0 %boss-aoe-elder-drake-sp1%"
           ],
           "special2": [
             "%move% and summon 2 Zephyrs"
@@ -6699,7 +6734,7 @@ MONSTER_STATS = {
           "attack": 6,
           "range": 0,
           "special1": [
-            "%attack% +0 {{resources.elderDrake.special1Area}}"
+            "%attack% +0 %boss-aoe-elder-drake-sp1%"
           ],
           "special2": [
             "%move% and summon 2 Zephyrs"
@@ -6720,7 +6755,7 @@ MONSTER_STATS = {
           "attack": 6,
           "range": 0,
           "special1": [
-            "%attack% +0 {{resources.elderDrake.special1Area}}"
+            "%attack% +0 %boss-aoe-elder-drake-sp1%"
           ],
           "special2": [
             "%move% and summon 2 Zephyrs"
@@ -6741,7 +6776,7 @@ MONSTER_STATS = {
           "attack": 7,
           "range": 0,
           "special1": [
-            "%attack% +0 {{resources.elderDrake.special1Area}}"
+            "%attack% +0 %boss-aoe-elder-drake-sp1%"
           ],
           "special2": [
             "%move% and summon 2 Zephyrs"
@@ -7003,7 +7038,7 @@ MONSTER_STATS = {
           "range": 0,
           "special1": [
             "%move% -1",
-            "%attack% -1 {{resources.inoxBodyguard.special1Area}}"
+            "%attack% -1 %boss-aoe-inox-bodyguard-sp1%"
           ],
           "special2": [
             "%move% +0",
@@ -7026,7 +7061,7 @@ MONSTER_STATS = {
           "range": 0,
           "special1": [
             "%move% -1",
-            "%attack% -1 {{resources.inoxBodyguard.special1Area}}"
+            "%attack% -1 %boss-aoe-inox-bodyguard-sp1%"
           ],
           "special2": [
             "%move% +0",
@@ -7049,7 +7084,7 @@ MONSTER_STATS = {
           "range": 0,
           "special1": [
             "%move% -1",
-            "%attack% -1 {{resources.inoxBodyguard.special1Area}}"
+            "%attack% -1 %boss-aoe-inox-bodyguard-sp1%"
           ],
           "special2": [
             "%move% +0",
@@ -7072,7 +7107,7 @@ MONSTER_STATS = {
           "range": 0,
           "special1": [
             "%move% -1",
-            "%attack% -1 {{resources.inoxBodyguard.special1Area}}"
+            "%attack% -1 %boss-aoe-inox-bodyguard-sp1%"
           ],
           "special2": [
             "%move% +0",
@@ -7095,7 +7130,7 @@ MONSTER_STATS = {
           "range": 0,
           "special1": [
             "%move% -1",
-            "%attack% -1 {{resources.inoxBodyguard.special1Area}}"
+            "%attack% -1 %boss-aoe-inox-bodyguard-sp1%"
           ],
           "special2": [
             "%move% +0",
@@ -7118,7 +7153,7 @@ MONSTER_STATS = {
           "range": 0,
           "special1": [
             "%move% -1",
-            "%attack% -1 {{resources.inoxBodyguard.special1Area}}"
+            "%attack% -1 %boss-aoe-inox-bodyguard-sp1%"
           ],
           "special2": [
             "%move% +0",
@@ -7141,7 +7176,7 @@ MONSTER_STATS = {
           "range": 0,
           "special1": [
             "%move% -1",
-            "%attack% -1 {{resources.inoxBodyguard.special1Area}}"
+            "%attack% -1 %boss-aoe-inox-bodyguard-sp1%"
           ],
           "special2": [
             "%move% +0",
@@ -7164,7 +7199,7 @@ MONSTER_STATS = {
           "range": 0,
           "special1": [
             "%move% -1",
-            "%attack% -1 {{resources.inoxBodyguard.special1Area}}"
+            "%attack% -1 %boss-aoe-inox-bodyguard-sp1%"
           ],
           "special2": [
             "%move% +0",
@@ -7771,11 +7806,11 @@ MONSTER_STATS = {
           "range": 3,
           "special1": [
             "Summon Deep Terror",
-            "%attack% -3 {{resources.sightlessEye.special1Area}}"
+            "%attack% -3 %boss-aoe-sightless-eye-sp1%"
           ],
           "special2": [
             "Summon Deep Terror",
-            "%attack% -2 {{resources.sightlessEye.special2Area}}"
+            "%attack% -2 %boss-aoe-sightless-eye-sp2%"
           ],
           "immunities": [
             "%stun%",
@@ -7793,11 +7828,11 @@ MONSTER_STATS = {
           "range": 3,
           "special1": [
             "Summon Deep Terror",
-            "%attack% -3 {{resources.sightlessEye.special1Area}}"
+            "%attack% -3 %boss-aoe-sightless-eye-sp1%"
           ],
           "special2": [
             "Summon Deep Terror",
-            "%attack% -2 {{resources.sightlessEye.special2Area}}"
+            "%attack% -2 %boss-aoe-sightless-eye-sp2%"
           ],
           "immunities": [
             "%stun%",
@@ -7815,11 +7850,11 @@ MONSTER_STATS = {
           "range": 3,
           "special1": [
             "Summon Deep Terror",
-            "%attack% -3 {{resources.sightlessEye.special1Area}}"
+            "%attack% -3 %boss-aoe-sightless-eye-sp1%"
           ],
           "special2": [
             "Summon Deep Terror",
-            "%attack% -2 {{resources.sightlessEye.special2Area}}"
+            "%attack% -2 %boss-aoe-sightless-eye-sp2%"
           ],
           "immunities": [
             "%stun%",
@@ -7837,11 +7872,11 @@ MONSTER_STATS = {
           "range": 3,
           "special1": [
             "Summon Deep Terror",
-            "%attack% -3 {{resources.sightlessEye.special1Area}}"
+            "%attack% -3 %boss-aoe-sightless-eye-sp1%"
           ],
           "special2": [
             "Summon Deep Terror",
-            "%attack% -2 {{resources.sightlessEye.special2Area}}"
+            "%attack% -2 %boss-aoe-sightless-eye-sp2%"
           ],
           "immunities": [
             "%stun%",
@@ -7859,11 +7894,11 @@ MONSTER_STATS = {
           "range": 3,
           "special1": [
             "Summon Deep Terror",
-            "%attack% -3 {{resources.sightlessEye.special1Area}}"
+            "%attack% -3 %boss-aoe-sightless-eye-sp1%"
           ],
           "special2": [
             "Summon Deep Terror",
-            "%attack% -2 {{resources.sightlessEye.special2Area}}"
+            "%attack% -2 %boss-aoe-sightless-eye-sp2%"
           ],
           "immunities": [
             "%stun%",
@@ -7881,11 +7916,11 @@ MONSTER_STATS = {
           "range": 3,
           "special1": [
             "Summon Deep Terror",
-            "%attack% -3 {{resources.sightlessEye.special1Area}}"
+            "%attack% -3 %boss-aoe-sightless-eye-sp1%"
           ],
           "special2": [
             "Summon Deep Terror",
-            "%attack% -2 {{resources.sightlessEye.special2Area}}"
+            "%attack% -2 %boss-aoe-sightless-eye-sp2%"
           ],
           "immunities": [
             "%stun%",
@@ -7903,11 +7938,11 @@ MONSTER_STATS = {
           "range": 3,
           "special1": [
             "Summon Deep Terror",
-            "%attack% -3 {{resources.sightlessEye.special1Area}}"
+            "%attack% -3 %boss-aoe-sightless-eye-sp1%"
           ],
           "special2": [
             "Summon Deep Terror",
-            "%attack% -2 {{resources.sightlessEye.special2Area}}"
+            "%attack% -2 %boss-aoe-sightless-eye-sp2%"
           ],
           "immunities": [
             "%stun%",
@@ -7925,11 +7960,11 @@ MONSTER_STATS = {
           "range": 3,
           "special1": [
             "Summon Deep Terror",
-            "%attack% -3 {{resources.sightlessEye.special1Area}}"
+            "%attack% -3 %boss-aoe-sightless-eye-sp1%"
           ],
           "special2": [
             "Summon Deep Terror",
-            "%attack% -2 {{resources.sightlessEye.special2Area}}"
+            "%attack% -2 %boss-aoe-sightless-eye-sp2%"
           ],
           "immunities": [
             "%stun%",
