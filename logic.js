@@ -3,17 +3,6 @@ var do_shuffles = true;
 var visible_ability_decks = [];
 var modifier_deck = null;
 var deck_definitions = load_definition(DECK_DEFINITONS);
-var possible_decks = get_possible_decks();
-
-function get_possible_decks()
-{
-  decks = {};
-  for (deck_name in AVAILABLE_DECKS)
-  {
-      decks[AVAILABLE_DECKS[deck_name].name] = AVAILABLE_DECKS[deck_name];
-  };
-  return decks;
-}
 
 var DECK_TYPES =
 {
@@ -182,7 +171,7 @@ function create_ability_card_front(initiative, name, shuffle, lines, attack, mov
 function load_ability_deck(deck_definition)
 {
     var deck = {
-        deck_name:              deck_definition.name,
+        class:                  deck_definition.class,
         type:                   DECK_TYPES.ABILITY,
         draw_pile:              [],
         discard:                [],
@@ -202,14 +191,14 @@ function load_ability_deck(deck_definition)
         var empty_front = document.createElement("div");
         empty_front.className = "card ability front down";
         var card_front = empty_front;
-        var card_back = create_ability_card_back(deck_definition.name);
+        var card_back = create_ability_card_back(deck.class);
 
         var card = {
             ui:             new UICard(card_front, card_back),
             shuffle_next:   shuffle,
             initiative:     initiative,
-            starting_lines:          lines,
-            name:           deck_definition.name,
+            starting_lines: lines,
+            name:           deck.class,
             shuffle:        shuffle
         };
 
@@ -282,7 +271,7 @@ function load_ability_deck(deck_definition)
     deck.set_real_name = function(real_name)
     {
         // This will serve to know when we can load the monster data (Move/Attack)
-        this.real_name = real_name;
+        this.name = real_name;
         this.draw_pile.concat(this.discard).forEach(
             function(card) {
                 card.change_displaying_name(real_name);
@@ -335,24 +324,24 @@ function load_ability_deck(deck_definition)
 
     deck.get_real_name = function()
     {
-        return (this.real_name) ? this.real_name : this.deck_name;
+        return (this.name) ? this.name : this.class;
     }
 
     deck.clean_real_name = function()
     {
-      if (this.real_name)
+      if (this.name)
       {
-        this.real_name = "";
+        this.name = "";
         this.draw_pile.concat(this.discard).forEach(
             function(card) {
-                card.change_displaying_name(deck.deck_name);
+                card.change_displaying_name(deck.class);
             });
       }
     }
 
     deck.is_boss = function()
     {
-      return deck.deck_name == possible_decks["Boss"].deck_name;
+      return this.class == DECKS["Boss"].class;
     }
 
     reshuffle(deck);
@@ -431,10 +420,10 @@ function reshuffle(deck, include_discards = true)
         card.ui.set_depth(-i - 6);
     }
 
-    // This way we keep sync several decks from the same type
+    // This way we keep sync several decks from the same class
     visible_ability_decks.forEach(function(visible_deck)
         {
-            if ((visible_deck !== deck) && (visible_deck.deck_name == deck.deck_name))
+            if ((visible_deck !== deck) && (visible_deck.class == deck.class))
             {
                 var real_name = visible_deck.get_real_name();
                 visible_deck.discard = clone(deck.discard);
@@ -491,7 +480,7 @@ function draw_ability_card(deck)
     {
         visible_ability_decks.forEach(function(visible_deck)
         {
-            if (visible_deck.deck_name == deck.deck_name)
+            if (visible_deck.class == deck.class)
             {
                 visible_deck.draw_top_card();
                 flip_up_top_card(visible_deck);
@@ -723,15 +712,15 @@ function load_definition(card_database)
     for (var i = 0; i < card_database.length; i++)
     {
         var definition = card_database[i];
-        decks[definition.name] = definition;
+        decks[definition.class] = definition;
     }
 
     return decks;
 }
 
-function load_deck(deck_name)
+function load_deck(deck_class)
 {
-    var deck = load_ability_deck(deck_definitions[deck_name]);
+    var deck = load_ability_deck(deck_definitions[deck_class]);
     return deck;
 }
 
@@ -959,9 +948,9 @@ function DeckList()
     decklist.ul.className = "selectionlist";
     decklist.checkboxes = {};
 
-    for (key in possible_decks)
+    for (key in DECKS)
     {
-      var real_name = possible_decks[key].name;
+      var real_name = DECKS[key].name;
       var listitem = document.createElement("li");
       var dom_dict = create_input("checkbox", "deck", real_name, real_name);
 
@@ -979,7 +968,7 @@ function DeckList()
     {
         var selected_checkbox = this.get_selection();
         var selected_decks = concat_arrays(selected_checkbox.map( function(name) {
-            return ((name in possible_decks) ? possible_decks[name] : []);
+            return ((name in DECKS) ? DECKS[name] : []);
         }.bind(this)));
         return selected_decks;
     }
@@ -1039,12 +1028,12 @@ function ScenarioList(scenarios)
     {
         return (this.decks[this.get_selection()].map(function(deck)
         {
-            if (possible_decks[deck.name])
+            if (DECKS[deck.name])
             {
-                deck.deck_name = possible_decks[deck.name].deck_name;
+                deck.class = DECKS[deck.name].class;
             } else if (deck.name.indexOf("Boss") != -1)
             {
-                deck.deck_name = possible_decks["Boss"].deck_name;
+                deck.class = DECKS["Boss"].class;
             }
 
             return deck;
@@ -1080,8 +1069,8 @@ function init()
         var selected_deck_names = decklist.get_selected_decks();
         var selected_decks = selected_deck_names.map( function(deck_names)
                                                 {
-                                                    var deck = load_deck(deck_names.deck_name);
-                                                    if (deck_names.deck_name != deck_names.name)
+                                                    var deck = load_deck(deck_names.class);
+                                                    if (deck_names.class != deck_names.name)
                                                     {
                                                         deck.set_real_name(deck_names.name);
                                                     }
@@ -1095,8 +1084,8 @@ function init()
         var selected_deck_names = scenariolist.get_scenario_decks();
         var selected_decks = selected_deck_names.map( function(deck_names)
                                                 {
-                                                    var deck = load_deck(deck_names.deck_name);
-                                                    if (deck_names.deck_name != deck_names.name)
+                                                    var deck = load_deck(deck_names.class);
+                                                    if (deck_names.class != deck_names.name)
                                                     {
                                                         deck.set_real_name(deck_names.name);
                                                     }

@@ -1,4 +1,3 @@
-
 /* Macros used in card text, alphabetical order */
 MACROS =
     { "%air%":                                      "<img class='element' src='images/air.svg'>"
@@ -62,11 +61,9 @@ function expand_macro(macro)
 
 function expand_stat(s, stat, value)
 {
-    console.log(s);
     var re = new RegExp("%" + stat + "% (\\+|-)(\\d*)(.*)\$", "i");
     var line_parsed = s.match(re);
     
-
     var has_elite_value = (value.length == 2);
     var normal_attack = value[0];
     //Check in case of bosses with text in the attack
