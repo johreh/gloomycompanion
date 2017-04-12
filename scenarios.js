@@ -736,9 +736,9 @@ SCENARIO_DEFINITIONS =
         { name: "#92 Back Alley Brawl"
         , decks:
             [   {"name": "Bandit Guard"}
-            ,   {"name": "Bandit Archer"}
             ,   {"name": "City Guard"}
             ,   {"name": "Inox Guard"}
+            ,   {"name": "Bandit Archer"}
             ,   {"name": "City Archer"}
             ,   {"name": "Savvas Icestorm"}
             ,   {"name": "Frost Demon"}

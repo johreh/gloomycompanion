@@ -1,4 +1,4 @@
-//TODO Fix Ancient Artillery image, Keep decks instead of killing them, fix multiple Archer decks, fix scenario 92, AOE resources for bosses, resize text, worth to show common and elite_only attributes?, shield and retaliate only when shown (apparently, attribtues are active at the beginning of the turn, and active after initiative)
+//TODO Fix Ancient Artillery image, End of round with multiple Archers, fix multiple Archer decks, resize text, worth to show common and elite_only attributes?, shield and retaliate only when shown (apparently, attribtues are active at the beginning of the turn, and active after initiative)
 var do_shuffles = true;
 var visible_ability_decks = [];
 var modifier_deck = null;
@@ -172,6 +172,7 @@ function load_ability_deck(deck_definition)
 {
     var deck = {
         class:                  deck_definition.class,
+        name:                   deck_definition.name,
         type:                   DECK_TYPES.ABILITY,
         draw_pile:              [],
         discard:                [],
@@ -191,14 +192,14 @@ function load_ability_deck(deck_definition)
         var empty_front = document.createElement("div");
         empty_front.className = "card ability front down";
         var card_front = empty_front;
-        var card_back = create_ability_card_back(deck.class);
+        var card_back = create_ability_card_back(deck.name);
 
         var card = {
             ui:             new UICard(card_front, card_back),
             shuffle_next:   shuffle,
             initiative:     initiative,
             starting_lines: lines,
-            name:           deck.class,
+            name:           deck.name,
             shuffle:        shuffle
         };
 
@@ -284,17 +285,6 @@ function load_ability_deck(deck_definition)
         this.move = stats.move;
         this.range = stats.range;
         this.attributes = stats.attributes;
-        // var name = this.get_real_name();
-
-        // this.draw_pile.concat(this.discard).forEach(
-        //     function(card) {
-        //         var new_lines = card.starting_lines;
-        //         if (stats.attributes)
-        //         {
-        //             new_lines = new_lines.concat(attributes_to_lines(stats.attributes));
-        //         }
-        //         card.paint_front_card(name, new_lines, stats.attack, stats.move, stats.range);
-        //     });
     }
 
     deck.set_stats_boss = function(stats)
@@ -306,20 +296,6 @@ function load_ability_deck(deck_definition)
         this.special2 = stats.special2;
         this.immunities = stats.immunities;
         this.notes = stats.notes;
-
-        // var name = this.get_real_name();
-
-        // this.draw_pile.concat(this.discard).forEach(
-        //     function(card) {
-        //         var new_lines = [""];
-        //         card.starting_lines.forEach(function(line)
-        //         {
-        //             new_lines = new_lines.concat(special_to_lines(line, stats.special1, stats.special2));
-        //         });
-        //         new_lines = new_lines.concat(immunities_to_lines(stats.immunities));
-        //         new_lines = new_lines.concat(notes_to_lines(stats.notes));
-        //         card.paint_front_card(name, new_lines, stats.attack, stats.move, stats.range);
-        //     });
     }
 
     deck.get_real_name = function()
@@ -718,10 +694,11 @@ function load_definition(card_database)
     return decks;
 }
 
-function load_deck(deck_class)
+function load_deck(deck_class, deck_name)
 {
-    var deck = load_ability_deck(deck_definitions[deck_class]);
-    return deck;
+    var definition = deck_definitions[deck_class];
+    definition.name = deck_name;
+    return load_ability_deck(definition);
 }
 
 function get_monster_stats(name, level)
@@ -760,12 +737,12 @@ function apply_deck_selection(decks, preserve_existing_deck_state, monster_level
 {
     var container = document.getElementById("tableau");
 
-    var decks_to_remove = visible_ability_decks.filter(function(deck) {
-        return !preserve_existing_deck_state || decks.indexOf(deck) === -1;
+    var decks_to_remove = visible_ability_decks.filter(function(visible_deck) {
+        return !preserve_existing_deck_state || (decks.filter(function(deck){return (deck.name == visible_deck.name)}).length == 0);
     });
 
     var decks_to_add = decks.filter(function(deck) {
-        return !preserve_existing_deck_state || visible_ability_decks.indexOf(deck) === -1;
+        return !preserve_existing_deck_state || (visible_ability_decks.filter(function(visible_deck){return (deck.name == visible_deck.name)}).length == 0);
     });
 
     if (!modifier_deck)
@@ -802,10 +779,14 @@ function apply_deck_selection(decks, preserve_existing_deck_state, monster_level
 
             container.removeChild(deck_space);
         };
+
         if (deck.is_boss())
         {
-            var boss_stats = get_boss_stats(deck.get_real_name(), monster_level);
-            deck.set_stats_boss(boss_stats);
+            // We don't want stats if someone selects Boss on the deck tab
+            if (deck.get_real_name() != "Boss")
+            {
+                deck.set_stats_boss(get_boss_stats(deck.get_real_name(), monster_level));
+            }
             force_repaint_deck(deck);
         } else {
             var level = monster_level;
@@ -813,11 +794,9 @@ function apply_deck_selection(decks, preserve_existing_deck_state, monster_level
             {
                 level = Math.min(7, (parseInt(monster_level) + parseInt(SPECIAL_RULES.living_corpse_two_levels_extra.extra_levels)));
             }
-            var monster_stats = get_monster_stats(deck.get_real_name(), level);
-            deck.set_stats_monster(monster_stats);
+            deck.set_stats_monster(get_monster_stats(deck.get_real_name(), level));
             force_repaint_deck(deck);
         }
-
 
         visible_ability_decks.push(deck);
     });
@@ -1069,12 +1048,7 @@ function init()
         var selected_deck_names = decklist.get_selected_decks();
         var selected_decks = selected_deck_names.map( function(deck_names)
                                                 {
-                                                    var deck = load_deck(deck_names.class);
-                                                    if (deck_names.class != deck_names.name)
-                                                    {
-                                                        deck.set_real_name(deck_names.name);
-                                                    }
-                                                    return deck;
+                                                    return load_deck(deck_names.class, deck_names.name);
                                                 } );
         apply_deck_selection(selected_decks, true, levelselector.get_selection(), special_rules = [""]);
     };
@@ -1084,12 +1058,7 @@ function init()
         var selected_deck_names = scenariolist.get_scenario_decks();
         var selected_decks = selected_deck_names.map( function(deck_names)
                                                 {
-                                                    var deck = load_deck(deck_names.class);
-                                                    if (deck_names.class != deck_names.name)
-                                                    {
-                                                        deck.set_real_name(deck_names.name);
-                                                    }
-                                                    return deck;
+                                                    return load_deck(deck_names.class, deck_names.name);
                                                 } );
         decklist.set_selection(selected_decks.map( function(deck) { return deck.get_real_name(); } ));
         apply_deck_selection(selected_decks, false, levelselector.get_selection(), special_rules=scenariolist.get_special_rules());
