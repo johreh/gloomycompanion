@@ -611,14 +611,14 @@ function add_modifier_deck(container, deck)
 {
     function create_counter(card_type, increment_func, decrement_func)
     {
-        function create_button(class_name, text, func, text_span)
+        function create_button(class_name, text, func, text_element)
         {
             var button = document.createElement("div");
             button.className = class_name + " button";
             button.innerText = text;
 
             button.onclick = function() {
-                text_span.innerText = func(card_type);
+                text_element.innerText = func(card_type);
             };
 
             return button;
@@ -631,19 +631,19 @@ function add_modifier_deck(container, deck)
         background.className = "background " + card_type;
         widget_container.appendChild(background);
 
-        var text_span = document.createElement("span");
-        text_span.className = "icon-text";
-        text_span.innerText = "0";
-        widget_container.appendChild(text_span);
+        var text_element = document.createElement("div");
+        text_element.className = "icon-text";
+        text_element.innerText = "0";
 
-        widget_container.appendChild(create_button("increment", "+", increment_func, text_span));
-        widget_container.appendChild(create_button("decrement", "-", decrement_func, text_span));
+        widget_container.appendChild(create_button("decrement", "-", decrement_func, text_element));
+        widget_container.appendChild(text_element);
+        widget_container.appendChild(create_button("increment", "+", increment_func, text_element));
 
         document.body.addEventListener(EVENT_NAMES.MODIFIER_CARD_DRAWN, function(e)
         {
             if (e.detail.card_type === card_type)
             {
-                text_span.innerText = e.detail.count;
+                text_element.innerText = e.detail.count;
             }
         });
 

@@ -62,18 +62,21 @@
     outline:                    none;
 
     display:                    -webkit-flex;
-    -webkit-flex-direction:     column;
+    -webkit-flex-direction:     row;
     -webkit-justify-content:    center;
 
     display:                    flex;
-    flex-direction:             column;
+    flex-direction:             row;
     justify-content:            center;
+
 }
 
 .icon-text
 {
-    width:                      100%;
+    width:                      32%;
+    height:                     100%;
     text-align:                 center;
+    margin:                     0;
 
     color:                      white;
     text-shadow:
@@ -84,6 +87,7 @@
 
     font-family:                'Nyala', 'Sakkal Majalla', 'Philosopher', sans-serif;
     font-size:                  150%;
+    line-height:                1.5;
 }
 
 .counter-icon .background
@@ -120,26 +124,18 @@
 
 .counter-icon .button
 {
-    position:                   absolute;
-    width:                      35%;
+    width:                      33%;
     height:                     100%;
+    margin:                     0;
 
     font-family:                Helvetica, Arial, sans-serif;
     font-weight:                bold;
-    font-size:                  250%;
+    font-size:                  180%;
     text-shadow:
         -1px -1px 0 #fff,
         1px -1px 0 #fff,
         -1px 1px 0 #fff,
         1px 1px 0 #fff;
-
-    display:                    -webkit-flex;
-    -webkit-flex-direction:     column;
-    -webkit-justify-content:    center;
-
-    display:                    flex;
-    flex-direction:             column;
-    justify-content:            center;
 
   -webkit-touch-callout:        none; /* iOS Safari */
     -webkit-user-select:        none; /* Safari */
@@ -153,13 +149,11 @@
 
 .increment.button
 {
-    right:                      0;
     color:                      #080;
 }
 
 .decrement.button
 {
-    left:                       0;
     color:                      #800;
 }
 
