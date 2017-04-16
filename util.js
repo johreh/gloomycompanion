@@ -3,7 +3,8 @@ function shuffle_list(l)
 {
     for (var i = 0; i < l.length; i++)
     {
-        var switch_index = Math.floor(Math.random() * l.length);
+        // Based on https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle#Implementation_errors
+        var switch_index = i + Math.floor(Math.random() * (l.length - i));
         var tmp = l[switch_index];
         l[switch_index] = l[i];
         l[i] = tmp;
