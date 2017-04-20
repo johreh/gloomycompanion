@@ -198,6 +198,18 @@ function load_ability_deck(deck_definition)
       }
     }
 
+    deck.new_round = function() {
+        if (this.discard.length > 0)
+        {
+            draw_ability_card(this);
+            // Maybe the last card was a reshuffle.
+            if (this.discard.length == 0)
+            {
+                draw_ability_card(this);
+            }
+        }
+    }
+
     return deck;
 }
 
@@ -233,7 +245,7 @@ function refresh_ui()
             tableau.style.fontSize  = font_pixel_size + "px";
             break;
         }
-        
+
     }
 }
 
@@ -526,6 +538,10 @@ function end_round()
         modifier_deck.clean_advantage_deck();
         reshuffle_modifier_deck(modifier_deck);
     }
+
+    visible_ability_decks.forEach( function(deck) {
+        deck.new_round();
+    });
 }
 
 function load_definition(card_database)
@@ -783,7 +799,7 @@ function init()
 
     deckspage.insertAdjacentElement("afterbegin", decklist.ul);
     scenariospage.insertAdjacentElement("afterbegin", scenariolist.ul);
-    
+
     applydeckbtn.onclick = function()
     {
         var selected_deck_names = decklist.get_selection();
