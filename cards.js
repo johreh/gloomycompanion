@@ -165,7 +165,7 @@ DECK_DEFINITONS =
             , [true,  "43", "* %move% +0", "* %attack% -1", "** %target% 2", "** %poison%"]
             , [false, "76", "* %move% -1", "* %attack% +1"]
             , [true,  "43", "* %move% +0", "* %attack% -1", "** %target% 2", "** %curse%"]
-            , [false, "24", "* %strengthen% -1", "** Affect all allies within %range% 2", "* %muddle%", "** Target all enemies within %range% 2"]
+            , [false, "24", "* %strengthen%", "** Affect all allies within %range% 2", "* %muddle%", "** Target all enemies within %range% 2"]
             ]
         },
         { name: "Living Bones"
