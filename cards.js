@@ -127,7 +127,7 @@ DECK_DEFINITONS =
             [ [false, "03", "* %move% +1", "* %attack% -1", "* %fire%"]
             , [false, "24", "* %move% +0", "* %attack% +0", "* %fire%"]
             , [true,  "46", "* %attack% +0", "** %fire%%use_element%:  %aoe-circle%"]
-            , [false, "49", "* %attack% +0 %aoe-line-3-with-black%", "** %fire%%use_element%: +1 %attack%<br/>%wound%"]
+            , [false, "49", "* %attack% +0 %aoe-line-3-with-black%", "** %fire%%use_element%: +1 %attack%", "** %wound%"]
             , [false, "67", "* %move% -1", "* %attack% +1", "** %range% -1", "* %fire%"]
             , [false, "77", "* %attack% +0", "** Target all adjacent enemies", "** %ice%%use_element%:Flame Demon suffers 1 damage."]
             , [true,  "30", "* %fire%%use_element%: <span class='small'>All adjacent enemies suffer 2 damage.</span>", "* %move% +0", "* %attack% -2", "** %wound%", "** %target% 2"]
@@ -148,8 +148,8 @@ DECK_DEFINITONS =
         },
         { class: "Giant Viper"
         , cards:
-            [ [true,  "32", "* %move% +0", "* %attack% +0", "** Add +2 %attack% if the target is adjacent to any of the Giant Viper's allies."]
-            , [true,  "32", "* %move% +0", "* %attack% +0", "** Add +2 %attack% if the target is adjacent to any of the Giant Viper's allies."]
+            [ [true,  "32", "* %move% +0", "* %attack% +0", "** Add +2 Attack if the target is adjacent to any of the Giant Viper's allies."]
+            , [true,  "32", "* %move% +0", "* %attack% +0", "** Add +2 Attack if the target is adjacent to any of the Giant Viper's allies."]
             , [false, "11", "* %shield% 1", "* %attack% -1"]
             , [false, "43", "* %move% +1", "** %jump%", "* %attack% -1", "** Target all adjacent enemies."]
             , [false, "58", "* %move% -1", "* %attack% +1"]
@@ -177,7 +177,7 @@ DECK_DEFINITONS =
             , [false, "16", "* %move% -1", "* %attack% -1", "* %heal% 5", "** Self"]
             , [false, "16", "* %attack% +2", "** %immobilize%", "* %retaliate% 2"]
             , [true,  "02", "* %shield% 2", "* %retaliate% 2", "** %range% 3"]
-            , [false, "30", "* %move% -1", "* %attack% +0 %aoe-line-4-with-black%", "** %dark%%use_element%: Perform \"%heal% 2, Self\" for each target damaged"]
+            , [false, "30", "* %move% -1", "* %attack% +0 %aoe-line-4-with-black%", "** %dark%%use_element%: Perform \"%heal% 2, Self\" </br>for each target damaged"]
             , [false, "38", "* %move% +0", "* %attack% -1", "** %target% 2", "** %dark%%use_element%: +2 %attack%, %disarm%"]
             , [true,  "07", "* %attack% -1", "** %range% 3", "** %muddle%", "* %heal% 4", "** Self"]
             ]
@@ -186,8 +186,8 @@ DECK_DEFINITONS =
         , cards:
             [ [false, "06", "* %move% -1", "* %attack% +0", "** %immobilize%"]
             , [false, "07", "* %move% +0", "* %muddle%", "** Target all adjacent enemies"]
-            , [true,  "19", "* %move% +1", "* %attack% +0", "*** Add +2 %attack% if the target is adjacent to any of the Hound's allies"]
-            , [true,  "19", "* %move% +1", "* %attack% +0", "*** Add +2 %attack% if the target is adjacent to any of the Hound's allies"]
+            , [true,  "19", "* %move% +1", "* %attack% +0", "** Add +2 Attack if the target is adjacent to any of the Hound's allies"]
+            , [true,  "19", "* %move% +1", "* %attack% +0", "** Add +2 Attack if the target is adjacent to any of the Hound's allies"]
             , [false, "26", "* %move% +0", "* %attack% +0"]
             , [false, "26", "* %move% +0", "* %attack% +0"]
             , [false, "83", "* %move% -2", "* %attack% +1"]
@@ -263,7 +263,7 @@ DECK_DEFINITONS =
             , [true,  "46", "* %move% -1", "* %attack% +1", "** %dark%%use_element%: +2 %attack%"]
             , [true,  "41", "* %move% -1", "* %attack% +1", "* %dark%"]
             , [false, "35", "* %attack% -1", "* %attack% -1", "** %pierce% 2", "* %light%%use_element%: %curse%", "** Self"]
-            , [false, "15", "* %move% +0", "* %attack% -1", "* All adjacent enemies and allies suffer 1 damage.", "* %any%%use_element%: %dark%"]
+            , [false, "15", "* %move% +0", "* %attack% -1", "* <span class='small'>All adjacent enemies and allies suffer 1 damage.</span>", "* <span class='small'>%any%%use_element%: %dark%</span>"]
             ]
         },
         { class: "Ooze"
@@ -272,8 +272,8 @@ DECK_DEFINITONS =
             , [false, "57", "* %move% +0", "* %attack% +0"]
             , [false, "59", "* %attack% +0", "** %target% 2", "** %poison%"]
             , [false, "66", "* %move% -1", "* %attack% +1", "** %range% +1"]
-            , [true,  "94", "* Ooze suffers 2 damage ", "** Summons normal Ooze with a hit point value equal to the summoning Ooze's current hit point value (limited by a normal Ooze's specified maximum hit point value)"]
-            , [true,  "94", "* Ooze suffers 2 damage ", "** Summons normal Ooze with a hit point value equal to the summoning Ooze's current hit point value (limited by a normal Ooze's specified maximum hit point value)"]
+            , [true,  "94", "* Ooze suffers 2 damage ", "** <span class='small'>Summons normal Ooze with a hit point value equal to the summoning Ooze's current hit point value (limited by a normal Ooze's specified maximum hit point value)</span>"]
+            , [true,  "94", "* Ooze suffers 2 damage ", "** <span class='small'>Summons normal Ooze with a hit point value equal to the summoning Ooze's current hit point value (limited by a normal Ooze's specified maximum hit point value)</span>"]
             , [false, "85", "* %push% 1 and", "* %poison%", "** Target all adjacent enemies", "* %attack% +1", "** %range% -1"]
             , [false, "66", "* %move% -1", "* %loot% 1", "* %heal% 2", "** Self"]
             ]

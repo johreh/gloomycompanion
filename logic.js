@@ -1,4 +1,4 @@
-//TODO Fix Ancient Artillery image, End of round with multiple Archers, fix multiple Archer decks, resize text, worth to show common and elite_only attributes?, shield and retaliate only when shown (apparently, attribtues are active at the beginning of the turn, and active after initiative)
+//TODO End of round with multiple Archers, fix multiple Archer decks, resize text, worth to show common and elite_only attributes?, shield and retaliate only when shown (apparently, attribtues are active at the beginning of the turn, and active after initiative)
 var do_shuffles = true;
 var visible_ability_decks = [];
 var modifier_deck = null;
