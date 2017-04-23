@@ -1,4 +1,4 @@
-//TODO Fix Ancient Artillery image, End of round with multiple Archers, fix multiple Archer decks, resize text, worth to show common and elite_only attributes?, shield and retaliate only when shown (apparently, attribtues are active at the beginning of the turn, and active after initiative)
+//TODO Adding an extra Guard deck will reshuffle the first one, End of round with multiple Archers, resize text, worth to show common and elite_only attributes?, shield and retaliate only when shown (apparently, attribtues are active at the beginning of the turn, and active after initiative)
 var do_shuffles = true;
 var visible_ability_decks = [];
 var modifier_deck = null;
@@ -189,7 +189,6 @@ function load_ability_deck(deck_definition)
         var initiative = definition[1];
         var lines = definition.slice(2);
 
-        //TODO Kill this, but then UICard should also change
         var empty_front = document.createElement("div");
         empty_front.className = "card ability front down";
         var card_front = empty_front;
@@ -304,7 +303,21 @@ function load_ability_deck(deck_definition)
       return this.class == DECKS["Boss"].class;
     }
 
-    reshuffle(deck);
+    deck.set_card_piles = function (draw_pile, discard_pile)
+    {
+        for (var i=0; i < draw_pile.length; i++)
+        {
+            this.draw_pile[i].shuffle_next = draw_pile[i].shuffle_next;
+            this.draw_pile[i].initiative = draw_pile[i].initiative;
+            this.draw_pile[i].starting_lines = draw_pile[i].starting_lines;
+        }
+        for (var i=0; i < discard_pile.length; i++)
+        {
+            this.discard[i].shuffle_next = discard_pile[i].shuffle_next;
+            this.discard[i].initiative = discard_pile[i].initiative;
+            this.discard[i].starting_lines = discard_pile[i].starting_lines;
+        }
+    }
 
     return deck;
 }
@@ -342,7 +355,7 @@ function refresh_ui()
     var cards = tableau.getElementsByClassName("card");
     for (var i = 1 ; i < cards.length; i++)
     {
-        if (cards[i].className.indexOf("ability") != -1)
+        if (cards[i].className.indexOf("ability") !== -1)
         {
             var scale               = cards[i].getBoundingClientRect().height / actual_card_height;
             var scaled_font_size    = base_font_size * scale ;
@@ -355,6 +368,22 @@ function refresh_ui()
 }
 
 function reshuffle(deck, include_discards)
+{
+    shuffle_deck(deck, include_discards);
+
+    // This way we keep sync several decks from the same class
+    visible_ability_decks.forEach(function(visible_deck)
+        {
+            if ((visible_deck !== deck) && (visible_deck.class == deck.class))
+            {
+                var real_name = visible_deck.get_real_name();
+                shuffle_deck(visible_deck, include_discards);
+                visible_deck.set_card_piles(deck.draw_pile, deck.discard);
+            }
+        });
+}
+
+function shuffle_deck(deck, include_discards)
 {
     if (include_discards)
     {
@@ -378,19 +407,6 @@ function reshuffle(deck, include_discards)
 
         card.ui.set_depth(-i - 6);
     }
-
-    // This way we keep sync several decks from the same class
-    visible_ability_decks.forEach(function(visible_deck)
-        {
-            if ((visible_deck !== deck) && (visible_deck.class == deck.class))
-            {
-                var real_name = visible_deck.get_real_name();
-                visible_deck.discard = clone(deck.discard);
-                visible_deck.draw_pile = clone(deck.draw_pile);
-                visible_deck.set_real_name(real_name);
-            }
-        });
-
 }
 
 function flip_up_top_card(deck)
@@ -554,7 +570,7 @@ function load_modifier_deck(number_bless, number_curses)
             if (deck.draw_pile[i].card_type == card_type)
             {
                 deck.draw_pile.splice(i, 1);
-                reshuffle(deck, include_discards = false);
+                reshuffle(deck, false);
 
                 force_repaint_deck(deck);
                 break;
@@ -570,7 +586,7 @@ function load_modifier_deck(number_bless, number_curses)
         deck.draw_pile.push(define_modifier_card(MODIFIER_CARDS[card_type.toUpperCase()]));
 
         force_repaint_deck(deck);
-        reshuffle(deck, include_discards = false);
+        reshuffle(deck, false);
 
         return this.count(card_type);
     }.bind(deck);
@@ -626,6 +642,7 @@ function create_modifier_card_back()
 {
     var card = document.createElement("div");
     card.className = "card modifier back";
+
     return card;
 }
 
@@ -682,6 +699,7 @@ function load_deck(deck_class, deck_name, level)
     var definition = deck_definitions[deck_class];
     definition.name = deck_name;
     definition.level = level;
+
     return load_ability_deck(definition);
 }
 
@@ -693,7 +711,7 @@ function get_monster_stats(name, level)
     var move =          [   MONSTER_STATS["monsters"][name]["level"][level]["normal"]["move"],
                             MONSTER_STATS["monsters"][name]["level"][level]["elite"]["move"]
                         ];
-    var range =          [   MONSTER_STATS["monsters"][name]["level"][level]["normal"]["range"],
+    var range =         [   MONSTER_STATS["monsters"][name]["level"][level]["normal"]["range"],
                             MONSTER_STATS["monsters"][name]["level"][level]["elite"]["range"]
                         ];
     var attributes =    [   MONSTER_STATS["monsters"][name]["level"][level]["normal"]["attributes"],
@@ -777,6 +795,8 @@ function apply_deck_selection(decks, preserve_existing_deck_state)
             deck.set_stats_monster(get_monster_stats(deck.get_real_name(), deck.level));
             
         }
+        reshuffle(deck);
+
         force_repaint_deck(deck);
 
         visible_ability_decks.push(deck);
@@ -788,8 +808,7 @@ function apply_deck_selection(decks, preserve_existing_deck_state)
 
 function init_modifier_deck()
 {
-    var deck = load_modifier_deck(0,0);
-    modifier_deck = deck;
+    modifier_deck = load_modifier_deck(0,0);
 }
 
 function add_modifier_deck(container, deck)
@@ -872,7 +891,6 @@ function add_modifier_deck(container, deck)
     place_deck(deck, deck_space);
     reshuffle(deck, true);
     deck_space.onclick = draw_modifier_card.bind(null, deck);
-
 }
 
 function LevelSelector(text, inline)
@@ -894,8 +912,7 @@ function LevelSelector(text, inline)
 
     level.get_selection = function()
     {
-        var current_value = this.spinner.value;
-        return (current_value > max_level) ? max_level : current_value;
+        return (this.spinner.value > max_level) ? max_level : this.spinner.value;
     }
 
     level.set_value = function(value)
@@ -919,8 +936,8 @@ function DeckList()
         var real_name = DECKS[key].name;
         var listitem = document.createElement("li");
         var dom_dict = create_input("checkbox", "deck", real_name, real_name);
-
         listitem.appendChild(dom_dict.root);
+        
         var levelselector = new LevelSelector(" with level ", true);
         listitem.appendChild(levelselector.html);
 
@@ -1028,10 +1045,7 @@ function ScenarioList(scenarios)
             {
                 deck.class = DECKS["Boss"].class;
             }
-
-            var special_rules = scenariolist.get_special_rules();
-            deck.level = scenariolist.get_level(deck.name, special_rules);
-
+            deck.level = scenariolist.get_level(deck.name, scenariolist.get_special_rules());
             return deck;
         }));
     }

@@ -3,8 +3,8 @@ MACROS =
     { "%air%":                                      "<img class='element' src='images/air.svg'>"
     , "%any%":                                      "<img class='element' src='images/any_element.svg'>"
     , "%aoe-4-with-black%":                         "<img class='aoe h2' src='images/aoe-4-with-black.svg'>"
-    , "%aoe-circle%":                               "<div class='collapse'><img class='aoe h3' src='images/aoe-circle.svg'></div>"
-    , "%aoe-circle-with-middle-black%":             "<div class='collapse'><img class='aoe h3' src='images/aoe-circle-with-middle-black.svg'></div>"
+    , "%aoe-circle%":                               "<div class='collapse small'><img class='aoe h3' src='images/aoe-circle.svg'></div>"
+    , "%aoe-circle-with-middle-black%":             "<div class='collapse small'><img class='aoe h3' src='images/aoe-circle-with-middle-black.svg'></div>"
     , "%aoe-circle-with-side-black%":               "<img class='aoe h3' src='images/aoe-circle-with-side-black.svg'>"
     , "%aoe-line-3-with-black%":                    "<div class='collapse'><img class='aoe h1 rotated' src='images/aoe-line-3-with-black.svg'></div>"
     , "%aoe-line-4-with-black%":                    "<div class='collapse'><img class='aoe h1 rotated' src='images/aoe-line-4-with-black.svg'></div>"
@@ -66,7 +66,7 @@ function expand_stat(s, stat, value)
     
     var has_elite_value = (value.length == 2);
     var normal_attack = value[0];
-    //Check in case of bosses with text in the attack
+    //Check in case of bosses with text in the attack (C+1)
     re = new RegExp("(\\d*)(\\+|-)?([a-zA-Z]+)", "i");
     var extra_text_for_particular_bosses = "";
     var value_parsed = String(normal_attack).match(re);
@@ -74,7 +74,7 @@ function expand_stat(s, stat, value)
     {
         var symbol = (value_parsed[2] == "-") ? "-" : "+";
         extra_text_for_particular_bosses = value_parsed[3] + symbol;
-        normal_attack = value_parsed[1] !== "" ? parseInt(value_parsed[1]) : 0;
+        normal_attack = (value_parsed[1] !== "") ? parseInt(value_parsed[1]) : 0;
     }
 
     if (line_parsed) {
@@ -111,14 +111,14 @@ function attributes_to_lines(attributes)
 {
     if (!attributes || (attributes[0].length == 0 && attributes[1].length == 0))
     {
-        return [""];
+        return [];
     } else
     {
         // To make it more readable, group 3 elements in the same row abd naje them small
         var attributes_lines = ["* Attributes"];
 
         // Write common attributes in white
-        var normal_attributes_lines = [""];
+        var normal_attributes_lines = [];
         var line = 0;
         for (var i=0; i<attributes[0].length; i++)
         {
@@ -130,8 +130,8 @@ function attributes_to_lines(attributes)
         }
         attributes_lines = attributes_lines.concat(normal_attributes_lines.map(function(line) { return line ? "**" + line.replace(/(,\s$)/g, "") : "";}));
 
-        // Write elite only attributes in Gold
-        var elite_attributes_lines = [""];
+        // Write elite attributes in Gold
+        var elite_attributes_lines = [];
         // TODO
         // In case we want to show Common and Elite only attributes
         // var elite_attributes = attributes[1].map(function(elite_attribute){
@@ -146,9 +146,8 @@ function attributes_to_lines(attributes)
                 line++;
             }
         }
-        attributes_lines = attributes_lines.concat(elite_attributes_lines.map(function(line) { return line ? "** <span class='elite-color'>" + line.replace(/(,\s$)/g, "") + "</span>" : "";}));
-
-        return attributes_lines;
+        
+        return attributes_lines.concat(elite_attributes_lines.map(function(line) { return line ? "** <span class='elite-color'>" + line.replace(/(,\s$)/g, "") + "</span>" : "";}));
     }
 }
 
@@ -156,11 +155,11 @@ function immunities_to_lines(immunities)
 {
     if (!immunities)
     {
-        return [""];
+        return [];
     } else
     {
         // To make it more readable, group 3 elements in the same row abd naje them small
-        var immunities_lines = [""];
+        var immunities_lines = [];
         var line = 0;
         for (var i=0; i<immunities.length; i++)
         {
@@ -170,8 +169,7 @@ function immunities_to_lines(immunities)
                 line++;
             }
         }
-        var result = ["* Immunities"].concat(immunities_lines.map(function(line) { return "** <span class='small'>" + line.replace(/(,\s$)/g, "") + "</span>"}));
-        return result;
+        return ["* Immunities"].concat(immunities_lines.map(function(line) { return "** <span class='small'>" + line.replace(/(,\s$)/g, "") + "</span>"}));
     }
 }
 
@@ -183,6 +181,7 @@ function notes_to_lines(notes)
 function expand_special(s, special_value)
 {
     var value = "";
+
     return special_value.map(function(line){
         return ("* " + line);
     });
@@ -190,14 +189,15 @@ function expand_special(s, special_value)
 
 function special_to_lines(s, special1, special2)
 {
-    if (special1 && s.includes("Special 1"))
+    if (special1 && s.indexOf("Special 1") !== -1)
     {
         s = expand_special(s, special1);
     }
-    if (special2 && s.includes("Special 2"))
+    if (special1 && s.indexOf("Special 2") !== -1)
     {
         s = expand_special(s, special2);
     }
+
     return s;
 }
 
@@ -206,5 +206,6 @@ function expand_string(s, attack, move, range)
     s = expand_stat(s, "attack", attack);
     s = expand_stat(s, "move", move);
     s = expand_stat(s, "range", range);
+
     return s.replace(/%[^%]*%/gi, expand_macro);
 }
