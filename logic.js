@@ -233,7 +233,6 @@ function refresh_ui()
             tableau.style.fontSize  = font_pixel_size + "px";
             break;
         }
-
     }
 }
 
@@ -303,7 +302,7 @@ function draw_ability_card(deck)
 {
     if (deck.must_reshuffle())
     {
-        reshuffle(deck, include_discards=true);
+        reshuffle(deck, true);
     }
     else
     {
@@ -328,7 +327,7 @@ function prevent_pull_animation(deck)
 function reshuffle_modifier_deck(deck)
 {
     deck.clean_discard_pile();
-    reshuffle(deck, include_discards=true);
+    reshuffle(deck, true);
 }
 
 function draw_modifier_card(deck)
@@ -580,7 +579,7 @@ function apply_deck_selection(decks, preserve_existing_deck_state)
         container.appendChild(deck_space);
 
         place_deck(deck, deck_space);
-        reshuffle(deck, include_discards=true);
+        reshuffle(deck, true);
         deck_space.onclick = draw_ability_card.bind(null, deck);
 
         deck.discard_deck = function()
@@ -685,7 +684,7 @@ function add_modifier_deck(container, deck)
     container.appendChild(modifier_container);
 
     place_deck(deck, deck_space);
-    reshuffle(deck, include_discards=true);
+    reshuffle(deck, true);
     deck_space.onclick = draw_modifier_card.bind(null, deck);
 
 }

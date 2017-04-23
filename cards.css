@@ -116,10 +116,16 @@
 .counter-icon.shuffle
 {
     background-repeat:          no-repeat;
-    background-position:        50% 50%;
+    background-position:        100% 50%;
     background-image:           url(images/shuffle-black.svg);
     background-size:            contain;
     cursor:                     pointer;
+
+    position:                   absolute;
+    left:                       0;
+    bottom:                     -40%;
+    width:                      20%;
+    height:                     20%;
 }
 
 .counter-icon .button
@@ -168,6 +174,7 @@
     background-position:        100% 50%;
     background-size:            contain;
     background-image:           url(images/draw-two.svg);
+    cursor:                     pointer;
 }
 
 .card-container.modifier
@@ -333,12 +340,14 @@
 {
     left:                       -25%;
     clip-path:                  inset(0% 24.5% 0% 24.5%);
+    -webkit-clip-path:          inset(0% 24.5% 0% 24.5%);
 }
 
 .card.modifier.front.right img.cover
 {
     left:                       25%;
     clip-path:                  inset(0% 24.5% 0% 24.5%);
+    -webkit-clip-path:          inset(0% 24.5% 0% 24.5%);
 }
 
 .card ul
