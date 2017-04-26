@@ -233,11 +233,10 @@ function refresh_ui()
             tableau.style.fontSize  = font_pixel_size + "px";
             break;
         }
-        
     }
 }
 
-function reshuffle(deck, include_discards = true)
+function reshuffle(deck, include_discards)
 {
     if (include_discards)
     {
@@ -284,7 +283,7 @@ function flip_up_top_card(deck)
     deck.discard.unshift(card);
 }
 
-function send_to_discard(card, pull_animation = true)
+function send_to_discard(card, pull_animation)
 {
     card.ui.set_depth(-3);
 
@@ -303,7 +302,7 @@ function draw_ability_card(deck)
 {
     if (deck.must_reshuffle())
     {
-        reshuffle(deck);
+        reshuffle(deck, true);
     }
     else
     {
@@ -328,7 +327,7 @@ function prevent_pull_animation(deck)
 function reshuffle_modifier_deck(deck)
 {
     deck.clean_discard_pile();
-    reshuffle(deck);
+    reshuffle(deck, true);
 }
 
 function draw_modifier_card(deck)
@@ -465,9 +464,9 @@ function load_modifier_deck(number_bless, number_curses)
         repaint_modifier_deck(this);
     }.bind(deck);
 
-    deck.clean_advantage_deck = function( force_clean = false )
+    deck.clean_advantage_deck = function()
     {
-        if ((deck.advantage_to_clean || force_clean) && deck.discard[1])
+        if ((deck.advantage_to_clean) && deck.discard[1])
         {
             deck.advantage_to_clean = false;
             deck.discard[0].ui.removeClass("right");
@@ -580,7 +579,7 @@ function apply_deck_selection(decks, preserve_existing_deck_state)
         container.appendChild(deck_space);
 
         place_deck(deck, deck_space);
-        reshuffle(deck);
+        reshuffle(deck, true);
         deck_space.onclick = draw_ability_card.bind(null, deck);
 
         deck.discard_deck = function()
@@ -611,14 +610,14 @@ function add_modifier_deck(container, deck)
 {
     function create_counter(card_type, increment_func, decrement_func)
     {
-        function create_button(class_name, text, func, text_span)
+        function create_button(class_name, text, func, text_element)
         {
             var button = document.createElement("div");
             button.className = class_name + " button";
             button.innerText = text;
 
             button.onclick = function() {
-                text_span.innerText = func(card_type);
+                text_element.innerText = func(card_type);
             };
 
             return button;
@@ -631,19 +630,19 @@ function add_modifier_deck(container, deck)
         background.className = "background " + card_type;
         widget_container.appendChild(background);
 
-        var text_span = document.createElement("span");
-        text_span.className = "icon-text";
-        text_span.innerText = "0";
-        widget_container.appendChild(text_span);
+        var text_element = document.createElement("div");
+        text_element.className = "icon-text";
+        text_element.innerText = "0";
 
-        widget_container.appendChild(create_button("increment", "+", increment_func, text_span));
-        widget_container.appendChild(create_button("decrement", "-", decrement_func, text_span));
+        widget_container.appendChild(create_button("decrement", "-", decrement_func, text_element));
+        widget_container.appendChild(text_element);
+        widget_container.appendChild(create_button("increment", "+", increment_func, text_element));
 
         document.body.addEventListener(EVENT_NAMES.MODIFIER_CARD_DRAWN, function(e)
         {
             if (e.detail.card_type === card_type)
             {
-                text_span.innerText = e.detail.count;
+                text_element.innerText = e.detail.count;
             }
         });
 
@@ -685,7 +684,7 @@ function add_modifier_deck(container, deck)
     container.appendChild(modifier_container);
 
     place_deck(deck, deck_space);
-    reshuffle(deck);
+    reshuffle(deck, true);
     deck_space.onclick = draw_modifier_card.bind(null, deck);
 
 }
@@ -783,7 +782,7 @@ function init()
 
     deckspage.insertAdjacentElement("afterbegin", decklist.ul);
     scenariospage.insertAdjacentElement("afterbegin", scenariolist.ul);
-    
+
     applydeckbtn.onclick = function()
     {
         var selected_deck_names = decklist.get_selection();

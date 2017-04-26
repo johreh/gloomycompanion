@@ -62,18 +62,21 @@
     outline:                    none;
 
     display:                    -webkit-flex;
-    -webkit-flex-direction:     column;
+    -webkit-flex-direction:     row;
     -webkit-justify-content:    center;
 
     display:                    flex;
-    flex-direction:             column;
+    flex-direction:             row;
     justify-content:            center;
+
 }
 
 .icon-text
 {
-    width:                      100%;
+    width:                      32%;
+    height:                     100%;
     text-align:                 center;
+    margin:                     0;
 
     color:                      white;
     text-shadow:
@@ -84,6 +87,7 @@
 
     font-family:                'Nyala', 'Sakkal Majalla', 'Philosopher', sans-serif;
     font-size:                  150%;
+    line-height:                1.5;
 }
 
 .counter-icon .background
@@ -112,34 +116,32 @@
 .counter-icon.shuffle
 {
     background-repeat:          no-repeat;
-    background-position:        50% 50%;
+    background-position:        100% 50%;
     background-image:           url(images/shuffle-black.svg);
     background-size:            contain;
     cursor:                     pointer;
+
+    position:                   absolute;
+    left:                       0;
+    bottom:                     -40%;
+    width:                      20%;
+    height:                     20%;
 }
 
 .counter-icon .button
 {
-    position:                   absolute;
-    width:                      35%;
+    width:                      33%;
     height:                     100%;
+    margin:                     0;
 
     font-family:                Helvetica, Arial, sans-serif;
     font-weight:                bold;
-    font-size:                  250%;
+    font-size:                  180%;
     text-shadow:
         -1px -1px 0 #fff,
         1px -1px 0 #fff,
         -1px 1px 0 #fff,
         1px 1px 0 #fff;
-
-    display:                    -webkit-flex;
-    -webkit-flex-direction:     column;
-    -webkit-justify-content:    center;
-
-    display:                    flex;
-    flex-direction:             column;
-    justify-content:            center;
 
   -webkit-touch-callout:        none; /* iOS Safari */
     -webkit-user-select:        none; /* Safari */
@@ -153,13 +155,11 @@
 
 .increment.button
 {
-    right:                      0;
     color:                      #080;
 }
 
 .decrement.button
 {
-    left:                       0;
     color:                      #800;
 }
 
@@ -174,6 +174,7 @@
     background-position:        100% 50%;
     background-size:            contain;
     background-image:           url(images/draw-two.svg);
+    cursor:                     pointer;
 }
 
 .card-container.modifier
@@ -248,14 +249,14 @@
 {
     0%                          { z-index: -1; -webkit-transform: translateZ(3000px); }
     50%                         { z-index: -1; -webkit-transform: translateZ(3000px); }
-    100%                        { z-index: -4: }
+    100%                        { z-index: -4; }
 }
 
 @keyframes lift
 {
     0%                          { z-index: -1; }
     50%                         { z-index: -1; }
-    100%                        { z-index: -4: }
+    100%                        { z-index: -4; }
 }
 
 .card.front.pull
@@ -339,12 +340,14 @@
 {
     left:                       -25%;
     clip-path:                  inset(0% 24.5% 0% 24.5%);
+    -webkit-clip-path:          inset(0% 24.5% 0% 24.5%);
 }
 
 .card.modifier.front.right img.cover
 {
     left:                       25%;
     clip-path:                  inset(0% 24.5% 0% 24.5%);
+    -webkit-clip-path:          inset(0% 24.5% 0% 24.5%);
 }
 
 .card ul
