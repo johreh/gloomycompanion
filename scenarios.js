@@ -751,5 +751,129 @@ SCENARIO_DEFINITIONS =
             , "Savvas Lavaflow"
             ]
         },
+        // Information regarding the solo scenarios: https://drive.google.com/drive/folders/0B8ppELln5Z0rdFhFTVljWXFyTUE
+        { name: "#Solo Return to the Black Barrow"
+        , decks:
+            [ "Guard"
+            , "Archer"
+            , "Living bones"
+            ]
+        },
+        { name: "#Solo An Unfortunate Intrusion"
+        , decks:
+            [ "Guard"
+            , "Scout"
+            , "Shaman"
+            ]
+        },
+        { name: "#Solo Corrupted Laboratory"
+        , decks:
+            [ "Imp"
+            , "Spitting Drake"
+            , "Stone Golem"
+            ]
+        },
+        { name: "#Solo Armory Heist"
+        , decks:
+            [ "Guard"
+            , "Stone Golem"
+            , "Ancient Artillery"
+            ]
+        },
+        { name: "#Solo Stone Defense"
+        , decks:
+            [ "Cave Bear"
+            , "Ooze"
+            , "Sun Demon"
+            ]
+        },
+        { name: "#Solo Rodent Liberation"
+        , decks:
+            [ "Scout"
+            , "Shaman"
+            , "Earth Demon"
+            ]
+        },
+        { name: "#Solo Caravan Escort"
+        , decks:
+            [ "Guard"
+            , "Archer"
+            , "Shaman"
+            , "Scout"
+            ]
+        },
+        { name: "#Solo Unnatural Insults"
+        , decks:
+            [ "Living Corpse"
+            , "Living Bones"
+            , "Cultist"
+            , "Shaman"
+            ]
+        },
+        { name: "#Solo Storage Fees"
+        , decks:
+            [ "Hound"
+            , "Guard"
+            , "Archer"
+            ]
+        },
+        { name: "#Solo Plane of Wild Beasts"
+        , decks:
+            [ "Hound"
+            , "Spitting Drake"
+            , "Cave Bear"
+            ]
+        },
+        { name: "#Solo Harvesting the Night"
+        , decks:
+            [ "Night Demon"
+            , "Deep terror"
+            ]
+        },
+        { name: "#Solo Plagued Crypt"
+        , decks:
+            [ "Giant Viper"
+            , "Imp"
+            ]
+        },
+        { name: "#Solo Battle of the Bards"
+        , decks:
+            [ "Guard"
+            , "Archer"
+            , "Stone Golem"
+            , "Shaman"
+            ]
+        },
+        { name: "#Solo Corrupted Hunt"
+        , decks:
+            [ "Hound"
+            , "Earth Demon"
+            , "Flame Demon"
+            , "Giant Viper"
+            , "Spitting Drake"
+            ]
+        },
+        { name: "#Solo Aftermath"
+        , decks:
+            [ "Guard"
+            ]
+        },
+        { name: "#Solo Elemental Secrets"
+        , decks:
+            [ "Flame Demon"
+            , "Earth Demon"
+            , "Frost Demon"
+            , "Wind Demon"
+            ]
+        },
+        { name: "#Solo The Caged Bear"
+        , decks:
+            [ "Hound"
+            , "Imp"
+            , "Spitting Drake"
+            , "Shaman"
+            , "Cave Bear"
+            ]
+        }
 
     ];
