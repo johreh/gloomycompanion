@@ -61,15 +61,15 @@ function expand_macro(macro)
 
 function expand_stat(s, stat, value)
 {
-    var re = new RegExp("%" + stat + "% (\\+|-)(\\d*)(.*)\$", "i");
-    var line_parsed = s.match(re);
+    var re = new RegExp("%" + stat + "% (\\+|-)(\\d*)", "g");
+    var line_parsed = re.exec(s);
     
     var has_elite_value = (value.length == 2);
     var normal_attack = value[0];
     //Check in case of bosses with text in the attack (C+1)
     re = new RegExp("(\\d*)(\\+|-)?([a-zA-Z]+)", "i");
     var extra_text_for_particular_bosses = "";
-    var value_parsed = String(normal_attack).match(re);
+    var value_parsed = re.exec(String(normal_attack));
     if (value_parsed && value_parsed[3])
     {
         var symbol = (value_parsed[2] == "-") ? "-" : "+";
@@ -78,28 +78,27 @@ function expand_stat(s, stat, value)
     }
 
     if (line_parsed) {
-        var rest_of_line = line_parsed[3] ? line_parsed[3] : "";
-        if (line_parsed[1] == "+")
+        if (line_parsed[1] === "+")
         {
             var value_normal = normal_attack + parseInt(line_parsed[2]);
             if (has_elite_value)
             {
                 var value_elite = value[1] + parseInt(line_parsed[2]);
-                return ("%" + stat + "% " + value_normal + " / <span class='elite-color'>" + value_elite + "</span>" + rest_of_line);
+                return ("%" + stat + "% " + value_normal + " / <span class='elite-color'>" + value_elite + "</span>");
             } else
             {
-                 return ("%" + stat + "% " + extra_text_for_particular_bosses + value_normal + rest_of_line);
+                 return ("%" + stat + "% " + extra_text_for_particular_bosses + value_normal);
             }
-        } else if (line_parsed[1] == "-")
+        } else if (line_parsed[1] === "-")
         {
             var value_normal = normal_attack - parseInt(line_parsed[2]);
             if (has_elite_value)
             {
                 var value_elite = value[1] - parseInt(line_parsed[2]);
-                return ("%" + stat + "% " + value_normal + " / <span class='elite-color'>" + value_elite + "</span>" + rest_of_line);
+                return ("%" + stat + "% " + value_normal + " / <span class='elite-color'>" + value_elite + "</span>");
             } else
             {
-                 return ("%" + stat + "% " + extra_text_for_particular_bosses + value_normal + rest_of_line);
+                 return ("%" + stat + "% " + extra_text_for_particular_bosses + value_normal);
             }
         }
     }
@@ -203,9 +202,21 @@ function special_to_lines(s, special1, special2)
 
 function expand_string(s, attack, move, range)
 {
-    s = expand_stat(s, "attack", attack);
-    s = expand_stat(s, "move", move);
-    s = expand_stat(s, "range", range);
+    var re = new RegExp("%(attack|move|range)% (\\+|-)(\\d*)", "g");
+    
+    while (found = re.exec(s))
+    {
+        if (found[1] === "attack")
+        {
+            s = s.replace(found[0], expand_stat(found[0], "attack", attack));
+        } else if  (found[1] === "move")
+        {
+            s = s.replace(found[0], expand_stat(found[0], "move", move));
+        } else if (found[1] === "range")
+        {
+            s = s.replace(found[0], expand_stat(found[0], "range", range));
+        }
+    }
 
     return s.replace(/%[^%]*%/gi, expand_macro);
 }

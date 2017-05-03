@@ -930,6 +930,25 @@ function DeckList()
     decklist.ul.className = "selectionlist";
     decklist.checkboxes = {};
     decklist.level_selectors = {};
+    decklist.global_level_selector = null;
+
+
+    var listitem = document.createElement("li");
+    var global_level_selector = new LevelSelector("Select global level ", true);
+    listitem.appendChild(global_level_selector.html);
+    decklist.global_level_selector = global_level_selector;
+    
+    var dom_dict = create_input("button", "applylevel", "Apply All", "");
+    dom_dict.input.onclick = function()
+    {
+        for (key in decklist.level_selectors)
+        {
+            decklist.level_selectors[key].set_value(decklist.global_level_selector.get_selection());
+        }
+    };
+    listitem.appendChild(dom_dict.root);
+
+    decklist.ul.appendChild(listitem);
 
     for (key in DECKS)
     {
@@ -938,12 +957,12 @@ function DeckList()
         var dom_dict = create_input("checkbox", "deck", real_name, real_name);
         listitem.appendChild(dom_dict.root);
         
-        var levelselector = new LevelSelector(" with level ", true);
-        listitem.appendChild(levelselector.html);
+        var level_selector = new LevelSelector(" with level ", true);
+        listitem.appendChild(level_selector.html);
 
         decklist.ul.appendChild(listitem);
         decklist.checkboxes[real_name] = dom_dict.input;
-        decklist.level_selectors[real_name] = levelselector;
+        decklist.level_selectors[real_name] = level_selector;
         
     };
 
