@@ -168,8 +168,12 @@ function create_ability_card_front(initiative, name, shuffle, lines, attack, mov
     return card;
 }
 
-function load_ability_deck(deck_definition)
+function load_ability_deck(deck_class, deck_name, level)
 {
+    var deck_definition = deck_definitions[deck_class];
+    deck_definition.name = deck_name;
+    deck_definition.level = level;
+
     var deck = {
         class:                  deck_definition.class,
         name:                   deck_definition.name,
@@ -256,12 +260,6 @@ function load_ability_deck(deck_definition)
       }
     }
 
-    deck.set_real_name = function(real_name)
-    {
-        // This will serve to know when we can load the monster data (Move/Attack)
-        this.name = real_name;
-    }
-
     deck.set_stats_monster = function(stats)
     {
         this.attack = stats.attack;
@@ -284,18 +282,6 @@ function load_ability_deck(deck_definition)
     deck.get_real_name = function()
     {
         return (this.name) ? this.name : this.class;
-    }
-
-    deck.clean_real_name = function()
-    {
-      if (this.name)
-      {
-        this.name = "";
-        this.draw_pile.concat(this.discard).forEach(
-            function(card) {
-                card.change_displaying_name(deck.class);
-            });
-      }
     }
 
     deck.is_boss = function()
@@ -694,15 +680,6 @@ function load_definition(card_database)
     return decks;
 }
 
-function load_deck(deck_class, deck_name, level)
-{
-    var definition = deck_definitions[deck_class];
-    definition.name = deck_name;
-    definition.level = level;
-
-    return load_ability_deck(definition);
-}
-
 function get_monster_stats(name, level)
 {
     var attack =        [   MONSTER_STATS["monsters"][name]["level"][level]["normal"]["attack"],
@@ -1095,7 +1072,7 @@ function init()
         var selected_deck_names = decklist.get_selected_decks();
         var selected_decks = selected_deck_names.map( function(deck_names)
                                                 {
-                                                    return load_deck(deck_names.class, deck_names.name, deck_names.level);
+                                                    return load_ability_deck(deck_names.class, deck_names.name, deck_names.level);
                                                 } );
         apply_deck_selection(selected_decks, true);
     };
@@ -1106,7 +1083,7 @@ function init()
         decklist.set_selection(selected_deck_names);
         var selected_decks = selected_deck_names.map( function(deck_names)
                                                 {
-                                                    return load_deck(deck_names.class, deck_names.name, deck_names.level);
+                                                    return load_ability_deck(deck_names.class, deck_names.name, deck_names.level);
                                                 } );
         apply_deck_selection(selected_decks, false);
     };
