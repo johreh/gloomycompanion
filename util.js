@@ -63,6 +63,7 @@ function dict_values(dict)
     for (key in dict) {
         values.push(dict[key]);
     }
+    
     return values;
 }
 
@@ -79,4 +80,9 @@ function is_checked(input)
 function input_value(input)
 {
     return (('value' in input) ? input.value : '');
+}
+
+function remove_empty_strings(array)
+{
+    return array.filter(Boolean);
 }
