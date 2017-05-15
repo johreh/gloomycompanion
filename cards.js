@@ -319,7 +319,7 @@ DECK_DEFINITONS =
             [ [false, "29", "* %move% -1", "* %attack% -1", "** %range% 3"]
             , [false, "40", "* %move% +1", "* %attack% -1"]
             , [false,  "53", "* %move% +0", "* %attack% +0"]
-            , [false,  "54", "* %move% -2", "* %attack% +2", "** %range% 3", "** %poison%"]
+            , [false,  "54", "* %move% -2", "* %attack% +0", "** %range% 3", "** %poison%"]
             , [false, "69", "* %move% -1", "* %attack% +1"]
             , [true, "92", "* %attack% +2", "** %poison% "]
             , [true, "35", "* %move% +1", "** %jump%", "* %loot% 1"]
