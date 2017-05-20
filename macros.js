@@ -39,6 +39,7 @@ MACROS =
     , "%range%":                                    "<span class='nobr'>Range <img class='icon' src='images/range.svg'></span>"
     , "%retaliate%":                                "<span class='nobr'>Retaliate <img class='icon' src='images/retaliate.svg'></span>"
     , "%shield%":                                   "<span class='nobr'>Shield <img class='icon' src='images/shield.svg'></span>"
+    , "%flying%":                                   "<span class='nobr'><img class='icon' src='images/flying.svg'></span>"
     , "%strengthen%":                               "<span class='nobr'>STRENGTHEN <img class='icon' src='images/strengthen.svg'></span>"
     , "%stun%":                                     "<span class='nobr'>STUN <img class='icon' src='images/stun.svg'></span>"
     , "%target%":                                   "<span class='nobr'>Target <img class='icon' src='images/target.svg'></span>"

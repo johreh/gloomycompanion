@@ -1626,7 +1626,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 3,
             "attributes": [
-              "Flying",
+              "%flying%",
               "%shield% 2"
             ]
           },
@@ -1636,7 +1636,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 3,
             "attributes": [
-              "Flying",
+              "%flying%",
               "%shield% 3"
             ]
           }
@@ -1649,7 +1649,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 3,
             "attributes": [
-              "Flying",
+              "%flying%",
               "%shield% 3"
             ]
           },
@@ -1659,7 +1659,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 4,
             "attributes": [
-              "Flying",
+              "%flying%",
               "%retaliate% 2: %range% 2",
               "%shield% 4"
             ]
@@ -1673,7 +1673,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 3,
             "attributes": [
-              "Flying",
+              "%flying%",
               "%shield% 3"
             ]
           },
@@ -1683,7 +1683,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 4,
             "attributes": [
-              "Flying",
+              "%flying%",
               "%retaliate% 3: %range% 2",
               "%shield% 4"
             ]
@@ -1697,7 +1697,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 4,
             "attributes": [
-              "Flying",
+              "%flying%",
               "%retaliate% 2: %range% 2",
               "%shield% 3"
             ]
@@ -1708,7 +1708,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 5,
             "attributes": [
-              "Flying",
+              "%flying%",
               "%retaliate% 3: %range% 3",
               "%shield% 4"
             ]
@@ -1722,7 +1722,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 4,
             "attributes": [
-              "Flying",
+              "%flying%",
               "%retaliate% 3: %range% 2",
               "%shield% 3"
             ]
@@ -1733,7 +1733,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 5,
             "attributes": [
-              "Flying",
+              "%flying%",
               "%retaliate% 4: %range% 3",
               "%shield% 4"
             ]
@@ -1747,7 +1747,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 4,
             "attributes": [
-              "Flying",
+              "%flying%",
               "%retaliate% 3: %range% 2",
               "%shield% 4"
             ]
@@ -1758,7 +1758,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 5,
             "attributes": [
-              "Flying",
+              "%flying%",
               "%retaliate% 4: %range% 3",
               "%shield% 5"
             ]
@@ -1772,7 +1772,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 4,
             "attributes": [
-              "Flying",
+              "%flying%",
               "%retaliate% 4: %range% 2",
               "%shield% 4"
             ]
@@ -1783,7 +1783,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 5,
             "attributes": [
-              "Flying",
+              "%flying%",
               "%retaliate% 5: %range% 3",
               "%shield% 5"
             ]
@@ -1797,7 +1797,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 5,
             "attributes": [
-              "Flying",
+              "%flying%",
               "%retaliate% 4: %range% 3",
               "%shield% 4"
             ]
@@ -1808,7 +1808,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 6,
             "attributes": [
-              "Flying",
+              "%flying%",
               "%retaliate% 5: %range% 4",
               "%shield% 5"
             ]
@@ -1994,6 +1994,7 @@ MONSTER_STATS = {
             "attack": 1,
             "range": 3,
             "attributes": [
+              "%flying%",
               "%shield% 1"
             ]
           },
@@ -2003,6 +2004,7 @@ MONSTER_STATS = {
             "attack": 1,
             "range": 3,
             "attributes": [
+              "%flying%",
               "%shield% 1"
             ]
           }
@@ -2015,6 +2017,7 @@ MONSTER_STATS = {
             "attack": 1,
             "range": 3,
             "attributes": [
+              "%flying%",
               "%shield% 1"
             ]
           },
@@ -2024,6 +2027,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 3,
             "attributes": [
+              "%flying%",
               "%shield% 1"
             ]
           }
@@ -2036,6 +2040,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 3,
             "attributes": [
+              "%flying%",
               "%shield% 1"
             ]
           },
@@ -2045,6 +2050,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 3,
             "attributes": [
+              "%flying%",
               "%curse%",
               "%shield% 1"
             ]
@@ -2058,6 +2064,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 4,
             "attributes": [
+              "%flying%",
               "%shield% 1"
             ]
           },
@@ -2067,6 +2074,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 4,
             "attributes": [
+              "%flying%",
               "%curse%",
               "%shield% 1"
             ]
@@ -2080,6 +2088,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 4,
             "attributes": [
+              "%flying%",
               "%shield% 2"
             ]
           },
@@ -2089,6 +2098,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 4,
             "attributes": [
+              "%flying%",
               "%curse%",
               "%shield% 2"
             ]
@@ -2102,6 +2112,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 4,
             "attributes": [
+              "%flying%",
               "%curse%",
               "%shield% 2"
             ]
@@ -2112,6 +2123,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 4,
             "attributes": [
+              "%flying%",
               "%curse%",
               "%shield% 2"
             ]
@@ -2125,6 +2137,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 4,
             "attributes": [
+              "%flying%",
               "%curse%",
               "%shield% 2"
             ]
@@ -2135,6 +2148,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 4,
             "attributes": [
+              "%flying%",
               "%curse%",
               "%shield% 2"
             ]
@@ -2148,6 +2162,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 4,
             "attributes": [
+              "%flying%",
               "%curse%",
               "%shield% 2"
             ]
@@ -2158,6 +2173,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 4,
             "attributes": [
+              "%flying%",
               "%curse%",
               "%shield% 2"
             ]
@@ -3477,6 +3493,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 2,
             "attributes": [
+              "%flying%",
               "%shield% 1"
             ]
           },
@@ -3486,6 +3503,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 3,
             "attributes": [
+              "%flying%",
               "%shield% 2"
             ]
           }
@@ -3498,6 +3516,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 2,
             "attributes": [
+              "%flying%",
               "%shield% 2"
             ]
           },
@@ -3507,6 +3526,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 3,
             "attributes": [
+              "%flying%",
               "%shield% 3"
             ]
           }
@@ -3519,6 +3539,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 3,
             "attributes": [
+              "%flying%",
               "%shield% 2"
             ]
           },
@@ -3528,6 +3549,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 4,
             "attributes": [
+              "%flying%",
               "%shield% 3"
             ]
           }
@@ -3540,6 +3562,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 3,
             "attributes": [
+              "%flying%",
               "%shield% 2"
             ]
           },
@@ -3549,6 +3572,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 4,
             "attributes": [
+              "%flying%",
               "%shield% 3"
             ]
           }
@@ -3561,6 +3585,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 3,
             "attributes": [
+              "%flying%",
               "%shield% 3"
             ]
           },
@@ -3570,6 +3595,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 4,
             "attributes": [
+              "%flying%",
               "%shield% 4"
             ]
           }
@@ -3582,6 +3608,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 4,
             "attributes": [
+              "%flying%",
               "%shield% 3"
             ]
           },
@@ -3591,6 +3618,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 4,
             "attributes": [
+              "%flying%",
               "%shield% 4"
             ]
           }
@@ -3603,6 +3631,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 4,
             "attributes": [
+              "%flying%",
               "%shield% 3"
             ]
           },
@@ -3612,6 +3641,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 5,
             "attributes": [
+              "%flying%",
               "%shield% 4"
             ]
           }
@@ -3624,6 +3654,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 4,
             "attributes": [
+              "%flying%",
               "%shield% 3"
             ]
           },
@@ -3633,6 +3664,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 5,
             "attributes": [
+              "%flying%",
               "%shield% 4"
             ]
           }
@@ -4723,14 +4755,16 @@ MONSTER_STATS = {
             "move": 3,
             "attack": 3,
             "range": 3,
-            "attributes": []
+            "attributes": [
+            "%flying%"]
           },
           "elite": {
             "health": 8,
             "move": 3,
             "attack": 4,
             "range": 4,
-            "attributes": []
+            "attributes": [
+            "%flying%"]
           }
         },
         {
@@ -4740,7 +4774,8 @@ MONSTER_STATS = {
             "move": 3,
             "attack": 3,
             "range": 3,
-            "attributes": []
+            "attributes": [
+            "%flying%"]
           },
           "elite": {
             "health": 9,
@@ -4748,6 +4783,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 4,
             "attributes": [
+              "%flying%",
               "%muddle%"
             ]
           }
@@ -4760,6 +4796,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 3,
             "attributes": [
+              "%flying%",
               "%muddle%"
             ]
           },
@@ -4769,6 +4806,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 4,
             "attributes": [
+              "%flying%",
               "%muddle%"
             ]
           }
@@ -4781,6 +4819,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 4,
             "attributes": [
+              "%flying%",
               "%muddle%"
             ]
           },
@@ -4790,6 +4829,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 5,
             "attributes": [
+              "%flying%",
               "%muddle%"
             ]
           }
@@ -4802,6 +4842,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 4,
             "attributes": [
+              "%flying%",
               "%muddle%"
             ]
           },
@@ -4811,6 +4852,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 5,
             "attributes": [
+              "%flying%",
               "%muddle%"
             ]
           }
@@ -4823,6 +4865,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 4,
             "attributes": [
+              "%flying%",
               "%muddle%"
             ]
           },
@@ -4832,6 +4875,7 @@ MONSTER_STATS = {
             "attack": 6,
             "range": 5,
             "attributes": [
+              "%flying%",
               "%muddle%"
             ]
           }
@@ -4844,6 +4888,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 4,
             "attributes": [
+              "%flying%",
               "%muddle%"
             ]
           },
@@ -4853,6 +4898,7 @@ MONSTER_STATS = {
             "attack": 6,
             "range": 5,
             "attributes": [
+              "%flying%",
               "%muddle%"
             ]
           }
@@ -4865,6 +4911,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 4,
             "attributes": [
+              "%flying%",
               "%muddle%"
             ]
           },
@@ -4874,6 +4921,7 @@ MONSTER_STATS = {
             "attack": 7,
             "range": 5,
             "attributes": [
+              "%flying%",
               "%muddle%"
             ]
           }
@@ -5060,6 +5108,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 0,
             "attributes": [
+              "%flying%",
               "Advantage",
               "%shield% 1"
             ]
@@ -5070,6 +5119,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
+              "%flying%",
               "Advantage",
               "%shield% 1"
             ]
@@ -5083,6 +5133,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 0,
             "attributes": [
+              "%flying%",
               "Advantage",
               "%shield% 1"
             ]
@@ -5093,6 +5144,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
+              "%flying%",
               "Advantage",
               "%shield% 1"
             ]
@@ -5106,6 +5158,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 0,
             "attributes": [
+              "%flying%",
               "Advantage",
               "%shield% 1"
             ]
@@ -5116,6 +5169,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
+              "%flying%",
               "Advantage",
               "%shield% 1"
             ]
@@ -5129,6 +5183,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
+              "%flying%",
               "Advantage",
               "%shield% 1"
             ]
@@ -5139,6 +5194,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
+              "%flying%",
               "Advantage",
               "%shield% 1"
             ]
@@ -5152,6 +5208,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
+              "%flying%",
               "Advantage",
               "%shield% 1"
             ]
@@ -5162,6 +5219,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
+              "%flying%",
               "Advantage",
               "%shield% 1"
             ]
@@ -5175,6 +5233,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 0,
             "attributes": [
+              "%flying%",
               "Advantage",
               "%shield% 2"
             ]
@@ -5185,6 +5244,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
+              "%flying%",
               "Advantage",
               "%shield% 2"
             ]
@@ -5198,6 +5258,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
+              "%flying%",
               "Advantage",
               "%shield% 2"
             ]
@@ -5208,6 +5269,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
+              "%flying%",
               "Advantage",
               "%shield% 2"
             ]
@@ -5221,6 +5283,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 0,
             "attributes": [
+              "%flying%",
               "Advantage",
               "%shield% 2"
             ]
@@ -5231,6 +5294,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 0,
             "attributes": [
+              "%flying%",
               "Advantage",
               "%shield% 2"
             ]
@@ -5568,6 +5632,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 3,
             "attributes": [
+              "%flying%",
               "%shield% 1"
             ]
           },
@@ -5577,6 +5642,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 4,
             "attributes": [
+              "%flying%",
               "%shield% 1"
             ]
           }
@@ -5589,6 +5655,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 3,
             "attributes": [
+              "%flying%",
               "%shield% 2"
             ]
           },
@@ -5598,6 +5665,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 4,
             "attributes": [
+              "%flying%",
               "%shield% 2"
             ]
           }
@@ -5610,6 +5678,7 @@ MONSTER_STATS = {
             "attack": 2,
             "range": 3,
             "attributes": [
+              "%flying%",
               "%shield% 2"
             ]
           },
@@ -5619,6 +5688,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 4,
             "attributes": [
+              "%flying%",
               "%shield% 2"
             ]
           }
@@ -5631,6 +5701,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 3,
             "attributes": [
+              "%flying%",
               "%shield% 2"
             ]
           },
@@ -5640,6 +5711,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 4,
             "attributes": [
+              "%flying%",
               "%shield% 2"
             ]
           }
@@ -5652,6 +5724,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 3,
             "attributes": [
+              "%flying%",
               "%shield% 2"
             ]
           },
@@ -5661,6 +5734,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 4,
             "attributes": [
+              "%flying%",
               "%disarm%",
               "%shield% 2"
             ]
@@ -5674,6 +5748,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 4,
             "attributes": [
+              "%flying%",
               "%shield% 2"
             ]
           },
@@ -5683,6 +5758,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 4,
             "attributes": [
+              "%flying%",
               "%disarm%",
               "%shield% 2"
             ]
@@ -5696,6 +5772,7 @@ MONSTER_STATS = {
             "attack": 3,
             "range": 4,
             "attributes": [
+              "%flying%",
               "%shield% 3"
             ]
           },
@@ -5705,6 +5782,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 4,
             "attributes": [
+              "%flying%",
               "%disarm%",
               "%shield% 3"
             ]
@@ -5718,6 +5796,7 @@ MONSTER_STATS = {
             "attack": 4,
             "range": 4,
             "attributes": [
+              "%flying%",
               "%shield% 3"
             ]
           },
@@ -5727,6 +5806,7 @@ MONSTER_STATS = {
             "attack": 5,
             "range": 4,
             "attributes": [
+              "%flying%",
               "%disarm%",
               "%shield% 3"
             ]
