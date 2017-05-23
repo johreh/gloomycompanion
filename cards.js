@@ -127,10 +127,10 @@ DECK_DEFINITONS =
             [ [false, "03", "* %move% +1", "* %attack% -1", "* %fire%"]
             , [false, "24", "* %move% +0", "* %attack% +0", "* %fire%"]
             , [true,  "46", "* %attack% +0", "** %fire%%use_element%:  %aoe-circle%"]
-            , [false, "49", "* %attack% +0 %aoe-line-3-with-black%", "** %fire%%use_element%: +1 %attack%", "** %wound%"]
+	    , [false, "49", "* %attack% +0 %aoe-line-3-with-black%", "** <table align='center'><tr><td>%fire%%use_element%:</td> <td> +1 %attack% <br\> %wound% </td> </tr> </table>"]
             , [false, "67", "* %move% -1", "* %attack% +1", "** %range% -1", "* %fire%"]
             , [false, "77", "* %attack% +0", "** Target all adjacent enemies", "** %ice%%use_element%:Flame Demon suffers 1 damage."]
-            , [true,  "30", "* %fire%%use_element%: <span class='small'>All adjacent enemies suffer 2 damage.</span>", "* %move% +0", "* %attack% -2", "** %wound%", "** %target% 2"]
+	    , [true,  "30", "* <table align='center'><tr> <td>  %fire%%use_element%: </td> <td> <span class='small'>All adjacent enemies<br/>suffer 2 damage.</span> </td> </tr> </table>", "* %move% +0", "* %attack% -2", "** %wound%","** %target% 2"]
             , [false, "08", "* %move% -1", "* Create a 4 damage trap in an adjacent empty hex closest to an enemy", "* %any%%use_element%: %fire%"]
             ]
         },
