@@ -168,7 +168,7 @@ function create_ability_card_front(initiative, name, shuffle, lines, attack, mov
     return card;
 }
 
-function load_ability_deck(deck_class, deck_name, level)
+function load_ability_deck(deck_class, deck_name, level, loaded_deck)
 {
     var deck_definition = deck_definitions[deck_class];
     deck_definition.name = deck_name;
@@ -199,6 +199,7 @@ function load_ability_deck(deck_class, deck_name, level)
         var card_back = create_ability_card_back(deck.name, deck.level);
 
         var card = {
+            id:           deck.name+'_'+i,
             ui:             new UICard(card_front, card_back),
             shuffle_next:   shuffle,
             initiative:     initiative,
@@ -210,7 +211,12 @@ function load_ability_deck(deck_class, deck_name, level)
             this.ui.front = create_ability_card_front(this.initiative, name, this.shuffle_next, lines, attack, move, range, level);
         }
 
-        deck.draw_pile.push(card);
+        if (loaded_deck.indexOf(card.id) >= 0) {
+            deck.discard.push(card);
+        }
+        else {
+            deck.draw_pile.push(card);
+        }
     }
 
     deck.draw_top_card = function()
@@ -1060,6 +1066,7 @@ function init()
     var scenariospage = document.getElementById("scenariospage");
     var applydeckbtn = document.getElementById("applydecks");
     var applyscenariobtn = document.getElementById("applyscenario");
+    var applyloadbtn = document.getElementById("applyload");
 
     var decklist = new DeckList();
     var scenariolist = new ScenarioList(SCENARIO_DEFINITIONS);
@@ -1072,9 +1079,10 @@ function init()
         var selected_deck_names = decklist.get_selected_decks();
         var selected_decks = selected_deck_names.map( function(deck_names)
                                                 {
-                                                    return load_ability_deck(deck_names.class, deck_names.name, deck_names.level);
+                                                    return load_ability_deck(deck_names.class, deck_names.name, deck_names.level, []);
                                                 } );
         apply_deck_selection(selected_decks, true);
+        write_to_storage("selected_decks", JSON.stringify(selected_deck_names));
     };
 
     applyscenariobtn.onclick = function()
@@ -1083,10 +1091,23 @@ function init()
         decklist.set_selection(selected_deck_names);
         var selected_decks = selected_deck_names.map( function(deck_names)
                                                 {
-                                                    return load_ability_deck(deck_names.class, deck_names.name, deck_names.level);
+                                                    return load_ability_deck(deck_names.class, deck_names.name, deck_names.level, []);
                                                 } );
         apply_deck_selection(selected_decks, false);
+        write_to_storage("selected_decks", JSON.stringify(selected_deck_names));
     };
+
+    applyloadbtn.onclick = function()
+    {
+        var selected_deck_names = JSON.parse(get_from_storage("selected_decks"));
+        decklist.set_selection(selected_deck_names);
+        var selected_decks = selected_deck_names.map( function(deck_names)
+        {
+            return load_ability_deck(deck_names.class, deck_names.name, deck_names.level, []);
+        } );
+        apply_deck_selection(selected_decks, false);
+
+    }
 
     window.onresize = refresh_ui.bind(null, visible_ability_decks);
 }

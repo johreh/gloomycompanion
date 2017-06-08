@@ -56,5 +56,6 @@ function init_ui()
     }
 
     activate_tab(tabs, pages, "scenarios");
+	
 }
 

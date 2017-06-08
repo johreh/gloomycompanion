@@ -86,3 +86,11 @@ function remove_empty_strings(array)
 {
     return array.filter(Boolean);
 }
+
+function write_to_storage(name, value) {
+    localStorage.setItem(name, value);
+}
+
+function get_from_storage(name) {
+    return localStorage.getItem(name);
+}
