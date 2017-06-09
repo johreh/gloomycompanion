@@ -94,3 +94,12 @@ function write_to_storage(name, value) {
 function get_from_storage(name) {
     return localStorage.getItem(name);
 }
+
+function find_in_discard(discard, id) {
+    for (var i=0; i < discard.length; i++) {
+        if (discard[i].id === id) {
+            return discard[i];
+        }
+    }
+    return null;
+}
