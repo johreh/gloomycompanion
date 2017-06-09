@@ -535,6 +535,7 @@ function load_modifier_deck(number_bless, number_curses) {
                 break;
             }
         }
+        write_to_storage("modifier_deck", JSON.stringify(modifier_deck));
 
         return this.count(card_type);
     }.bind(deck);
@@ -545,6 +546,7 @@ function load_modifier_deck(number_bless, number_curses) {
 
         force_repaint_deck(deck);
         reshuffle(deck, false);
+        write_to_storage("modifier_deck", JSON.stringify(modifier_deck));
 
         return this.count(card_type);
     }.bind(deck);
@@ -723,6 +725,7 @@ function apply_deck_selection(decks, preserve_existing_deck_state) {
         init_modifier_deck();
         add_modifier_deck(container, modifier_deck,preserve_existing_deck_state);
     }
+    write_to_storage("modifier_deck", JSON.stringify(modifier_deck));
 
     decks_to_remove.forEach(function (deck) {
         deck.discard_deck();
