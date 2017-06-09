@@ -156,51 +156,87 @@ function load_ability_deck(deck_class, deck_name, level) {
     deck_definition.name = deck_name;
     deck_definition.level = level;
 
-    var loaded_deck = get_from_storage(deck_name);
+    var loaded_deck = JSON.parse(get_from_storage(deck_name));
 
 
-        deck = {
-            class: deck_definition.class,
-            name: deck_definition.name,
-            type: DECK_TYPES.ABILITY,
-            draw_pile: [],
-            discard: [],
-            move: [0, 0],
-            attack: [0, 0],
-            range: [0, 0],
-            level: deck_definition.level
-        }
+    var deck = {
+        class: deck_definition.class,
+        name: deck_definition.name,
+        type: DECK_TYPES.ABILITY,
+        draw_pile: [],
+        discard: [],
+        move: [0, 0],
+        attack: [0, 0],
+        range: [0, 0],
+        level: deck_definition.level
+    }
 
     for (var i = 0; i < deck_definition.cards.length; i++) {
-            var definition = deck_definition.cards[i];
-            var shuffle = definition[0];
-            var initiative = definition[1];
-            var lines = definition.slice(2);
+        var definition = deck_definition.cards[i];
+        var shuffle = definition[0];
+        var initiative = definition[1];
+        var lines = definition.slice(2);
 
-            var empty_front = document.createElement("div");
-            empty_front.className = "card ability front down";
-            var card_front = empty_front;
-            var card_back = create_ability_card_back(deck.name, deck.level);
+        var empty_front = document.createElement("div");
+        empty_front.className = "card ability front down";
+        var card_front = empty_front;
+        var card_back = create_ability_card_back(deck.name, deck.level);
 
-            var card = {
-                id: deck.name + '_' + i,
-                ui: new UICard(card_front, card_back),
-                shuffle_next: shuffle,
-                initiative: initiative,
-                starting_lines: lines,
-            };
+        var card = {
+            id: deck.name + '_' + i,
+            ui: new UICard(card_front, card_back),
+            shuffle_next: shuffle,
+            initiative: initiative,
+            starting_lines: lines,
+        };
 
-            card.paint_front_card = function (name, lines, attack, move, range, level) {
-                this.ui.front = create_ability_card_front(this.initiative, name, this.shuffle_next, lines, attack, move, range, level);
+        card.paint_front_card = function (name, lines, attack, move, range, level) {
+            this.ui.front = create_ability_card_front(this.initiative, name, this.shuffle_next, lines, attack, move, range, level);
+        }
+        if (loaded_deck && find_in_discard(loaded_deck.discard, card.id)) {
+            deck.discard.push(card);
+        } else {
+            deck.draw_pile.push(card);
+        }
+    }
+    deck.draw_top_discard = function() {
+        if (this.discard.length > 0) {
+            var card = this.discard[this.discard.length-1];
+            var cards_lines = card.starting_lines;
+            var extra_lines = [];
+            if (this.is_boss()) {
+                var new_lines = [];
+                cards_lines.forEach(function (line) {
+                    new_lines = new_lines.concat(special_to_lines(line, deck.special1, deck.special2));
+                });
+                cards_lines = new_lines;
+                if (this.immunities) {
+                    extra_lines = extra_lines.concat(immunities_to_lines(this.immunities));
+                }
+                if (this.notes) {
+                    extra_lines = extra_lines.concat(notes_to_lines(this.notes));
+                }
             }
-            if (loaded_deck && find_in_discard(loaded_deck.discard, card.id)) {
-                deck.discard.push(card);
-            } else {
-                deck.draw_pile.push(card);
+            else {
+                if (this.attributes) {
+                    extra_lines = extra_lines.concat(attributes_to_lines(this.attributes));
+                }
+
             }
+
+            card.paint_front_card(this.get_real_name(), cards_lines.concat(extra_lines), this.attack, this.move, this.range, this.level);
+
+            card.ui.set_depth(-3);
+            card.ui.addClass("pull");
+            card.ui.flip_up(true);
+            card.ui.removeClass("draw");
+            card.ui.addClass("discard");
+        }
+        force_repaint_deck(this);
     }
 
     deck.draw_top_card = function () {
+
         var cards_lines = this.draw_pile[0].starting_lines;
         var extra_lines = [];
         if (this.is_boss()) {
@@ -546,13 +582,33 @@ function load_modifier_deck(number_bless, number_curses) {
             deck.discard[1].ui.removeClass("left");
         }
     }.bind(deck);
+    var loaded_deck = JSON.parse(get_from_storage("modifier_deck"));
 
     MODIFIER_DECK.forEach(function (card_definition) {
         var card = define_modifier_card(card_definition);
-        deck.draw_pile.push(card);
+        if (loaded_deck && find_in_discard_and_remove(loaded_deck.discard,card.card_type)) {
+            deck.discard.push(card);
+        } else {
+            deck.draw_pile.push(card);
+        }
     });
 
+    for (var i =0; i < number_bless; i++) {
+       deck.add_card("bless");
+    }
+    for (var i =0; i < number_curses; i++) {
+        deck.add_card("curse");
+    }
     return deck;
+}
+
+function find_in_discard_and_remove(discard, card_type) {
+    for (var i=0; i < discard.length; i++) {
+        if (discard[i].card_type === card_type) {
+            return discard.splice(i,1);
+        }
+    }
+    return null;
 }
 
 function create_modifier_card_back() {
@@ -660,12 +716,12 @@ function apply_deck_selection(decks, preserve_existing_deck_state) {
 
     if (!modifier_deck) {
         init_modifier_deck();
-        add_modifier_deck(container, modifier_deck);
+        add_modifier_deck(container, modifier_deck,preserve_existing_deck_state);
     }
     else if (!preserve_existing_deck_state) {
         container.removeChild(document.getElementById("modifier-container"));
         init_modifier_deck();
-        add_modifier_deck(container, modifier_deck);
+        add_modifier_deck(container, modifier_deck,preserve_existing_deck_state);
     }
 
     decks_to_remove.forEach(function (deck) {
@@ -679,7 +735,10 @@ function apply_deck_selection(decks, preserve_existing_deck_state) {
         container.appendChild(deck_space);
 
         place_deck(deck, deck_space);
-        reshuffle(deck, true);
+        reshuffle(deck, !preserve_existing_deck_state);
+        if (preserve_existing_deck_state) {
+
+        }
         deck_space.onclick = draw_ability_card.bind(null, deck);
 
         deck.discard_deck = function () {
@@ -702,9 +761,11 @@ function apply_deck_selection(decks, preserve_existing_deck_state) {
 
         }
         reshuffle(deck);
-
-        force_repaint_deck(deck);
-
+        if (preserve_existing_deck_state) {
+            deck.draw_top_discard();
+        } else {
+            force_repaint_deck(deck);
+        }
         visible_ability_decks.push(deck);
     });
 
@@ -713,10 +774,25 @@ function apply_deck_selection(decks, preserve_existing_deck_state) {
 }
 
 function init_modifier_deck() {
-    modifier_deck = load_modifier_deck(0, 0);
+    var loaded_modifier_deck = JSON.parse(get_from_storage("modifier_deck"));
+    var curses = count_type("curse", loaded_modifier_deck);
+    var blessings = count_type("bless", loaded_modifier_deck);
+    modifier_deck = load_modifier_deck(blessings, curses);
 }
 
-function add_modifier_deck(container, deck) {
+function count_type(type, deck) {
+    var count = 0;
+    if (deck) {
+        for (var i = 0; i < deck.length; i++) {
+            if (deck[i].card_type === type) {
+                count++;
+            }
+        }
+    }
+    return count;
+}
+
+function add_modifier_deck(container, deck, preserve_discards) {
     function create_counter(card_type, increment_func, decrement_func) {
         function create_button(class_name, text, func, text_element) {
             var button = document.createElement("div");
@@ -789,7 +865,7 @@ function add_modifier_deck(container, deck) {
     container.appendChild(modifier_container);
 
     place_deck(deck, deck_space);
-    reshuffle(deck, true);
+    reshuffle(deck, !preserve_discards);
     deck_space.onclick = draw_modifier_card.bind(null, deck);
 }
 
@@ -972,7 +1048,7 @@ function init() {
     applydeckbtn.onclick = function () {
         localStorage.clear();
         var selected_deck_names = decklist.get_selected_decks();
-        write_to_storage("selected_deck_names", selected_deck_names);
+        write_to_storage("selected_deck_names", JSON.stringify(selected_deck_names));
         var selected_decks = selected_deck_names.map(function (deck_names) {
             return load_ability_deck(deck_names.class, deck_names.name, deck_names.level);
         });
@@ -982,7 +1058,7 @@ function init() {
     applyscenariobtn.onclick = function () {
         localStorage.clear();
         var selected_deck_names = scenariolist.get_scenario_decks();
-        write_to_storage("selected_deck_names", selected_deck_names);
+        write_to_storage("selected_deck_names", JSON.stringify(selected_deck_names));
         decklist.set_selection(selected_deck_names);
         var selected_decks = selected_deck_names.map(function (deck_names) {
             return load_ability_deck(deck_names.class, deck_names.name, deck_names.level);
@@ -991,12 +1067,12 @@ function init() {
     };
 
     applyloadbtn.onclick = function () {
-        var selected_deck_names = get_from_storage("selected_deck_names");
+        var selected_deck_names = JSON.parse(get_from_storage("selected_deck_names"));
         decklist.set_selection(selected_deck_names);
         var selected_decks = selected_deck_names.map(function (deck_names) {
             return load_ability_deck(deck_names.class, deck_names.name, deck_names.level);
         });
-        apply_deck_selection(selected_decks, false);
+        apply_deck_selection(selected_decks, true);
 
     }
 

@@ -89,6 +89,7 @@ function remove_empty_strings(array)
 
 function write_to_storage(name, value) {
     localStorage.setItem(name, value);
+    console.log("Wrote " + name + " to local storage, with value: " + value);
 }
 
 function get_from_storage(name) {
