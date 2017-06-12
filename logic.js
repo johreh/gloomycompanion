@@ -519,6 +519,18 @@ function load_modifier_deck(number_bless, number_curses) {
             advantage_to_clean: false
         }
 
+    deck.draw_top_discard = function() {
+        if (this.discard.length > 0) {
+            var card = this.discard[this.discard.length-1];
+            card.ui.set_depth(-3);
+            card.ui.addClass("pull");
+            card.ui.flip_up(true);
+            card.ui.removeClass("draw");
+            card.ui.addClass("discard");
+        }
+        force_repaint_deck(this);
+    }
+
     deck.count = function (card_type) {
         return (this.draw_pile.filter(function (card) {
             return card.card_type === card_type;
@@ -595,12 +607,8 @@ function load_modifier_deck(number_bless, number_curses) {
         }
     });
 
-    for (var i =0; i < number_bless; i++) {
-       deck.add_card("bless");
-    }
-    for (var i =0; i < number_curses; i++) {
-        deck.add_card("curse");
-    }
+
+
     return deck;
 }
 
@@ -719,6 +727,18 @@ function apply_deck_selection(decks, preserve_existing_deck_state) {
     if (!modifier_deck) {
         init_modifier_deck();
         add_modifier_deck(container, modifier_deck,preserve_existing_deck_state);
+        if (preserve_existing_deck_state) {
+            var loaded_modifier_deck = JSON.parse(get_from_storage("modifier_deck"));
+            var curses = count_type("curse", loaded_modifier_deck);
+            var blessings = count_type("bless", loaded_modifier_deck);
+            for (var i =0; i < curses; i++) {
+                modifier_deck.add_card("bless");
+            }
+            for (var i =0; i < blessings; i++) {
+                modifier_deck.add_card("curse");
+            }
+            modifier_deck.draw_top_discard();
+        }
     }
     else if (!preserve_existing_deck_state) {
         container.removeChild(document.getElementById("modifier-container"));
@@ -777,17 +797,14 @@ function apply_deck_selection(decks, preserve_existing_deck_state) {
 }
 
 function init_modifier_deck() {
-    var loaded_modifier_deck = JSON.parse(get_from_storage("modifier_deck"));
-    var curses = count_type("curse", loaded_modifier_deck);
-    var blessings = count_type("bless", loaded_modifier_deck);
-    modifier_deck = load_modifier_deck(blessings, curses);
+    modifier_deck = load_modifier_deck(0,0);
 }
 
 function count_type(type, deck) {
     var count = 0;
     if (deck) {
-        for (var i = 0; i < deck.length; i++) {
-            if (deck[i].card_type === type) {
+        for (var i = 0; i < deck.draw_pile.length; i++) {
+            if (deck.draw_pile[i].card_type === type) {
                 count++;
             }
         }
