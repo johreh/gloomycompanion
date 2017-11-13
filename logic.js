@@ -79,7 +79,7 @@ function create_ability_card_back(name, level)
     return card;
 }
 
-function create_ability_card_front(initiative, name, shuffle, lines, attack, move, range, level)
+function create_ability_card_front(initiative, name, shuffle, lines, attack, move, range, level, health)
 {
     var card = document.createElement("div");
     card.className = "card ability front down";
@@ -88,6 +88,18 @@ function create_ability_card_front(initiative, name, shuffle, lines, attack, mov
     name_span.className = "name";
     name_span.innerText = name + "-" + level;
     card.appendChild(name_span);
+	
+	var healthNormal_span = document.createElement("span");
+    healthNormal_span.className = "healthNormal";
+    healthNormal_span.innerText = "HP " + health[0];
+    card.appendChild(healthNormal_span);
+	
+	if ( health[1] > 0 ) {
+		var healthElite_span = document.createElement("span");
+		healthElite_span.className = "healthElite";
+		healthElite_span.innerText = "HP " + health[1];
+		card.appendChild(healthElite_span);
+	}
 
     var initiative_span = document.createElement("span");
     initiative_span.className = "initiative";
@@ -183,7 +195,8 @@ function load_ability_deck(deck_class, deck_name, level)
         move:                   [0,0],
         attack:                 [0,0],
         range:                  [0,0],
-        level:                  deck_definition.level
+        level:                  deck_definition.level,
+		health:                 [0,0]
     }
 
     for (var i = 0; i < deck_definition.cards.length; i++)
@@ -205,9 +218,9 @@ function load_ability_deck(deck_class, deck_name, level)
             starting_lines: lines,
         };
 
-        card.paint_front_card = function (name, lines, attack, move, range, level)
+        card.paint_front_card = function (name, lines, attack, move, range, level,health)
         {
-            this.ui.front = create_ability_card_front(this.initiative, name, this.shuffle_next, lines, attack, move, range, level);
+            this.ui.front = create_ability_card_front(this.initiative, name, this.shuffle_next, lines, attack, move, range, level,health);
         }
 
         deck.draw_pile.push(card);
@@ -243,7 +256,7 @@ function load_ability_deck(deck_class, deck_name, level)
 
         }
 
-        this.draw_pile[0].paint_front_card(this.get_real_name(), cards_lines.concat(extra_lines), this.attack, this.move, this.range, this.level);
+        this.draw_pile[0].paint_front_card(this.get_real_name(), cards_lines.concat(extra_lines), this.attack, this.move, this.range, this.level,this.health);
         force_repaint_deck(this);
     }
 
@@ -266,6 +279,7 @@ function load_ability_deck(deck_class, deck_name, level)
         this.move = stats.move;
         this.range = stats.range;
         this.attributes = stats.attributes;
+		this.health = stats.health;
     }
 
     deck.set_stats_boss = function(stats)
@@ -277,6 +291,7 @@ function load_ability_deck(deck_class, deck_name, level)
         this.special2 = stats.special2;
         this.immunities = stats.immunities;
         this.notes = stats.notes;
+		this.health = stats.health;
     }
 
     deck.get_real_name = function()
@@ -694,8 +709,11 @@ function get_monster_stats(name, level)
     var attributes =    [   MONSTER_STATS["monsters"][name]["level"][level]["normal"]["attributes"],
                             MONSTER_STATS["monsters"][name]["level"][level]["elite"]["attributes"]
                         ];
+    var health =        [   MONSTER_STATS["monsters"][name]["level"][level]["normal"]["health"],
+                            MONSTER_STATS["monsters"][name]["level"][level]["elite"]["health"]
+                        ];						
 
-    return { "attack": attack, "move": move, "range": range, "attributes": attributes};
+    return { "attack": attack, "move": move, "range": range, "attributes": attributes, "health": health};
 }
 
 function get_boss_stats(name, level)
@@ -708,8 +726,9 @@ function get_boss_stats(name, level)
     var special2 = MONSTER_STATS["bosses"][name]["level"][level]["special2"];
     var immunities = MONSTER_STATS["bosses"][name]["level"][level]["immunities"];
     var notes = MONSTER_STATS["bosses"][name]["level"][level]["notes"];
+	var health = [MONSTER_STATS["bosses"][name]["level"][level]["health"]];
 
-    return { "attack": attack, "move": move, "range": range, "special1": special1, "special2": special2, "immunities": immunities, "notes": notes}
+    return { "attack": attack, "move": move, "range": range, "special1": special1, "special2": special2, "immunities": immunities, "notes": notes, "health":health}
 }
 
 function apply_deck_selection(decks, preserve_existing_deck_state)

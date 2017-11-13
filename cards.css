@@ -473,6 +473,29 @@ div.collapse
     width:                      19%;
 }
 
+.card .healthNormal
+{
+    font-size:                  150%;
+    text-align:                 left;
+
+    position:                   absolute;
+    left:                       3%;
+    top:                        45%;
+    width:                      20%;
+}
+
+.card .healthElite
+{
+	color:						gold;
+    font-size:                  150%;
+    text-align:                 left;
+
+    position:                   absolute;
+    left:                       3%;
+    top:                        70%;
+    width:                      20%;
+}
+
 .card.front .name
 {
     font-size:                  120%;
