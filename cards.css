@@ -387,6 +387,7 @@
 .card li
 {
     margin:                     0.25em 0;
+    margin-left:                17%;
 }
 
 .card li li
@@ -475,25 +476,25 @@ div.collapse
 
 .card .healthNormal
 {
-    font-size:                  150%;
+    font-size:                  130%;
     text-align:                 left;
 
     position:                   absolute;
     left:                       3%;
     top:                        45%;
-    width:                      20%;
+    width:                      15%;
 }
 
 .card .healthElite
 {
 	color:						gold;
-    font-size:                  150%;
+    font-size:                  130%;
     text-align:                 left;
 
     position:                   absolute;
     left:                       3%;
     top:                        70%;
-    width:                      20%;
+    width:                      15%;
 }
 
 .card.front .name
