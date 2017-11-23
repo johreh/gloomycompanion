@@ -86,3 +86,21 @@ function remove_empty_strings(array)
 {
     return array.filter(Boolean);
 }
+
+function write_to_storage(name, value) {
+    localStorage.setItem(name, value);
+    console.log("Wrote " + name + " to local storage, with value: " + value);
+}
+
+function get_from_storage(name) {
+    return localStorage.getItem(name);
+}
+
+function find_in_discard(discard, id) {
+    for (var i=0; i < discard.length; i++) {
+        if (discard[i].id === id) {
+            return discard[i];
+        }
+    }
+    return null;
+}
