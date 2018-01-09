@@ -330,8 +330,8 @@ DECK_DEFINITONS =
         , cards:
             [ [false, "08", "* %move% +0", "* %attack% -1", "** %range% +0", "** %disarm%"]
             , [false, "08", "* %move% -1", "* %attack% +0", "** %range% +0", "** %immobilize%"]
-            , [true,  "23", "* %move% +0", "* %heal% 3"]
-            , [true,  "23", "* %move% +0", "* %heal% 3"]
+            , [true,  "23", "* %move% +0", "* %heal% 3" "** %range% 3"]
+            , [true,  "23", "* %move% +0", "* %heal% 3" "** %range% 3"]
             , [false, "62", "* %move% +0", "* %attack% +0", "** %range% +0"]
             , [false, "74", "* %move% -1", "* %attack% +1","** %range% +0"]
             , [false, "89", "* %move% -1", "* %heal% 1", "** Affect all adjacent allies", "* %bless%", "** Self"]
