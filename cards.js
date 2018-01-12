@@ -364,7 +364,7 @@ DECK_DEFINITONS =
         },
         { class: "Sun Demon"
         , cards:
-            [ [true,  "17", "* %heal% 3", "** %range% 3", "** %light%%use_element%: Target all allies within range"]
+            [ [true,  "17", "* %heal% 3", "** %range% 3", "** %light%%use_element%: Target all allies within range instead"]
             , [false, "36", "* %move% +0", "* %attack% +0", "** Target all adjacent enemies", "* %light%"]
             , [false, "36", "* %move% +0", "* %attack% +0", "** Target all adjacent enemies", "* %light%"]
             , [false, "68", "* %move% +0", "* %attack% +1", "* %light%"]
