@@ -553,11 +553,14 @@ function load_modifier_deck(number_bless, number_curses) {
     }.bind(deck);
 
     deck.add_card = function (card_type) {
-        // TOOD: Brittle
-        deck.draw_pile.push(define_modifier_card(MODIFIER_CARDS[card_type.toUpperCase()]));
+        // Rulebook p. 23: "a maximum of only 10 curse [and 10 bless] cards can be placed into any one deck"
+        if (this.count(card_type) < 10) {
+            // TOOD: Brittle
+            deck.draw_pile.push(define_modifier_card(MODIFIER_CARDS[card_type.toUpperCase()]));
 
-        force_repaint_deck(deck);
-        reshuffle(deck, false);
+            force_repaint_deck(deck);
+            reshuffle(deck, false);
+        }
         write_to_storage("modifier_deck", JSON.stringify(modifier_deck));
 
         return this.count(card_type);
