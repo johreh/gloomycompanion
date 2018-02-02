@@ -1,7 +1,7 @@
 
 function shuffle_list(l)
 {
-    for (var i = 0; i < l.length; i++)
+    for (var i = 0; i < l.length-1; i++)
     {
         // Based on https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle#Implementation_errors
         var switch_index = i + Math.floor(Math.random() * (l.length - i));
