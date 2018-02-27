@@ -130,7 +130,7 @@ DECK_DEFINITONS =
             , [false, "49", "* %attack% +0 %aoe-line-3-with-black%", "** <table align='center'><tr><td>%fire%%use_element%:</td> <td> +1 %attack% <br\> %wound% </td> </tr> </table>"]
             , [false, "67", "* %move% -1", "* %attack% +1", "** %range% -1", "* %fire%"]
             , [false, "77", "* %attack% +0", "** Target all adjacent enemies", "** %ice%%use_element%:Flame Demon suffers 1 damage."]
-            , [true,  "30", "* <table align='center'><tr> <td>  %fire%%use_element%: </td> <td> <span class='small'>All adjacent enemies<br/>suffer 2 damage.</span> </td> </tr> </table>", "* %move% +0", "* %attack% -2", "** %wound%","** %target% 2"]
+            , [true,  "30", "* <table align='center'><tr> <td>  %fire%%use_element%: </td> <td> <span class='small'>All adjacent enemies<br/>suffer 2 damage.</span> </td> </tr> </table>", "* %move% +0", "* %attack% -2", "** %range% +0", "** %wound%", "** %target% 2"]
             , [false, "08", "* %move% -1", "* <span class='small'> Create a 4 damage trap in an adjacent empty hex closest to an enemy </span>", "* %any%%use_element%: %fire%"]
             ]
         },
@@ -199,7 +199,7 @@ DECK_DEFINITONS =
             [ [false, "05", "* %shield% 5", "* %heal% 1", "** Self"]
             , [false, "37", "* %move% +0", "* %attack% +0","** %range% +0"]
             , [false, "37", "* %move% +0", "* %attack% +0","** %range% +0"]
-            , [false, "42", "* %move% +1", "* %heal% 2"]
+            , [false, "42", "* %move% +1", "* %heal% 2", "** %range% 3"]
             , [true,  "43", "* %move% +0", "* %attack% -1", "** %range% +0, %target% 2, %poison%"]
             , [false, "76", "* %move% -1", "* %attack% +1", "** %range% +0",]
             , [true,  "43", "* %move% +0", "* %attack% -1", "** %range% +0, %target% 2, %curse%"]
@@ -297,7 +297,7 @@ DECK_DEFINITONS =
             , [false, "98", "* Summon normal Frost Demon", "* %ice%"]
             , [false, "19", "* %move% +0", "* %attack% -1", "** %range% -1", "* %shield% 1", "** Affect self and all allies within %range% 2", "* %ice%"]
             , [false, "14", "* %attack% +0", "** %range% +0", "** %ice%%use_element%: +2 %attack%, %immobilize%", "* %retaliate% 2", "* %air%"]
-            , [false, "14", "* %shield% 4", "* %heal% 2", "** %ice%%use_element%: +3 %heal%", "* %air%%use_element%: %attack% +0"]
+            , [false, "14", "* %shield% 4", "* %heal% 2", "** %range% 3", "** %ice%%use_element%: +3 %heal%", "* %air%%use_element%: %attack% +0"]
             , [true,  "47", "* %disarm%", "** Target all adjacent enemies", "* %move% +0", "* %attack% -1", "** %range% +0", "* %air%"]
             , [true,  "35", "* %move% -1", "* %attack% -1 %aoe-triangle-3-side-with-corner-black% ", "* %ice%"]
             ]
@@ -330,8 +330,8 @@ DECK_DEFINITONS =
         , cards:
             [ [false, "08", "* %move% +0", "* %attack% -1", "** %range% +0", "** %disarm%"]
             , [false, "08", "* %move% -1", "* %attack% +0", "** %range% +0", "** %immobilize%"]
-            , [true,  "23", "* %move% +0", "* %heal% 3"]
-            , [true,  "23", "* %move% +0", "* %heal% 3"]
+            , [true,  "23", "* %move% +0", "* %heal% 3", "** %range% 3"]
+            , [true,  "23", "* %move% +0", "* %heal% 3", "** %range% 3"]
             , [false, "62", "* %move% +0", "* %attack% +0", "** %range% +0"]
             , [false, "74", "* %move% -1", "* %attack% +1","** %range% +0"]
             , [false, "89", "* %move% -1", "* %heal% 1", "** Affect all adjacent allies", "* %bless%", "** Self"]
@@ -364,7 +364,7 @@ DECK_DEFINITONS =
         },
         { class: "Sun Demon"
         , cards:
-            [ [true,  "17", "* %heal% 3", "** %range% 3", "** %light%%use_element%: Target all allies within range"]
+            [ [true,  "17", "* %heal% 3", "** %range% 3", "** %light%%use_element%: Target all allies within range instead"]
             , [false, "36", "* %move% +0", "* %attack% +0", "** Target all adjacent enemies", "* %light%"]
             , [false, "36", "* %move% +0", "* %attack% +0", "** Target all adjacent enemies", "* %light%"]
             , [false, "68", "* %move% +0", "* %attack% +1", "* %light%"]

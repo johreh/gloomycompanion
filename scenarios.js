@@ -295,6 +295,9 @@ SCENARIO_DEFINITIONS =
             ,   {"name": "Frost Demon"}
             ,   {"name": "Earth Demon"}
             ,   {"name": "Wind Demon"}
+            ,   {"name": "City Archer"}
+            ,   {"name": "City Guard"}             
+            ,   {"name": "Boss: Captain of the Guard"}
             ]
         },
         { name: "#36 Gloomhaven Battlements B"
