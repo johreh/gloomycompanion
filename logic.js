@@ -1102,6 +1102,7 @@ function init() {
     var applydeckbtn = document.getElementById("applydecks");
     var applyscenariobtn = document.getElementById("applyscenario");
     var applyloadbtn = document.getElementById("applyload");
+    var showmodifierdeck = document.getElementById("showmodifierdeck");
 
     var decklist = new DeckList();
     var scenariolist = new ScenarioList(SCENARIO_DEFINITIONS);
@@ -1117,6 +1118,14 @@ function init() {
             return load_ability_deck(deck_names.class, deck_names.name, deck_names.level);
         });
         apply_deck_selection(selected_decks, true);
+        var showmodifierdeck_deckspage = document.getElementById("showmodifierdeck-deckspage");
+        var modifier_deck_section = document.getElementById("modifier-container");
+        if(!showmodifierdeck_deckspage.checked){
+            modifier_deck_section.style.display = "none";
+        }
+        else{
+            modifier_deck_section.style.display = "block";
+        }
     };
 
     applyscenariobtn.onclick = function () {
@@ -1128,6 +1137,13 @@ function init() {
             return load_ability_deck(deck_names.class, deck_names.name, deck_names.level);
         });
         apply_deck_selection(selected_decks, false);
+        var modifier_deck_section = document.getElementById("modifier-container");
+        if(!showmodifierdeck.checked){
+            modifier_deck_section.style.display = "none";
+        }
+        else{
+            modifier_deck_section.style.display = "block";
+        }
     };
 
     applyloadbtn.onclick = function () {
@@ -1137,7 +1153,13 @@ function init() {
             return load_ability_deck(deck_names.class, deck_names.name, deck_names.level);
         });
         apply_deck_selection(selected_decks, true);
-
+        var modifier_deck_section = document.getElementById("modifier-container");
+        if(!showmodifierdeck.checked){
+            modifier_deck_section.style.display = "none";
+        }
+        else{
+            modifier_deck_section.style.display = "block";
+        }
     }
 
     window.onresize = refresh_ui.bind(null, visible_ability_decks);
