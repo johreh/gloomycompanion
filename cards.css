@@ -128,6 +128,11 @@
     height:                     20%;
 }
 
+.shuffle.not-required 
+{
+    opacity:                    0.2;
+}
+
 .counter-icon .button
 {
     width:                      33%;
