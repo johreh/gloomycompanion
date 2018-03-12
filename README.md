@@ -2,7 +2,7 @@
 
 This is a web-app for managing the monster ability decks in the board game [Gloomhaven](https://boardgamegeek.com/boardgame/174430/gloomhaven)
 
-You can run it from the web directly on <https://silverxxx.github.io/gloomycompanion/>.
+You can run it from the web directly on <https://johreh.github.io/gloomycompanion/>.
 
 You can also download it and run it locally without internet connection. Click __Clone or download__ above, then __Download ZIP__. Unpack the ZIP and start the app by opening `index.html`.
 
