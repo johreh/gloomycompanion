@@ -742,7 +742,7 @@ function get_boss_stats(name, level) {
 
 function apply_deck_selection(decks, preserve_existing_deck_state) {
     var container = document.getElementById("tableau");
-
+    document.getElementById("currentdeckslist").innerHTML = "";
     var decks_to_remove = visible_ability_decks.filter(function (visible_deck) {
         return !preserve_existing_deck_state || (decks.filter(function (deck) {
                 return ((deck.name == visible_deck.name) && (deck.level == visible_deck.level))
@@ -785,7 +785,13 @@ function apply_deck_selection(decks, preserve_existing_deck_state) {
     });
 
     decks_to_add.forEach(function (deck) {
+        var deckid = deck.get_real_name().replace(/\s+/g, '');
         var deck_space = document.createElement("div");
+        deck_space.id = deckid;
+        deck_space.addEventListener('contextmenu', function(e) {            
+            this.className = "hiddendeck";
+            e.preventDefault();
+        }, false);
         deck_space.className = "card-container";
 
         container.appendChild(deck_space);
@@ -823,6 +829,20 @@ function apply_deck_selection(decks, preserve_existing_deck_state) {
             force_repaint_deck(deck);
         }
         visible_ability_decks.push(deck);
+        
+        var currentdeckslist = document.getElementById("currentdeckslist");        
+        var list_item = document.createElement("li");
+        list_item.className = "currentdeck";
+        currentdeckslist.appendChild(list_item);
+        var label = document.createElement("a");
+        label.id = "switch-" + deckid;
+        label.href = "#switch-" + deckid
+        label.innerText = deck.get_real_name();
+        label.addEventListener("click", function(e){
+            var d = document.getElementById(this.id.replace("switch-",""));
+            d.className = (d.className == "hiddendeck") ? "card-container" : "hiddendeck";
+        }, false)
+        list_item.appendChild(label);
     });
 
     // Rescale card text if necessary

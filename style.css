@@ -117,6 +117,37 @@ ul.tabcontainer .inactive
     left:               calc(-100% - 2em);
 }
 
+.hiddendeck
+{
+    display: none;
+}
+
+ul.currentdeckslist {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li.currentdeck {
+    float: left;
+}
+
+li.currentdeck a {
+    display: block;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+li.currentdeck a:hover {
+    background-color: #AAAAAA;
+}
+
+#settingsbtn {
+    float: left;
+}
+
 #cancelarea
 {
     position:           absolute;
