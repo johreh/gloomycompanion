@@ -7658,13 +7658,13 @@ MONSTER_STATS = {
           "range": 0,
           "special1": [
             "Throne moves",
-            "Summon Demon",
+            "Summon Demon (Special 1)",
             "%move% +2",
             "%attack% -1"
           ],
           "special2": [
             "Throne moves",
-            "Summon Demon",
+            "Summon Demon (Special 2)",
             "%move% +2",
             "%attack% -1"
           ],
@@ -7686,13 +7686,13 @@ MONSTER_STATS = {
           "range": 0,
           "special1": [
             "Throne moves",
-            "Summon Demon",
+            "Summon Demon (Special 1)",
             "%move% +2",
             "%attack% -1"
           ],
           "special2": [
             "Throne moves",
-            "Summon Demon",
+            "Summon Demon (Special 2)",
             "%move% +2",
             "%attack% -1"
           ],
@@ -7714,13 +7714,13 @@ MONSTER_STATS = {
           "range": 0,
           "special1": [
             "Throne moves",
-            "Summon Demon",
+            "Summon Demon (Special 1)",
             "%move% +2",
             "%attack% -1"
           ],
           "special2": [
             "Throne moves",
-            "Summon Demon",
+            "Summon Demon (Special 2)",
             "%move% +2",
             "%attack% -1"
           ],
@@ -7770,13 +7770,13 @@ MONSTER_STATS = {
           "range": 0,
           "special1": [
             "Throne moves",
-            "Summon Demon",
+            "Summon Demon (Special 1)",
             "%move% +2",
             "%attack% -1"
           ],
           "special2": [
             "Throne moves",
-            "Summon Demon",
+            "Summon Demon (Special 2)",
             "%move% +2",
             "%attack% -1"
           ],
@@ -7798,13 +7798,13 @@ MONSTER_STATS = {
           "range": 0,
           "special1": [
             "Throne moves",
-            "Summon Demon",
+            "Summon Demon (Special 1)",
             "%move% +2",
             "%attack% -1"
           ],
           "special2": [
             "Throne moves",
-            "Summon Demon",
+            "Summon Demon (Special 2)",
             "%move% +2",
             "%attack% -1"
           ],
@@ -7826,13 +7826,13 @@ MONSTER_STATS = {
           "range": 0,
           "special1": [
             "Throne moves",
-            "Summon Demon",
+            "Summon Demon (Special 1)",
             "%move% +2",
             "%attack% -1"
           ],
           "special2": [
             "Throne moves",
-            "Summon Demon",
+            "Summon Demon (Special 2)",
             "%move% +2",
             "%attack% -1"
           ],
@@ -7854,13 +7854,13 @@ MONSTER_STATS = {
           "range": 0,
           "special1": [
             "Throne moves",
-            "Summon Demon",
+            "Summon Demon (Special 1)",
             "%move% +2",
             "%attack% -1"
           ],
           "special2": [
             "Throne moves",
-            "Summon Demon",
+            "Summon Demon (Special 2)",
             "%move% +2",
             "%attack% -1"
           ],
