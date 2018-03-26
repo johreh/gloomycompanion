@@ -533,7 +533,7 @@ function double_draw(deck) {
     deck.advantage_to_clean = true;
 }
 
-function load_modifier_deck(number_bless, number_curses) {
+function load_modifier_deck() {
     var deck =
         {
             name: "Monster modifier deck",
@@ -762,10 +762,10 @@ function apply_deck_selection(decks, preserve_existing_deck_state) {
             var loaded_modifier_deck = JSON.parse(get_from_storage("modifier_deck"));
             var curses = count_type("curse", loaded_modifier_deck);
             var blessings = count_type("bless", loaded_modifier_deck);
-            for (var i =0; i < curses; i++) {
+            for (var i =0; i < blessings; i++) {
                 modifier_deck.add_card("bless");
             }
-            for (var i =0; i < blessings; i++) {
+            for (var i =0; i < curses; i++) {
                 modifier_deck.add_card("curse");
             }
             modifier_deck.draw_top_discard();
@@ -850,7 +850,7 @@ function apply_deck_selection(decks, preserve_existing_deck_state) {
 }
 
 function init_modifier_deck() {
-    modifier_deck = load_modifier_deck(0,0);
+    modifier_deck = load_modifier_deck();
 }
 
 function count_type(type, deck) {
