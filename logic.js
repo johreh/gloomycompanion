@@ -793,6 +793,7 @@ function apply_deck_selection(decks, preserve_existing_deck_state) {
             e.preventDefault();
         }, false);
         deck_space.className = "card-container";
+        deck_space.title = "Click to draw enemy ability";
 
         container.appendChild(deck_space);
 
@@ -838,6 +839,7 @@ function apply_deck_selection(decks, preserve_existing_deck_state) {
         label.id = "switch-" + deckid;
         label.href = "#switch-" + deckid
         label.innerText = deck.get_real_name();
+        label.title = "Click to show/hide deck";
         label.addEventListener("click", function(e){
             var d = document.getElementById(this.id.replace("switch-",""));
             d.className = (d.className == "hiddendeck") ? "card-container" : "hiddendeck";
@@ -866,7 +868,7 @@ function count_type(type, deck) {
 }
 
 function add_modifier_deck(container, deck, preserve_discards) {
-    function create_counter(card_type, increment_func, decrement_func) {
+    function create_counter(card_type, increment_func, decrement_func, title) {
         function create_button(class_name, text, func, text_element) {
             var button = document.createElement("div");
             button.className = class_name + " button";
@@ -881,6 +883,7 @@ function add_modifier_deck(container, deck, preserve_discards) {
 
         var widget_container = document.createElement("div");
         widget_container.className = "counter-icon";
+        widget_container.title = title;
 
         var background = document.createElement("div");
         background.className = "background " + card_type;
@@ -919,12 +922,13 @@ function add_modifier_deck(container, deck, preserve_discards) {
     var button_div = document.createElement("div");
     button_div.className = "modifier-deck-column-1";
 
-    button_div.appendChild(create_counter("bless", deck.add_card, deck.remove_card));
-    button_div.appendChild(create_counter("curse", deck.add_card, deck.remove_card));
+    button_div.appendChild(create_counter("bless", deck.add_card, deck.remove_card, "Bless cards"));
+    button_div.appendChild(create_counter("curse", deck.add_card, deck.remove_card, "Curse cards"));
 
     var end_round_div = document.createElement("div");
     end_round_div.className = "counter-icon shuffle not-required";
     end_round_div.onclick = end_round;
+    end_round_div.title = "Click to end round and shuffle";
 
     document.body.addEventListener(EVENT_NAMES.MODIFIER_DECK_SHUFFLE_REQUIRED, indicate_shuffle_required);
 
@@ -935,10 +939,12 @@ function add_modifier_deck(container, deck, preserve_discards) {
 
     var deck_space = document.createElement("div");
     deck_space.className = "card-container modifier";
+    deck_space.title = "Click to draw one card";
 
     var draw_two_button = document.createElement("div");
     draw_two_button.className = "button draw-two";
     draw_two_button.onclick = double_draw.bind(null, modifier_deck);
+    draw_two_button.title = "Click to draw two cards";
 
     deck_column.appendChild(deck_space);
     deck_column.appendChild(draw_two_button);
