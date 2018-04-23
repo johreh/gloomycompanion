@@ -358,7 +358,7 @@ DECK_DEFINITONS =
             , [false, "65", "* %move% +0", "* %attack% +0"]
             , [false, "72", "* %attack% +1", "** %range% 3", "* Stone Golem suffers 2 damage"]
             , [true,  "90", "* %move% -1", "* %attack% +1"]
-            , [false, "28", "* %move% +1", "* %attack% -2", "** %range% 3", "* %pull% 2", "** %immobilize%"]
+            , [false, "28", "* %move% +1", "* %attack% -2", "** %range% 3", "** %pull% 2", "** %immobilize%"]
             , [false, "83", "* %move% +0", "* %attack% -1", "** Target all adjacent enemies"]
             ]
         },
