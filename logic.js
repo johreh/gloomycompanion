@@ -81,20 +81,20 @@ function create_ability_card_front(initiative, name, shuffle, lines, attack, mov
     name_span.innerText = name + "-" + level;
     card.appendChild(name_span);
 
-	
+
 	var healthNormal_span = document.createElement("span");
     healthNormal_span.className = "healthNormal";
     healthNormal_span.innerText = "HP " + health[0];
     card.appendChild(healthNormal_span);
-	
+
 	if ( health[1] > 0 ) {
 		var healthElite_span = document.createElement("span");
 		healthElite_span.className = "healthElite";
 		healthElite_span.innerText = "HP " + health[1];
 		card.appendChild(healthElite_span);
 	}
-	
-	
+
+
     var initiative_span = document.createElement("span");
     initiative_span.className = "initiative";
     initiative_span.innerText = initiative;
@@ -488,7 +488,7 @@ function draw_modifier_card(deck) {
                     count: deck.count(deck.discard[0].card_type)
                 }
             }));
-        
+
         if (deck.shuffle_end_of_round())
         {
             document.body.dispatchEvent(new CustomEvent(EVENT_NAMES.MODIFIER_DECK_SHUFFLE_REQUIRED, { detail: { shuffle: true } }));
@@ -712,8 +712,8 @@ function get_monster_stats(name, level) {
 
     var health =        [   MONSTER_STATS["monsters"][name]["level"][level]["normal"]["health"],
                             MONSTER_STATS["monsters"][name]["level"][level]["elite"]["health"]
-                        ];	
-	
+                        ];
+
     return {"attack": attack, "move": move, "range": range, "attributes": attributes, "health": health};
 }
 
@@ -735,7 +735,7 @@ function get_boss_stats(name, level) {
         "special1": special1,
         "special2": special2,
         "immunities": immunities,
-        "notes": notes, 
+        "notes": notes,
 		"health":health
     }
 }
@@ -788,7 +788,7 @@ function apply_deck_selection(decks, preserve_existing_deck_state) {
         var deckid = deck.get_real_name().replace(/\s+/g, '');
         var deck_space = document.createElement("div");
         deck_space.id = deckid;
-        deck_space.addEventListener('contextmenu', function(e) {            
+        deck_space.addEventListener('contextmenu', function(e) {
             this.className = "hiddendeck";
             e.preventDefault();
         }, false);
@@ -830,8 +830,8 @@ function apply_deck_selection(decks, preserve_existing_deck_state) {
             force_repaint_deck(deck);
         }
         visible_ability_decks.push(deck);
-        
-        var currentdeckslist = document.getElementById("currentdeckslist");        
+
+        var currentdeckslist = document.getElementById("currentdeckslist");
         var list_item = document.createElement("li");
         list_item.className = "currentdeck";
         currentdeckslist.appendChild(list_item);
@@ -932,7 +932,6 @@ function add_modifier_deck(container, deck, preserve_discards) {
 
     document.body.addEventListener(EVENT_NAMES.MODIFIER_DECK_SHUFFLE_REQUIRED, indicate_shuffle_required);
 
-    button_div.appendChild(end_round_div);
 
     var deck_column = document.createElement("div");
     deck_column.className = "modifier-deck-column-2";
@@ -948,6 +947,7 @@ function add_modifier_deck(container, deck, preserve_discards) {
 
     deck_column.appendChild(deck_space);
     deck_column.appendChild(draw_two_button);
+    deck_column.appendChild(end_round_div);
 
     modifier_container.appendChild(deck_column);
     modifier_container.appendChild(button_div);

@@ -63,31 +63,26 @@
 
     display:                    -webkit-flex;
     -webkit-flex-direction:     row;
-    -webkit-justify-content:    center;
+    justify-content:    center;
 
     display:                    flex;
     flex-direction:             row;
     justify-content:            center;
+    align-items: center;
 
 }
 
 .icon-text
 {
-    width:                      32%;
-    height:                     100%;
+    width:                      33%;
     text-align:                 center;
     margin:                     0;
 
     color:                      white;
-    text-shadow:
-        -1px -1px 0 #000,
-        1px -1px 0 #000,
-        -1px 1px 0 #000,
-        1px 1px 0 #000;
-
+    text-shadow: 0 5px 12px rgba(0,0,0,0.9);
     font-family:                'Nyala', 'Sakkal Majalla', 'Philosopher', sans-serif;
     font-size:                  150%;
-    line-height:                1.5;
+    line-height: 1;
 }
 
 .counter-icon .background
@@ -116,37 +111,33 @@
 .counter-icon.shuffle
 {
     background-repeat:          no-repeat;
-    background-position:        100% 50%;
+    background-position:        center center;
     background-image:           url(images/shuffle-black.svg);
-    background-size:            contain;
+    background-size:            50%;
     cursor:                     pointer;
 
     position:                   absolute;
-    left:                       0;
-    bottom:                     -40%;
+    right:                      18%;
+    bottom:                     10px;
     width:                      20%;
     height:                     20%;
+    margin: 0;
 }
 
-.shuffle.not-required 
+.shuffle.not-required
 {
-    opacity:                    0.2;
+    opacity:                    0.15;
 }
 
 .counter-icon .button
 {
-    width:                      33%;
+    width:                      32%;
     height:                     100%;
     margin:                     0;
 
     font-family:                Helvetica, Arial, sans-serif;
     font-weight:                bold;
     font-size:                  180%;
-    text-shadow:
-        -1px -1px 0 #fff,
-        1px -1px 0 #fff,
-        -1px 1px 0 #fff,
-        1px 1px 0 #fff;
 
   -webkit-touch-callout:        none; /* iOS Safari */
     -webkit-user-select:        none; /* Safari */
@@ -160,24 +151,28 @@
 
 .increment.button
 {
-    color:                      #080;
+    opacity: 0.7;
+    text-indent: -999em;
+    background: url(images/plus-circle.svg) center center no-repeat;
 }
 
 .decrement.button
 {
-    color:                      #800;
+  opacity: 0.7;
+  text-indent: -999em;
+  background: url(images/minus-circle.svg) center center no-repeat;
 }
 
 .draw-two.button
 {
     position:                   absolute;
-    right:                      33%;
-    bottom:                     0;
+    right:                      42%;
+    bottom:                     10px;
     width:                      20%;
     height:                     20%;
     background-repeat:          no-repeat;
-    background-position:        100% 50%;
-    background-size:            contain;
+    background-position:        center center;
+    background-size:            50%;
     background-image:           url(images/draw-two.svg);
     cursor:                     pointer;
 }
