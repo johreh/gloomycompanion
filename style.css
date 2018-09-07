@@ -13,23 +13,23 @@ body
 }
 
 input[type="button"] {
-  cursor: pointer;
-  display: block;
-  width: 100%;
-  margin: 0.6em 0;
-  padding: 1em 0.6em;
-  background: #222;
-  color: white;
-  border: none;
-  font-size: 1rem;
-  border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    margin: 0.6em 0;
+    padding: 1em 0.6em;
+    background: #222;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    border-radius: 4px;
 }
 
 input[type="number"] {
-  padding: 0.3em 0.6em;
-  font-size: 1.2rem;
-  margin: 0.6em 0;
-  min-width: 20px;
+    padding: 0.3em 0.6em;
+    font-size: 1.2rem;
+    margin: 0.6em 0;
+    min-width: 20px;
 }
 
 #tableau
@@ -192,6 +192,6 @@ li.currentdeck a:hover {
 }
 
 #settingsbtn:focus {
-  outline: 0 none;
-  background: #555;
+    outline: 0 none;
+    background: #555;
 }
