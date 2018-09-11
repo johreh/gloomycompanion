@@ -3,13 +3,33 @@ body
 {
     margin:             0;
     overflow-x:         hidden;
-
-    margin-top:         30px;
+    font-family: Helvetica, Arial, sans-serif;
+    background: black;
 }
 
 .nobr
 {
     white-space:        nowrap;
+}
+
+input[type="button"] {
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    margin: 0.6em 0;
+    padding: 1em 0.6em;
+    background: #222;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    border-radius: 4px;
+}
+
+input[type="number"] {
+    padding: 0.3em 0.6em;
+    font-size: 1.2rem;
+    margin: 0.6em 0;
+    min-width: 20px;
 }
 
 #tableau
@@ -38,31 +58,29 @@ ul.tabcontainer
 {
     display:            -webkit-box;
     -webkit-box-orient: horizontal;
-
     display:            flex;
-    margin:             0;
-    padding:            0;
+    padding:            16px 16px 0 16px;
+    margin: 0 0 1em;
     list-style:         none;
+    background: #f0f5f9;
 }
 
 ul.tabcontainer li
 {
     -webkit-box-flex:   1;
     flex:               1 1 0;
-
     text-align:         center;
-    padding:            1em;
+    padding:            0.4em 1em 1em;
     cursor:             pointer;
-}
-
-ul.tabcontainer li:not(:first-child)
-{
-    border-left:        1px solid black;
+    color: #222;
+    font-weight: bold;
+    border-bottom: solid 3px #222;
 }
 
 ul.tabcontainer .inactive
 {
-    background-color:   #CCCCCC;
+    opacity: 0.5;
+    border-bottom-color: transparent;
 }
 
 .tabbody
@@ -105,9 +123,9 @@ ul.tabcontainer .inactive
     overflow-x:         hidden;
     overflow-y:         auto;
     background:         white;
-    box-shadow:         1em 0 1em rgba(0, 0, 0, 0.5);
-    -webkit-transition: left 0.2s ease;
-    transition:         left 0.2s ease;
+    box-shadow:         1em 0 4em rgba(0, 0, 0, 0.5);
+    -webkit-transition: left 0.25s ease-in-out;
+    transition:         left 0.25s ease-in-out;
     z-index:            1;
 }
 
@@ -122,7 +140,14 @@ ul.tabcontainer .inactive
     display: none;
 }
 
+#currentdecks {
+    margin: 1rem 0 0 4rem;
+    text-align: center;
+    color: white;
+}
+
 ul.currentdeckslist {
+    display: inline-block;
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -138,14 +163,11 @@ li.currentdeck a {
     text-align: center;
     padding: 16px;
     text-decoration: none;
+    color: #808594;
 }
 
 li.currentdeck a:hover {
-    background-color: #AAAAAA;
-}
-
-#settingsbtn {
-    float: left;
+    color: #fff;
 }
 
 #cancelarea
@@ -161,10 +183,15 @@ li.currentdeck a:hover {
 
 #settingsbtn
 {
-    margin-left:        1em;
-    margin-top:         1em;
-    width:              5ch;
-    height:             5ch;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 2rem;
     cursor:             pointer;
     z-index:            1;
+}
+
+#settingsbtn:focus {
+    outline: 0 none;
+    background: #555;
 }
