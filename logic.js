@@ -1155,7 +1155,7 @@ function init() {
     };
 
     applyscenariobtn.onclick = function () {
-        localStorage.clear();
+        try { localStorage.clear(); } catch (e) { console.error('Local storage is required'); return; }
         var selected_deck_names = scenariolist.get_scenario_decks();
         write_to_storage("selected_deck_names", JSON.stringify(selected_deck_names));
         decklist.set_selection(selected_deck_names);

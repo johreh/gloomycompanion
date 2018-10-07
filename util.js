@@ -88,12 +88,12 @@ function remove_empty_strings(array)
 }
 
 function write_to_storage(name, value) {
-    localStorage.setItem(name, value);
-    console.log("Wrote " + name + " to local storage, with value: " + value);
+    try { localStorage.setItem(name, value); } catch (e) { console.error('Local storage is required'); return; }
+    // console.info("Local storage write:", name, value);
 }
 
 function get_from_storage(name) {
-    return localStorage.getItem(name);
+    try { return localStorage.getItem(name); } catch (e) { console.error('Local storage is required'); return; }
 }
 
 function find_in_discard(discard, id) {
