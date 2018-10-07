@@ -1170,6 +1170,9 @@ function init() {
         else{
             modifier_deck_section.style.display = "block";
         }
+
+        // assume user is ready to go, so hide the Settings menu
+        show_settingspane(settingspane, cancelarea, false);
     };
 
     applyloadbtn.onclick = function () {
