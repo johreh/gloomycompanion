@@ -371,7 +371,7 @@
     margin:                     0 2ch;
     padding-top:                2.5em;
     box-sizing:                 border-box;
-    overflow:                   hidden;
+    overflow:                   visible; /* hidden would be nicer, but for rare layouts or large AOE images better to show even overlfowing off the card, than to cut it off completely as it is vital information */
 
     display:                    -webkit-box;
     -webkit-box-orient:         vertical;
@@ -451,7 +451,7 @@ div.collapse
 {
     display:                    inline-block;
     width:                      0;
-    height:                     0;
+    height:                     1px; /* can't be 0 or MS Edge hides the whole div; sigh */
 }
 
 .element
