@@ -742,7 +742,7 @@ SCENARIO_DEFINITIONS =
             ,   {"name": "Inox Guard"}
             ,   {"name": "Bandit Archer"}
             ,   {"name": "City Archer"}
-            ,   {"name": "Savvas Icestorm"}
+            ,   {"name": "Savvas Lavaflow"}
             ,   {"name": "Frost Demon"}
             ,   {"name": "Wind Demon"}
             ]
