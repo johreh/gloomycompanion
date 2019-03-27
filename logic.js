@@ -443,15 +443,19 @@ function draw_ability_card(deck) {
     if (deck.must_reshuffle()) {
         reshuffle(deck, true);
     }
-    else {
-        visible_ability_decks.forEach(function (visible_deck) {
-            if (visible_deck.class == deck.class) {
-                visible_deck.draw_top_card();
-                flip_up_top_card(visible_deck);
-            }
-        });
-    }
+    visible_ability_decks.forEach(function (visible_deck) {
+        if (visible_deck.class == deck.class) {
+            visible_deck.draw_top_card();
+            flip_up_top_card(visible_deck);
+        }
+    });
     write_to_storage(deck.name, JSON.stringify(deck));
+}
+
+function draw_all_ability_card() {
+    visible_ability_decks.forEach(function(visible_deck){
+        draw_ability_card(visible_deck);
+    });
 }
 
 function prevent_pull_animation(deck) {
