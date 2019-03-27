@@ -743,8 +743,8 @@ SCENARIO_DEFINITIONS =
             ,   {"name": "Bandit Archer"}
             ,   {"name": "City Archer"}
             ,   {"name": "Savvas Lavaflow"}
-            ,   {"name": "Frost Demon"}
-            ,   {"name": "Wind Demon"}
+            ,   {"name": "Flame Demon"}
+            ,   {"name": "Earth Demon"}
             ]
         },
         { name: "#93 Sunken Vessel"
