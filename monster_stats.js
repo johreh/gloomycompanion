@@ -5809,6 +5809,175 @@ MONSTER_STATS = {
         }
       ]
     },
+    "Valrath Tracker": {
+      "level": [
+        {
+          "level": 0,
+          "normal": {
+            "health": 5,
+            "move": 2,
+            "attack": 2,
+            "range": 2,
+            "attributes": []
+          },
+          "elite": {
+            "health": 9,
+            "move": 2,
+            "attack": 3,
+            "range": 4,
+            "attributes": []
+          }
+        },
+        {
+          "level": 1,
+          "normal": {
+            "health": 6,
+            "move": 3,
+            "attack": 2,
+            "range": 2,
+            "attributes": []
+          },
+          "elite": {
+            "health": 11,
+            "move": 2,
+            "attack": 3,
+            "range": 5,
+            "attributes": [
+              "%pierce% 1"
+            ]
+          }
+        },
+        {
+          "level": 2,
+          "normal": {
+            "health": 7,
+            "move": 3,
+            "attack": 3,
+            "range": 2,
+            "attributes": []
+          },
+          "elite": {
+            "health": 12,
+            "move": 2,
+            "attack": 4,
+            "range": 5,
+            "attributes": [
+              "%pierce% 1"
+            ]
+          }
+        },
+        {
+          "level": 3,
+          "normal": {
+            "health": 8,
+            "move": 3,
+            "attack": 3,
+            "range": 3,
+            "attributes": [
+              "Advantage"
+            ]
+          },
+          "elite": {
+            "health": 14,
+            "move": 2,
+            "attack": 4,
+            "range": 6,
+            "attributes": [
+              "%pierce% 1",
+              "%push% 1"
+            ]
+          }
+        },
+        {
+          "level": 4,
+          "normal": {
+            "health": 10,
+            "move": 4,
+            "attack": 3,
+            "range": 3,
+            "attributes": [
+              "Advantage"
+            ]
+          },
+          "elite": {
+            "health": 16,
+            "move": 3,
+            "attack": 4,
+            "range": 7,
+            "attributes": [
+              "%pierce% 2",
+              "%push% 1"
+            ]
+          }
+        },
+        {
+          "level": 5,
+          "normal": {
+            "health": 12,
+            "move": 4,
+            "attack": 4,
+            "range": 3,
+            "attributes": [
+              "Advantage"
+            ]
+          },
+          "elite": {
+            "health": 18,
+            "move": 3,
+            "attack": 5,
+            "range": 7,
+            "attributes": [
+              "%pierce% 2",
+              "%push% 1"
+            ]
+          }
+        },
+        {
+          "level": 6,
+          "normal": {
+            "health": 14,
+            "move": 4,
+            "attack": 4,
+            "range": 4,
+            "attributes": [
+              "Advantage"
+            ]
+          },
+          "elite": {
+            "health": 21,
+            "move": 3,
+            "attack": 5,
+            "range": 8,
+            "attributes": [
+              "%pierce% 2",
+              "%push% 2"
+            ]
+          }
+        },
+        {
+          "level": 7,
+          "normal": {
+            "health": 17,
+            "move": 5,
+            "attack": 4,
+            "range": 4,
+            "attributes": [
+              "Advantage"
+            ]
+          },
+          "elite": {
+            "health": 24,
+            "move": 3,
+            "attack": 6,
+            "range": 8,
+            "attributes": [
+              "%pierce% 3",
+              "%push% 2"
+            ]
+          }
+        }
+      ]
+    },
     "Vermling Scout": {
       "level": [
         {

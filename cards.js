@@ -34,6 +34,7 @@ DECKS =
     ,   "Stone Golem":        {name: "Stone Golem", class: "Stone Golem"}
     ,   "Sun Demon":          {name: "Sun Demon", class: "Sun Demon"}
     ,   "Valrath Savage":     {name: "Valrath Savage", class: "Savage"}
+    ,   "Valrath Tracker":    {name: "Valrath Tracker", class: "Tracker"}
     ,   "Vermling Scout":     {name: "Vermling Scout", class: "Scout"}
     ,   "Vermling Shaman":    {name: "Vermling Shaman", class: "Shaman"}
     ,   "Wind Demon":         {name: "Wind Demon", class: "Wind Demon"}
@@ -400,6 +401,18 @@ DECK_DEFINITONS =
             , [false, "88", "* %move% -1", "* %attack% -1", "** Target all adjacent enemies", "* %dark%%use_element%: %muddle%", "** Self"]
             , [false, "50", "* %move% +0", "* %attack% +0", "** %range% 3", "* %any%%use_element%: %light%"]
             ]
+        },
+        { class: "Tracker"
+        , cards:
+          [ [false, "12", "* %move% +0", "* %attack% -1", "** %muddle%"]
+          , [false, "18", "* %move% -1", "* %attack% -1", "* <span class='small'> Create one %disarm% trap in any adjacent empty hex closest to an enemy.</span>"]
+          , [false, "27", "* %move% +0", "* %attack% +0"]
+          , [true,  "33", "* %move% +0", "* %attack% +0", "** %range% +1", "** %pierce% 1"]
+          , [false, "37", "* %move% -1", "* %attack% +0", "** %range% +1", "** %immobilize%"]
+          , [false, "48", "* <span class='small'>%elite% Focus on the enemy with the lowest current hit point value</span>", "* %move% +1", "* %attack% +0"]
+          , [false, "55", "* <span class='small'>%elite% Focus on the enemy with the highest current hit point value</span>", "* %move% +0", "* %attack% -1", "** %wound%"]
+          , [true,  "69", "* %attack% +1", "* %heal% 1", "** %regenerate%", "*** Self"]
+          ]
         },
         { class: "Wind Demon"
         , cards:
