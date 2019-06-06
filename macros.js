@@ -43,6 +43,7 @@ MACROS =
     , "%strengthen%":                               "<span class='nobr'>STRENGTHEN <img class='icon' src='images/strengthen.svg'></span>"
     , "%stun%":                                     "<span class='nobr'>STUN <img class='icon' src='images/stun.svg'></span>"
     , "%target%":                                   "<span class='nobr'>Target <img class='icon' src='images/target.svg'></span>"
+    , "%teleport%":                                 "<span class='nobr'>Teleport <img class='icon' src='images/teleport.svg'></span>"
     , "%use_element%":                              "<img class='element overlay' src='images/use_element.svg'>"
     , "%wound%":                                    "<span class='nobr'>WOUND <img class='icon' src='images/wound.svg'></span>"
     };
