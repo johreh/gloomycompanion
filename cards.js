@@ -1,5 +1,6 @@
 DECKS =
-    {   "Ancient Artillery":  {name: "Ancient Artillery", class: "Ancient Artillery"}
+    {   "Aesther Ashblade":   {name: "Aesther Ashblade", class: "Ashblade"}
+    ,   "Ancient Artillery":  {name: "Ancient Artillery", class: "Ancient Artillery"}
     ,   "Bandit Archer":      {name: "Bandit Archer", class: "Archer"}
     ,   "Bandit Guard":       {name: "Bandit Guard", class: "Guard"}
     ,   "Black Imp":          {name: "Black Imp", class: "Imp"}
@@ -60,6 +61,18 @@ DECK_DEFINITONS =
             , [true,  "68", "* %attack% +1", "** %range% +1"]
             , [false, "14", "* %move% -1", "* %attack% -1", , "** %range% +0", "* <span class='small'> Create a 3 damage trap in an adjacent empty hex closest to an enemy </span>"]
             , [true,  "29", "* %move% +0", "* %attack% -1", "** %range% +1", "** %immobilize%"]
+            ]
+        },
+        { class: "Ashblade"
+        , cards:
+            [ [true,  "42", "* %move% +1", "* %attack% +0", "* %dark%"]
+            , [true,  "47", "* %move% +1", "* %attack% +0", "* %fire%"]
+            , [false, "24", "* %attack% +3", "** %pierce% 2", "* %fire%"]
+            , [false, "28", "* %move% -1", "* %attack% -1", "** %range% 3", "** %immobilize%"]
+            , [false, "17", "* %move% +0", "* %attack% +0", "** %fire%%use_element%: %disarm%"]
+            , [false, "09", "* %move% +0", "* %attack% +0", "* %dark%%use_element%: %invisible%", "** Self"]
+            , [false, "36", "* %move% -1", "* %attack% +2", "** %fire%%use_element%: %wound%", "** %dark%%use_element%: %curse%"]
+            , [false, "02", "* <span class='smaller'>Focus on the enemy with the highest initiative.</span>", "* <span class='smaller'>%teleport% to the closest unoccupied hex adjacent to the focus.</span>", "* %attack% -2", "* %dark%"]
             ]
         },
         { class: "Boss"
