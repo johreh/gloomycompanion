@@ -1,5 +1,6 @@
 DECKS =
     {   "Aesther Ashblade":   {name: "Aesther Ashblade", class: "Ashblade"}
+    ,   "Aesther Scout":      {name: "Aesther Scout", class: "Scout"}
     ,   "Ancient Artillery":  {name: "Ancient Artillery", class: "Ancient Artillery"}
     ,   "Bandit Archer":      {name: "Bandit Archer", class: "Archer"}
     ,   "Bandit Guard":       {name: "Bandit Guard", class: "Guard"}
