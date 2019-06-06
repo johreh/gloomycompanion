@@ -32,7 +32,7 @@ DECKS =
     ,   "Spitting Drake":     {name: "Spitting Drake", class: "Spitting Drake"}
     ,   "Stone Golem":        {name: "Stone Golem", class: "Stone Golem"}
     ,   "Sun Demon":          {name: "Sun Demon", class: "Sun Demon"}
-    ,   "Vermling Scout":   {name: "Vermling Scout", class: "Scout"}
+    ,   "Vermling Scout":     {name: "Vermling Scout", class: "Scout"}
     ,   "Vermling Shaman":    {name: "Vermling Shaman", class: "Shaman"}
     ,   "Wind Demon":         {name: "Wind Demon", class: "Wind Demon"}
 };
