@@ -5645,6 +5645,170 @@ MONSTER_STATS = {
         }
       ]
     },
+    "Valrath Savage": {
+      "level": [
+        {
+          "level": 0,
+          "normal": {
+            "health": 6,
+            "move": 2,
+            "attack": 2,
+            "range": 0,
+            "attributes": []
+          },
+          "elite": {
+            "health": 10,
+            "move": 2,
+            "attack": 3,
+            "range": 0,
+            "attributes": []
+          }
+        },
+        {
+          "level": 1,
+          "normal": {
+            "health": 6,
+            "move": 2,
+            "attack": 2,
+            "range": 0,
+            "attributes": [
+              "%shield% 1"
+            ]
+          },
+          "elite": {
+            "health": 12,
+            "move": 2,
+            "attack": 3,
+            "range": 0,
+            "attributes": []
+          }
+        },
+        {
+          "level": 2,
+          "normal": {
+            "health": 8,
+            "move": 3,
+            "attack": 2,
+            "range": 0,
+            "attributes": [
+              "%shield% 1"
+            ]
+          },
+          "elite": {
+            "health": 14,
+            "move": 2,
+            "attack": 4,
+            "range": 0,
+            "attributes": []
+          }
+        },
+        {
+          "level": 3,
+          "normal": {
+            "health": 10,
+            "move": 3,
+            "attack": 2,
+            "range": 0,
+            "attributes": [
+              "%shield% 1"
+            ]
+          },
+          "elite": {
+            "health": 16,
+            "move": 2,
+            "attack": 4,
+            "range": 0,
+            "attributes": [
+              "All adjacent alliess add +1 %attack% to all attacks"
+            ]
+          }
+        },
+        {
+          "level": 4,
+          "normal": {
+            "health": 10,
+            "move": 3,
+            "attack": 2,
+            "range": 0,
+            "attributes": [
+              "%shield% 2"
+            ]
+          },
+          "elite": {
+            "health": 18,
+            "move": 3,
+            "attack": 4,
+            "range": 0,
+            "attributes": [
+              "All adjacent alliess add +1 %attack% to all attacks"
+            ]
+          }
+        },
+        {
+          "level": 5,
+          "normal": {
+            "health": 11,
+            "move": 3,
+            "attack": 3,
+            "range": 0,
+            "attributes": [
+              "%shield% 2"
+            ]
+          },
+          "elite": {
+            "health": 21,
+            "move": 3,
+            "attack": 5,
+            "range": 0,
+            "attributes": [
+              "All adjacent alliess add +2 %attack% to all attacks"
+            ]
+          }
+        },
+        {
+          "level": 6,
+          "normal": {
+            "health": 12,
+            "move": 4,
+            "attack": 3,
+            "range": 0,
+            "attributes": [
+              "%shield% 2"
+            ]
+          },
+          "elite": {
+            "health": 24,
+            "move": 3,
+            "attack": 5,
+            "range": 0,
+            "attributes": [
+              "All adjacent alliess add +2 %attack% to all attacks"
+            ]
+          }
+        },
+        {
+          "level": 7,
+          "normal": {
+            "health": 14,
+            "move": 4,
+            "attack": 3,
+            "range": 0,
+            "attributes": [
+              "%shield% 3"
+            ]
+          },
+          "elite": {
+            "health": 28,
+            "move": 3,
+            "attack": 6,
+            "range": 0,
+            "attributes": [
+              "All adjacent alliess add +2 %attack% to all attacks"
+            ]
+          }
+        }
+      ]
+    },
     "Vermling Scout": {
       "level": [
         {

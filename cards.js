@@ -33,6 +33,7 @@ DECKS =
     ,   "Spitting Drake":     {name: "Spitting Drake", class: "Spitting Drake"}
     ,   "Stone Golem":        {name: "Stone Golem", class: "Stone Golem"}
     ,   "Sun Demon":          {name: "Sun Demon", class: "Sun Demon"}
+    ,   "Valrath Savage":     {name: "Valrath Savage", class: "Savage"}
     ,   "Vermling Scout":     {name: "Vermling Scout", class: "Scout"}
     ,   "Vermling Shaman":    {name: "Vermling Shaman", class: "Shaman"}
     ,   "Wind Demon":         {name: "Wind Demon", class: "Wind Demon"}
@@ -303,6 +304,18 @@ DECK_DEFINITONS =
             , [false, "06", "* %shield% 2", "* %heal% 2", "** Self", "* %strengthen%", "** Self"]
             , [true,  "72", "* %attack% -1", "* %attack% -1", "* %attack% -2"]
             ]
+        },
+        { class: "Savage"
+        , cards:
+          [ [false, "13", "* %strengthen%", "** Self", "* %attack% +0", "** %wound%", "* Savage suffers 2 damage."]
+          , [true,  "17", "* %retaliate% 3", "** %range% 3", "* %heal% 1", "** %regenerate%", "*** Self"]
+          , [false, "28", "* %move% +0", "* %attack% -1", "* %attack% -1"]
+          , [false, "38", "* %move% -1", "* %attack% +0", "** %pierce% 2"]
+          , [false, "46", "* %move% +0", "* %attack% -1", "** %range% 3"]
+          , [false, "46", "* %move% +0", "* %attack% -1", "** %range% 3"]
+          , [false, "60", "* %move% +2", "* %attack% +0", "* %elite%", "* %attack% +0"]
+          , [true,  "72", "* %move% -1", "* %normal%", "* %attack% +0", "* %elite%", "* %attack% +1 <div style='display: inline-block; width: 0; margin-top: -1.5em; vertical-align: bottom'>%aoe-3-side-with-black%</div>"]
+          ]
         },
         { class: "Savvas Icestorm"
         , cards:
