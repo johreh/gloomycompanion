@@ -159,7 +159,7 @@ function create_ability_card_front(initiative, name, shuffle, lines, attack, mov
             current_parent = list_item;
         }
 
-        text = expand_string(line.trim(), attack, move, range);
+        var text = expand_string(line.trim(), attack, move, range);
         current_parent.insertAdjacentHTML("beforeend", text);
     }
 
