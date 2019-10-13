@@ -1122,7 +1122,7 @@ function ScenarioList(scenarios) {
     return scenariolist;
 }
 
-function init() {
+export function init() {
     var deckspage = document.getElementById("deckspage");
     var scenariospage = document.getElementById("scenariospage");
     var applydeckbtn = document.getElementById("applydecks");

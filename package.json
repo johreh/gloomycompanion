@@ -1,0 +1,28 @@
+{
+  "name": "gloomycompanion",
+  "version": "1.0.0",
+  "description": "This is a web-app for managing the monster ability decks in the board game [Gloomhaven](https://boardgamegeek.com/boardgame/174430/gloomhaven)",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wmakley/gloomycompanion.git"
+  },
+  "keywords": [
+    "Gloomhaven"
+  ],
+  "author": "William Makley",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wmakley/gloomycompanion/issues"
+  },
+  "homepage": "https://github.com/wmakley/gloomycompanion#readme",
+  "dependencies": {
+    "webpack": "^4.41.1"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.3.9"
+  }
+}

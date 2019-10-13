@@ -2,13 +2,13 @@
 @font-face
 {
     font-family:                Philosopher;
-    src:                        url(Philosopher-Bold.ttf);
+    src:                        url(../dist/Philosopher-Bold.ttf);
 }
 
 @font-face
 {
     font-family:                PirataOne;
-    src:                        url(PirataOne-Gloomhaven.ttf);
+    src:                        url(../dist/PirataOne-Gloomhaven.ttf);
 }
 
 @media only screen and (min-height: 500px) and (orientation: portrait) {
@@ -100,19 +100,19 @@
 
 .background.curse
 {
-    background-image:           url(images/curse.svg);
+    background-image:           url(../dist/images/curse.svg);
 }
 
 .background.bless
 {
-    background-image:           url(images/bless.svg);
+    background-image:           url(../dist/images/bless.svg);
 }
 
 .counter-icon.shuffle
 {
     background-repeat:          no-repeat;
     background-position:        center center;
-    background-image:           url(images/shuffle-black.svg);
+    background-image:           url(../dist/images/shuffle-black.svg);
     background-size:            50%;
     cursor:                     pointer;
 
@@ -153,14 +153,14 @@
 {
     opacity: 0.7;
     text-indent: -999em;
-    background: url(images/plus-circle.svg) center center no-repeat;
+    background: url(../dist/images/plus-circle.svg) center center no-repeat;
 }
 
 .decrement.button
 {
   opacity: 0.7;
   text-indent: -999em;
-  background: url(images/minus-circle.svg) center center no-repeat;
+  background: url(../dist/images/minus-circle.svg) center center no-repeat;
 }
 
 .draw-two.button
@@ -173,7 +173,7 @@
     background-repeat:          no-repeat;
     background-position:        center center;
     background-size:            50%;
-    background-image:           url(images/draw-two.svg);
+    background-image:           url(../dist/images/draw-two.svg);
     cursor:                     pointer;
 }
 
@@ -317,17 +317,17 @@
 
 .card.ability.front
 {
-    background-image:           url(images/front.jpg);
+    background-image:           url(../dist/images/front.jpg);
 }
 
 .card.ability.back
 {
-    background-image:           url(images/back.jpg);
+    background-image:           url(../dist/images/back.jpg);
 }
 
 .card.modifier.back
 {
-    background-image:           url(images/attack_mod_back.jpg);
+    background-image:           url(../dist/images/attack_mod_back.jpg);
 }
 
 .card.modifier.front img.cover

@@ -12,5 +12,5 @@ git ls-tree --full-tree -r --name-only HEAD | grep -v \
 	-e app.manifest \
 	-e gen-manifest.sh \
 	-e README.md \
-	| sort >> app.manifest
+	| sort >> dist/app.manifest
 
