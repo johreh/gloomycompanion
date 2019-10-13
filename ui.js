@@ -2,6 +2,7 @@
 
 function activate_tab(tabs, pages, activetab)
 {
+    var key;
     for (key in tabs)
     {
         tabs[key].className = (key == activetab) ? "" : "inactive";
@@ -31,9 +32,9 @@ function init_ui()
         decks:          document.getElementById("deckspage")
     };
 
-    settingspane =      document.getElementById("settingspane");
-    settingsbtn =       document.getElementById("settingsbtn");
-    cancelarea =        document.getElementById("cancelarea");
+    var settingspane =      document.getElementById("settingspane");
+    var settingsbtn =       document.getElementById("settingsbtn");
+    var cancelarea =        document.getElementById("cancelarea");
 
     scenariotab.onclick = function(e)
     {

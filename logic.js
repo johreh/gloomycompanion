@@ -159,7 +159,7 @@ function create_ability_card_front(initiative, name, shuffle, lines, attack, mov
             current_parent = list_item;
         }
 
-        text = expand_string(line.trim(), attack, move, range);
+        var text = expand_string(line.trim(), attack, move, range);
         current_parent.insertAdjacentHTML("beforeend", text);
     }
 
@@ -421,7 +421,7 @@ function flip_up_top_card(deck) {
     }
 
     var card = deck.draw_pile.shift(card);
-    send_to_discard(card, pull_animation = true);
+    send_to_discard(card, true);
     deck.discard.unshift(card);
 }
 
@@ -507,7 +507,7 @@ function double_draw(deck) {
         advantage_card = deck.discard[0];
         reshuffle_modifier_deck(deck);
         advantage_card = deck.draw_pile.shift(advantage_card);
-        send_to_discard(advantage_card, pull_animation = false);
+        send_to_discard(advantage_card, false);
         deck.discard.unshift(advantage_card);
         draw_modifier_card(deck);
     }
