@@ -422,7 +422,7 @@ function flip_up_top_card(deck) {
         deck.discard[0].ui.addClass("lift");
     }
 
-    var card = deck.draw_pile.shift(card);
+    var card = deck.draw_pile.shift();
     send_to_discard(card, true);
     deck.discard.unshift(card);
 }
@@ -508,7 +508,7 @@ function double_draw(deck) {
         draw_modifier_card(deck);
         advantage_card = deck.discard[0];
         reshuffle_modifier_deck(deck);
-        advantage_card = deck.draw_pile.shift(advantage_card);
+        advantage_card = deck.draw_pile.shift();
         send_to_discard(advantage_card, false);
         deck.discard.unshift(advantage_card);
         draw_modifier_card(deck);
