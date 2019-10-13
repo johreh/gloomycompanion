@@ -583,7 +583,7 @@ function load_modifier_deck() {
     deck.add_card = function (card_type) {
         // Rulebook p. 23: "a maximum of only 10 curse [and 10 bless] cards can be placed into any one deck"
         if (this.count(card_type) < 10) {
-            // TOOD: Brittle
+            // TODO: Brittle
             deck.draw_pile.push(define_modifier_card(MODIFIER_CARDS[card_type.toUpperCase()]));
 
             force_repaint_deck(deck);
