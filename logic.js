@@ -2,7 +2,7 @@
 var do_shuffles = true;
 var visible_ability_decks = [];
 var modifier_deck = null;
-var deck_definitions = load_definition(DECK_DEFINITONS);
+var deck_definitions = load_definition(DECK_DEFINITIONS);
 
 var DECK_TYPES =
     {
