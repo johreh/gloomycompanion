@@ -335,12 +335,14 @@ function load_ability_deck(deck_class, deck_name, level) {
 }
 
 function place_deck(deck, container) {
-    for (var i = 0; i < deck.draw_pile.length; i++) {
-        var card = deck.draw_pile[i];
+    var i;
+    var card;
+    for (i = 0; i < deck.draw_pile.length; i++) {
+        card = deck.draw_pile[i];
         card.ui.attach(container);
     }
-    for (var i = 0; i < deck.discard.length; i++) {
-        var card = deck.discard[i];
+    for (i = 0; i < deck.discard.length; i++) {
+        card = deck.discard[i];
         card.ui.attach(container);
     }
     deck.deck_space = container;
@@ -420,8 +422,8 @@ function flip_up_top_card(deck) {
         deck.discard[0].ui.addClass("lift");
     }
 
-    var card = deck.draw_pile.shift(card);
-    send_to_discard(card, pull_animation = true);
+    var card = deck.draw_pile.shift();
+    send_to_discard(card, true);
     deck.discard.unshift(card);
 }
 
@@ -506,8 +508,8 @@ function double_draw(deck) {
         draw_modifier_card(deck);
         advantage_card = deck.discard[0];
         reshuffle_modifier_deck(deck);
-        advantage_card = deck.draw_pile.shift(advantage_card);
-        send_to_discard(advantage_card, pull_animation = false);
+        advantage_card = deck.draw_pile.shift();
+        send_to_discard(advantage_card, false);
         deck.discard.unshift(advantage_card);
         draw_modifier_card(deck);
     }
