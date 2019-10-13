@@ -36,7 +36,7 @@ DECKS =
     ,   "Wind Demon":         {name: "Wind Demon", class: "Wind Demon"}
 };
 
-DECK_DEFINITONS =
+DECK_DEFINITIONS =
 [
         { class: "Ancient Artillery"
         , cards:
