@@ -335,12 +335,14 @@ function load_ability_deck(deck_class, deck_name, level) {
 }
 
 function place_deck(deck, container) {
-    for (var i = 0; i < deck.draw_pile.length; i++) {
-        var card = deck.draw_pile[i];
+    var i;
+    var card;
+    for (i = 0; i < deck.draw_pile.length; i++) {
+        card = deck.draw_pile[i];
         card.ui.attach(container);
     }
-    for (var i = 0; i < deck.discard.length; i++) {
-        var card = deck.discard[i];
+    for (i = 0; i < deck.discard.length; i++) {
+        card = deck.discard[i];
         card.ui.attach(container);
     }
     deck.deck_space = container;
