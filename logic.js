@@ -381,7 +381,6 @@ function reshuffle(deck, include_discards) {
     // This way we keep sync several decks from the same class
     visible_ability_decks.forEach(function (visible_deck) {
         if ((visible_deck !== deck) && (visible_deck.class == deck.class)) {
-            var real_name = visible_deck.get_real_name();
             shuffle_deck(visible_deck, include_discards);
             visible_deck.set_card_piles(deck.draw_pile, deck.discard);
         }
