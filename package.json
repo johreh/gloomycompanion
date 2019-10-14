@@ -4,7 +4,9 @@
   "description": "This is a web-app for managing the monster ability decks in the board game [Gloomhaven](https://boardgamegeek.com/boardgame/174430/gloomhaven)",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --mode=production",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev-server": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
@@ -23,6 +25,8 @@
     "webpack": "^4.41.1"
   },
   "devDependencies": {
-    "webpack-cli": "^3.3.9"
+    "eslint": "^6.5.1",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.2"
   }
 }

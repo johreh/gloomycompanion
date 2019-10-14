@@ -1,14 +1,25 @@
 # Gloomy Companion
 
+## About the fork
+
+I want to add the following features:
+
+1. Sort monster decks by initiative.
+2. Sort player icons in between the monster decks.
+
+In the process I ended up implementing webpack and ES6 and fixing small bugs.
+
+## Original intro
+
 This is a web-app for managing the monster ability decks in the board game [Gloomhaven](https://boardgamegeek.com/boardgame/174430/gloomhaven)
 
 You can run it from the web directly on <https://johreh.github.io/gloomycompanion/>.
 
 You can also download it and run it locally without internet connection. Click __Clone or download__ above, then __Download ZIP__. Unpack the ZIP and start the app by opening `index.html`.
 
-If you want to add new cards, you need to update [`cards.js`](src/cards.js). The decks has the following syntax:
+If you want to add new cards, you need to update [`cards.js`](src/cards.js). The decks have the following syntax:
 
-```json
+```javascript
 { name: "Name of monster"
 , cards:
   [ [false, "42", "* First line", "** sub-line 1", "** sub-line 2", "* Second line"]

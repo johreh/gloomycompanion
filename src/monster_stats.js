@@ -1,11 +1,11 @@
-SPECIAL_VALUES =
+export const SPECIAL_VALUES =
 {
   "X": "X = Hexes moved",
   "C": "C = Number of Characters",
   "V": "V = Number of Scouts present"
 }
 
-MONSTER_STATS = {
+export const MONSTER_STATS = {
   "monsters": {
     "Ancient Artillery": {
       "level": [

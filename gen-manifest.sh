@@ -1,4 +1,6 @@
 #!/bin/sh
+#
+# TODO: not updated for webpack
 
 cat << EOF > app.manifest
 CACHE MANIFEST

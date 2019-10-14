@@ -1,59 +1,59 @@
 function activate_tab(tabs, pages, activetab)
 {
-    var key;
-    for (key in tabs)
+    for (let key in tabs)
     {
         tabs[key].className = (key === activetab) ? "" : "inactive";
     }
-    for (key in pages)
+    for (let key in pages)
     {
         pages[key].className = (key === activetab) ? "tabbody" : "inactive tabbody";
     }
 }
 
-function show_settingspane(pane, cancelarea, show)
+export function show_settingspane(pane, cancelarea, show)
 {
     pane.className = show ? "pane" : "pane inactive";
     cancelarea.style.display = show ? "initial" : "none";
 }
 
+export const widgets = {}
+
 export function init_ui()
 {
-    var tabs =
+    const tabs =
     {
         scenarios:      document.getElementById("scenariotab"),
         decks:          document.getElementById("deckstab")
     };
-    var pages =
+    const pages =
     {
         scenarios:      document.getElementById("scenariospage"),
         decks:          document.getElementById("deckspage")
     };
 
-    var settingspane =      document.getElementById("settingspane");
-    var settingsbtn =       document.getElementById("settingsbtn");
-    var cancelarea =        document.getElementById("cancelarea");
+    widgets.settingspane =      document.getElementById("settingspane");
+    widgets.settingsbtn =       document.getElementById("settingsbtn");
+    widgets.cancelarea =        document.getElementById("cancelarea");
 
-    scenariotab.onclick = function(e)
+    tabs.scenarios.onclick = function()
     {
         activate_tab(tabs, pages, "scenarios");
     }
 
-    deckstab.onclick = function(e)
+    tabs.decks.onclick = function()
     {
         activate_tab(tabs, pages, "decks");
     }
 
-    settingsbtn.onclick = function(e)
+    widgets.settingsbtn.onclick = function()
     {
-        show_settingspane(settingspane, cancelarea, true);
+        show_settingspane(widgets.settingspane, widgets.cancelarea, true);
     }
 
-    cancelarea.onclick = function(e)
+    widgets.cancelarea.onclick = function()
     {
-        show_settingspane(settingspane, cancelarea, false);
+        show_settingspane(widgets.settingspane, widgets.cancelarea, false);
     }
 
     activate_tab(tabs, pages, "scenarios");
-
 }

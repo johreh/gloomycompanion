@@ -1,17 +1,17 @@
 
-function shuffle_list(l)
+export function shuffle_list(l)
 {
-    for (var i = 0; i < l.length-1; i++)
+    for (let i = 0; i < l.length-1; i++)
     {
         // Based on https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle#Implementation_errors
-        var switch_index = i + Math.floor(Math.random() * (l.length - i));
-        var tmp = l[switch_index];
+        const switch_index = i + Math.floor(Math.random() * (l.length - i));
+        const tmp = l[switch_index];
         l[switch_index] = l[i];
         l[i] = tmp;
     }
 }
 
-function toggle_class(element, class_name, enable_class)
+export function toggle_class(element, class_name, enable_class)
 {
     if (enable_class)
     {
@@ -23,7 +23,7 @@ function toggle_class(element, class_name, enable_class)
     }
 }
 
-function remove_child(myNode)
+export function remove_child(myNode)
 {
     while (myNode.firstChild)
     {
@@ -31,25 +31,25 @@ function remove_child(myNode)
     }
 }
 
-function create_input(type, name, value, text)
+export function create_input(type, name, value, text)
 {
-    var input = document.createElement("input");
+    const input = document.createElement("input");
     input.type = type;
     input.name = name;
     input.value = value;
 
-    var textnode = document.createTextNode(text);
+    const textnode = document.createTextNode(text);
 
-    var label = document.createElement("label");
+    const label = document.createElement("label");
     label.appendChild(input);
     label.appendChild(textnode);
 
     return {'root': label, 'input': input};
 }
 
-function create_button(type, id, value)
+export function create_button(type, id, value)
 {
-    var button = document.createElement("input");
+    const button = document.createElement("input");
     button.type = type;
     button.id = id;
     button.value = value;
@@ -57,47 +57,55 @@ function create_button(type, id, value)
     return button;
 }
 
-function dict_values(dict)
+export function dict_values(dict)
 {
-    var values = [];
-    for (key in dict) {
+    const values = [];
+    for (let key in dict) {
         values.push(dict[key]);
     }
-    
+
     return values;
 }
 
-function concat_arrays(arrays)
+export function concat_arrays(arrays)
 {
     return Array.prototype.concat.apply([], arrays);
 }
 
-function is_checked(input)
+export function is_checked(input)
 {
     return (('checked' in input) ? input.checked : false);
 }
 
-function input_value(input)
+export function input_value(input)
 {
     return (('value' in input) ? input.value : '');
 }
 
-function remove_empty_strings(array)
+export function remove_empty_strings(array)
 {
     return array.filter(Boolean);
 }
 
-function write_to_storage(name, value) {
-    try { localStorage.setItem(name, value); } catch (e) { console.error('Local storage is required'); return; }
+export function write_to_storage(name, value) {
+    try {
+        localStorage.setItem(name, value);
+    } catch (e) {
+        console.error('Local storage is required');
+    }
     // console.info("Local storage write:", name, value);
 }
 
-function get_from_storage(name) {
-    try { return localStorage.getItem(name); } catch (e) { console.error('Local storage is required'); return; }
+export function get_from_storage(name) {
+    try {
+        return localStorage.getItem(name);
+    } catch (e) {
+        console.error('Local storage is required');
+    }
 }
 
-function find_in_discard(discard, id) {
-    for (var i=0; i < discard.length; i++) {
+export function find_in_discard(discard, id) {
+    for (let i=0; i < discard.length; i++) {
         if (discard[i].id === id) {
             return discard[i];
         }
