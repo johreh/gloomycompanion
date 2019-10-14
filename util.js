@@ -60,6 +60,7 @@ function create_button(type, id, value)
 function dict_values(dict)
 {
     var values = [];
+    var key;
     for (key in dict) {
         values.push(dict[key]);
     }
