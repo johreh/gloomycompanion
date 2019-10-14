@@ -1030,7 +1030,6 @@ function DeckList() {
         decklist.level_selectors[real_name] = level_selector;
 
     }
-    ;
 
     decklist.get_selection = function () {
         return dict_values(this.checkboxes).filter(is_checked).map(input_value);
