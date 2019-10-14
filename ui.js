@@ -41,11 +41,13 @@ function init_ui()
     settingsbtn =       document.getElementById("settingsbtn");
     cancelarea =        document.getElementById("cancelarea");
 
+    // TODO: is this a typo or a global?
     scenariotab.onclick = function(e)
     {
         activate_tab(tabs, pages, "scenarios");
     }
 
+    // TODO: is this a typo or a global?
     deckstab.onclick = function(e)
     {
         activate_tab(tabs, pages, "decks");
