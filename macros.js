@@ -180,8 +180,6 @@ function notes_to_lines(notes)
 
 function expand_special(s, special_value)
 {
-    var value = "";
-
     return special_value.map(function(line){
         return ("* " + line);
     });
