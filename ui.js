@@ -19,6 +19,11 @@ function show_settingspane(pane, cancelarea, show)
     cancelarea.style.display = show ? "initial" : "none";
 }
 
+// globals
+var settingspane,
+    settingsbtn,
+    cancelarea
+
 function init_ui()
 {
     var tabs =
@@ -32,15 +37,17 @@ function init_ui()
         decks:          document.getElementById("deckspage")
     };
 
-    var settingspane =      document.getElementById("settingspane");
-    var settingsbtn =       document.getElementById("settingsbtn");
-    var cancelarea =        document.getElementById("cancelarea");
+    settingspane =      document.getElementById("settingspane");
+    settingsbtn =       document.getElementById("settingsbtn");
+    cancelarea =        document.getElementById("cancelarea");
 
+    // TODO: is this a typo or a global?
     scenariotab.onclick = function(e)
     {
         activate_tab(tabs, pages, "scenarios");
     }
 
+    // TODO: is this a typo or a global?
     deckstab.onclick = function(e)
     {
         activate_tab(tabs, pages, "decks");

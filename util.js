@@ -60,6 +60,7 @@ function create_button(type, id, value)
 function dict_values(dict)
 {
     var values = [];
+    var key;
     for (key in dict) {
         values.push(dict[key]);
     }
@@ -88,12 +89,20 @@ function remove_empty_strings(array)
 }
 
 function write_to_storage(name, value) {
-    try { localStorage.setItem(name, value); } catch (e) { console.error('Local storage is required'); return; }
+    try {
+        localStorage.setItem(name, value);
+    } catch (e) {
+        console.error('Local storage is required');
+    }
     // console.info("Local storage write:", name, value);
 }
 
 function get_from_storage(name) {
-    try { return localStorage.getItem(name); } catch (e) { console.error('Local storage is required'); return; }
+    try {
+        return localStorage.getItem(name);
+    } catch (e) {
+        console.error('Local storage is required');
+    }
 }
 
 function find_in_discard(discard, id) {

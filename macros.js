@@ -180,8 +180,6 @@ function notes_to_lines(notes)
 
 function expand_special(s, special_value)
 {
-    var value = "";
-
     return special_value.map(function(line){
         return ("* " + line);
     });
@@ -204,7 +202,7 @@ function special_to_lines(s, special1, special2)
 function expand_string(s, attack, move, range)
 {
     var re = new RegExp("%(attack|move|range)% (\\+|-)(\\d*)", "g");
-    
+    var found;
     while (found = re.exec(s))
     {
         if (found[1] === "attack")
