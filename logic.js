@@ -31,13 +31,16 @@ function UICard(front_element, back_element) {
     };
 
     card.set_depth = function (z) {
+        z = z.toString();
         this.back.style.zIndex = z;
         this.front.style.zIndex = z;
     }
 
     card.push_down = function () {
-        this.back.style.zIndex -= 1;
-        this.front.style.zIndex -= 1;
+        var backZIndex = parseInt(this.back.style.zIndex, 10);
+        var frontZIndex = parseInt(this.front.style.zIndex, 10);
+        this.back.style.zIndex = (backZIndex - 1).toString();
+        this.front.style.zIndex = (frontZIndex - 1).toString();
     }
 
     card.addClass = function (class_name) {
