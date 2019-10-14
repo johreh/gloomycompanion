@@ -976,8 +976,8 @@ function LevelSelector(text, inline) {
     level.html.appendChild(listitem);
 
     var level_spinner = create_input("number", "scenario_number", "1", "");
-    level_spinner.input.min = 0;
-    level_spinner.input.max = max_level;
+    level_spinner.input.min = "0";
+    level_spinner.input.max = max_level.toString();
     level.html.appendChild(level_spinner.input);
     level.spinner = level_spinner.input;
 
@@ -1088,8 +1088,8 @@ function ScenarioList(scenarios) {
     scenariolist.ul.appendChild(listitem);
 
     var scenario_spinner = create_input("number", "scenario_number", "1", "");
-    scenario_spinner.input.min = 1;
-    scenario_spinner.input.max = scenarios.length;
+    scenario_spinner.input.min = "1";
+    scenario_spinner.input.max = scenarios.length.toString();
     scenariolist.ul.appendChild(scenario_spinner.input);
     scenariolist.spinner = scenario_spinner.input;
 
