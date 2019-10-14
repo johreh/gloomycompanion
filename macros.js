@@ -65,7 +65,7 @@ function expand_stat(s, stat, value)
     var re = new RegExp("%" + stat + "% (\\+|-)(\\d*)", "g");
     var line_parsed = re.exec(s);
     
-    var has_elite_value = (value.length == 2);
+    var has_elite_value = (value.length === 2);
     var normal_attack = value[0];
     //Check in case of bosses with text in the attack (C+1)
     re = new RegExp("(\\d*)(\\+|-)?([a-zA-Z]+)", "i");
@@ -73,7 +73,7 @@ function expand_stat(s, stat, value)
     var value_parsed = re.exec(String(normal_attack));
     if (value_parsed && value_parsed[3])
     {
-        var symbol = (value_parsed[2] == "-") ? "-" : "+";
+        var symbol = (value_parsed[2] === "-") ? "-" : "+";
         extra_text_for_particular_bosses = value_parsed[3] + symbol;
         normal_attack = (value_parsed[1] !== "") ? parseInt(value_parsed[1]) : 0;
     }
@@ -109,7 +109,7 @@ function expand_stat(s, stat, value)
 
 function attributes_to_lines(attributes)
 {
-    if (!attributes || (attributes[0].length == 0 && attributes[1].length == 0))
+    if (!attributes || (attributes[0].length === 0 && attributes[1].length === 0))
     {
         return [];
     } else
@@ -123,7 +123,7 @@ function attributes_to_lines(attributes)
         for (var i=0; i<attributes[0].length; i++)
         {
             normal_attributes_lines[line] = normal_attributes_lines[line] ? normal_attributes_lines[line] + attributes[0][i] + ", " : attributes[0][i] + ", ";
-            if ((i+1) % 3 == 0 )
+            if ((i+1) % 3 === 0 )
             {
                 line++;
             }
@@ -141,7 +141,7 @@ function attributes_to_lines(attributes)
         for (var i=0; i<attributes[1].length; i++)
         {
             elite_attributes_lines[line] = elite_attributes_lines[line] ? elite_attributes_lines[line] + attributes[1][i] + ", " : attributes[1][i] + ", ";
-            if ((i+1) % 3 == 0 )
+            if ((i+1) % 3 === 0 )
             {
                 line++;
             }
@@ -164,7 +164,7 @@ function immunities_to_lines(immunities)
         for (var i=0; i<immunities.length; i++)
         {
             immunities_lines[line] = immunities_lines[line] ? immunities_lines[line] + immunities[i] + ", " : immunities[i] + ", ";
-            if ((i+1) % 3 == 0 )
+            if ((i+1) % 3 === 0 )
             {
                 line++;
             }
