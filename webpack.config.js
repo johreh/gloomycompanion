@@ -8,6 +8,7 @@ module.exports = {
     },
 
     devServer: {
-        disableHostCheck: true
+        disableHostCheck: true,
+        contentBase: './dist'
     }
 };
