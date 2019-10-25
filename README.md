@@ -35,6 +35,5 @@ A single `*` means a top-level action. Double asterisk `**` means it modifies th
 ## Development
 
 * Clone the repository
-* Run the [`gen-manifest.sh`](gen-manifest.sh) script (Linux and MacOS only; you'll have to make the `app.manifest` by hand if you are running Windows)
-
-Any time a source/asset file is added or removed, re-run the above manifest generation script. Or manually make the appropriate change to the manifest instead.
+* `npm ci`
+* `npm run dev-server`

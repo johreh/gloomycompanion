@@ -1,0 +1,19 @@
+{
+    "short_name":   "Gloomy Companion",
+    "name":         "Gloomy Companion",
+    "start_url":    "index.html",
+    "scope":        ".",
+    "display":      "standalone",
+    "icons": [
+        {
+            "src":      "/images/icon.png",
+            "sizes":    "192x192",
+            "type":     "image/png"
+        }
+    ],
+    "background_color": "#000",
+    "theme_color": "#731819",
+    "service_worker": {
+        "src": "/service-worker.js"
+    }
+}

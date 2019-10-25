@@ -9,6 +9,6 @@ module.exports = {
 
     devServer: {
         disableHostCheck: true,
-        contentBase: './dist'
+        contentBase: path.resolve(__dirname, 'dist')
     }
 };
