@@ -1,5 +1,5 @@
 //special_rules should be treated with some kind of macro that recognises them and applies them when loading
-SPECIAL_RULES =
+export const SPECIAL_RULES =
 {
     living_corpse_two_levels_extra:
         {   "description": "All living corpses are two levels higher than the scenario level, up to a max of 7",
@@ -9,7 +9,7 @@ SPECIAL_RULES =
 };
 
 
-SCENARIO_DEFINITIONS =
+export const SCENARIO_DEFINITIONS =
     [   { name: "#1 Black Barrow"
         , decks:
             [   {"name": "Bandit Guard", "deck_name": "Guard"}
@@ -295,7 +295,7 @@ SCENARIO_DEFINITIONS =
             ,   {"name": "Earth Demon"}
             ,   {"name": "Wind Demon"}
             ,   {"name": "City Archer"}
-            ,   {"name": "City Guard"}             
+            ,   {"name": "City Guard"}
             ,   {"name": "Boss: Captain of the Guard"}
             ]
         },
