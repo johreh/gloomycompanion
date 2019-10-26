@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack --mode=production",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev-server": "webpack-dev-server"
+    "dev-server": "webpack-dev-server",
+    "http-server": "http-server dist"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,7 @@
   },
   "devDependencies": {
     "eslint": "^6.5.1",
+    "http-server": "^0.11.1",
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.8.2"
   }

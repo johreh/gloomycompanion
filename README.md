@@ -35,5 +35,10 @@ A single `*` means a top-level action. Double asterisk `**` means it modifies th
 ## Development
 
 * Clone the repository
-* `npm ci`
+* `npm install`
 * `npm run dev-server`
+
+## PWA Development and Testing
+
+1. `npm run http-server`
+2. Browse to http://localhost:8080 and use Chrome developer tools for auditing and debugging.
