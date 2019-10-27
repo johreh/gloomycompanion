@@ -2,6 +2,7 @@
 
 function activate_tab(tabs, pages, activetab)
 {
+    var key;
     for (key in tabs)
     {
         tabs[key].className = (key == activetab) ? "" : "inactive";
@@ -17,6 +18,11 @@ function show_settingspane(pane, cancelarea, show)
     pane.className = show ? "pane" : "pane inactive";
     cancelarea.style.display = show ? "initial" : "none";
 }
+
+// globals
+var settingspane,
+    settingsbtn,
+    cancelarea
 
 function init_ui()
 {
@@ -35,11 +41,13 @@ function init_ui()
     settingsbtn =       document.getElementById("settingsbtn");
     cancelarea =        document.getElementById("cancelarea");
 
+    // TODO: is this a typo or a global?
     scenariotab.onclick = function(e)
     {
         activate_tab(tabs, pages, "scenarios");
     }
 
+    // TODO: is this a typo or a global?
     deckstab.onclick = function(e)
     {
         activate_tab(tabs, pages, "decks");

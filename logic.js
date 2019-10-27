@@ -159,7 +159,7 @@ function create_ability_card_front(initiative, name, shuffle, lines, attack, mov
             current_parent = list_item;
         }
 
-        text = expand_string(line.trim(), attack, move, range);
+        var text = expand_string(line.trim(), attack, move, range);
         current_parent.insertAdjacentHTML("beforeend", text);
     }
 
@@ -317,12 +317,13 @@ function load_ability_deck(deck_class, deck_name, level) {
     }
 
     deck.set_card_piles = function (draw_pile, discard_pile) {
-        for (var i = 0; i < draw_pile.length; i++) {
+        var i;
+        for (i = 0; i < draw_pile.length; i++) {
             this.draw_pile[i].shuffle_next = draw_pile[i].shuffle_next;
             this.draw_pile[i].initiative = draw_pile[i].initiative;
             this.draw_pile[i].starting_lines = draw_pile[i].starting_lines;
         }
-        for (var i = 0; i < discard_pile.length; i++) {
+        for (i = 0; i < discard_pile.length; i++) {
             this.discard[i].shuffle_next = discard_pile[i].shuffle_next;
             this.discard[i].initiative = discard_pile[i].initiative;
             this.discard[i].starting_lines = discard_pile[i].starting_lines;
@@ -335,12 +336,14 @@ function load_ability_deck(deck_class, deck_name, level) {
 }
 
 function place_deck(deck, container) {
-    for (var i = 0; i < deck.draw_pile.length; i++) {
-        var card = deck.draw_pile[i];
+    var i;
+    var card;
+    for (i = 0; i < deck.draw_pile.length; i++) {
+        card = deck.draw_pile[i];
         card.ui.attach(container);
     }
-    for (var i = 0; i < deck.discard.length; i++) {
-        var card = deck.discard[i];
+    for (i = 0; i < deck.discard.length; i++) {
+        card = deck.discard[i];
         card.ui.attach(container);
     }
     deck.deck_space = container;
@@ -378,7 +381,6 @@ function reshuffle(deck, include_discards) {
     // This way we keep sync several decks from the same class
     visible_ability_decks.forEach(function (visible_deck) {
         if ((visible_deck !== deck) && (visible_deck.class == deck.class)) {
-            var real_name = visible_deck.get_real_name();
             shuffle_deck(visible_deck, include_discards);
             visible_deck.set_card_piles(deck.draw_pile, deck.discard);
         }
@@ -409,8 +411,9 @@ function shuffle_deck(deck, include_discards) {
 }
 
 function flip_up_top_card(deck) {
+    var card;
     for (var i = 0; i < deck.discard.length; i++) {
-        var card = deck.discard[i];
+        card = deck.discard[i];
         card.ui.removeClass("lift");
         card.ui.removeClass("pull");
         card.ui.push_down();
@@ -420,8 +423,8 @@ function flip_up_top_card(deck) {
         deck.discard[0].ui.addClass("lift");
     }
 
-    var card = deck.draw_pile.shift(card);
-    send_to_discard(card, pull_animation = true);
+    card = deck.draw_pile.shift();
+    send_to_discard(card, true);
     deck.discard.unshift(card);
 }
 
@@ -506,8 +509,8 @@ function double_draw(deck) {
         draw_modifier_card(deck);
         advantage_card = deck.discard[0];
         reshuffle_modifier_deck(deck);
-        advantage_card = deck.draw_pile.shift(advantage_card);
-        send_to_discard(advantage_card, pull_animation = false);
+        advantage_card = deck.draw_pile.shift();
+        send_to_discard(advantage_card, false);
         deck.discard.unshift(advantage_card);
         draw_modifier_card(deck);
     }
@@ -579,7 +582,7 @@ function load_modifier_deck() {
     deck.add_card = function (card_type) {
         // Rulebook p. 23: "a maximum of only 10 curse [and 10 bless] cards can be placed into any one deck"
         if (this.count(card_type) < 10) {
-            // TOOD: Brittle
+            // TODO: Brittle
             deck.draw_pile.push(define_modifier_card(MODIFIER_CARDS[card_type.toUpperCase()]));
 
             force_repaint_deck(deck);
@@ -1002,6 +1005,7 @@ function DeckList() {
 
     var dom_dict = create_input("button", "applylevel", "Apply All", "");
     dom_dict.input.onclick = function () {
+        var key;
         for (key in decklist.level_selectors) {
             decklist.level_selectors[key].set_value(decklist.global_level_selector.get_selection());
         }
@@ -1010,6 +1014,7 @@ function DeckList() {
 
     decklist.ul.appendChild(listitem);
 
+    var key;
     for (key in DECKS) {
         var real_name = DECKS[key].name;
         var listitem = document.createElement("li");
@@ -1024,7 +1029,6 @@ function DeckList() {
         decklist.level_selectors[real_name] = level_selector;
 
     }
-    ;
 
     decklist.get_selection = function () {
         return dict_values(this.checkboxes).filter(is_checked).map(input_value);
