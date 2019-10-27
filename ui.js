@@ -5,11 +5,11 @@ function activate_tab(tabs, pages, activetab)
     var key;
     for (key in tabs)
     {
-        tabs[key].className = (key == activetab) ? "" : "inactive";
+        tabs[key].className = (key === activetab) ? "" : "inactive";
     }
     for (key in pages)
     {
-        pages[key].className = (key == activetab) ? "tabbody" : "inactive tabbody";
+        pages[key].className = (key === activetab) ? "tabbody" : "inactive tabbody";
     }
 }
 

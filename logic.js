@@ -31,13 +31,16 @@ function UICard(front_element, back_element) {
     };
 
     card.set_depth = function (z) {
+        z = z.toString();
         this.back.style.zIndex = z;
         this.front.style.zIndex = z;
     }
 
     card.push_down = function () {
-        this.back.style.zIndex -= 1;
-        this.front.style.zIndex -= 1;
+        var backZIndex = parseInt(this.back.style.zIndex, 10);
+        var frontZIndex = parseInt(this.front.style.zIndex, 10);
+        this.back.style.zIndex = (backZIndex - 1).toString();
+        this.front.style.zIndex = (frontZIndex - 1).toString();
     }
 
     card.addClass = function (class_name) {
@@ -120,7 +123,7 @@ function create_ability_card_front(initiative, name, shuffle, lines, attack, mov
         }
         var diff = new_depth - current_depth;
 
-        while (current_depth != new_depth) {
+        while (current_depth !== new_depth) {
             if (diff > 0) {
                 // Need one level lower, create <ul>
                 var list = document.createElement("ul");
@@ -313,7 +316,7 @@ function load_ability_deck(deck_class, deck_name, level) {
     }
 
     deck.is_boss = function () {
-        return this.class == DECKS["Boss"].class;
+        return this.class === DECKS["Boss"].class;
     }
 
     deck.set_card_piles = function (draw_pile, discard_pile) {
@@ -380,7 +383,7 @@ function reshuffle(deck, include_discards) {
 
     // This way we keep sync several decks from the same class
     visible_ability_decks.forEach(function (visible_deck) {
-        if ((visible_deck !== deck) && (visible_deck.class == deck.class)) {
+        if ((visible_deck !== deck) && (visible_deck.class === deck.class)) {
             shuffle_deck(visible_deck, include_discards);
             visible_deck.set_card_piles(deck.draw_pile, deck.discard);
         }
@@ -448,7 +451,7 @@ function draw_ability_card(deck) {
     }
     else {
         visible_ability_decks.forEach(function (visible_deck) {
-            if (visible_deck.class == deck.class) {
+            if (visible_deck.class === deck.class) {
                 visible_deck.draw_top_card();
                 flip_up_top_card(visible_deck);
             }
@@ -505,7 +508,7 @@ function double_draw(deck) {
     // Case there was 1 card in draw_pile when we clicked "draw 2".
     //    now we should draw, save that card, reshuffle, and
     //    draw the next
-    if (deck.draw_pile.length == 1) {
+    if (deck.draw_pile.length === 1) {
         draw_modifier_card(deck);
         advantage_card = deck.discard[0];
         reshuffle_modifier_deck(deck);
@@ -517,7 +520,7 @@ function double_draw(deck) {
     // Case there were 0 cards in draw_pile when we clicked "draw 2".
     //    we should reshuffle, draw 1 and send it to advantage_place,
     //    draw the next
-    else if (deck.draw_pile.length == 0) {
+    else if (deck.draw_pile.length === 0) {
         // This is in case the previous draw was double as well
         deck.clean_advantage_deck();
         reshuffle_modifier_deck(deck);
@@ -566,7 +569,7 @@ function load_modifier_deck() {
 
     deck.remove_card = function (card_type) {
         for (var i = 0; i < deck.draw_pile.length; i++) {
-            if (deck.draw_pile[i].card_type == card_type) {
+            if (deck.draw_pile[i].card_type === card_type) {
                 deck.draw_pile.splice(i, 1);
                 reshuffle(deck, false);
 
@@ -605,8 +608,8 @@ function load_modifier_deck() {
 
     deck.clean_discard_pile = function () {
         for (var i = 0; i < deck.discard.length; i++) {
-            if (this.discard[i].card_type == CARD_TYPES_MODIFIER.BLESS
-                || this.discard[i].card_type == CARD_TYPES_MODIFIER.CURSE) {
+            if (this.discard[i].card_type === CARD_TYPES_MODIFIER.BLESS
+                || this.discard[i].card_type === CARD_TYPES_MODIFIER.CURSE) {
                 //Delete this curse/bless that has been used
                 this.discard.splice(i, 1);
                 i--;
@@ -748,14 +751,14 @@ function apply_deck_selection(decks, preserve_existing_deck_state) {
     document.getElementById("currentdeckslist").innerHTML = "";
     var decks_to_remove = visible_ability_decks.filter(function (visible_deck) {
         return !preserve_existing_deck_state || (decks.filter(function (deck) {
-                return ((deck.name == visible_deck.name) && (deck.level == visible_deck.level))
-            }).length == 0);
+                return ((deck.name === visible_deck.name) && (deck.level === visible_deck.level))
+            }).length === 0);
     });
 
     var decks_to_add = decks.filter(function (deck) {
         return !preserve_existing_deck_state || (visible_ability_decks.filter(function (visible_deck) {
-                return ((deck.name == visible_deck.name) && (deck.level == visible_deck.level))
-            }).length == 0);
+                return ((deck.name === visible_deck.name) && (deck.level === visible_deck.level))
+            }).length === 0);
     });
 
     if (!modifier_deck) {
@@ -819,7 +822,7 @@ function apply_deck_selection(decks, preserve_existing_deck_state) {
 
         if (deck.is_boss()) {
             // We don't want stats if someone selects Boss on the deck tab
-            if (deck.get_real_name() != "Boss") {
+            if (deck.get_real_name() !== "Boss") {
                 deck.set_stats_boss(get_boss_stats(deck.get_real_name(), deck.level));
             }
         } else {
@@ -845,7 +848,7 @@ function apply_deck_selection(decks, preserve_existing_deck_state) {
         label.title = "Click to show/hide deck";
         label.addEventListener("click", function(e){
             var d = document.getElementById(this.id.replace("switch-",""));
-            d.className = (d.className == "hiddendeck") ? "card-container" : "hiddendeck";
+            d.className = (d.className === "hiddendeck") ? "card-container" : "hiddendeck";
         }, false)
         list_item.appendChild(label);
     });
@@ -973,8 +976,8 @@ function LevelSelector(text, inline) {
     level.html.appendChild(listitem);
 
     var level_spinner = create_input("number", "scenario_number", "1", "");
-    level_spinner.input.min = 0;
-    level_spinner.input.max = max_level;
+    level_spinner.input.min = "0";
+    level_spinner.input.max = max_level.toString();
     level.html.appendChild(level_spinner.input);
     level.spinner = level_spinner.input;
 
@@ -1085,8 +1088,8 @@ function ScenarioList(scenarios) {
     scenariolist.ul.appendChild(listitem);
 
     var scenario_spinner = create_input("number", "scenario_number", "1", "");
-    scenario_spinner.input.min = 1;
-    scenario_spinner.input.max = scenarios.length;
+    scenario_spinner.input.min = "1";
+    scenario_spinner.input.max = scenarios.length.toString();
     scenariolist.ul.appendChild(scenario_spinner.input);
     scenariolist.spinner = scenario_spinner.input;
 
@@ -1100,7 +1103,7 @@ function ScenarioList(scenarios) {
 
         var base_level = scenariolist.level_selector.get_selection();
 
-        if ((special_rules.indexOf(SPECIAL_RULES.living_corpse_two_levels_extra) >= 0) && (deck_name == SPECIAL_RULES.living_corpse_two_levels_extra.affected_deck)) {
+        if ((special_rules.indexOf(SPECIAL_RULES.living_corpse_two_levels_extra) >= 0) && (deck_name === SPECIAL_RULES.living_corpse_two_levels_extra.affected_deck)) {
             return Math.min(7, (parseInt(base_level) + parseInt(SPECIAL_RULES.living_corpse_two_levels_extra.extra_levels)));
         } else {
             return base_level;
@@ -1111,7 +1114,7 @@ function ScenarioList(scenarios) {
         return (this.decks[this.get_selection()].map(function (deck) {
             if (DECKS[deck.name]) {
                 deck.class = DECKS[deck.name].class;
-            } else if (deck.name.indexOf("Boss") != -1) {
+            } else if (deck.name.indexOf("Boss") !== -1) {
                 deck.class = DECKS["Boss"].class;
             }
             deck.level = scenariolist.get_level(deck.name, scenariolist.get_special_rules());
