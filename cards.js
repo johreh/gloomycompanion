@@ -1,5 +1,7 @@
 DECKS =
-    {   "Ancient Artillery":  {name: "Ancient Artillery", class: "Ancient Artillery"}
+    {   "Aesther Ashblade":   {name: "Aesther Ashblade", class: "Ashblade"}
+    ,   "Aesther Scout":      {name: "Aesther Scout", class: "Scout"}
+    ,   "Ancient Artillery":  {name: "Ancient Artillery", class: "Ancient Artillery"}
     ,   "Bandit Archer":      {name: "Bandit Archer", class: "Archer"}
     ,   "Bandit Guard":       {name: "Bandit Guard", class: "Guard"}
     ,   "Black Imp":          {name: "Black Imp", class: "Imp"}
@@ -31,7 +33,9 @@ DECKS =
     ,   "Spitting Drake":     {name: "Spitting Drake", class: "Spitting Drake"}
     ,   "Stone Golem":        {name: "Stone Golem", class: "Stone Golem"}
     ,   "Sun Demon":          {name: "Sun Demon", class: "Sun Demon"}
-    ,   "Vermling Scout":   {name: "Vermling Scout", class: "Scout"}
+    ,   "Valrath Savage":     {name: "Valrath Savage", class: "Savage"}
+    ,   "Valrath Tracker":    {name: "Valrath Tracker", class: "Tracker"}
+    ,   "Vermling Scout":     {name: "Vermling Scout", class: "Scout"}
     ,   "Vermling Shaman":    {name: "Vermling Shaman", class: "Shaman"}
     ,   "Wind Demon":         {name: "Wind Demon", class: "Wind Demon"}
 };
@@ -60,6 +64,18 @@ DECK_DEFINITONS =
             , [true,  "68", "* %attack% +1", "** %range% +1"]
             , [false, "14", "* %move% -1", "* %attack% -1", "** %range% +0", "* <span class='small'> Create a 3 damage trap in an adjacent empty hex closest to an enemy </span>"]
             , [true,  "29", "* %move% +0", "* %attack% -1", "** %range% +1", "** %immobilize%"]
+            ]
+        },
+        { class: "Ashblade"
+        , cards:
+            [ [true,  "42", "* %move% +1", "* %attack% +0", "* %dark%"]
+            , [true,  "47", "* %move% +1", "* %attack% +0", "* %fire%"]
+            , [false, "24", "* %attack% +3", "** %pierce% 2", "* %fire%"]
+            , [false, "28", "* %move% -1", "* %attack% -1", "** %range% 3", "** %immobilize%"]
+            , [false, "17", "* %move% +0", "* %attack% +0", "** %fire%%use_element%: %disarm%"]
+            , [false, "09", "* %move% +0", "* %attack% +0", "* %dark%%use_element%: %invisible%", "** Self"]
+            , [false, "36", "* %move% -1", "* %attack% +2", "** %fire%%use_element%: %wound%", "** %dark%%use_element%: %curse%"]
+            , [false, "02", "* <span class='smaller'>Focus on the enemy with the highest initiative.</span>", "* <span class='smaller'>%teleport% to the closest unoccupied hex adjacent to the focus.</span>", "* %attack% -2", "* %dark%"]
             ]
         },
         { class: "Boss"
@@ -290,6 +306,18 @@ DECK_DEFINITONS =
             , [true,  "72", "* %attack% -1", "* %attack% -1", "* %attack% -2"]
             ]
         },
+        { class: "Savage"
+        , cards:
+          [ [false, "13", "* %strengthen%", "** Self", "* %attack% +0", "** %wound%", "* Savage suffers 2 damage."]
+          , [true,  "17", "* %retaliate% 3", "** %range% 3", "* %heal% 1", "** %regenerate%", "*** Self"]
+          , [false, "28", "* %move% +0", "* %attack% -1", "* %attack% -1"]
+          , [false, "38", "* %move% -1", "* %attack% +0", "** %pierce% 2"]
+          , [false, "46", "* %move% +0", "* %attack% -1", "** %range% 3"]
+          , [false, "46", "* %move% +0", "* %attack% -1", "** %range% 3"]
+          , [false, "60", "* %move% +2", "* %attack% +0", "* %elite%", "* %attack% +0"]
+          , [true,  "72", "* %move% -1", "* %normal%", "* %attack% +0", "* %elite%", "* %attack% +1 <div style='display: inline-block; width: 0; margin-top: -1.5em; vertical-align: bottom'>%aoe-3-side-with-black%</div>"]
+          ]
+        },
         { class: "Savvas Icestorm"
         , cards:
             [ [false, "70", "* %push% 2", "** Target all adjacent enemies", "** %air%%use_element%: %push% 4 instead", "* %attack% +1", "** %range% +1"]
@@ -373,6 +401,18 @@ DECK_DEFINITONS =
             , [false, "88", "* %move% -1", "* %attack% -1", "** Target all adjacent enemies", "* %dark%%use_element%: %muddle%", "** Self"]
             , [false, "50", "* %move% +0", "* %attack% +0", "** %range% 3", "* %any%%use_element%: %light%"]
             ]
+        },
+        { class: "Tracker"
+        , cards:
+          [ [false, "12", "* %move% +0", "* %attack% -1", "** %muddle%"]
+          , [false, "18", "* %move% -1", "* %attack% -1", "* <span class='small'> Create one %disarm% trap in any adjacent empty hex closest to an enemy.</span>"]
+          , [false, "27", "* %move% +0", "* %attack% +0"]
+          , [true,  "33", "* %move% +0", "* %attack% +0", "** %range% +1", "** %pierce% 1"]
+          , [false, "37", "* %move% -1", "* %attack% +0", "** %range% +1", "** %immobilize%"]
+          , [false, "48", "* <span class='small'>%elite% Focus on the enemy with the lowest current hit point value</span>", "* %move% +1", "* %attack% +0"]
+          , [false, "55", "* <span class='small'>%elite% Focus on the enemy with the highest current hit point value</span>", "* %move% +0", "* %attack% -1", "** %wound%"]
+          , [true,  "69", "* %attack% +1", "* %heal% 1", "** %regenerate%", "*** Self"]
+          ]
         },
         { class: "Wind Demon"
         , cards:

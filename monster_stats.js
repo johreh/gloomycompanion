@@ -7,6 +7,349 @@ SPECIAL_VALUES =
 
 MONSTER_STATS = {
   "monsters": {
+    "Aesther Ashblade": {
+      "level": [
+        {
+          "level": 0,
+          "normal": {
+            "health": 8,
+            "move": 3,
+            "attack": 2,
+            "range": 0,
+            "attributes": []
+          },
+          "elite": {
+            "health": 12,
+            "move": 3,
+            "attack": 3,
+            "range": 0,
+            "attributes": [
+              "%poison%"
+            ]
+          }
+        },
+        {
+          "level": 1,
+          "normal": {
+            "health": 9,
+            "move": 3,
+            "attack": 3,
+            "range": 0,
+            "attributes": []
+          },
+          "elite": {
+            "health": 14,
+            "move": 4,
+            "attack": 3,
+            "range": 0,
+            "attributes": [
+              "%poison%"
+            ]
+          }
+        },
+        {
+          "level": 2,
+          "normal": {
+            "health": 13,
+            "move": 3,
+            "attack": 3,
+            "range": 0,
+            "attributes": []
+          },
+          "elite": {
+            "health": 16,
+            "move": 4,
+            "attack": 4,
+            "range": 0,
+            "attributes": [
+              "%poison%"
+            ]
+          }
+        },
+        {
+          "level": 3,
+          "normal": {
+            "health": 15,
+            "move": 3,
+            "attack": 3,
+            "range": 0,
+            "attributes": [
+              "%poison%"
+            ]
+          },
+          "elite": {
+            "health": 18,
+            "move": 4,
+            "attack": 4,
+            "range": 0,
+            "attributes": [
+              "Attackers gain Disadvantage",
+              "%poison%"
+            ]
+          }
+        },
+        {
+          "level": 4,
+          "normal": {
+            "health": 15,
+            "move": 4,
+            "attack": 4,
+            "range": 0,
+            "attributes": [
+              "%poison%"
+            ]
+          },
+          "elite": {
+            "health": 21,
+            "move": 4,
+            "attack": 5,
+            "range": 0,
+            "attributes": [
+              "Attackers gain Disadvantage",
+              "%poison%"
+            ]
+          }
+        },
+        {
+          "level": 5,
+          "normal": {
+            "health": 18,
+            "move": 4,
+            "attack": 4,
+            "range": 0,
+            "attributes": [
+              "%poison%"
+            ]
+          },
+          "elite": {
+            "health": 25,
+            "move": 4,
+            "attack": 5,
+            "range": 0,
+            "attributes": [
+              "Attackers gain Disadvantage",
+              "%poison%"
+            ]
+          }
+        },
+        {
+          "level": 6,
+          "normal": {
+            "health": 21,
+            "move": 4,
+            "attack": 4,
+            "range": 0,
+            "attributes": [
+              "%poison%"
+            ]
+          },
+          "elite": {
+            "health": 28,
+            "move": 4,
+            "attack": 6,
+            "range": 0,
+            "attributes": [
+              "Attackers gain Disadvantage",
+              "%poison%"
+            ]
+          }
+        },
+        {
+          "level": 7,
+          "normal": {
+            "health": 24,
+            "move": 4,
+            "attack": 5,
+            "range": 0,
+            "attributes": [
+              "%poison%"
+            ]
+          },
+          "elite": {
+            "health": 32,
+            "move": 4,
+            "attack": 6,
+            "range": 0,
+            "attributes": [
+              "Attackers gain Disadvantage",
+              "%poison%"
+            ]
+          }
+        }
+      ]
+    },
+    "Aesther Scout": {
+      "level": [
+        {
+          "level": 0,
+          "normal": {
+            "health": 8,
+            "move": 3,
+            "attack": 2,
+            "range": 0,
+            "attributes": []
+          },
+          "elite": {
+            "health": 13,
+            "move": 3,
+            "attack": 3,
+            "range": 0,
+            "attributes": []
+          }
+        },
+        {
+          "level": 1,
+          "normal": {
+            "health": 9,
+            "move": 3,
+            "attack": 3,
+            "range": 0,
+            "attributes": []
+          },
+          "elite": {
+            "health": 14,
+            "move": 3,
+            "attack": 3,
+            "range": 0,
+            "attributes": [
+              "%muddle%"
+            ]
+          }
+        },
+        {
+          "level": 2,
+          "normal": {
+            "health": 12,
+            "move": 3,
+            "attack": 3,
+            "range": 0,
+            "attributes": []
+          },
+          "elite": {
+            "health": 17,
+            "move": 4,
+            "attack": 3,
+            "range": 0,
+            "attributes": [
+              "%muddle%"
+            ]
+          }
+        },
+        {
+          "level": 3,
+          "normal": {
+            "health": 14,
+            "move": 4,
+            "attack": 3,
+            "range": 0,
+            "attributes": [
+              "%muddle%"
+            ]
+          },
+          "elite": {
+            "health": 19,
+            "move": 4,
+            "attack": 4,
+            "range": 0,
+            "attributes": [
+              "%muddle%",
+              "%curse%"
+            ]
+          }
+        },
+        {
+          "level": 4,
+          "normal": {
+            "health": 16,
+            "move": 4,
+            "attack": 4,
+            "range": 0,
+            "attributes": [
+              "%muddle%"
+            ]
+          },
+          "elite": {
+            "health": 23,
+            "move": 4,
+            "attack": 4,
+            "range": 0,
+            "attributes": [
+              "%muddle%",
+              "%curse%"
+            ]
+          }
+        },
+        {
+          "level": 5,
+          "normal": {
+            "health": 18,
+            "move": 4,
+            "attack": 4,
+            "range": 0,
+            "attributes": [
+              "%muddle%",
+              "%curse%"
+            ]
+          },
+          "elite": {
+            "health": 26,
+            "move": 4,
+            "attack": 5,
+            "range": 0,
+            "attributes": [
+              "%muddle%",
+              "%curse%"
+            ]
+          }
+        },
+        {
+          "level": 6,
+          "normal": {
+            "health": 21,
+            "move": 4,
+            "attack": 4,
+            "range": 0,
+            "attributes": [
+              "%muddle%",
+              "%curse%"
+            ]
+          },
+          "elite": {
+            "health": 29,
+            "move": 5,
+            "attack": 5,
+            "range": 0,
+            "attributes": [
+              "%muddle%",
+              "%curse%"
+            ]
+          }
+        },
+        {
+          "level": 7,
+          "normal": {
+            "health": 24,
+            "move": 5,
+            "attack": 4,
+            "range": 0,
+            "attributes": [
+              "%muddle%",
+              "%curse%"
+            ]
+          },
+          "elite": {
+            "health": 33,
+            "move": 5,
+            "attack": 6,
+            "range": 0,
+            "attributes": [
+              "%muddle%",
+              "%curse%"
+            ]
+          }
+        }
+      ]
+    },
     "Ancient Artillery": {
       "level": [
         {
@@ -5297,6 +5640,339 @@ MONSTER_STATS = {
               "%flying%",
               "Advantage",
               "%shield% 2"
+            ]
+          }
+        }
+      ]
+    },
+    "Valrath Savage": {
+      "level": [
+        {
+          "level": 0,
+          "normal": {
+            "health": 6,
+            "move": 2,
+            "attack": 2,
+            "range": 0,
+            "attributes": []
+          },
+          "elite": {
+            "health": 10,
+            "move": 2,
+            "attack": 3,
+            "range": 0,
+            "attributes": []
+          }
+        },
+        {
+          "level": 1,
+          "normal": {
+            "health": 6,
+            "move": 2,
+            "attack": 2,
+            "range": 0,
+            "attributes": [
+              "%shield% 1"
+            ]
+          },
+          "elite": {
+            "health": 12,
+            "move": 2,
+            "attack": 3,
+            "range": 0,
+            "attributes": []
+          }
+        },
+        {
+          "level": 2,
+          "normal": {
+            "health": 8,
+            "move": 3,
+            "attack": 2,
+            "range": 0,
+            "attributes": [
+              "%shield% 1"
+            ]
+          },
+          "elite": {
+            "health": 14,
+            "move": 2,
+            "attack": 4,
+            "range": 0,
+            "attributes": []
+          }
+        },
+        {
+          "level": 3,
+          "normal": {
+            "health": 10,
+            "move": 3,
+            "attack": 2,
+            "range": 0,
+            "attributes": [
+              "%shield% 1"
+            ]
+          },
+          "elite": {
+            "health": 16,
+            "move": 2,
+            "attack": 4,
+            "range": 0,
+            "attributes": [
+              "All adjacent alliess add +1 %attack% to all attacks"
+            ]
+          }
+        },
+        {
+          "level": 4,
+          "normal": {
+            "health": 10,
+            "move": 3,
+            "attack": 2,
+            "range": 0,
+            "attributes": [
+              "%shield% 2"
+            ]
+          },
+          "elite": {
+            "health": 18,
+            "move": 3,
+            "attack": 4,
+            "range": 0,
+            "attributes": [
+              "All adjacent alliess add +1 %attack% to all attacks"
+            ]
+          }
+        },
+        {
+          "level": 5,
+          "normal": {
+            "health": 11,
+            "move": 3,
+            "attack": 3,
+            "range": 0,
+            "attributes": [
+              "%shield% 2"
+            ]
+          },
+          "elite": {
+            "health": 21,
+            "move": 3,
+            "attack": 5,
+            "range": 0,
+            "attributes": [
+              "All adjacent alliess add +2 %attack% to all attacks"
+            ]
+          }
+        },
+        {
+          "level": 6,
+          "normal": {
+            "health": 12,
+            "move": 4,
+            "attack": 3,
+            "range": 0,
+            "attributes": [
+              "%shield% 2"
+            ]
+          },
+          "elite": {
+            "health": 24,
+            "move": 3,
+            "attack": 5,
+            "range": 0,
+            "attributes": [
+              "All adjacent alliess add +2 %attack% to all attacks"
+            ]
+          }
+        },
+        {
+          "level": 7,
+          "normal": {
+            "health": 14,
+            "move": 4,
+            "attack": 3,
+            "range": 0,
+            "attributes": [
+              "%shield% 3"
+            ]
+          },
+          "elite": {
+            "health": 28,
+            "move": 3,
+            "attack": 6,
+            "range": 0,
+            "attributes": [
+              "All adjacent alliess add +2 %attack% to all attacks"
+            ]
+          }
+        }
+      ]
+    },
+    "Valrath Tracker": {
+      "level": [
+        {
+          "level": 0,
+          "normal": {
+            "health": 5,
+            "move": 2,
+            "attack": 2,
+            "range": 2,
+            "attributes": []
+          },
+          "elite": {
+            "health": 9,
+            "move": 2,
+            "attack": 3,
+            "range": 4,
+            "attributes": []
+          }
+        },
+        {
+          "level": 1,
+          "normal": {
+            "health": 6,
+            "move": 3,
+            "attack": 2,
+            "range": 2,
+            "attributes": []
+          },
+          "elite": {
+            "health": 11,
+            "move": 2,
+            "attack": 3,
+            "range": 5,
+            "attributes": [
+              "%pierce% 1"
+            ]
+          }
+        },
+        {
+          "level": 2,
+          "normal": {
+            "health": 7,
+            "move": 3,
+            "attack": 3,
+            "range": 2,
+            "attributes": []
+          },
+          "elite": {
+            "health": 12,
+            "move": 2,
+            "attack": 4,
+            "range": 5,
+            "attributes": [
+              "%pierce% 1"
+            ]
+          }
+        },
+        {
+          "level": 3,
+          "normal": {
+            "health": 8,
+            "move": 3,
+            "attack": 3,
+            "range": 3,
+            "attributes": [
+              "Advantage"
+            ]
+          },
+          "elite": {
+            "health": 14,
+            "move": 2,
+            "attack": 4,
+            "range": 6,
+            "attributes": [
+              "%pierce% 1",
+              "%push% 1"
+            ]
+          }
+        },
+        {
+          "level": 4,
+          "normal": {
+            "health": 10,
+            "move": 4,
+            "attack": 3,
+            "range": 3,
+            "attributes": [
+              "Advantage"
+            ]
+          },
+          "elite": {
+            "health": 16,
+            "move": 3,
+            "attack": 4,
+            "range": 7,
+            "attributes": [
+              "%pierce% 2",
+              "%push% 1"
+            ]
+          }
+        },
+        {
+          "level": 5,
+          "normal": {
+            "health": 12,
+            "move": 4,
+            "attack": 4,
+            "range": 3,
+            "attributes": [
+              "Advantage"
+            ]
+          },
+          "elite": {
+            "health": 18,
+            "move": 3,
+            "attack": 5,
+            "range": 7,
+            "attributes": [
+              "%pierce% 2",
+              "%push% 1"
+            ]
+          }
+        },
+        {
+          "level": 6,
+          "normal": {
+            "health": 14,
+            "move": 4,
+            "attack": 4,
+            "range": 4,
+            "attributes": [
+              "Advantage"
+            ]
+          },
+          "elite": {
+            "health": 21,
+            "move": 3,
+            "attack": 5,
+            "range": 8,
+            "attributes": [
+              "%pierce% 2",
+              "%push% 2"
+            ]
+          }
+        },
+        {
+          "level": 7,
+          "normal": {
+            "health": 17,
+            "move": 5,
+            "attack": 4,
+            "range": 4,
+            "attributes": [
+              "Advantage"
+            ]
+          },
+          "elite": {
+            "health": 24,
+            "move": 3,
+            "attack": 6,
+            "range": 8,
+            "attributes": [
+              "%pierce% 3",
+              "%push% 2"
             ]
           }
         }
